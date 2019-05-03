@@ -1,0 +1,128 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_153.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name         Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_tester     0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_turntable  1      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  Total                                       2      4         8           8           100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 5
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 10
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [iteration 1]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 2
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     A_turntable.Off
+Initial   (aut/locs init predicate):     A_tester.Off
+Initial   (auts/locs init predicate):    A_tester.Off and A_turntable.Off
+Initial   (uncontrolled system):         A_tester.Off and A_turntable.Off
+Initial   (system, combined init/inv):   A_tester.Off and A_turntable.Off
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   A_turntable.Off
+Marked    (aut/locs marker predicate):   A_tester.Off
+Marked    (auts/locs marker predicate):  A_tester.Off and A_turntable.Off
+Marked    (uncontrolled system):         A_tester.Off and A_turntable.Off
+Marked    (system, combined marked/inv): A_tester.Off and A_turntable.Off
+
+State/event exclusion requirements:
+  Event "A_tester_c_on" needs:
+    A_turntable.Off
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_tester_c_off) (guard: A_tester.On) (assignments: A_tester := A_tester.Off)
+    Edge: (event: A_tester_c_on) (guard: A_tester.Off) (assignments: A_tester := A_tester.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_tester_c_on) (guard: A_tester.Off) (assignments: A_tester := A_tester.On): guard: A_tester.Off -> A_tester.Off and A_turntable.Off [requirement: A_turntable.Off].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_tester_c_off) (guard: A_tester.On) (assignments: A_tester := A_tester.Off)
+    Edge: (event: A_tester_c_on) (guard: A_tester.Off -> A_tester.Off and A_turntable.Off) (assignments: A_tester := A_tester.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_tester.Off and A_turntable.Off [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_tester.Off and A_turntable.Off -> A_tester.Off [backward reach with edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_tester.Off -> true [backward reach with edge: (event: A_tester_c_off) (guard: A_tester.On) (assignments: A_tester := A_tester.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_tester.Off and A_turntable.Off [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_tester.Off and A_turntable.Off -> A_tester.Off [forward reach with edge: (event: A_turntable_c_on) (guard: A_turntable.Off) (assignments: A_turntable := A_turntable.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_tester.Off -> A_tester.Off or A_turntable.Off [forward reach with edge: (event: A_tester_c_on) (guard: A_tester.Off -> A_tester.Off and A_turntable.Off) (assignments: A_tester := A_tester.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: A_tester.Off or A_turntable.Off -> true [forward reach with edge: (event: A_turntable_c_on) (guard: A_turntable.Off) (assignments: A_turntable := A_turntable.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_tester_c_off) (guard: A_tester.On) (assignments: A_tester := A_tester.Off)
+    Edge: (event: A_tester_c_on) (guard: A_tester.Off -> A_tester.Off and A_turntable.Off) (assignments: A_tester := A_tester.On)
+
+Controlled system:                     exactly 4 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_tester.Off and A_turntable.Off
+Initial (controlled system):           A_tester.Off and A_turntable.Off
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_turntable_c_off: guard: A_turntable.On -> true [assume A_turntable.On].
+  Event A_turntable_c_on: guard: A_turntable.Off -> true [assume A_turntable.Off].
+  Event A_tester_c_off: guard: A_tester.On -> true [assume A_tester.On].
+  Event A_tester_c_on: guard: A_tester.Off and A_turntable.Off -> true [assume A_tester.Off and A_turntable.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_153_sup.cif".

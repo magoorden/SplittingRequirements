@@ -1,0 +1,171 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_2.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name         Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_tester     0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_turntable  1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   Tester       2      2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  Total                                       3      8         14          16          ~88%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 4
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    5 (total)                 1.25 (avg/edge) [before]
+    Total span:                    3 (total)                 0.75 (avg/edge) [iteration 1]
+    Total span:                    3 (total)                 0.75 (avg/edge) [iteration 2]
+    Total span:                    3 (total)                 0.75 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 3
+
+    Total span:                    3 (total)                 0.75 (avg/edge) [before]
+    Total span:                    3 (total)                 0.75 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name         Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_tester     0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   Tester       1      2 * 2     3 * 2       4 * 2       75%
+  3      location pointer  n/a   A_turntable  2      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  Total                                       3      8         14          16          ~88%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     A_turntable.Off
+Initial   (aut/locs init predicate):     A_tester.Off
+Initial   (aut/locs init predicate):     Tester.One
+Initial   (auts/locs init predicate):    A_tester.Off and (Tester.One and A_turntable.Off)
+Initial   (uncontrolled system):         A_tester.Off and (Tester.One and A_turntable.Off)
+Initial   (system, combined init/inv):   A_tester.Off and (Tester.One and A_turntable.Off)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   A_turntable.Off
+Marked    (aut/locs marker predicate):   A_tester.Off
+Marked    (aut/locs marker predicate):   Tester.One
+Marked    (auts/locs marker predicate):  A_tester.Off and (Tester.One and A_turntable.Off)
+Marked    (uncontrolled system):         A_tester.Off and (Tester.One and A_turntable.Off)
+Marked    (system, combined marked/inv): A_tester.Off and (Tester.One and A_turntable.Off)
+
+State/event exclusion requirements:
+  Event "A_turntable_c_on" needs:
+    not Tester.Two
+  Event "A_tester_c_on" needs:
+    Tester.One
+  Event "A_tester_c_off" needs:
+    Tester.Two
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: Tester.One and A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_turntable_c_on) (guard: Tester.Three and A_turntable.Off) (assignments: A_turntable := A_turntable.On, Tester := Tester.One)
+    Edge: (event: A_turntable_c_on) (guard: Tester.Two and A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_tester_c_off) (guard: A_tester.On and Tester.Two) (assignments: A_tester := A_tester.Off, Tester := Tester.Three)
+    Edge: (event: A_tester_c_off) (guard: A_tester.On and not Tester.Two) (assignments: A_tester := A_tester.Off)
+    Edge: (event: A_tester_c_on) (guard: A_tester.Off and Tester.One) (assignments: A_tester := A_tester.On, Tester := Tester.Two)
+    Edge: (event: A_tester_c_on) (guard: A_tester.Off and (A_tester.On or not Tester.One)) (assignments: A_tester := A_tester.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "Tester" (group: 1, domain: 2+3, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: true.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_turntable_c_on) (guard: Tester.Two and A_turntable.Off) (assignments: A_turntable := A_turntable.On): guard: Tester.Two and A_turntable.Off -> false [requirement: not Tester.Two].
+Edge (event: A_tester_c_off) (guard: A_tester.On and not Tester.Two) (assignments: A_tester := A_tester.Off): guard: A_tester.On and not Tester.Two -> false [requirement: Tester.Two].
+Edge (event: A_tester_c_on) (guard: A_tester.Off and (A_tester.On or not Tester.One)) (assignments: A_tester := A_tester.On): guard: A_tester.Off and (A_tester.On or not Tester.One) -> false [requirement: Tester.One].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: Tester.One and A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_turntable_c_on) (guard: Tester.Three and A_turntable.Off) (assignments: A_turntable := A_turntable.On, Tester := Tester.One)
+    Edge: (event: A_turntable_c_on) (guard: Tester.Two and A_turntable.Off -> false) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_tester_c_off) (guard: A_tester.On and Tester.Two) (assignments: A_tester := A_tester.Off, Tester := Tester.Three)
+    Edge: (event: A_tester_c_off) (guard: A_tester.On and not Tester.Two -> false) (assignments: A_tester := A_tester.Off)
+    Edge: (event: A_tester_c_on) (guard: A_tester.Off and Tester.One) (assignments: A_tester := A_tester.On, Tester := Tester.Two)
+    Edge: (event: A_tester_c_on) (guard: A_tester.Off and (A_tester.On or not Tester.One) -> false) (assignments: A_tester := A_tester.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_tester.Off and (Tester.One and A_turntable.Off) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_tester.Off and (Tester.One and A_turntable.Off) -> A_tester.Off and Tester.One [backward reach with edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_tester.Off and Tester.One -> A_tester.Off and Tester.One or A_tester.Off and (Tester.Three and A_turntable.Off) [backward reach with edge: (event: A_turntable_c_on) (guard: Tester.Three and A_turntable.Off) (assignments: A_turntable := A_turntable.On, Tester := Tester.One), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_tester.Off and Tester.One or A_tester.Off and (Tester.Three and A_turntable.Off) -> A_tester.On and (Tester.Two and A_turntable.Off) or (A_tester.Off and Tester.One or A_tester.Off and (Tester.Three and A_turntable.Off)) [backward reach with edge: (event: A_tester_c_off) (guard: A_tester.On and Tester.Two) (assignments: A_tester := A_tester.Off, Tester := Tester.Three), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_tester.On and (Tester.Two and A_turntable.Off) or (A_tester.Off and Tester.One or A_tester.Off and (Tester.Three and A_turntable.Off)) -> (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two) [backward reach with edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two) [fixed point].
+Controlled behavior: true -> (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two).
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: (A_tester.Off or not Tester.Two) and (A_tester.On or Tester.Two) [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_tester.Off and (Tester.One and A_turntable.Off) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_tester.Off and (Tester.One and A_turntable.Off) -> A_tester.Off and Tester.One [forward reach with edge: (event: A_turntable_c_on) (guard: Tester.One and A_turntable.Off) (assignments: A_turntable := A_turntable.On), restricted to current/previous controlled-behavior predicate: (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two)]
+Forward controlled-behavior: A_tester.Off and Tester.One -> A_tester.On and Tester.Two or A_tester.Off and Tester.One [forward reach with edge: (event: A_tester_c_on) (guard: A_tester.Off and Tester.One) (assignments: A_tester := A_tester.On, Tester := Tester.Two), restricted to current/previous controlled-behavior predicate: (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two)]
+Forward reachability: iteration 2.
+Forward controlled-behavior: A_tester.On and Tester.Two or A_tester.Off and Tester.One -> (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two) [forward reach with edge: (event: A_tester_c_off) (guard: A_tester.On and Tester.Two) (assignments: A_tester := A_tester.Off, Tester := Tester.Three), restricted to current/previous controlled-behavior predicate: (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two)]
+Forward reachability: iteration 3.
+Forward controlled-behavior: (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two) [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off): guard: A_turntable.On -> A_tester.On and (Tester.Two and A_turntable.On) or A_tester.Off and (not Tester.Two and A_turntable.On).
+Edge (event: A_turntable_c_on) (guard: Tester.One and A_turntable.Off) (assignments: A_turntable := A_turntable.On): guard: Tester.One and A_turntable.Off -> A_tester.Off and (Tester.One and A_turntable.Off).
+Edge (event: A_turntable_c_on) (guard: Tester.Three and A_turntable.Off) (assignments: A_turntable := A_turntable.On, Tester := Tester.One): guard: Tester.Three and A_turntable.Off -> A_tester.Off and (Tester.Three and A_turntable.Off).
+
+Final synthesis result:
+  State: (controlled-behavior: (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two))
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On -> A_tester.On and (Tester.Two and A_turntable.On) or A_tester.Off and (not Tester.Two and A_turntable.On)) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: Tester.One and A_turntable.Off -> A_tester.Off and (Tester.One and A_turntable.Off)) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_turntable_c_on) (guard: Tester.Three and A_turntable.Off -> A_tester.Off and (Tester.Three and A_turntable.Off)) (assignments: A_turntable := A_turntable.On, Tester := Tester.One)
+    Edge: (event: A_turntable_c_on) (guard: Tester.Two and A_turntable.Off -> false) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_tester_c_off) (guard: A_tester.On and Tester.Two) (assignments: A_tester := A_tester.Off, Tester := Tester.Three)
+    Edge: (event: A_tester_c_off) (guard: A_tester.On and not Tester.Two -> false) (assignments: A_tester := A_tester.Off)
+    Edge: (event: A_tester_c_on) (guard: A_tester.Off and Tester.One) (assignments: A_tester := A_tester.On, Tester := Tester.Two)
+    Edge: (event: A_tester_c_on) (guard: A_tester.Off and (A_tester.On or not Tester.One) -> false) (assignments: A_tester := A_tester.On)
+
+Controlled system:                     exactly 6 states.
+
+Initial (synthesis result):            (A_tester.Off or Tester.Two) and (A_tester.On or not Tester.Two)
+Initial (uncontrolled system):         A_tester.Off and (Tester.One and A_turntable.Off)
+Initial (controlled system):           A_tester.Off and (Tester.One and A_turntable.Off)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_turntable_c_off: guard: A_tester.On and (Tester.Two and A_turntable.On) or A_tester.Off and (not Tester.Two and A_turntable.On) -> true [assume A_tester.On and (Tester.Two and A_turntable.On) or A_tester.Off and (not Tester.Two and A_turntable.On)].
+  Event A_turntable_c_on: guard: A_tester.Off and (not Tester.Two and A_turntable.Off) -> true [assume A_tester.Off and (not Tester.Two and A_turntable.Off)].
+  Event A_tester_c_off: guard: A_tester.On and Tester.Two -> true [assume A_tester.On and Tester.Two].
+  Event A_tester_c_on: guard: A_tester.Off and Tester.One -> true [assume A_tester.Off and Tester.One].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_2_sup.cif".

@@ -1,0 +1,126 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_145.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name         Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_turntable  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_turntable  1      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  Total                                       2      4         8           8           100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 5
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 10
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [iteration 1]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 2
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_turntable.On
+Initial   (aut/locs init predicate):     A_turntable.Off
+Initial   (auts/locs init predicate):    A_turntable.Off and S_turntable.On
+Initial   (uncontrolled system):         A_turntable.Off and S_turntable.On
+Initial   (system, combined init/inv):   A_turntable.Off and S_turntable.On
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_turntable.On
+Marked    (aut/locs marker predicate):   A_turntable.Off
+Marked    (auts/locs marker predicate):  A_turntable.Off and S_turntable.On
+Marked    (uncontrolled system):         A_turntable.Off and S_turntable.On
+Marked    (system, combined marked/inv): A_turntable.Off and S_turntable.On
+
+State/event exclusion requirements:
+  Event "A_turntable_c_off" needs:
+    S_turntable.Off
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_turntable_u_off) (guard: S_turntable.On) (assignments: S_turntable := S_turntable.Off)
+    Edge: (event: S_turntable_u_on) (guard: S_turntable.Off) (assignments: S_turntable := S_turntable.On)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off): guard: A_turntable.On -> A_turntable.On and S_turntable.Off [requirement: S_turntable.Off].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_turntable_u_off) (guard: S_turntable.On) (assignments: S_turntable := S_turntable.Off)
+    Edge: (event: S_turntable_u_on) (guard: S_turntable.Off) (assignments: S_turntable := S_turntable.On)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On -> A_turntable.On and S_turntable.Off) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_turntable.Off and S_turntable.On [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_turntable.Off and S_turntable.On -> A_turntable.Off [backward reach with edge: (event: S_turntable_u_on) (guard: S_turntable.Off) (assignments: S_turntable := S_turntable.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_turntable.Off -> A_turntable.Off or S_turntable.Off [backward reach with edge: (event: A_turntable_c_off) (guard: A_turntable.On -> A_turntable.On and S_turntable.Off) (assignments: A_turntable := A_turntable.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_turntable.Off or S_turntable.Off -> true [backward reach with edge: (event: S_turntable_u_off) (guard: S_turntable.On) (assignments: S_turntable := S_turntable.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_turntable.Off and S_turntable.On [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_turntable.Off and S_turntable.On -> A_turntable.Off [forward reach with edge: (event: S_turntable_u_off) (guard: S_turntable.On) (assignments: S_turntable := S_turntable.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_turntable.Off -> true [forward reach with edge: (event: A_turntable_c_on) (guard: A_turntable.Off) (assignments: A_turntable := A_turntable.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: S_turntable_u_off) (guard: S_turntable.On) (assignments: S_turntable := S_turntable.Off)
+    Edge: (event: S_turntable_u_on) (guard: S_turntable.Off) (assignments: S_turntable := S_turntable.On)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On -> A_turntable.On and S_turntable.Off) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+
+Controlled system:                     exactly 4 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_turntable.Off and S_turntable.On
+Initial (controlled system):           A_turntable.Off and S_turntable.On
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_turntable_c_off: guard: A_turntable.On and S_turntable.Off -> true [assume A_turntable.On and S_turntable.Off].
+  Event A_turntable_c_on: guard: A_turntable.Off -> true [assume A_turntable.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_145_sup.cif".

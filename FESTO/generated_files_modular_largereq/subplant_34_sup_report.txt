@@ -1,0 +1,138 @@
+Reading CIF file "generated_files_modular_largereq/subplant_34.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name            Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_pusher        0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_pusher        1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_Tinitialized  2      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  Total                                          3      6         12          12          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 7
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    1 (total)                 0.14 (avg/edge) [before]
+    Total span:                    1 (total)                 0.14 (avg/edge) [iteration 1]
+    Total span:                    1 (total)                 0.14 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 3
+
+    Total span:                    1 (total)                 0.14 (avg/edge) [before]
+    Total span:                    1 (total)                 0.14 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_pusher.Off
+Initial   (aut/locs init predicate):     S_Tinitialized.Off
+Initial   (aut/locs init predicate):     A_pusher.Off
+Initial   (auts/locs init predicate):    A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off)
+Initial   (uncontrolled system):         A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off)
+Initial   (system, combined init/inv):   A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_pusher.Off
+Marked    (aut/locs marker predicate):   S_Tinitialized.Off
+Marked    (aut/locs marker predicate):   A_pusher.Off
+Marked    (auts/locs marker predicate):  A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off)
+Marked    (uncontrolled system):         A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off)
+Marked    (system, combined marked/inv): A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off)
+
+State/event exclusion requirements:
+  Event "A_pusher_c_off" needs:
+    S_pusher.On and S_Tinitialized.On
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off)
+    Edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On)
+    Edge: (event: S_Tinitialized_u_off) (guard: S_Tinitialized.On) (assignments: S_Tinitialized := S_Tinitialized.Off)
+    Edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On)
+    Edge: (event: A_pusher_c_off) (guard: A_pusher.On) (assignments: A_pusher := A_pusher.Off)
+    Edge: (event: A_pusher_c_on) (guard: A_pusher.Off) (assignments: A_pusher := A_pusher.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_pusher_c_off) (guard: A_pusher.On) (assignments: A_pusher := A_pusher.Off): guard: A_pusher.On -> A_pusher.On and (S_pusher.On and S_Tinitialized.On) [requirement: S_pusher.On and S_Tinitialized.On].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off)
+    Edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On)
+    Edge: (event: S_Tinitialized_u_off) (guard: S_Tinitialized.On) (assignments: S_Tinitialized := S_Tinitialized.Off)
+    Edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On)
+    Edge: (event: A_pusher_c_off) (guard: A_pusher.On -> A_pusher.On and (S_pusher.On and S_Tinitialized.On)) (assignments: A_pusher := A_pusher.Off)
+    Edge: (event: A_pusher_c_on) (guard: A_pusher.Off) (assignments: A_pusher := A_pusher.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off) -> A_pusher.Off and S_Tinitialized.Off [backward reach with edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher.Off and S_Tinitialized.Off -> A_pusher.Off [backward reach with edge: (event: S_Tinitialized_u_off) (guard: S_Tinitialized.On) (assignments: S_Tinitialized := S_Tinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher.Off -> A_pusher.On and (S_pusher.On and S_Tinitialized.On) or A_pusher.Off [backward reach with edge: (event: A_pusher_c_off) (guard: A_pusher.On -> A_pusher.On and (S_pusher.On and S_Tinitialized.On)) (assignments: A_pusher := A_pusher.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_pusher.On and (S_pusher.On and S_Tinitialized.On) or A_pusher.Off -> A_pusher.Off or S_Tinitialized.On [backward reach with edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher.Off or S_Tinitialized.On -> true [backward reach with edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off) -> A_pusher.Off and S_Tinitialized.Off [forward reach with edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_pusher.Off and S_Tinitialized.Off -> A_pusher.Off [forward reach with edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_pusher.Off -> true [forward reach with edge: (event: A_pusher_c_on) (guard: A_pusher.Off) (assignments: A_pusher := A_pusher.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off)
+    Edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On)
+    Edge: (event: S_Tinitialized_u_off) (guard: S_Tinitialized.On) (assignments: S_Tinitialized := S_Tinitialized.Off)
+    Edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On)
+    Edge: (event: A_pusher_c_off) (guard: A_pusher.On -> A_pusher.On and (S_pusher.On and S_Tinitialized.On)) (assignments: A_pusher := A_pusher.Off)
+    Edge: (event: A_pusher_c_on) (guard: A_pusher.Off) (assignments: A_pusher := A_pusher.On)
+
+Controlled system:                     exactly 8 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off)
+Initial (controlled system):           A_pusher.Off and (S_pusher.Off and S_Tinitialized.Off)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_pusher_c_off: guard: A_pusher.On and (S_pusher.On and S_Tinitialized.On) -> true [assume A_pusher.On and (S_pusher.On and S_Tinitialized.On)].
+  Event A_pusher_c_on: guard: A_pusher.Off -> true [assume A_pusher.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_largereq/subplant_34_sup.cif".

@@ -1,0 +1,209 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_292.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name           Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   emergencystop  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   out_D_S_A      1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   out_D_S_S      2      2 * 2     4 * 2       4 * 2       100%
+  4      location pointer  n/a   stop1          3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   stop2          4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   stop4          5      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  Total                                         6      14        28          28          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 15
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    9 (total)                 0.60 (avg/edge) [before]
+    Total span:                    9 (total)                 0.60 (avg/edge) [iteration 1]
+    Total span:                    9 (total)                 0.60 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                    9 (total)                 0.60 (avg/edge) [before]
+    Total span:                    7 (total)                 0.47 (avg/edge) [window 0..3]
+    Total span:                    7 (total)                 0.47 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name           Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   out_D_S_A      0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   out_D_S_S      1      2 * 2     4 * 2       4 * 2       100%
+  3      location pointer  n/a   emergencystop  2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   stop1          3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   stop2          4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   stop4          5      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  Total                                         6      14        28          28          100%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     emergencystop.released
+Initial   (aut/locs init predicate):     stop1.released
+Initial   (aut/locs init predicate):     stop2.released
+Initial   (aut/locs init predicate):     stop4.released
+Initial   (aut/locs init predicate):     out_D_S_S.red
+Initial   (aut/locs init predicate):     out_D_S_A.red
+Initial   (auts/locs init predicate):    out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released))
+Initial   (uncontrolled system):         out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released))
+Initial   (system, combined init/inv):   out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released))
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   emergencystop.released
+Marked    (aut/locs marker predicate):   stop1.released
+Marked    (aut/locs marker predicate):   stop2.released
+Marked    (aut/locs marker predicate):   stop4.released
+Marked    (aut/locs marker predicate):   out_D_S_S.red
+Marked    (aut/locs marker predicate):   out_D_S_A.red
+Marked    (auts/locs marker predicate):  out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released))
+Marked    (uncontrolled system):         out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released))
+Marked    (system, combined marked/inv): out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released))
+
+State/event exclusion requirements:
+  Event "out_D_S_c_green" needs:
+    emergencystop.released and stop1.released and (stop2.released and stop4.released)
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed)
+    Edge: (event: emergencystop_u_release) (guard: emergencystop.pushed) (assignments: emergencystop := emergencystop.released)
+    Edge: (event: stop1_u_push) (guard: stop1.released) (assignments: stop1 := stop1.pushed)
+    Edge: (event: stop1_u_release) (guard: stop1.pushed) (assignments: stop1 := stop1.released)
+    Edge: (event: stop2_u_push) (guard: stop2.released) (assignments: stop2 := stop2.pushed)
+    Edge: (event: stop2_u_release) (guard: stop2.pushed) (assignments: stop2 := stop2.released)
+    Edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed)
+    Edge: (event: stop4_u_release) (guard: stop4.pushed) (assignments: stop4 := stop4.released)
+    Edge: (event: out_D_S_u_r_on) (guard: out_D_S_A.red and out_D_S_S.off) (assignments: out_D_S_S := out_D_S_S.red)
+    Edge: (event: out_D_S_u_r_on) (guard: out_D_S_A.red and out_D_S_S.green) (assignments: out_D_S_S := out_D_S_S.redgreen)
+    Edge: (event: out_D_S_u_g_on) (guard: out_D_S_A.green and out_D_S_S.off) (assignments: out_D_S_S := out_D_S_S.green)
+    Edge: (event: out_D_S_u_g_on) (guard: out_D_S_A.green and out_D_S_S.red) (assignments: out_D_S_S := out_D_S_S.redgreen)
+    Edge: (event: out_D_S_u_r_off) (guard: out_D_S_A.green and out_D_S_S.red) (assignments: out_D_S_S := out_D_S_S.off)
+    Edge: (event: out_D_S_u_r_off) (guard: out_D_S_A.green and out_D_S_S.redgreen) (assignments: out_D_S_S := out_D_S_S.green)
+    Edge: (event: out_D_S_u_g_off) (guard: out_D_S_A.red and out_D_S_S.green) (assignments: out_D_S_S := out_D_S_S.off)
+    Edge: (event: out_D_S_u_g_off) (guard: out_D_S_A.red and out_D_S_S.redgreen) (assignments: out_D_S_S := out_D_S_S.red)
+    Edge: (event: out_D_S_c_green) (guard: out_D_S_A.red) (assignments: out_D_S_A := out_D_S_A.green)
+    Edge: (event: out_D_S_c_red) (guard: out_D_S_A.green) (assignments: out_D_S_A := out_D_S_A.red)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: out_D_S_c_green) (guard: out_D_S_A.red) (assignments: out_D_S_A := out_D_S_A.green): guard: out_D_S_A.red -> out_D_S_A.red and emergencystop.released and (stop1.released and (stop2.released and stop4.released)) [requirement: emergencystop.released and stop1.released and (stop2.released and stop4.released)].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed)
+    Edge: (event: emergencystop_u_release) (guard: emergencystop.pushed) (assignments: emergencystop := emergencystop.released)
+    Edge: (event: stop1_u_push) (guard: stop1.released) (assignments: stop1 := stop1.pushed)
+    Edge: (event: stop1_u_release) (guard: stop1.pushed) (assignments: stop1 := stop1.released)
+    Edge: (event: stop2_u_push) (guard: stop2.released) (assignments: stop2 := stop2.pushed)
+    Edge: (event: stop2_u_release) (guard: stop2.pushed) (assignments: stop2 := stop2.released)
+    Edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed)
+    Edge: (event: stop4_u_release) (guard: stop4.pushed) (assignments: stop4 := stop4.released)
+    Edge: (event: out_D_S_u_r_on) (guard: out_D_S_A.red and out_D_S_S.off) (assignments: out_D_S_S := out_D_S_S.red)
+    Edge: (event: out_D_S_u_r_on) (guard: out_D_S_A.red and out_D_S_S.green) (assignments: out_D_S_S := out_D_S_S.redgreen)
+    Edge: (event: out_D_S_u_g_on) (guard: out_D_S_A.green and out_D_S_S.off) (assignments: out_D_S_S := out_D_S_S.green)
+    Edge: (event: out_D_S_u_g_on) (guard: out_D_S_A.green and out_D_S_S.red) (assignments: out_D_S_S := out_D_S_S.redgreen)
+    Edge: (event: out_D_S_u_r_off) (guard: out_D_S_A.green and out_D_S_S.red) (assignments: out_D_S_S := out_D_S_S.off)
+    Edge: (event: out_D_S_u_r_off) (guard: out_D_S_A.green and out_D_S_S.redgreen) (assignments: out_D_S_S := out_D_S_S.green)
+    Edge: (event: out_D_S_u_g_off) (guard: out_D_S_A.red and out_D_S_S.green) (assignments: out_D_S_S := out_D_S_S.off)
+    Edge: (event: out_D_S_u_g_off) (guard: out_D_S_A.red and out_D_S_S.redgreen) (assignments: out_D_S_S := out_D_S_S.red)
+    Edge: (event: out_D_S_c_green) (guard: out_D_S_A.red -> out_D_S_A.red and emergencystop.released and (stop1.released and (stop2.released and stop4.released))) (assignments: out_D_S_A := out_D_S_A.green)
+    Edge: (event: out_D_S_c_red) (guard: out_D_S_A.green) (assignments: out_D_S_A := out_D_S_A.red)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released)) -> out_D_S_A.red and out_D_S_S.red and (stop1.released and (stop2.released and stop4.released)) [backward reach with edge: (event: emergencystop_u_release) (guard: emergencystop.pushed) (assignments: emergencystop := emergencystop.released), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: out_D_S_A.red and out_D_S_S.red and (stop1.released and (stop2.released and stop4.released)) -> out_D_S_A.red and out_D_S_S.red and (stop2.released and stop4.released) [backward reach with edge: (event: stop1_u_release) (guard: stop1.pushed) (assignments: stop1 := stop1.released), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: out_D_S_A.red and out_D_S_S.red and (stop2.released and stop4.released) -> out_D_S_A.red and (out_D_S_S.red and stop4.released) [backward reach with edge: (event: stop2_u_release) (guard: stop2.pushed) (assignments: stop2 := stop2.released), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: out_D_S_A.red and (out_D_S_S.red and stop4.released) -> out_D_S_A.red and out_D_S_S.red [backward reach with edge: (event: stop4_u_release) (guard: stop4.pushed) (assignments: stop4 := stop4.released), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: out_D_S_A.red and out_D_S_S.red -> out_D_S_A.red and (out_D_S_S.off or out_D_S_S.red) [backward reach with edge: (event: out_D_S_u_r_on) (guard: out_D_S_A.red and out_D_S_S.off) (assignments: out_D_S_S := out_D_S_S.red), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: out_D_S_A.red and (out_D_S_S.off or out_D_S_S.red) -> (out_D_S_A.green or not out_D_S_S.redgreen) and out_D_S_A.red [backward reach with edge: (event: out_D_S_u_g_off) (guard: out_D_S_A.red and out_D_S_S.green) (assignments: out_D_S_S := out_D_S_S.off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (out_D_S_A.green or not out_D_S_S.redgreen) and out_D_S_A.red -> out_D_S_A.red [backward reach with edge: (event: out_D_S_u_g_off) (guard: out_D_S_A.red and out_D_S_S.redgreen) (assignments: out_D_S_S := out_D_S_S.red), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: out_D_S_A.red -> true [backward reach with edge: (event: out_D_S_c_red) (guard: out_D_S_A.green) (assignments: out_D_S_A := out_D_S_A.red), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released)) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released)) -> out_D_S_A.red and out_D_S_S.red and (stop1.released and (stop2.released and stop4.released)) [forward reach with edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red and (stop1.released and (stop2.released and stop4.released)) -> out_D_S_A.red and out_D_S_S.red and (stop2.released and stop4.released) [forward reach with edge: (event: stop1_u_push) (guard: stop1.released) (assignments: stop1 := stop1.pushed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red and (stop2.released and stop4.released) -> out_D_S_A.red and (out_D_S_S.red and stop4.released) [forward reach with edge: (event: stop2_u_push) (guard: stop2.released) (assignments: stop2 := stop2.pushed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and (out_D_S_S.red and stop4.released) -> out_D_S_A.red and out_D_S_S.red [forward reach with edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red -> out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released)) [forward reach with edge: (event: out_D_S_c_green) (guard: out_D_S_A.red -> out_D_S_A.red and emergencystop.released and (stop1.released and (stop2.released and stop4.released))) (assignments: out_D_S_A := out_D_S_A.green), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released)) -> out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and out_D_S_S.red and (stop1.released and (stop2.released and stop4.released)) [forward reach with edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and out_D_S_S.red and (stop1.released and (stop2.released and stop4.released)) -> out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and out_D_S_S.red and (stop2.released and stop4.released) [forward reach with edge: (event: stop1_u_push) (guard: stop1.released) (assignments: stop1 := stop1.pushed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and out_D_S_S.red and (stop2.released and stop4.released) -> out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and (out_D_S_S.red and stop4.released) [forward reach with edge: (event: stop2_u_push) (guard: stop2.released) (assignments: stop2 := stop2.pushed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and (out_D_S_S.red and stop4.released) -> out_D_S_S.red [forward reach with edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_S.red -> out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and (out_D_S_S.red or out_D_S_S.redgreen) [forward reach with edge: (event: out_D_S_u_g_on) (guard: out_D_S_A.green and out_D_S_S.red) (assignments: out_D_S_S := out_D_S_S.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red or out_D_S_A.green and (out_D_S_S.red or out_D_S_S.redgreen) -> out_D_S_A.red and out_D_S_S.red or (out_D_S_A.green and out_D_S_S.off or out_D_S_A.green and (out_D_S_S.red or out_D_S_S.redgreen)) [forward reach with edge: (event: out_D_S_u_r_off) (guard: out_D_S_A.green and out_D_S_S.red) (assignments: out_D_S_S := out_D_S_S.off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red or (out_D_S_A.green and out_D_S_S.off or out_D_S_A.green and (out_D_S_S.red or out_D_S_S.redgreen)) -> out_D_S_A.red and out_D_S_S.red or out_D_S_A.green [forward reach with edge: (event: out_D_S_u_r_off) (guard: out_D_S_A.green and out_D_S_S.redgreen) (assignments: out_D_S_S := out_D_S_S.green), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: out_D_S_A.red and out_D_S_S.red or out_D_S_A.green -> true [forward reach with edge: (event: out_D_S_c_red) (guard: out_D_S_A.green) (assignments: out_D_S_A := out_D_S_A.red), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed)
+    Edge: (event: emergencystop_u_release) (guard: emergencystop.pushed) (assignments: emergencystop := emergencystop.released)
+    Edge: (event: stop1_u_push) (guard: stop1.released) (assignments: stop1 := stop1.pushed)
+    Edge: (event: stop1_u_release) (guard: stop1.pushed) (assignments: stop1 := stop1.released)
+    Edge: (event: stop2_u_push) (guard: stop2.released) (assignments: stop2 := stop2.pushed)
+    Edge: (event: stop2_u_release) (guard: stop2.pushed) (assignments: stop2 := stop2.released)
+    Edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed)
+    Edge: (event: stop4_u_release) (guard: stop4.pushed) (assignments: stop4 := stop4.released)
+    Edge: (event: out_D_S_u_r_on) (guard: out_D_S_A.red and out_D_S_S.off) (assignments: out_D_S_S := out_D_S_S.red)
+    Edge: (event: out_D_S_u_r_on) (guard: out_D_S_A.red and out_D_S_S.green) (assignments: out_D_S_S := out_D_S_S.redgreen)
+    Edge: (event: out_D_S_u_g_on) (guard: out_D_S_A.green and out_D_S_S.off) (assignments: out_D_S_S := out_D_S_S.green)
+    Edge: (event: out_D_S_u_g_on) (guard: out_D_S_A.green and out_D_S_S.red) (assignments: out_D_S_S := out_D_S_S.redgreen)
+    Edge: (event: out_D_S_u_r_off) (guard: out_D_S_A.green and out_D_S_S.red) (assignments: out_D_S_S := out_D_S_S.off)
+    Edge: (event: out_D_S_u_r_off) (guard: out_D_S_A.green and out_D_S_S.redgreen) (assignments: out_D_S_S := out_D_S_S.green)
+    Edge: (event: out_D_S_u_g_off) (guard: out_D_S_A.red and out_D_S_S.green) (assignments: out_D_S_S := out_D_S_S.off)
+    Edge: (event: out_D_S_u_g_off) (guard: out_D_S_A.red and out_D_S_S.redgreen) (assignments: out_D_S_S := out_D_S_S.red)
+    Edge: (event: out_D_S_c_green) (guard: out_D_S_A.red -> out_D_S_A.red and emergencystop.released and (stop1.released and (stop2.released and stop4.released))) (assignments: out_D_S_A := out_D_S_A.green)
+    Edge: (event: out_D_S_c_red) (guard: out_D_S_A.green) (assignments: out_D_S_A := out_D_S_A.red)
+
+Controlled system:                     exactly 128 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released))
+Initial (controlled system):           out_D_S_A.red and (out_D_S_S.red and emergencystop.released) and (stop1.released and (stop2.released and stop4.released))
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event out_D_S_c_green: guard: out_D_S_A.red and emergencystop.released and (stop1.released and (stop2.released and stop4.released)) -> true [assume out_D_S_A.red and emergencystop.released and (stop1.released and (stop2.released and stop4.released))].
+  Event out_D_S_c_red: guard: out_D_S_A.green -> true [assume out_D_S_A.green].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_292_sup.cif".

@@ -1,0 +1,173 @@
+from "lib:cif3" import *;
+
+// Generation directory
+string gen_dir = "generated_files_modular_smallreq/";
+
+// Input file
+string model_path = "14_LockIII_smallreq.cif";
+
+// Output file
+string result_path = gen_dir + "subplant.cif";
+string result_data_path = gen_dir + "data.txt";
+
+// Intermediate files
+string matrix_path = gen_dir + "matrix.txt";
+string prodsysmap_path = gen_dir + "prodsysmap.txt";
+string mergedsups_path = gen_dir + "merged.cif";
+string cleaned_model_path = gen_dir + "model_cleaned.cif";
+string model_liftevents_path = gen_dir + "model_liftevents.cif";
+
+// Variables used
+list string Rs, Mappings, Matrix;
+list list string Gs;
+string suptobemerged = "", orig_plants, subplant_path;
+int ncchk, where;
+double sum_states = 0;
+int sum_transitions = 0;
+map(string:string) invprodsys;
+
+// preprocessing
+rmdir(gen_dir, true);
+mkdir(gen_dir, true);
+
+// ====================================================================================================
+// Actual procedure
+
+// Lift events such that they are global
+cif3cif(model_path,
+		"-t", "remove-io-decls,elim-comp-def-inst,elim-groups,lift-events",
+		"-o", model_liftevents_path);
+
+// Create matrix
+cif3matrix(model_path,
+		   "-o", matrix_path,
+		   "-p", prodsysmap_path);
+
+// Import inverse most refined product system mapping created by cif3matrix procedure
+Mappings = readlines(prodsysmap_path);
+
+for i in range(size(Mappings)):
+	invprodsys = invprodsys + {Mappings[i][:indexof(Mappings[i],",")]:Mappings[i][indexof(Mappings[i],",")+1:]};
+end
+
+// Import matrix with plant-requirement dependencies
+Matrix = readlines(matrix_path);
+
+// Store names of requirements in Rs
+Rs = split(Matrix[0],",");
+
+// Store plant names + plant-requirement relations
+for i in range(1,size(Matrix)-1):
+	Gs = Gs + [split(Matrix[i],",")];
+end
+
+// Synthesize supervisor for each requirement
+where = indexof(result_path,".cif");
+for i in range(size(Rs)):
+	list string plants;
+
+	for j in range(size(Gs)):
+		if Gs[j][i+1] == "1": // plant j has a relationship with requirement i
+			plants = plants + [Gs[j][0]];
+		end
+	end
+
+
+	subplant_path = result_path[:where] + fmt("_%d",i+1) + result_path[where:];
+
+	// Transform plants of product system back to original system
+	orig_plants = "";
+	for plant in plants:
+		if orig_plants != "":
+			orig_plants = orig_plants + ",";
+		end
+		orig_plants = orig_plants + invprodsys[plant];
+	end
+
+	// Calculate the subsystem and perform synthesis
+	int here = indexof(subplant_path,".cif");
+	string output_sup = subplant_path[:here] + "_sup" + subplant_path[here:];
+	string output_sup_only = subplant_path[:here] + "_sup_only" + subplant_path[here:];
+	string output_data = output_sup[:indexof(output_sup,".cif")] + "_report.txt";
+	if orig_plants == "":
+		outln("Warning: Requirement " + Rs[i] + " has no interaction with any plant model." );
+		outln("This requirement is skipped.");
+		break;
+	end
+	cif3subplant(model_liftevents_path,
+				 "-p", orig_plants,
+				 "-r", Rs[i],
+				 "-o", subplant_path,
+				 stderr = "");
+
+	// Perform synthesis
+	cif3datasynth(subplant_path,
+				 "-s", fmt("sup_%d",i+1),
+				 "-o", output_sup,
+				 "--forward-reach=true",
+				 "-m", "debug",
+			   	 stderr = "",
+			   	 stdout = output_data);
+
+	// Duplicate supervisor automaton only to new file
+// 	cif3cif(output_sup,
+// 			"-t", "elim-sup-req-aut",
+// 			"-o", output_sup_only,
+// 			stderr = "");
+// 	cif3subplant(output_sup_only,
+// 			"-p", fmt("sup_%s", i+1),
+// 			"-o", output_sup_only,
+// 			stderr = "");
+
+    // State-space analysis of event-based synthesis
+// 		cif3explorer(output_sup,
+// 					 "-s", "true",
+// 					 "-c", "false",
+// 					 "-e", "false",
+// 					 "-p", "off",
+// 					 stdout = output_data);
+// 		// collect data from state space explorer
+//		list string Nst;
+// 		Nst = readlines(output_data);
+// 		string txt = Nst[0][lastindexof(Nst[0]," ")+1:indexof(Nst[0],".")];
+// 		txt = replace(txt,",","");
+// 		sum_states = sum_states + <int> txt;
+// 		txt = Nst[1][lastindexof(Nst[1]," ")+1:indexof(Nst[1],".")];
+// 		txt = replace(txt,",","");
+// 		sum_transitions = sum_transitions + <double> txt;
+
+	// States-space analysis of data-based synthesis
+	list string lines = readlines(output_data);
+	for line in lines:
+		if contains(line, "Controlled system:"):
+			int a = indexof(line, " states.");
+			int b = lastindexof(line[:a], " ");
+			line = line[b+1:a];
+			line = replace(line,",","");
+			sum_states = sum_states + <double>line;
+			writefile(result_data_path, fmt("%s\n", <double>line), append=true);
+		end
+	end
+
+	// Collect file names for CIF merge for nonconflicting check
+	suptobemerged = suptobemerged + " " + output_sup_only;
+end
+
+// Output analysis and nonconflicting check
+outln("Number of states: %s\nNumber of transitions: %s", sum_states, sum_transitions);
+// writefile(result_data_path,fmt("%s,%s",sum_states,sum_transitions), append=true);
+
+// Nonconflicting check
+// cif3merge(suptobemerged[1:], "-o", mergedsups_path, stderr = "");
+//
+// cif3cif(model_liftevents_path,
+// 		"-t", "elim-self,elim-alg-vars,elim-consts,elim-enums,elim-monitors,elim-groups,add-default-init-values,elim-state-evt-excl-invs,elim-sup-req-aut",
+// 		"-o", cleaned_model_path,
+// 		stderr = "");
+// cif3merge(cleaned_model_path, mergedsups_path, "-o", mergedsups_path, stderr = "");
+// cif3cif(mergedsups_path,
+// 		"-t", "convert-event-contr",
+// 		"-o", mergedsups_path,
+// 		stderr = "");
+// ncchk = cif3datasynth(mergedsups_path, ignoreNonZeroExitCode = true, stderr = "");
+// outln("Nonconflicting supervisors (yes = 0): %d", ncchk);

@@ -1,0 +1,474 @@
+Reading CIF file "generated_files_modular_largereq/subplant_5.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name                                  Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ------------------------------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   North_Downstream_EqualWaterSensor     0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   North_Downstream_Gates_East_Actuator  1      2 * 2     3 * 2       4 * 2       75%
+  3      location pointer  n/a   North_Downstream_Gates_East_Sensor    2      2 * 2     3 * 2       4 * 2       75%
+  4      location pointer  n/a   North_Upstream_Gates_East_Actuator    3      2 * 2     3 * 2       4 * 2       75%
+  5      location pointer  n/a   North_Upstream_Gates_East_Sensor      4      2 * 2     3 * 2       4 * 2       75%
+  6      location pointer  n/a   North_Upstream_Gates_West_Actuator    5      2 * 2     3 * 2       4 * 2       75%
+  7      location pointer  n/a   North_Upstream_Gates_West_Sensor      6      2 * 2     3 * 2       4 * 2       75%
+  8      location pointer  n/a   North_Upstream_Paddles_East_Actuator  7      2 * 2     3 * 2       4 * 2       75%
+  9      location pointer  n/a   North_Upstream_Paddles_East_Sensor    8      2 * 2     3 * 2       4 * 2       75%
+  10     location pointer  n/a   North_Upstream_Paddles_West_Actuator  9      2 * 2     3 * 2       4 * 2       75%
+  11     location pointer  n/a   North_Upstream_Paddles_West_Sensor    10     2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  ------------------------------------  -----  --------  ----------  ----------  -----------
+  Total                                                                11     42        64          84          ~76%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 48
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 30
+
+    Total span:                   30 (total)                 0.63 (avg/edge) [before]
+    Total span:                   28 (total)                 0.58 (avg/edge) [iteration 1]
+    Total span:                   28 (total)                 0.58 (avg/edge) [iteration 2]
+    Total span:                   28 (total)                 0.58 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                   28 (total)                 0.58 (avg/edge) [before]
+    Total span:                   28 (total)                 0.58 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name                                  Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ------------------------------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   North_Downstream_Gates_East_Actuator  0      2 * 2     3 * 2       4 * 2       75%
+  2      location pointer  n/a   North_Downstream_Gates_East_Sensor    1      2 * 2     3 * 2       4 * 2       75%
+  3      location pointer  n/a   North_Downstream_EqualWaterSensor     2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   North_Upstream_Gates_East_Actuator    3      2 * 2     3 * 2       4 * 2       75%
+  5      location pointer  n/a   North_Upstream_Gates_East_Sensor      4      2 * 2     3 * 2       4 * 2       75%
+  6      location pointer  n/a   North_Upstream_Gates_West_Actuator    5      2 * 2     3 * 2       4 * 2       75%
+  7      location pointer  n/a   North_Upstream_Gates_West_Sensor      6      2 * 2     3 * 2       4 * 2       75%
+  8      location pointer  n/a   North_Upstream_Paddles_East_Actuator  7      2 * 2     3 * 2       4 * 2       75%
+  9      location pointer  n/a   North_Upstream_Paddles_East_Sensor    8      2 * 2     3 * 2       4 * 2       75%
+  10     location pointer  n/a   North_Upstream_Paddles_West_Sensor    9      2 * 2     3 * 2       4 * 2       75%
+  11     location pointer  n/a   North_Upstream_Paddles_West_Actuator  10     2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  ------------------------------------  -----  --------  ----------  ----------  -----------
+  Total                                                                11     42        64          84          ~76%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     North_Upstream_Gates_East_Actuator.Rest
+Initial   (aut/locs init predicate):     North_Upstream_Gates_East_Sensor.Closed
+Initial   (aut/locs init predicate):     true
+Initial   (aut/locs init predicate):     North_Upstream_Gates_West_Actuator.Rest
+Initial   (aut/locs init predicate):     North_Upstream_Gates_West_Sensor.Closed
+Initial   (aut/locs init predicate):     true
+Initial   (aut/locs init predicate):     North_Upstream_Paddles_East_Actuator.Rest
+Initial   (aut/locs init predicate):     North_Upstream_Paddles_East_Sensor.Closed
+Initial   (aut/locs init predicate):     true
+Initial   (aut/locs init predicate):     North_Upstream_Paddles_West_Actuator.Rest
+Initial   (aut/locs init predicate):     North_Upstream_Paddles_West_Sensor.Closed
+Initial   (aut/locs init predicate):     true
+Initial   (aut/locs init predicate):     North_Downstream_Gates_East_Actuator.Rest
+Initial   (aut/locs init predicate):     North_Downstream_Gates_East_Sensor.Closed
+Initial   (aut/locs init predicate):     true
+Initial   (aut/locs init predicate):     North_Downstream_EqualWaterSensor.Unequal
+Initial   (auts/locs init predicate):    <bdd 21n 1p>
+Initial   (uncontrolled system):         <bdd 21n 1p>
+Initial   (system, combined init/inv):   <bdd 21n 1p>
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   North_Upstream_Gates_East_Actuator.Rest
+Marked    (aut/locs marker predicate):   North_Upstream_Gates_East_Sensor.Closed
+Marked    (aut/locs marker predicate):   true
+Marked    (aut/locs marker predicate):   North_Upstream_Gates_West_Actuator.Rest
+Marked    (aut/locs marker predicate):   North_Upstream_Gates_West_Sensor.Closed
+Marked    (aut/locs marker predicate):   true
+Marked    (aut/locs marker predicate):   North_Upstream_Paddles_East_Actuator.Rest
+Marked    (aut/locs marker predicate):   North_Upstream_Paddles_East_Sensor.Closed
+Marked    (aut/locs marker predicate):   true
+Marked    (aut/locs marker predicate):   North_Upstream_Paddles_West_Actuator.Rest
+Marked    (aut/locs marker predicate):   North_Upstream_Paddles_West_Sensor.Closed
+Marked    (aut/locs marker predicate):   true
+Marked    (aut/locs marker predicate):   North_Downstream_Gates_East_Actuator.Rest
+Marked    (aut/locs marker predicate):   North_Downstream_Gates_East_Sensor.Closed
+Marked    (aut/locs marker predicate):   true
+Marked    (aut/locs marker predicate):   North_Downstream_EqualWaterSensor.Unequal
+Marked    (auts/locs marker predicate):  <bdd 21n 1p>
+Marked    (uncontrolled system):         <bdd 21n 1p>
+Marked    (system, combined marked/inv): <bdd 21n 1p>
+
+State/event exclusion requirements:
+  Event "North_Downstream_Gates_East_Actuator_c_open" needs:
+    <bdd 17n 1p>
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_open) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Opening)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_close) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Closing)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Closing) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_endStopOpening) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_endStopClosing) (guard: North_Upstream_Gates_East_Actuator.Closing) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_closed_off) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Closed) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_closed_on) (guard: North_Upstream_Gates_East_Actuator.Closing and North_Upstream_Gates_East_Sensor.Intermediate) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Closed)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_open_on) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Intermediate) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Open)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_open_off) (guard: North_Upstream_Gates_East_Actuator.Closing and North_Upstream_Gates_East_Sensor.Open) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_open) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Opening)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_close) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Closing)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Closing) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_endStopOpening) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_endStopClosing) (guard: North_Upstream_Gates_West_Actuator.Closing) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_closed_off) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Closed) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_closed_on) (guard: North_Upstream_Gates_West_Actuator.Closing and North_Upstream_Gates_West_Sensor.Intermediate) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Closed)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_open_on) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Intermediate) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Open)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_open_off) (guard: North_Upstream_Gates_West_Actuator.Closing and North_Upstream_Gates_West_Sensor.Open) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_open) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Opening)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_close) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Closing)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Closing) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_endStopOpening) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_endStopClosing) (guard: North_Upstream_Paddles_East_Actuator.Closing) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_closed_off) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Closed) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_closed_on) (guard: North_Upstream_Paddles_East_Actuator.Closing and North_Upstream_Paddles_East_Sensor.Intermediate) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Closed)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_open_on) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Intermediate) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Open)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_open_off) (guard: North_Upstream_Paddles_East_Actuator.Closing and North_Upstream_Paddles_East_Sensor.Open) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_open) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Opening)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_close) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Closing)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_endStopOpening) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_endStopClosing) (guard: North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_closed_off) (guard: North_Upstream_Paddles_West_Sensor.Closed and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_closed_on) (guard: North_Upstream_Paddles_West_Sensor.Intermediate and North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Closed)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_open_on) (guard: North_Upstream_Paddles_West_Sensor.Intermediate and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Open)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_open_off) (guard: North_Upstream_Paddles_West_Sensor.Open and North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Intermediate)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_open) (guard: North_Downstream_Gates_East_Actuator.Rest) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Opening)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_close) (guard: North_Downstream_Gates_East_Actuator.Rest) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Closing)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Opening) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Closing) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_endStopOpening) (guard: North_Downstream_Gates_East_Actuator.Opening) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_endStopClosing) (guard: North_Downstream_Gates_East_Actuator.Closing) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_closed_off) (guard: North_Downstream_Gates_East_Actuator.Opening and North_Downstream_Gates_East_Sensor.Closed) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_closed_on) (guard: North_Downstream_Gates_East_Actuator.Closing and North_Downstream_Gates_East_Sensor.Intermediate) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Closed)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_open_on) (guard: North_Downstream_Gates_East_Actuator.Opening and North_Downstream_Gates_East_Sensor.Intermediate) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Open)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_open_off) (guard: North_Downstream_Gates_East_Actuator.Closing and North_Downstream_Gates_East_Sensor.Open) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Downstream_EqualWaterSensor_u_on) (guard: North_Downstream_EqualWaterSensor.Unequal) (assignments: North_Downstream_EqualWaterSensor := North_Downstream_EqualWaterSensor.Equal)
+    Edge: (event: North_Downstream_EqualWaterSensor_u_off) (guard: North_Downstream_EqualWaterSensor.Equal) (assignments: North_Downstream_EqualWaterSensor := North_Downstream_EqualWaterSensor.Unequal)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "North_Downstream_Gates_East_Actuator" (group: 0, domain: 0+1, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "North_Downstream_Gates_East_Sensor" (group: 1, domain: 2+3, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "North_Upstream_Gates_East_Actuator" (group: 3, domain: 6+7, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> <bdd 8n 16p> [range: true, variable: location pointer for automaton "North_Upstream_Gates_East_Sensor" (group: 4, domain: 8+9, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 8n 16p> -> <bdd 10n 32p> [range: true, variable: location pointer for automaton "North_Upstream_Gates_West_Actuator" (group: 5, domain: 10+11, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 10n 32p> -> <bdd 12n 64p> [range: true, variable: location pointer for automaton "North_Upstream_Gates_West_Sensor" (group: 6, domain: 12+13, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 12n 64p> -> <bdd 14n 128p> [range: true, variable: location pointer for automaton "North_Upstream_Paddles_East_Actuator" (group: 7, domain: 14+15, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 14n 128p> -> <bdd 16n 256p> [range: true, variable: location pointer for automaton "North_Upstream_Paddles_East_Sensor" (group: 8, domain: 16+17, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 16n 256p> -> <bdd 18n 512p> [range: true, variable: location pointer for automaton "North_Upstream_Paddles_West_Sensor" (group: 9, domain: 18+19, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 18n 512p> -> <bdd 20n 1,024p> [range: true, variable: location pointer for automaton "North_Upstream_Paddles_West_Actuator" (group: 10, domain: 20+21, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: <bdd 20n 1,024p>.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: North_Downstream_Gates_East_Actuator_c_open) (guard: North_Downstream_Gates_East_Actuator.Rest) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Opening): guard: North_Downstream_Gates_East_Actuator.Rest -> <bdd 19n 1p> [requirement: <bdd 17n 1p>].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: <bdd 20n 1,024p>)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_open) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Opening)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_close) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Closing)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Closing) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_endStopOpening) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_endStopClosing) (guard: North_Upstream_Gates_East_Actuator.Closing) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_closed_off) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Closed) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_closed_on) (guard: North_Upstream_Gates_East_Actuator.Closing and North_Upstream_Gates_East_Sensor.Intermediate) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Closed)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_open_on) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Intermediate) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Open)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_open_off) (guard: North_Upstream_Gates_East_Actuator.Closing and North_Upstream_Gates_East_Sensor.Open) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_open) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Opening)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_close) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Closing)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Closing) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_endStopOpening) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_endStopClosing) (guard: North_Upstream_Gates_West_Actuator.Closing) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_closed_off) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Closed) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_closed_on) (guard: North_Upstream_Gates_West_Actuator.Closing and North_Upstream_Gates_West_Sensor.Intermediate) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Closed)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_open_on) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Intermediate) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Open)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_open_off) (guard: North_Upstream_Gates_West_Actuator.Closing and North_Upstream_Gates_West_Sensor.Open) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_open) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Opening)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_close) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Closing)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Closing) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_endStopOpening) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_endStopClosing) (guard: North_Upstream_Paddles_East_Actuator.Closing) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_closed_off) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Closed) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_closed_on) (guard: North_Upstream_Paddles_East_Actuator.Closing and North_Upstream_Paddles_East_Sensor.Intermediate) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Closed)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_open_on) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Intermediate) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Open)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_open_off) (guard: North_Upstream_Paddles_East_Actuator.Closing and North_Upstream_Paddles_East_Sensor.Open) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_open) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Opening)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_close) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Closing)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_endStopOpening) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_endStopClosing) (guard: North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_closed_off) (guard: North_Upstream_Paddles_West_Sensor.Closed and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_closed_on) (guard: North_Upstream_Paddles_West_Sensor.Intermediate and North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Closed)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_open_on) (guard: North_Upstream_Paddles_West_Sensor.Intermediate and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Open)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_open_off) (guard: North_Upstream_Paddles_West_Sensor.Open and North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Intermediate)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_open) (guard: North_Downstream_Gates_East_Actuator.Rest -> <bdd 19n 1p>) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Opening)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_close) (guard: North_Downstream_Gates_East_Actuator.Rest) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Closing)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Opening) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Closing) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_endStopOpening) (guard: North_Downstream_Gates_East_Actuator.Opening) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_endStopClosing) (guard: North_Downstream_Gates_East_Actuator.Closing) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_closed_off) (guard: North_Downstream_Gates_East_Actuator.Opening and North_Downstream_Gates_East_Sensor.Closed) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_closed_on) (guard: North_Downstream_Gates_East_Actuator.Closing and North_Downstream_Gates_East_Sensor.Intermediate) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Closed)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_open_on) (guard: North_Downstream_Gates_East_Actuator.Opening and North_Downstream_Gates_East_Sensor.Intermediate) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Open)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_open_off) (guard: North_Downstream_Gates_East_Actuator.Closing and North_Downstream_Gates_East_Sensor.Open) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Downstream_EqualWaterSensor_u_on) (guard: North_Downstream_EqualWaterSensor.Unequal) (assignments: North_Downstream_EqualWaterSensor := North_Downstream_EqualWaterSensor.Equal)
+    Edge: (event: North_Downstream_EqualWaterSensor_u_off) (guard: North_Downstream_EqualWaterSensor.Equal) (assignments: North_Downstream_EqualWaterSensor := North_Downstream_EqualWaterSensor.Unequal)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: <bdd 21n 1p> [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: <bdd 21n 1p> -> <bdd 20n 1p> [backward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 20n 1p> -> <bdd 21n 2p> [backward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Closing) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 21n 2p> -> <bdd 22n 3p> [backward reach with edge: (event: North_Upstream_Gates_East_Sensor_u_closed_on) (guard: North_Upstream_Gates_East_Actuator.Closing and North_Upstream_Gates_East_Sensor.Intermediate) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Closed), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 22n 3p> -> <bdd 23n 4p> [backward reach with edge: (event: North_Upstream_Gates_East_Sensor_u_open_off) (guard: North_Upstream_Gates_East_Actuator.Closing and North_Upstream_Gates_East_Sensor.Open) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 23n 4p> -> <bdd 22n 4p> [backward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 22n 4p> -> <bdd 23n 8p> [backward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Closing) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 23n 8p> -> <bdd 24n 12p> [backward reach with edge: (event: North_Upstream_Gates_West_Sensor_u_closed_on) (guard: North_Upstream_Gates_West_Actuator.Closing and North_Upstream_Gates_West_Sensor.Intermediate) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Closed), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 24n 12p> -> <bdd 25n 16p> [backward reach with edge: (event: North_Upstream_Gates_West_Sensor_u_open_off) (guard: North_Upstream_Gates_West_Actuator.Closing and North_Upstream_Gates_West_Sensor.Open) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 25n 16p> -> <bdd 24n 16p> [backward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 24n 16p> -> <bdd 25n 32p> [backward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Closing) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 25n 32p> -> <bdd 26n 48p> [backward reach with edge: (event: North_Upstream_Paddles_East_Sensor_u_closed_on) (guard: North_Upstream_Paddles_East_Actuator.Closing and North_Upstream_Paddles_East_Sensor.Intermediate) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Closed), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 26n 48p> -> <bdd 27n 64p> [backward reach with edge: (event: North_Upstream_Paddles_East_Sensor_u_open_off) (guard: North_Upstream_Paddles_East_Actuator.Closing and North_Upstream_Paddles_East_Sensor.Open) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 27n 64p> -> <bdd 26n 64p> [backward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 26n 64p> -> <bdd 27n 128p> [backward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 27n 128p> -> <bdd 30n 192p> [backward reach with edge: (event: North_Upstream_Paddles_West_Sensor_u_closed_on) (guard: North_Upstream_Paddles_West_Sensor.Intermediate and North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Closed), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 30n 192p> -> <bdd 30n 256p> [backward reach with edge: (event: North_Upstream_Paddles_West_Sensor_u_open_off) (guard: North_Upstream_Paddles_West_Sensor.Open and North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 30n 256p> -> <bdd 29n 256p> [backward reach with edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Opening) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 29n 256p> -> <bdd 30n 512p> [backward reach with edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Closing) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 30n 512p> -> <bdd 31n 768p> [backward reach with edge: (event: North_Downstream_Gates_East_Sensor_u_closed_on) (guard: North_Downstream_Gates_East_Actuator.Closing and North_Downstream_Gates_East_Sensor.Intermediate) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Closed), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 31n 768p> -> <bdd 32n 1,024p> [backward reach with edge: (event: North_Downstream_Gates_East_Sensor_u_open_off) (guard: North_Downstream_Gates_East_Actuator.Closing and North_Downstream_Gates_East_Sensor.Open) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 32n 1,024p> -> <bdd 31n 1,024p> [backward reach with edge: (event: North_Downstream_EqualWaterSensor_u_off) (guard: North_Downstream_EqualWaterSensor.Equal) (assignments: North_Downstream_EqualWaterSensor := North_Downstream_EqualWaterSensor.Unequal), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward reachability: iteration 2.
+Backward controlled-behavior: <bdd 31n 1,024p> -> <bdd 30n 768p> [backward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_close) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 30n 768p> -> <bdd 29n 1,024p> [backward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 29n 1,024p> -> <bdd 28n 768p> [backward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_close) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 28n 768p> -> <bdd 27n 1,024p> [backward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 27n 1,024p> -> <bdd 26n 768p> [backward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_close) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 26n 768p> -> <bdd 25n 1,024p> [backward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 25n 1,024p> -> <bdd 24n 1,024p> [backward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_close) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 24n 1,024p> -> <bdd 22n 1,024p> [backward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 22n 1,024p> -> <bdd 21n 768p> [backward reach with edge: (event: North_Downstream_Gates_East_Actuator_c_close) (guard: North_Downstream_Gates_East_Actuator.Rest) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward controlled-behavior: <bdd 21n 768p> -> <bdd 20n 1,024p> [backward reach with edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Opening) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Backward reachability: iteration 3.
+Backward controlled-behavior: <bdd 20n 1,024p> [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: <bdd 20n 1,023p> [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: <bdd 21n 1p> [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: <bdd 21n 1p> -> <bdd 20n 1p> [forward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_open) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Opening), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 20n 1p> -> <bdd 21n 2p> [forward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_close) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 21n 2p> -> <bdd 21n 2p> [forward reach with edge: (event: North_Upstream_Gates_East_Sensor_u_closed_off) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Closed) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 21n 2p> -> <bdd 22n 3p> [forward reach with edge: (event: North_Upstream_Gates_East_Sensor_u_open_on) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Intermediate) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Open), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 22n 3p> -> <bdd 21n 3p> [forward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_open) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Opening), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 21n 3p> -> <bdd 22n 6p> [forward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_close) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 22n 6p> -> <bdd 22n 6p> [forward reach with edge: (event: North_Upstream_Gates_West_Sensor_u_closed_off) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Closed) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 22n 6p> -> <bdd 23n 9p> [forward reach with edge: (event: North_Upstream_Gates_West_Sensor_u_open_on) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Intermediate) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Open), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 23n 9p> -> <bdd 22n 9p> [forward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_open) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Opening), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 22n 9p> -> <bdd 23n 18p> [forward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_close) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 23n 18p> -> <bdd 23n 18p> [forward reach with edge: (event: North_Upstream_Paddles_East_Sensor_u_closed_off) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Closed) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 23n 18p> -> <bdd 24n 27p> [forward reach with edge: (event: North_Upstream_Paddles_East_Sensor_u_open_on) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Intermediate) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Open), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 24n 27p> -> <bdd 23n 27p> [forward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_open) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Opening), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 23n 27p> -> <bdd 24n 54p> [forward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_close) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 24n 54p> -> <bdd 26n 81p> [forward reach with edge: (event: North_Upstream_Paddles_West_Sensor_u_closed_off) (guard: North_Upstream_Paddles_West_Sensor.Closed and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 26n 81p> -> <bdd 26n 108p> [forward reach with edge: (event: North_Upstream_Paddles_West_Sensor_u_open_on) (guard: North_Upstream_Paddles_West_Sensor.Intermediate and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Open), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 26n 108p> -> <bdd 25n 108p> [forward reach with edge: (event: North_Downstream_Gates_East_Actuator_c_close) (guard: North_Downstream_Gates_East_Actuator.Rest) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 25n 108p> -> <bdd 24n 108p> [forward reach with edge: (event: North_Downstream_EqualWaterSensor_u_on) (guard: North_Downstream_EqualWaterSensor.Unequal) (assignments: North_Downstream_EqualWaterSensor := North_Downstream_EqualWaterSensor.Equal), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward reachability: iteration 2.
+Forward controlled-behavior: <bdd 24n 108p> -> <bdd 25n 180p> [forward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 25n 180p> -> <bdd 26n 300p> [forward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 26n 300p> -> <bdd 27n 500p> [forward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 27n 500p> -> <bdd 26n 500p> [forward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 26n 500p> -> <bdd 45n 501p> [forward reach with edge: (event: North_Downstream_Gates_East_Actuator_c_open) (guard: North_Downstream_Gates_East_Actuator.Rest -> <bdd 19n 1p>) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Opening), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 45n 501p> -> <bdd 44n 501p> [forward reach with edge: (event: North_Downstream_Gates_East_Sensor_u_closed_off) (guard: North_Downstream_Gates_East_Actuator.Opening and North_Downstream_Gates_East_Sensor.Closed) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 44n 501p> -> <bdd 45n 502p> [forward reach with edge: (event: North_Downstream_Gates_East_Sensor_u_open_on) (guard: North_Downstream_Gates_East_Actuator.Opening and North_Downstream_Gates_East_Sensor.Intermediate) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Open), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 45n 502p> -> <bdd 44n 502p> [forward reach with edge: (event: North_Downstream_EqualWaterSensor_u_off) (guard: North_Downstream_EqualWaterSensor.Equal) (assignments: North_Downstream_EqualWaterSensor := North_Downstream_EqualWaterSensor.Unequal), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward reachability: iteration 3.
+Forward controlled-behavior: <bdd 44n 502p> -> <bdd 43n 502p> [forward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_open) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Opening), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 43n 502p> -> <bdd 42n 404p> [forward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_close) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 42n 404p> -> <bdd 42n 404p> [forward reach with edge: (event: North_Upstream_Gates_East_Sensor_u_closed_off) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Closed) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 42n 404p> -> <bdd 43n 406p> [forward reach with edge: (event: North_Upstream_Gates_East_Sensor_u_open_on) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Intermediate) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Open), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 43n 406p> -> <bdd 42n 406p> [forward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_open) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Opening), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 42n 406p> -> <bdd 41n 332p> [forward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_close) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 41n 332p> -> <bdd 41n 332p> [forward reach with edge: (event: North_Upstream_Gates_West_Sensor_u_closed_off) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Closed) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 41n 332p> -> <bdd 42n 338p> [forward reach with edge: (event: North_Upstream_Gates_West_Sensor_u_open_on) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Intermediate) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Open), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 42n 338p> -> <bdd 41n 338p> [forward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_open) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Opening), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 41n 338p> -> <bdd 40n 292p> [forward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_close) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 40n 292p> -> <bdd 40n 292p> [forward reach with edge: (event: North_Upstream_Paddles_East_Sensor_u_closed_off) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Closed) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 40n 292p> -> <bdd 41n 310p> [forward reach with edge: (event: North_Upstream_Paddles_East_Sensor_u_open_on) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Intermediate) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Open), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 41n 310p> -> <bdd 39n 310p> [forward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_open) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Opening), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 39n 310p> -> <bdd 38n 364p> [forward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_close) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 38n 364p> -> <bdd 40n 418p> [forward reach with edge: (event: North_Upstream_Paddles_West_Sensor_u_closed_off) (guard: North_Upstream_Paddles_West_Sensor.Closed and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 40n 418p> -> <bdd 41n 472p> [forward reach with edge: (event: North_Upstream_Paddles_West_Sensor_u_open_on) (guard: North_Upstream_Paddles_West_Sensor.Intermediate and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Open), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 41n 472p> -> <bdd 44n 944p> [forward reach with edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Opening) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward reachability: iteration 4.
+Forward controlled-behavior: <bdd 44n 944p> -> <bdd 45n 1,232p> [forward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 45n 1,232p> -> <bdd 46n 1,712p> [forward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 46n 1,712p> -> <bdd 47n 2,512p> [forward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 47n 2,512p> -> <bdd 46n 2,512p> [forward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 46n 2,512p> -> <bdd 43n 2,256p> [forward reach with edge: (event: North_Downstream_Gates_East_Actuator_c_close) (guard: North_Downstream_Gates_East_Actuator.Rest) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward reachability: iteration 5.
+Forward controlled-behavior: <bdd 43n 2,256p> -> <bdd 41n 1,856p> [forward reach with edge: (event: North_Upstream_Gates_East_Actuator_c_close) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 41n 1,856p> -> <bdd 39n 1,536p> [forward reach with edge: (event: North_Upstream_Gates_West_Actuator_c_close) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 39n 1,536p> -> <bdd 37n 1,280p> [forward reach with edge: (event: North_Upstream_Paddles_East_Actuator_c_close) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward controlled-behavior: <bdd 37n 1,280p> -> <bdd 20n 1,024p> [forward reach with edge: (event: North_Upstream_Paddles_West_Actuator_c_close) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: <bdd 20n 1,024p>]
+Forward reachability: iteration 6.
+Forward controlled-behavior: <bdd 20n 1,024p> [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: North_Upstream_Gates_East_Actuator_c_open) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Opening): guard: North_Upstream_Gates_East_Actuator.Rest -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_East_Actuator_c_close) (guard: North_Upstream_Gates_East_Actuator.Rest) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Closing): guard: North_Upstream_Gates_East_Actuator.Rest -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest): guard: North_Upstream_Gates_East_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Closing) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest): guard: North_Upstream_Gates_East_Actuator.Closing -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_East_Actuator_c_endStopOpening) (guard: North_Upstream_Gates_East_Actuator.Opening) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest): guard: North_Upstream_Gates_East_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_East_Actuator_c_endStopClosing) (guard: North_Upstream_Gates_East_Actuator.Closing) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest): guard: North_Upstream_Gates_East_Actuator.Closing -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_West_Actuator_c_open) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Opening): guard: North_Upstream_Gates_West_Actuator.Rest -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_West_Actuator_c_close) (guard: North_Upstream_Gates_West_Actuator.Rest) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Closing): guard: North_Upstream_Gates_West_Actuator.Rest -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest): guard: North_Upstream_Gates_West_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Closing) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest): guard: North_Upstream_Gates_West_Actuator.Closing -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_West_Actuator_c_endStopOpening) (guard: North_Upstream_Gates_West_Actuator.Opening) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest): guard: North_Upstream_Gates_West_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Gates_West_Actuator_c_endStopClosing) (guard: North_Upstream_Gates_West_Actuator.Closing) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest): guard: North_Upstream_Gates_West_Actuator.Closing -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_East_Actuator_c_open) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Opening): guard: North_Upstream_Paddles_East_Actuator.Rest -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_East_Actuator_c_close) (guard: North_Upstream_Paddles_East_Actuator.Rest) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Closing): guard: North_Upstream_Paddles_East_Actuator.Rest -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest): guard: North_Upstream_Paddles_East_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Closing) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest): guard: North_Upstream_Paddles_East_Actuator.Closing -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_East_Actuator_c_endStopOpening) (guard: North_Upstream_Paddles_East_Actuator.Opening) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest): guard: North_Upstream_Paddles_East_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_East_Actuator_c_endStopClosing) (guard: North_Upstream_Paddles_East_Actuator.Closing) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest): guard: North_Upstream_Paddles_East_Actuator.Closing -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_West_Actuator_c_open) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Opening): guard: North_Upstream_Paddles_West_Actuator.Rest -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_West_Actuator_c_close) (guard: North_Upstream_Paddles_West_Actuator.Rest) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Closing): guard: North_Upstream_Paddles_West_Actuator.Rest -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest): guard: North_Upstream_Paddles_West_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest): guard: North_Upstream_Paddles_West_Actuator.Closing -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_West_Actuator_c_endStopOpening) (guard: North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest): guard: North_Upstream_Paddles_West_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Upstream_Paddles_West_Actuator_c_endStopClosing) (guard: North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest): guard: North_Upstream_Paddles_West_Actuator.Closing -> <bdd 20n 512p>.
+Edge (event: North_Downstream_Gates_East_Actuator_c_open) (guard: North_Downstream_Gates_East_Actuator.Rest -> <bdd 19n 1p>) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Opening): guard: <bdd 19n 1p> -> <bdd 21n 2p>.
+Edge (event: North_Downstream_Gates_East_Actuator_c_close) (guard: North_Downstream_Gates_East_Actuator.Rest) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Closing): guard: North_Downstream_Gates_East_Actuator.Rest -> <bdd 20n 512p>.
+Edge (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Opening) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest): guard: North_Downstream_Gates_East_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Closing) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest): guard: North_Downstream_Gates_East_Actuator.Closing -> <bdd 20n 512p>.
+Edge (event: North_Downstream_Gates_East_Actuator_c_endStopOpening) (guard: North_Downstream_Gates_East_Actuator.Opening) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest): guard: North_Downstream_Gates_East_Actuator.Opening -> <bdd 20n 512p>.
+Edge (event: North_Downstream_Gates_East_Actuator_c_endStopClosing) (guard: North_Downstream_Gates_East_Actuator.Closing) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest): guard: North_Downstream_Gates_East_Actuator.Closing -> <bdd 20n 512p>.
+
+Final synthesis result:
+  State: (controlled-behavior: <bdd 20n 1,024p>)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_open) (guard: North_Upstream_Gates_East_Actuator.Rest -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Opening)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_close) (guard: North_Upstream_Gates_East_Actuator.Rest -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Closing)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_East_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_endStopOpening) (guard: North_Upstream_Gates_East_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Actuator_c_endStopClosing) (guard: North_Upstream_Gates_East_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_East_Actuator := North_Upstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_closed_off) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Closed) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_closed_on) (guard: North_Upstream_Gates_East_Actuator.Closing and North_Upstream_Gates_East_Sensor.Intermediate) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Closed)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_open_on) (guard: North_Upstream_Gates_East_Actuator.Opening and North_Upstream_Gates_East_Sensor.Intermediate) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Open)
+    Edge: (event: North_Upstream_Gates_East_Sensor_u_open_off) (guard: North_Upstream_Gates_East_Actuator.Closing and North_Upstream_Gates_East_Sensor.Open) (assignments: North_Upstream_Gates_East_Sensor := North_Upstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_open) (guard: North_Upstream_Gates_West_Actuator.Rest -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Opening)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_close) (guard: North_Upstream_Gates_West_Actuator.Rest -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Closing)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_emergencyStop) (guard: North_Upstream_Gates_West_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_endStopOpening) (guard: North_Upstream_Gates_West_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Actuator_c_endStopClosing) (guard: North_Upstream_Gates_West_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Upstream_Gates_West_Actuator := North_Upstream_Gates_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_closed_off) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Closed) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_closed_on) (guard: North_Upstream_Gates_West_Actuator.Closing and North_Upstream_Gates_West_Sensor.Intermediate) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Closed)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_open_on) (guard: North_Upstream_Gates_West_Actuator.Opening and North_Upstream_Gates_West_Sensor.Intermediate) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Open)
+    Edge: (event: North_Upstream_Gates_West_Sensor_u_open_off) (guard: North_Upstream_Gates_West_Actuator.Closing and North_Upstream_Gates_West_Sensor.Open) (assignments: North_Upstream_Gates_West_Sensor := North_Upstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_open) (guard: North_Upstream_Paddles_East_Actuator.Rest -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Opening)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_close) (guard: North_Upstream_Paddles_East_Actuator.Rest -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Closing)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_East_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_endStopOpening) (guard: North_Upstream_Paddles_East_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Actuator_c_endStopClosing) (guard: North_Upstream_Paddles_East_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_East_Actuator := North_Upstream_Paddles_East_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_closed_off) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Closed) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_closed_on) (guard: North_Upstream_Paddles_East_Actuator.Closing and North_Upstream_Paddles_East_Sensor.Intermediate) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Closed)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_open_on) (guard: North_Upstream_Paddles_East_Actuator.Opening and North_Upstream_Paddles_East_Sensor.Intermediate) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Open)
+    Edge: (event: North_Upstream_Paddles_East_Sensor_u_open_off) (guard: North_Upstream_Paddles_East_Actuator.Closing and North_Upstream_Paddles_East_Sensor.Open) (assignments: North_Upstream_Paddles_East_Sensor := North_Upstream_Paddles_East_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_open) (guard: North_Upstream_Paddles_West_Actuator.Rest -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Opening)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_close) (guard: North_Upstream_Paddles_West_Actuator.Rest -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Closing)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_emergencyStop) (guard: North_Upstream_Paddles_West_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_endStopOpening) (guard: North_Upstream_Paddles_West_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Actuator_c_endStopClosing) (guard: North_Upstream_Paddles_West_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Upstream_Paddles_West_Actuator := North_Upstream_Paddles_West_Actuator.Rest)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_closed_off) (guard: North_Upstream_Paddles_West_Sensor.Closed and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Intermediate)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_closed_on) (guard: North_Upstream_Paddles_West_Sensor.Intermediate and North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Closed)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_open_on) (guard: North_Upstream_Paddles_West_Sensor.Intermediate and North_Upstream_Paddles_West_Actuator.Opening) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Open)
+    Edge: (event: North_Upstream_Paddles_West_Sensor_u_open_off) (guard: North_Upstream_Paddles_West_Sensor.Open and North_Upstream_Paddles_West_Actuator.Closing) (assignments: North_Upstream_Paddles_West_Sensor := North_Upstream_Paddles_West_Sensor.Intermediate)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_open) (guard: North_Downstream_Gates_East_Actuator.Rest -> <bdd 21n 2p>) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Opening)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_close) (guard: North_Downstream_Gates_East_Actuator.Rest -> <bdd 20n 512p>) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Closing)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_emergencyStop) (guard: North_Downstream_Gates_East_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_endStopOpening) (guard: North_Downstream_Gates_East_Actuator.Opening -> <bdd 20n 512p>) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Actuator_c_endStopClosing) (guard: North_Downstream_Gates_East_Actuator.Closing -> <bdd 20n 512p>) (assignments: North_Downstream_Gates_East_Actuator := North_Downstream_Gates_East_Actuator.Rest)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_closed_off) (guard: North_Downstream_Gates_East_Actuator.Opening and North_Downstream_Gates_East_Sensor.Closed) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_closed_on) (guard: North_Downstream_Gates_East_Actuator.Closing and North_Downstream_Gates_East_Sensor.Intermediate) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Closed)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_open_on) (guard: North_Downstream_Gates_East_Actuator.Opening and North_Downstream_Gates_East_Sensor.Intermediate) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Open)
+    Edge: (event: North_Downstream_Gates_East_Sensor_u_open_off) (guard: North_Downstream_Gates_East_Actuator.Closing and North_Downstream_Gates_East_Sensor.Open) (assignments: North_Downstream_Gates_East_Sensor := North_Downstream_Gates_East_Sensor.Intermediate)
+    Edge: (event: North_Downstream_EqualWaterSensor_u_on) (guard: North_Downstream_EqualWaterSensor.Unequal) (assignments: North_Downstream_EqualWaterSensor := North_Downstream_EqualWaterSensor.Equal)
+    Edge: (event: North_Downstream_EqualWaterSensor_u_off) (guard: North_Downstream_EqualWaterSensor.Equal) (assignments: North_Downstream_EqualWaterSensor := North_Downstream_EqualWaterSensor.Unequal)
+
+Controlled system:                     exactly 118,098 states.
+
+Initial (synthesis result):            <bdd 20n 1,024p>
+Initial (uncontrolled system):         <bdd 21n 1p>
+Initial (controlled system):           <bdd 21n 1p>
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event North_Upstream_Gates_East_Actuator_c_open: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Gates_East_Actuator_c_close: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Gates_East_Actuator_c_emergencyStop: guard: <bdd 21n 1,024p> -> true [assume <bdd 21n 1,024p>].
+  Event North_Upstream_Gates_East_Actuator_c_endStopOpening: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Gates_East_Actuator_c_endStopClosing: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Gates_West_Actuator_c_open: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Gates_West_Actuator_c_close: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Gates_West_Actuator_c_emergencyStop: guard: <bdd 21n 1,024p> -> true [assume <bdd 21n 1,024p>].
+  Event North_Upstream_Gates_West_Actuator_c_endStopOpening: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Gates_West_Actuator_c_endStopClosing: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Paddles_East_Actuator_c_open: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Paddles_East_Actuator_c_close: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Paddles_East_Actuator_c_emergencyStop: guard: <bdd 21n 1,024p> -> true [assume <bdd 21n 1,024p>].
+  Event North_Upstream_Paddles_East_Actuator_c_endStopOpening: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Paddles_East_Actuator_c_endStopClosing: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Paddles_West_Actuator_c_open: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Paddles_West_Actuator_c_close: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Paddles_West_Actuator_c_emergencyStop: guard: <bdd 21n 1,024p> -> true [assume <bdd 21n 1,024p>].
+  Event North_Upstream_Paddles_West_Actuator_c_endStopOpening: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Upstream_Paddles_West_Actuator_c_endStopClosing: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Downstream_Gates_East_Actuator_c_open: guard: <bdd 21n 2p> -> true [assume <bdd 21n 2p>].
+  Event North_Downstream_Gates_East_Actuator_c_close: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Downstream_Gates_East_Actuator_c_emergencyStop: guard: <bdd 21n 1,024p> -> true [assume <bdd 21n 1,024p>].
+  Event North_Downstream_Gates_East_Actuator_c_endStopOpening: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+  Event North_Downstream_Gates_East_Actuator_c_endStopClosing: guard: <bdd 20n 512p> -> true [assume <bdd 20n 512p>].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_largereq/subplant_5_sup.cif".

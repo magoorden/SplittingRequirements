@@ -1,0 +1,178 @@
+Reading CIF file "generated_files_modular_largereq/subplant_53.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name            Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_drill         0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_drill_down    1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_drill_up      2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_Pinitialized  3      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  Total                                          4      8         16          16          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 9
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    3 (total)                 0.33 (avg/edge) [before]
+    Total span:                    3 (total)                 0.33 (avg/edge) [iteration 1]
+    Total span:                    3 (total)                 0.33 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                    3 (total)                 0.33 (avg/edge) [before]
+    Total span:                    3 (total)                 0.33 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_drill_up.On
+Initial   (aut/locs init predicate):     S_drill_down.Off
+Initial   (aut/locs init predicate):     S_Pinitialized.Off
+Initial   (aut/locs init predicate):     A_drill.Off
+Initial   (aut/locs init predicate):     true
+Initial   (auts/locs init predicate):    A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off)
+Initial   (uncontrolled system):         A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off)
+Initial   (system, combined init/inv):   A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_drill_up.On
+Marked    (aut/locs marker predicate):   S_drill_down.Off
+Marked    (aut/locs marker predicate):   S_Pinitialized.Off
+Marked    (aut/locs marker predicate):   A_drill.Off
+Marked    (aut/locs marker predicate):   true
+Marked    (auts/locs marker predicate):  A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off)
+Marked    (uncontrolled system):         A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off)
+Marked    (system, combined marked/inv): A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off)
+
+State/event exclusion requirements:
+  Event "A_drill_c_off" needs:
+    S_drill_up.On and S_Pinitialized.On
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_drill_up_u_off) (guard: S_drill_up.On) (assignments: S_drill_up := S_drill_up.Off)
+    Edge: (event: S_drill_up_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_up := S_drill_up.On)
+    Edge: (event: S_drill_down_u_off) (guard: S_drill_down.On) (assignments: S_drill_down := S_drill_down.Off)
+    Edge: (event: S_drill_down_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_down := S_drill_down.On)
+    Edge: (event: S_Pinitialized_u_off) (guard: S_Pinitialized.On) (assignments: S_Pinitialized := S_Pinitialized.Off)
+    Edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On)
+    Edge: (event: A_drill_c_off) (guard: A_drill.On) (assignments: A_drill := A_drill.Off)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off) (assignments: A_drill := A_drill.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_drill_c_off) (guard: A_drill.On) (assignments: A_drill := A_drill.Off): guard: A_drill.On -> A_drill.On and (S_drill_up.On and S_Pinitialized.On) [requirement: S_drill_up.On and S_Pinitialized.On].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_drill_up_u_off) (guard: S_drill_up.On) (assignments: S_drill_up := S_drill_up.Off)
+    Edge: (event: S_drill_up_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_up := S_drill_up.On)
+    Edge: (event: S_drill_down_u_off) (guard: S_drill_down.On) (assignments: S_drill_down := S_drill_down.Off)
+    Edge: (event: S_drill_down_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_down := S_drill_down.On)
+    Edge: (event: S_Pinitialized_u_off) (guard: S_Pinitialized.On) (assignments: S_Pinitialized := S_Pinitialized.Off)
+    Edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On)
+    Edge: (event: A_drill_c_off) (guard: A_drill.On -> A_drill.On and (S_drill_up.On and S_Pinitialized.On)) (assignments: A_drill := A_drill.Off)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off) (assignments: A_drill := A_drill.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off) -> A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) [backward reach with edge: (event: S_drill_up_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_up := S_drill_up.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) -> A_drill.Off and S_Pinitialized.Off [backward reach with edge: (event: S_drill_down_u_off) (guard: S_drill_down.On) (assignments: S_drill_down := S_drill_down.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_drill.Off and S_Pinitialized.Off -> A_drill.Off [backward reach with edge: (event: S_Pinitialized_u_off) (guard: S_Pinitialized.On) (assignments: S_Pinitialized := S_Pinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_drill.Off -> A_drill.On and (S_drill_up.On and S_Pinitialized.On) or A_drill.Off [backward reach with edge: (event: A_drill_c_off) (guard: A_drill.On -> A_drill.On and (S_drill_up.On and S_Pinitialized.On)) (assignments: A_drill := A_drill.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_drill.On and (S_drill_up.On and S_Pinitialized.On) or A_drill.Off -> A_drill.On and S_drill_down.On and (S_drill_up.On and S_Pinitialized.On) or (A_drill.On and (S_drill_down.Off and S_Pinitialized.On) or A_drill.Off) [backward reach with edge: (event: S_drill_up_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_up := S_drill_up.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_drill.On and S_drill_down.On and (S_drill_up.On and S_Pinitialized.On) or (A_drill.On and (S_drill_down.Off and S_Pinitialized.On) or A_drill.Off) -> A_drill.Off or S_Pinitialized.On [backward reach with edge: (event: S_drill_down_u_off) (guard: S_drill_down.On) (assignments: S_drill_down := S_drill_down.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_drill.Off or S_Pinitialized.On -> true [backward reach with edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off) -> A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) [forward reach with edge: (event: S_drill_up_u_off) (guard: S_drill_up.On) (assignments: S_drill_up := S_drill_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) -> A_drill.Off and S_drill_down.On and (S_drill_up.Off and S_Pinitialized.Off) or A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) [forward reach with edge: (event: S_drill_down_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_down := S_drill_down.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_drill.Off and S_drill_down.On and (S_drill_up.Off and S_Pinitialized.Off) or A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) -> A_drill.Off and (A_drill.On or (S_drill_down.Off or S_drill_up.Off)) [forward reach with edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_drill.Off and (A_drill.On or (S_drill_down.Off or S_drill_up.Off)) -> S_drill_down.Off or S_drill_up.Off [forward reach with edge: (event: A_drill_c_on) (guard: A_drill.Off) (assignments: A_drill := A_drill.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: S_drill_down.Off or S_drill_up.Off [fixed point].
+Controlled behavior: true -> S_drill_down.Off or S_drill_up.Off.
+
+Round 1: finished, need another round.
+
+Round 2: started.
+
+Round 2: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off) -> A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) [backward reach with edge: (event: S_drill_up_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_up := S_drill_up.On), restricted to current/previous controlled-behavior predicate: S_drill_down.Off or S_drill_up.Off]
+Backward controlled-behavior: A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) -> A_drill.Off and S_drill_down.On and (S_drill_up.Off and S_Pinitialized.Off) or A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) [backward reach with edge: (event: S_drill_down_u_off) (guard: S_drill_down.On) (assignments: S_drill_down := S_drill_down.Off), restricted to current/previous controlled-behavior predicate: S_drill_down.Off or S_drill_up.Off]
+Backward controlled-behavior: A_drill.Off and S_drill_down.On and (S_drill_up.Off and S_Pinitialized.Off) or A_drill.Off and (S_drill_down.Off and S_Pinitialized.Off) -> A_drill.Off and (A_drill.On or (S_drill_down.Off or S_drill_up.Off)) [backward reach with edge: (event: S_Pinitialized_u_off) (guard: S_Pinitialized.On) (assignments: S_Pinitialized := S_Pinitialized.Off), restricted to current/previous controlled-behavior predicate: S_drill_down.Off or S_drill_up.Off]
+Backward controlled-behavior: A_drill.Off and (A_drill.On or (S_drill_down.Off or S_drill_up.Off)) -> A_drill.On and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.On) or (A_drill.Off and (S_drill_down.On and S_drill_up.Off) or A_drill.Off and S_drill_down.Off) [backward reach with edge: (event: A_drill_c_off) (guard: A_drill.On -> A_drill.On and (S_drill_up.On and S_Pinitialized.On)) (assignments: A_drill := A_drill.Off), restricted to current/previous controlled-behavior predicate: S_drill_down.Off or S_drill_up.Off]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_drill.On and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.On) or (A_drill.Off and (S_drill_down.On and S_drill_up.Off) or A_drill.Off and S_drill_down.Off) -> (A_drill.Off or S_drill_down.Off) and ((A_drill.Off or (S_drill_down.On or S_Pinitialized.On)) and (A_drill.On or (S_drill_down.Off or S_drill_up.Off))) [backward reach with edge: (event: S_drill_up_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_up := S_drill_up.On), restricted to current/previous controlled-behavior predicate: S_drill_down.Off or S_drill_up.Off]
+Backward controlled-behavior: (A_drill.Off or S_drill_down.Off) and ((A_drill.Off or (S_drill_down.On or S_Pinitialized.On)) and (A_drill.On or (S_drill_down.Off or S_drill_up.Off))) -> A_drill.On and S_drill_down.On and (S_drill_up.Off and S_Pinitialized.On) or A_drill.On and (S_drill_down.Off and S_Pinitialized.On) or (A_drill.Off and (S_drill_down.On and S_drill_up.Off) or A_drill.Off and S_drill_down.Off) [backward reach with edge: (event: S_drill_down_u_off) (guard: S_drill_down.On) (assignments: S_drill_down := S_drill_down.Off), restricted to current/previous controlled-behavior predicate: S_drill_down.Off or S_drill_up.Off]
+Backward controlled-behavior: A_drill.On and S_drill_down.On and (S_drill_up.Off and S_Pinitialized.On) or A_drill.On and (S_drill_down.Off and S_Pinitialized.On) or (A_drill.Off and (S_drill_down.On and S_drill_up.Off) or A_drill.Off and S_drill_down.Off) -> S_drill_down.Off or S_drill_up.Off [backward reach with edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On), restricted to current/previous controlled-behavior predicate: S_drill_down.Off or S_drill_up.Off]
+Backward reachability: iteration 3.
+Backward controlled-behavior: S_drill_down.Off or S_drill_up.Off [fixed point].
+
+Round 2: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: S_drill_down.On and S_drill_up.On [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 2: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_drill_c_off) (guard: A_drill.On -> A_drill.On and (S_drill_up.On and S_Pinitialized.On)) (assignments: A_drill := A_drill.Off): guard: A_drill.On and (S_drill_up.On and S_Pinitialized.On) -> A_drill.On and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.On).
+Edge (event: A_drill_c_on) (guard: A_drill.Off) (assignments: A_drill := A_drill.On): guard: A_drill.Off -> A_drill.Off and (A_drill.On or (S_drill_down.Off or S_drill_up.Off)).
+
+Final synthesis result:
+  State: (controlled-behavior: S_drill_down.Off or S_drill_up.Off)
+    Edge: (event: S_drill_up_u_off) (guard: S_drill_up.On) (assignments: S_drill_up := S_drill_up.Off)
+    Edge: (event: S_drill_up_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_up := S_drill_up.On)
+    Edge: (event: S_drill_down_u_off) (guard: S_drill_down.On) (assignments: S_drill_down := S_drill_down.Off)
+    Edge: (event: S_drill_down_u_on) (guard: S_drill_down.Off and S_drill_up.Off) (assignments: S_drill_down := S_drill_down.On)
+    Edge: (event: S_Pinitialized_u_off) (guard: S_Pinitialized.On) (assignments: S_Pinitialized := S_Pinitialized.Off)
+    Edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On)
+    Edge: (event: A_drill_c_off) (guard: A_drill.On -> A_drill.On and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.On)) (assignments: A_drill := A_drill.Off)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off -> A_drill.Off and (A_drill.On or (S_drill_down.Off or S_drill_up.Off))) (assignments: A_drill := A_drill.On)
+
+Controlled system:                     exactly 12 states.
+
+Initial (synthesis result):            S_drill_down.Off or S_drill_up.Off
+Initial (uncontrolled system):         A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off)
+Initial (controlled system):           A_drill.Off and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.Off)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_drill_c_off: guard: A_drill.On and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.On) -> true [assume A_drill.On and S_drill_down.Off and (S_drill_up.On and S_Pinitialized.On)].
+  Event A_drill_c_on: guard: A_drill.Off and (A_drill.On or (S_drill_down.Off or S_drill_up.Off)) -> true [assume A_drill.Off and (A_drill.On or (S_drill_down.Off or S_drill_up.Off))].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_largereq/subplant_53_sup.cif".

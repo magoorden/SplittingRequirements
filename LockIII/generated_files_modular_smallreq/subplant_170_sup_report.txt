@@ -1,0 +1,424 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_170.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name          Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   gate_U_S_Dir  0      2 * 2     3 * 2       4 * 2       75%
+  2      location pointer  n/a   gate_U_S_S    1      3 * 2     7 * 2       8 * 2       ~88%
+  3      location pointer  n/a   in_U_N_A      2      2 * 2     4 * 2       4 * 2       100%
+  4      location pointer  n/a   in_U_N_S      3      3 * 2     8 * 2       8 * 2       100%
+  -----  ----------------  ----  ------------  -----  --------  ----------  ----------  -----------
+  Total                                        4      20        44          48          ~92%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 26
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                   18 (total)                 0.69 (avg/edge) [before]
+    Total span:                   18 (total)                 0.69 (avg/edge) [iteration 1]
+    Total span:                   18 (total)                 0.69 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                   18 (total)                 0.69 (avg/edge) [before]
+    Total span:                   18 (total)                 0.69 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     gate_U_S_S.closed
+Initial   (aut/locs init predicate):     gate_U_S_Dir.off
+Initial   (aut/locs init predicate):     in_U_N_S.red
+Initial   (aut/locs init predicate):     in_U_N_A.red
+Initial   (auts/locs init predicate):    gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)
+Initial   (uncontrolled system):         gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)
+Initial   (system, combined init/inv):   gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   gate_U_S_S.closed
+Marked    (aut/locs marker predicate):   gate_U_S_Dir.off
+Marked    (aut/locs marker predicate):   in_U_N_S.red
+Marked    (aut/locs marker predicate):   in_U_N_A.red
+Marked    (auts/locs marker predicate):  gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)
+Marked    (uncontrolled system):         gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)
+Marked    (system, combined marked/inv): gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)
+
+State/event exclusion requirements:
+  Event "gate_U_S_c_close" needs:
+    in_U_N_A.red or in_U_N_A.redred
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed)
+    Edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open)
+    Edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redgreen)
+    Edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.redgreen)
+    Edge: (event: in_U_N_c_redred) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redred)
+    Edge: (event: in_U_N_c_red) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.red)
+    Edge: (event: in_U_N_c_red) (guard: in_U_N_A.redred) (assignments: in_U_N_A := in_U_N_A.red)
+    Edge: (event: in_U_N_c_red) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.red)
+    Edge: (event: in_U_N_c_green) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.green)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "gate_U_S_Dir" (group: 0, domain: 0+1, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "gate_U_S_S" (group: 1, domain: 2+3, BDD variables: 3, CIF/BDD values: 7/8)].
+
+Extended controlled-behavior predicate using variable ranges: true.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: gate_U_S_Dir.off -> gate_U_S_Dir.off and (in_U_N_A.red or in_U_N_A.redred) [requirement: in_U_N_A.red or in_U_N_A.redred].
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening and (in_U_N_A.red or in_U_N_A.redred) [requirement: in_U_N_A.red or in_U_N_A.redred].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed)
+    Edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open)
+    Edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> gate_U_S_Dir.off and (in_U_N_A.red or in_U_N_A.redred)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening and (in_U_N_A.red or in_U_N_A.redred)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redgreen)
+    Edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.redgreen)
+    Edge: (event: in_U_N_c_redred) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redred)
+    Edge: (event: in_U_N_c_red) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.red)
+    Edge: (event: in_U_N_c_red) (guard: in_U_N_A.redred) (assignments: in_U_N_A := in_U_N_A.red)
+    Edge: (event: in_U_N_c_red) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.red)
+    Edge: (event: in_U_N_c_green) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.green)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) -> not gate_U_S_Dir.closing and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) [backward reach with edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.closing and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) -> not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) [backward reach with edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) -> not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.red)) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.red)) [backward reach with edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.red)) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.red)) -> not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.green)) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.green)) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)) [backward reach with edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.green)) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.green)) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)) -> <bdd 11n 6p> [backward reach with edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.red), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 11n 6p> -> not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.redgreen)) or (not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.green) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.red or in_U_N_S.lowred))) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.redgreen)) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.green) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.red or in_U_N_S.lowred)))) [backward reach with edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.redgreen)) or (not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.green) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.red or in_U_N_S.lowred))) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.redgreen)) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.green) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.red or in_U_N_S.lowred)))) -> not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.red or (in_U_N_S.redgreen or in_U_N_S.redred))) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.green or in_U_N_S.lowred)) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.red or (in_U_N_S.redgreen or in_U_N_S.redred))) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.green or in_U_N_S.lowred))) [backward reach with edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.red or (in_U_N_S.redgreen or in_U_N_S.redred))) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.green or in_U_N_S.lowred)) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.red or (in_U_N_S.redgreen or in_U_N_S.redred))) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.green or in_U_N_S.lowred))) -> not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.green or (in_U_N_S.redgreen or in_U_N_S.greenred))) or (not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.red or in_U_N_S.redred)) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.lowred)) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.green or (in_U_N_S.redgreen or in_U_N_S.greenred))) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.red or in_U_N_S.redred)) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.lowred))) [backward reach with edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.green or (in_U_N_S.redgreen or in_U_N_S.greenred))) or (not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.red or in_U_N_S.redred)) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.lowred)) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.off or in_U_N_S.green or (in_U_N_S.redgreen or in_U_N_S.greenred))) or (gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and (in_U_N_S.red or in_U_N_S.redred)) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.lowred))) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_A.red) or gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_A.red) [backward reach with edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_A.red) or gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_A.red) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and (in_U_N_A.red or in_U_N_A.green)) or gate_U_S_Dir.opening and (gate_U_S_S.closed and (in_U_N_A.red or in_U_N_A.green)) [backward reach with edge: (event: in_U_N_c_red) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.red), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and (in_U_N_A.red or in_U_N_A.green)) or gate_U_S_Dir.opening and (gate_U_S_S.closed and (in_U_N_A.red or in_U_N_A.green)) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and (in_U_N_A.red or in_U_N_A.redred)) or not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_A.green) or (gate_U_S_Dir.opening and (gate_U_S_S.closed and (in_U_N_A.red or in_U_N_A.redred)) or gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_A.green)) [backward reach with edge: (event: in_U_N_c_red) (guard: in_U_N_A.redred) (assignments: in_U_N_A := in_U_N_A.red), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and (in_U_N_A.red or in_U_N_A.redred)) or not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_A.green) or (gate_U_S_Dir.opening and (gate_U_S_S.closed and (in_U_N_A.red or in_U_N_A.redred)) or gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_A.green)) -> not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and gate_U_S_S.closed [backward reach with edge: (event: in_U_N_c_red) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.red), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and gate_U_S_S.closed -> gate_U_S_Dir.off and gate_U_S_S.closed or (gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.bclosed) or gate_U_S_Dir.opening and gate_U_S_S.closed) [backward reach with edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or (gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.bclosed) or gate_U_S_Dir.opening and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.fclosed) or (gate_U_S_Dir.closing and gate_U_S_S.bclosed or gate_U_S_Dir.opening and gate_U_S_S.closed) [backward reach with edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.fclosed) or (gate_U_S_Dir.closing and gate_U_S_S.bclosed or gate_U_S_Dir.opening and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed or (gate_U_S_Dir.closing and not gate_U_S_S.fopen and (not gate_U_S_S.bopen and not gate_U_S_S.open) or gate_U_S_Dir.opening and gate_U_S_S.closed) [backward reach with edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or (gate_U_S_Dir.closing and not gate_U_S_S.fopen and (not gate_U_S_S.bopen and not gate_U_S_S.open) or gate_U_S_Dir.opening and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.fopen) or (gate_U_S_Dir.closing and gate_U_S_S.fclosed or (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.middle) or gate_U_S_Dir.opening and gate_U_S_S.closed)) [backward reach with edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.fopen) or (gate_U_S_Dir.closing and gate_U_S_S.fclosed or (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.middle) or gate_U_S_Dir.opening and gate_U_S_S.closed)) -> gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and not gate_U_S_S.fclosed and (not gate_U_S_S.middle and not gate_U_S_S.open) or (gate_U_S_Dir.closing and (gate_U_S_S.fclosed or gate_U_S_S.middle) or gate_U_S_Dir.opening and gate_U_S_S.closed) [backward reach with edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and not gate_U_S_S.fclosed and (not gate_U_S_S.middle and not gate_U_S_S.open) or (gate_U_S_Dir.closing and (gate_U_S_S.fclosed or gate_U_S_S.middle) or gate_U_S_Dir.opening and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen) or (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.bopen) or (gate_U_S_Dir.closing and gate_U_S_S.middle or gate_U_S_Dir.opening and gate_U_S_S.closed)) [backward reach with edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen) or (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.bopen) or (gate_U_S_Dir.closing and gate_U_S_S.middle or gate_U_S_Dir.opening and gate_U_S_S.closed)) -> <bdd 14n 9p> [backward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> gate_U_S_Dir.off and (in_U_N_A.red or in_U_N_A.redred)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 14n 9p> -> <bdd 12n 13p> [backward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening and (in_U_N_A.red or in_U_N_A.redred)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 12n 13p> -> <bdd 13n 21p> [backward reach with edge: (event: in_U_N_c_red) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.red), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 13n 21p> -> true [backward reach with edge: (event: in_U_N_c_red) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.red), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) -> not gate_U_S_Dir.closing and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) [forward reach with edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.closing and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) -> not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) [forward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> gate_U_S_Dir.off and (in_U_N_A.red or in_U_N_A.redred)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red) -> <bdd 11n 4p> [forward reach with edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 11n 4p> -> not gate_U_S_Dir.opening and gate_U_S_S.closed and ((in_U_N_A.red or in_U_N_A.redred) and in_U_N_S.red) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.redgreen and in_U_N_S.red) or (gate_U_S_Dir.opening and gate_U_S_S.closed and ((in_U_N_A.red or in_U_N_A.redred) and in_U_N_S.red) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.redgreen and in_U_N_S.red)) [forward reach with edge: (event: in_U_N_c_redred) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed and ((in_U_N_A.red or in_U_N_A.redred) and in_U_N_S.red) or not gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.redgreen and in_U_N_S.red) or (gate_U_S_Dir.opening and gate_U_S_S.closed and ((in_U_N_A.red or in_U_N_A.redred) and in_U_N_S.red) or gate_U_S_Dir.opening and gate_U_S_S.closed and (in_U_N_A.redgreen and in_U_N_S.red)) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) [forward reach with edge: (event: in_U_N_c_green) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.green), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and ((gate_U_S_S.closed or gate_U_S_S.bclosed) and in_U_N_S.red) [forward reach with edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and ((gate_U_S_S.closed or gate_U_S_S.bclosed) and in_U_N_S.red) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or (gate_U_S_Dir.opening and ((gate_U_S_S.closed or gate_U_S_S.fclosed) and in_U_N_S.red) or gate_U_S_Dir.opening and (gate_U_S_S.bclosed and in_U_N_S.red)) [forward reach with edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or (gate_U_S_Dir.opening and ((gate_U_S_S.closed or gate_U_S_S.fclosed) and in_U_N_S.red) or gate_U_S_Dir.opening and (gate_U_S_S.bclosed and in_U_N_S.red)) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and not gate_U_S_S.fopen and (not gate_U_S_S.bopen and (not gate_U_S_S.open and in_U_N_S.red)) [forward reach with edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and not gate_U_S_S.fopen and (not gate_U_S_S.bopen and (not gate_U_S_S.open and in_U_N_S.red)) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and ((gate_U_S_S.closed or gate_U_S_S.fopen) and in_U_N_S.red) or (gate_U_S_Dir.opening and (gate_U_S_S.fclosed and in_U_N_S.red) or gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.middle) and in_U_N_S.red)) [forward reach with edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and ((gate_U_S_S.closed or gate_U_S_S.fopen) and in_U_N_S.red) or (gate_U_S_Dir.opening and (gate_U_S_S.fclosed and in_U_N_S.red) or gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.middle) and in_U_N_S.red)) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or (gate_U_S_Dir.opening and not gate_U_S_S.fclosed and (not gate_U_S_S.middle and (not gate_U_S_S.open and in_U_N_S.red)) or gate_U_S_Dir.opening and ((gate_U_S_S.fclosed or gate_U_S_S.middle) and in_U_N_S.red)) [forward reach with edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or (gate_U_S_Dir.opening and not gate_U_S_S.fclosed and (not gate_U_S_S.middle and (not gate_U_S_S.open and in_U_N_S.red)) or gate_U_S_Dir.opening and ((gate_U_S_S.fclosed or gate_U_S_S.middle) and in_U_N_S.red)) -> not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_S.red)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_S.red) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_S.red)) [forward reach with edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and (gate_U_S_S.closed and in_U_N_S.red) or gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_S.red)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_S.red) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_S.red)) -> <bdd 17n 9p> [forward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening and (in_U_N_A.red or in_U_N_A.redred)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 17n 9p> -> <bdd 15n 11p> [forward reach with edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 15n 11p> -> <bdd 20n 32p> [forward reach with edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 20n 32p> -> <bdd 19n 25p> [forward reach with edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 19n 25p> -> <bdd 22n 36p> [forward reach with edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 22n 36p> -> <bdd 24n 50p> [forward reach with edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 24n 50p> -> <bdd 25n 57p> [forward reach with edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.green), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 25n 57p> -> <bdd 26n 61p> [forward reach with edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 26n 61p> -> <bdd 22n 47p> [forward reach with edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 22n 47p> -> <bdd 23n 61p> [forward reach with edge: (event: in_U_N_c_red) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.red), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 23n 61p> -> <bdd 23n 57p> [forward reach with edge: (event: in_U_N_c_red) (guard: in_U_N_A.redred) (assignments: in_U_N_A := in_U_N_A.red), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 23n 57p> -> <bdd 22n 57p> [forward reach with edge: (event: in_U_N_c_green) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.green), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: <bdd 22n 57p> -> <bdd 22n 69p> [forward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> gate_U_S_Dir.off and (in_U_N_A.red or in_U_N_A.redred)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 22n 69p> -> <bdd 26n 77p> [forward reach with edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 26n 77p> -> <bdd 24n 73p> [forward reach with edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 24n 73p> -> <bdd 26n 81p> [forward reach with edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 26n 81p> -> <bdd 25n 85p> [forward reach with edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.green), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 25n 85p> -> <bdd 15n 60p> [forward reach with edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 15n 60p> -> <bdd 13n 54p> [forward reach with edge: (event: in_U_N_c_redred) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 13n 54p> -> <bdd 9n 18p> [forward reach with edge: (event: in_U_N_c_green) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.green), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 4.
+Forward controlled-behavior: <bdd 9n 18p> -> <bdd 14n 60p> [forward reach with edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.redgreenred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 14n 60p> -> <bdd 13n 42p> [forward reach with edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.redgreenred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 13n 42p> -> <bdd 14n 54p> [forward reach with edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.lowred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 14n 54p> -> <bdd 15n 60p> [forward reach with edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.greenred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 15n 60p> -> <bdd 14n 48p> [forward reach with edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.redgreenred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 14n 48p> -> <bdd 16n 66p> [forward reach with edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.lowred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 16n 66p> -> <bdd 15n 54p> [forward reach with edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.greenred), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 15n 54p> -> <bdd 11n 30p> [forward reach with edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.redgreen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 11n 30p> -> true [forward reach with edge: (event: in_U_N_c_red) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.red), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 5.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening): guard: gate_U_S_Dir.off -> not gate_U_S_Dir.closing and not gate_U_S_Dir.opening.
+Edge (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening): guard: gate_U_S_Dir.closing -> not gate_U_S_Dir.off and not gate_U_S_Dir.opening.
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> gate_U_S_Dir.off and (in_U_N_A.red or in_U_N_A.redred)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: gate_U_S_Dir.off and (in_U_N_A.red or in_U_N_A.redred) -> gate_U_S_Dir.off and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and (in_U_N_A.red or in_U_N_A.redred))) or (gate_U_S_Dir.off and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and (in_U_N_A.red or in_U_N_A.redred)) or gate_U_S_Dir.off and (gate_U_S_S.middle and (in_U_N_A.red or in_U_N_A.redred))).
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening and (in_U_N_A.red or in_U_N_A.redred)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: gate_U_S_Dir.opening and (in_U_N_A.red or in_U_N_A.redred) -> gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and (in_U_N_A.red or in_U_N_A.redred))) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and (in_U_N_A.red or in_U_N_A.redred)) or gate_U_S_Dir.opening and (gate_U_S_S.middle and (in_U_N_A.red or in_U_N_A.redred))).
+Edge (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off): guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening.
+Edge (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off): guard: gate_U_S_Dir.closing -> not gate_U_S_Dir.off and not gate_U_S_Dir.opening.
+Edge (event: in_U_N_c_redgreen) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redgreen): guard: in_U_N_A.red -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red))).
+Edge (event: in_U_N_c_redgreen) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.redgreen): guard: in_U_N_A.green -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.green)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.green) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.green)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.green)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.green) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.green))).
+Edge (event: in_U_N_c_redred) (guard: in_U_N_A.red) (assignments: in_U_N_A := in_U_N_A.redred): guard: in_U_N_A.red -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red))).
+Edge (event: in_U_N_c_red) (guard: in_U_N_A.green) (assignments: in_U_N_A := in_U_N_A.red): guard: in_U_N_A.green -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.green)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.green) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.green)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.green)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.green) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.green))).
+Edge (event: in_U_N_c_red) (guard: in_U_N_A.redred) (assignments: in_U_N_A := in_U_N_A.red): guard: in_U_N_A.redred -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redred)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redred) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redred)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redred)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redred) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redred))).
+Edge (event: in_U_N_c_red) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.red): guard: in_U_N_A.redgreen -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen))).
+Edge (event: in_U_N_c_green) (guard: in_U_N_A.redgreen) (assignments: in_U_N_A := in_U_N_A.green): guard: in_U_N_A.redgreen -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen))).
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed)
+    Edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open)
+    Edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off -> not gate_U_S_Dir.closing and not gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing -> not gate_U_S_Dir.off and not gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> gate_U_S_Dir.off and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and (in_U_N_A.red or in_U_N_A.redred))) or (gate_U_S_Dir.off and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and (in_U_N_A.red or in_U_N_A.redred)) or gate_U_S_Dir.off and (gate_U_S_S.middle and (in_U_N_A.red or in_U_N_A.redred)))) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and (in_U_N_A.red or in_U_N_A.redred))) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and (in_U_N_A.red or in_U_N_A.redred)) or gate_U_S_Dir.opening and (gate_U_S_S.middle and (in_U_N_A.red or in_U_N_A.redred)))) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing -> not gate_U_S_Dir.off and not gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redred and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_r_on) (guard: in_U_N_A.redgreen and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_g_on) (guard: in_U_N_A.redgreen and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.off) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_s_on) (guard: in_U_N_A.redred and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.redgreenred)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.red) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_r_off) (guard: in_U_N_A.green and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.greenred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.green) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.redgreen) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.lowred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.red and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_g_off) (guard: in_U_N_A.redred and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redred)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.lowred) (assignments: in_U_N_S := in_U_N_S.off)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.redred) (assignments: in_U_N_S := in_U_N_S.red)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.greenred) (assignments: in_U_N_S := in_U_N_S.green)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.red and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.green and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_u_s_off) (guard: in_U_N_A.redgreen and in_U_N_S.redgreenred) (assignments: in_U_N_S := in_U_N_S.redgreen)
+    Edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.red -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red)))) (assignments: in_U_N_A := in_U_N_A.redgreen)
+    Edge: (event: in_U_N_c_redgreen) (guard: in_U_N_A.green -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.green)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.green) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.green)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.green)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.green) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.green)))) (assignments: in_U_N_A := in_U_N_A.redgreen)
+    Edge: (event: in_U_N_c_redred) (guard: in_U_N_A.red -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red)))) (assignments: in_U_N_A := in_U_N_A.redred)
+    Edge: (event: in_U_N_c_red) (guard: in_U_N_A.green -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.green)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.green) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.green)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.green)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.green) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.green)))) (assignments: in_U_N_A := in_U_N_A.red)
+    Edge: (event: in_U_N_c_red) (guard: in_U_N_A.redred -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redred)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redred) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redred)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redred)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redred) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redred)))) (assignments: in_U_N_A := in_U_N_A.red)
+    Edge: (event: in_U_N_c_red) (guard: in_U_N_A.redgreen -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen)))) (assignments: in_U_N_A := in_U_N_A.red)
+    Edge: (event: in_U_N_c_green) (guard: in_U_N_A.redgreen -> not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen)))) (assignments: in_U_N_A := in_U_N_A.green)
+
+Controlled system:                     exactly 672 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)
+Initial (controlled system):           gate_U_S_Dir.off and gate_U_S_S.closed and (in_U_N_A.red and in_U_N_S.red)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event gate_U_S_c_open: guard: not gate_U_S_Dir.opening -> true [assume not gate_U_S_Dir.opening].
+  Event gate_U_S_c_close: guard: (gate_U_S_Dir.closing or (gate_U_S_S.bclosed or gate_U_S_S.middle) or (gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.redred))) and (gate_U_S_Dir.closing or not gate_U_S_S.bclosed and not gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.redred)) and ((gate_U_S_Dir.closing or not gate_U_S_S.middle or (in_U_N_A.red or in_U_N_A.redred)) and not gate_U_S_Dir.closing) -> true [assume (gate_U_S_Dir.closing or (gate_U_S_S.bclosed or gate_U_S_S.middle) or (gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.redred))) and (gate_U_S_Dir.closing or not gate_U_S_S.bclosed and not gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.redred)) and ((gate_U_S_Dir.closing or not gate_U_S_S.middle or (in_U_N_A.red or in_U_N_A.redred)) and not gate_U_S_Dir.closing)].
+  Event gate_U_S_c_stop: guard: not gate_U_S_Dir.off -> true [assume not gate_U_S_Dir.off].
+  Event in_U_N_c_redgreen: guard: (gate_U_S_Dir.opening or (gate_U_S_S.bclosed or gate_U_S_S.middle) or (gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.green))) and ((gate_U_S_Dir.opening or not gate_U_S_S.bclosed and not gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.green)) and (gate_U_S_Dir.opening or not gate_U_S_S.middle or (in_U_N_A.red or in_U_N_A.green))) and ((not gate_U_S_Dir.opening or (gate_U_S_S.bclosed or gate_U_S_S.middle) or (gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.green))) and ((not gate_U_S_Dir.opening or not gate_U_S_S.bclosed and not gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.green)) and (not gate_U_S_Dir.opening or not gate_U_S_S.middle or (in_U_N_A.red or in_U_N_A.green)))) -> true [assume (gate_U_S_Dir.opening or (gate_U_S_S.bclosed or gate_U_S_S.middle) or (gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.green))) and ((gate_U_S_Dir.opening or not gate_U_S_S.bclosed and not gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.green)) and (gate_U_S_Dir.opening or not gate_U_S_S.middle or (in_U_N_A.red or in_U_N_A.green))) and ((not gate_U_S_Dir.opening or (gate_U_S_S.bclosed or gate_U_S_S.middle) or (gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.green))) and ((not gate_U_S_Dir.opening or not gate_U_S_S.bclosed and not gate_U_S_S.bopen or (in_U_N_A.red or in_U_N_A.green)) and (not gate_U_S_Dir.opening or not gate_U_S_S.middle or (in_U_N_A.red or in_U_N_A.green))))].
+  Event in_U_N_c_redred: guard: not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red))) -> true [assume not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.red)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.red) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.red)))].
+  Event in_U_N_c_red: guard: <bdd 7n 12p> -> true [assume <bdd 7n 12p>].
+  Event in_U_N_c_green: guard: not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen))) -> true [assume not gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (not gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or not gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and (not gate_U_S_S.bopen and in_U_N_A.redgreen)) or (gate_U_S_Dir.opening and ((gate_U_S_S.bclosed or gate_U_S_S.bopen) and in_U_N_A.redgreen) or gate_U_S_Dir.opening and (gate_U_S_S.middle and in_U_N_A.redgreen)))].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_170_sup.cif".

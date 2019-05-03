@@ -1,0 +1,166 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_52.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name           Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_zdown        0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_zpos_atdown  1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_zpos_atup    2      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  Total                                         3      6         12          12          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 7
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    2 (total)                 0.29 (avg/edge) [before]
+    Total span:                    2 (total)                 0.29 (avg/edge) [iteration 1]
+    Total span:                    2 (total)                 0.29 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 3
+
+    Total span:                    2 (total)                 0.29 (avg/edge) [before]
+    Total span:                    2 (total)                 0.29 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_zpos_atup.On
+Initial   (aut/locs init predicate):     S_zpos_atdown.Off
+Initial   (aut/locs init predicate):     A_zdown.Off
+Initial   (aut/locs init predicate):     true
+Initial   (auts/locs init predicate):    A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On)
+Initial   (uncontrolled system):         A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On)
+Initial   (system, combined init/inv):   A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_zpos_atup.On
+Marked    (aut/locs marker predicate):   S_zpos_atdown.Off
+Marked    (aut/locs marker predicate):   A_zdown.Off
+Marked    (aut/locs marker predicate):   true
+Marked    (auts/locs marker predicate):  A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On)
+Marked    (uncontrolled system):         A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On)
+Marked    (system, combined marked/inv): A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On)
+
+State/event exclusion requirements:
+  Event "A_zdown_c_off" needs:
+    S_zpos_atdown.On
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_zpos_atup_u_off) (guard: S_zpos_atup.On) (assignments: S_zpos_atup := S_zpos_atup.Off)
+    Edge: (event: S_zpos_atup_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atup := S_zpos_atup.On)
+    Edge: (event: S_zpos_atdown_u_off) (guard: S_zpos_atdown.On) (assignments: S_zpos_atdown := S_zpos_atdown.Off)
+    Edge: (event: S_zpos_atdown_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atdown := S_zpos_atdown.On)
+    Edge: (event: A_zdown_c_off) (guard: A_zdown.On) (assignments: A_zdown := A_zdown.Off)
+    Edge: (event: A_zdown_c_on) (guard: A_zdown.Off) (assignments: A_zdown := A_zdown.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_zdown_c_off) (guard: A_zdown.On) (assignments: A_zdown := A_zdown.Off): guard: A_zdown.On -> A_zdown.On and S_zpos_atdown.On [requirement: S_zpos_atdown.On].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_zpos_atup_u_off) (guard: S_zpos_atup.On) (assignments: S_zpos_atup := S_zpos_atup.Off)
+    Edge: (event: S_zpos_atup_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atup := S_zpos_atup.On)
+    Edge: (event: S_zpos_atdown_u_off) (guard: S_zpos_atdown.On) (assignments: S_zpos_atdown := S_zpos_atdown.Off)
+    Edge: (event: S_zpos_atdown_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atdown := S_zpos_atdown.On)
+    Edge: (event: A_zdown_c_off) (guard: A_zdown.On -> A_zdown.On and S_zpos_atdown.On) (assignments: A_zdown := A_zdown.Off)
+    Edge: (event: A_zdown_c_on) (guard: A_zdown.Off) (assignments: A_zdown := A_zdown.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On) -> A_zdown.Off and S_zpos_atdown.Off [backward reach with edge: (event: S_zpos_atup_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atup := S_zpos_atup.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_zdown.Off and S_zpos_atdown.Off -> A_zdown.Off [backward reach with edge: (event: S_zpos_atdown_u_off) (guard: S_zpos_atdown.On) (assignments: S_zpos_atdown := S_zpos_atdown.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_zdown.Off -> A_zdown.Off or S_zpos_atdown.On [backward reach with edge: (event: A_zdown_c_off) (guard: A_zdown.On -> A_zdown.On and S_zpos_atdown.On) (assignments: A_zdown := A_zdown.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_zdown.Off or S_zpos_atdown.On -> A_zdown.Off or (S_zpos_atdown.On or S_zpos_atup.Off) [backward reach with edge: (event: S_zpos_atdown_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atdown := S_zpos_atdown.On), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: A_zdown.Off or (S_zpos_atdown.On or S_zpos_atup.Off) -> true [backward reach with edge: (event: S_zpos_atup_u_off) (guard: S_zpos_atup.On) (assignments: S_zpos_atup := S_zpos_atup.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 4.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On) -> A_zdown.Off and S_zpos_atdown.Off [forward reach with edge: (event: S_zpos_atup_u_off) (guard: S_zpos_atup.On) (assignments: S_zpos_atup := S_zpos_atup.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_zdown.Off and S_zpos_atdown.Off -> A_zdown.Off and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off)) [forward reach with edge: (event: S_zpos_atdown_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atdown := S_zpos_atdown.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_zdown.Off and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off)) -> S_zpos_atdown.Off or S_zpos_atup.Off [forward reach with edge: (event: A_zdown_c_on) (guard: A_zdown.Off) (assignments: A_zdown := A_zdown.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: S_zpos_atdown.Off or S_zpos_atup.Off [fixed point].
+Controlled behavior: true -> S_zpos_atdown.Off or S_zpos_atup.Off.
+
+Round 1: finished, need another round.
+
+Round 2: started.
+
+Round 2: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On) -> A_zdown.Off and S_zpos_atdown.Off [backward reach with edge: (event: S_zpos_atup_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atup := S_zpos_atup.On), restricted to current/previous controlled-behavior predicate: S_zpos_atdown.Off or S_zpos_atup.Off]
+Backward controlled-behavior: A_zdown.Off and S_zpos_atdown.Off -> A_zdown.Off and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off)) [backward reach with edge: (event: S_zpos_atdown_u_off) (guard: S_zpos_atdown.On) (assignments: S_zpos_atdown := S_zpos_atdown.Off), restricted to current/previous controlled-behavior predicate: S_zpos_atdown.Off or S_zpos_atup.Off]
+Backward controlled-behavior: A_zdown.Off and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off)) -> (A_zdown.Off or (S_zpos_atdown.Off or S_zpos_atup.Off)) and ((A_zdown.Off or S_zpos_atdown.On) and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off))) [backward reach with edge: (event: A_zdown_c_off) (guard: A_zdown.On -> A_zdown.On and S_zpos_atdown.On) (assignments: A_zdown := A_zdown.Off), restricted to current/previous controlled-behavior predicate: S_zpos_atdown.Off or S_zpos_atup.Off]
+Backward reachability: iteration 2.
+Backward controlled-behavior: (A_zdown.Off or (S_zpos_atdown.Off or S_zpos_atup.Off)) and ((A_zdown.Off or S_zpos_atdown.On) and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off))) -> (A_zdown.Off or S_zpos_atup.Off) and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off)) [backward reach with edge: (event: S_zpos_atdown_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atdown := S_zpos_atdown.On), restricted to current/previous controlled-behavior predicate: S_zpos_atdown.Off or S_zpos_atup.Off]
+Backward reachability: iteration 3.
+Backward controlled-behavior: (A_zdown.Off or S_zpos_atup.Off) and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off)) -> S_zpos_atdown.Off or S_zpos_atup.Off [backward reach with edge: (event: S_zpos_atup_u_off) (guard: S_zpos_atup.On) (assignments: S_zpos_atup := S_zpos_atup.Off), restricted to current/previous controlled-behavior predicate: S_zpos_atdown.Off or S_zpos_atup.Off]
+Backward reachability: iteration 4.
+Backward controlled-behavior: S_zpos_atdown.Off or S_zpos_atup.Off [fixed point].
+
+Round 2: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: S_zpos_atdown.On and S_zpos_atup.On [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 2: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_zdown_c_off) (guard: A_zdown.On -> A_zdown.On and S_zpos_atdown.On) (assignments: A_zdown := A_zdown.Off): guard: A_zdown.On and S_zpos_atdown.On -> A_zdown.On and (S_zpos_atdown.On and S_zpos_atup.Off).
+Edge (event: A_zdown_c_on) (guard: A_zdown.Off) (assignments: A_zdown := A_zdown.On): guard: A_zdown.Off -> A_zdown.Off and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off)).
+
+Final synthesis result:
+  State: (controlled-behavior: S_zpos_atdown.Off or S_zpos_atup.Off)
+    Edge: (event: S_zpos_atup_u_off) (guard: S_zpos_atup.On) (assignments: S_zpos_atup := S_zpos_atup.Off)
+    Edge: (event: S_zpos_atup_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atup := S_zpos_atup.On)
+    Edge: (event: S_zpos_atdown_u_off) (guard: S_zpos_atdown.On) (assignments: S_zpos_atdown := S_zpos_atdown.Off)
+    Edge: (event: S_zpos_atdown_u_on) (guard: S_zpos_atdown.Off and S_zpos_atup.Off) (assignments: S_zpos_atdown := S_zpos_atdown.On)
+    Edge: (event: A_zdown_c_off) (guard: A_zdown.On -> A_zdown.On and (S_zpos_atdown.On and S_zpos_atup.Off)) (assignments: A_zdown := A_zdown.Off)
+    Edge: (event: A_zdown_c_on) (guard: A_zdown.Off -> A_zdown.Off and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off))) (assignments: A_zdown := A_zdown.On)
+
+Controlled system:                     exactly 6 states.
+
+Initial (synthesis result):            S_zpos_atdown.Off or S_zpos_atup.Off
+Initial (uncontrolled system):         A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On)
+Initial (controlled system):           A_zdown.Off and (S_zpos_atdown.Off and S_zpos_atup.On)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_zdown_c_off: guard: A_zdown.On and (S_zpos_atdown.On and S_zpos_atup.Off) -> true [assume A_zdown.On and (S_zpos_atdown.On and S_zpos_atup.Off)].
+  Event A_zdown_c_on: guard: A_zdown.Off and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off)) -> true [assume A_zdown.Off and (A_zdown.On or (S_zpos_atdown.Off or S_zpos_atup.Off))].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_52_sup.cif".

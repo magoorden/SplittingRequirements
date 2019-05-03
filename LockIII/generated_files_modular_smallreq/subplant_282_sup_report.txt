@@ -1,0 +1,214 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_282.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name          Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   button8       0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   gate_U_S_Dir  1      2 * 2     3 * 2       4 * 2       75%
+  3      location pointer  n/a   gate_U_S_S    2      3 * 2     7 * 2       8 * 2       ~88%
+  -----  ----------------  ----  ------------  -----  --------  ----------  ----------  -----------
+  Total                                        3      12        24          28          ~86%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 18
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                   12 (total)                 0.67 (avg/edge) [before]
+    Total span:                   12 (total)                 0.67 (avg/edge) [iteration 1]
+    Total span:                   12 (total)                 0.67 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 3
+
+    Total span:                   12 (total)                 0.67 (avg/edge) [before]
+    Total span:                   12 (total)                 0.67 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     button8.released
+Initial   (aut/locs init predicate):     gate_U_S_S.closed
+Initial   (aut/locs init predicate):     gate_U_S_Dir.off
+Initial   (auts/locs init predicate):    button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed)
+Initial   (uncontrolled system):         button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed)
+Initial   (system, combined init/inv):   button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   button8.released
+Marked    (aut/locs marker predicate):   gate_U_S_S.closed
+Marked    (aut/locs marker predicate):   gate_U_S_Dir.off
+Marked    (auts/locs marker predicate):  button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed)
+Marked    (uncontrolled system):         button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed)
+Marked    (system, combined marked/inv): button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed)
+
+State/event exclusion requirements:
+  Event "gate_U_S_c_close" needs:
+    button8.pushed
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: button8_u_push) (guard: button8.released) (assignments: button8 := button8.pushed)
+    Edge: (event: button8_u_release) (guard: button8.pushed) (assignments: button8 := button8.released)
+    Edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed)
+    Edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open)
+    Edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "gate_U_S_Dir" (group: 1, domain: 2+3, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "gate_U_S_S" (group: 2, domain: 4+5, BDD variables: 3, CIF/BDD values: 7/8)].
+
+Extended controlled-behavior predicate using variable ranges: true.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: gate_U_S_Dir.off -> button8.pushed and gate_U_S_Dir.off [requirement: button8.pushed].
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: gate_U_S_Dir.opening -> button8.pushed and gate_U_S_Dir.opening [requirement: button8.pushed].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: button8_u_push) (guard: button8.released) (assignments: button8 := button8.pushed)
+    Edge: (event: button8_u_release) (guard: button8.pushed) (assignments: button8 := button8.released)
+    Edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed)
+    Edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open)
+    Edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> button8.pushed and gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> button8.pushed and gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed [backward reach with edge: (event: button8_u_release) (guard: button8.pushed) (assignments: button8 := button8.released), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed -> not gate_U_S_Dir.closing and gate_U_S_S.closed [backward reach with edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not gate_U_S_Dir.closing and gate_U_S_S.closed -> not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and gate_U_S_S.closed [backward reach with edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and gate_U_S_S.closed -> gate_U_S_Dir.off and gate_U_S_S.closed or (gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.bclosed) or gate_U_S_Dir.opening and gate_U_S_S.closed) [backward reach with edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or (gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.bclosed) or gate_U_S_Dir.opening and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.fclosed) or (gate_U_S_Dir.closing and gate_U_S_S.bclosed or gate_U_S_Dir.opening and gate_U_S_S.closed) [backward reach with edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.fclosed) or (gate_U_S_Dir.closing and gate_U_S_S.bclosed or gate_U_S_Dir.opening and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed or (gate_U_S_Dir.closing and not gate_U_S_S.fopen and (not gate_U_S_S.bopen and not gate_U_S_S.open) or gate_U_S_Dir.opening and gate_U_S_S.closed) [backward reach with edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or (gate_U_S_Dir.closing and not gate_U_S_S.fopen and (not gate_U_S_S.bopen and not gate_U_S_S.open) or gate_U_S_Dir.opening and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.fopen) or (gate_U_S_Dir.closing and gate_U_S_S.fclosed or (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.middle) or gate_U_S_Dir.opening and gate_U_S_S.closed)) [backward reach with edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and (gate_U_S_S.closed or gate_U_S_S.fopen) or (gate_U_S_Dir.closing and gate_U_S_S.fclosed or (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.middle) or gate_U_S_Dir.opening and gate_U_S_S.closed)) -> gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and not gate_U_S_S.fclosed and (not gate_U_S_S.middle and not gate_U_S_S.open) or (gate_U_S_Dir.closing and (gate_U_S_S.fclosed or gate_U_S_S.middle) or gate_U_S_Dir.opening and gate_U_S_S.closed) [backward reach with edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and not gate_U_S_S.fclosed and (not gate_U_S_S.middle and not gate_U_S_S.open) or (gate_U_S_Dir.closing and (gate_U_S_S.fclosed or gate_U_S_S.middle) or gate_U_S_Dir.opening and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen) or (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.bopen) or (gate_U_S_Dir.closing and gate_U_S_S.middle or gate_U_S_Dir.opening and gate_U_S_S.closed)) [backward reach with edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed or gate_U_S_Dir.closing and not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen) or (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.bopen) or (gate_U_S_Dir.closing and gate_U_S_S.middle or gate_U_S_Dir.opening and gate_U_S_S.closed)) -> button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed) or button8.released and gate_U_S_Dir.closing and (not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen)) or (button8.released and (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.bopen)) or button8.released and (gate_U_S_Dir.closing and gate_U_S_S.middle)) or (button8.released and (gate_U_S_Dir.opening and gate_U_S_S.closed) or button8.pushed and not gate_U_S_Dir.opening and (not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen)) or (button8.pushed and (not gate_U_S_Dir.opening and (gate_U_S_S.bclosed or gate_U_S_S.bopen)) or (button8.pushed and (not gate_U_S_Dir.opening and gate_U_S_S.middle) or button8.pushed and (gate_U_S_Dir.opening and gate_U_S_S.closed)))) [backward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> button8.pushed and gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed) or button8.released and gate_U_S_Dir.closing and (not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen)) or (button8.released and (gate_U_S_Dir.closing and (gate_U_S_S.bclosed or gate_U_S_S.bopen)) or button8.released and (gate_U_S_Dir.closing and gate_U_S_S.middle)) or (button8.released and (gate_U_S_Dir.opening and gate_U_S_S.closed) or button8.pushed and not gate_U_S_Dir.opening and (not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen)) or (button8.pushed and (not gate_U_S_Dir.opening and (gate_U_S_S.bclosed or gate_U_S_S.bopen)) or (button8.pushed and (not gate_U_S_Dir.opening and gate_U_S_S.middle) or button8.pushed and (gate_U_S_Dir.opening and gate_U_S_S.closed)))) -> <bdd 11n 11p> [backward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> button8.pushed and gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: <bdd 11n 11p> -> true [backward reach with edge: (event: button8_u_push) (guard: button8.released) (assignments: button8 := button8.pushed), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 4.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed) -> gate_U_S_Dir.off and gate_U_S_S.closed [forward reach with edge: (event: button8_u_push) (guard: button8.released) (assignments: button8 := button8.pushed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: gate_U_S_Dir.off and gate_U_S_S.closed -> not gate_U_S_Dir.closing and gate_U_S_S.closed [forward reach with edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.closing and gate_U_S_S.closed -> button8.released and (not gate_U_S_Dir.closing and gate_U_S_S.closed) or (button8.pushed and (not gate_U_S_Dir.opening and gate_U_S_S.closed) or button8.pushed and (gate_U_S_Dir.opening and gate_U_S_S.closed)) [forward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> button8.pushed and gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: button8.released and (not gate_U_S_Dir.closing and gate_U_S_S.closed) or (button8.pushed and (not gate_U_S_Dir.opening and gate_U_S_S.closed) or button8.pushed and (gate_U_S_Dir.opening and gate_U_S_S.closed)) -> not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and gate_U_S_S.closed [forward reach with edge: (event: button8_u_release) (guard: button8.pushed) (assignments: button8 := button8.released), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and gate_U_S_S.closed -> not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and (gate_U_S_S.closed or gate_U_S_S.bclosed) [forward reach with edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and (gate_U_S_S.closed or gate_U_S_S.bclosed) -> not gate_U_S_Dir.opening and gate_U_S_S.closed or (gate_U_S_Dir.opening and (gate_U_S_S.closed or gate_U_S_S.fclosed) or gate_U_S_Dir.opening and gate_U_S_S.bclosed) [forward reach with edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed or (gate_U_S_Dir.opening and (gate_U_S_S.closed or gate_U_S_S.fclosed) or gate_U_S_Dir.opening and gate_U_S_S.bclosed) -> not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and not gate_U_S_S.fopen and (not gate_U_S_S.bopen and not gate_U_S_S.open) [forward reach with edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and not gate_U_S_S.fopen and (not gate_U_S_S.bopen and not gate_U_S_S.open) -> not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and (gate_U_S_S.closed or gate_U_S_S.fopen) or (gate_U_S_Dir.opening and gate_U_S_S.fclosed or gate_U_S_Dir.opening and (gate_U_S_S.bclosed or gate_U_S_S.middle)) [forward reach with edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed or gate_U_S_Dir.opening and (gate_U_S_S.closed or gate_U_S_S.fopen) or (gate_U_S_Dir.opening and gate_U_S_S.fclosed or gate_U_S_Dir.opening and (gate_U_S_S.bclosed or gate_U_S_S.middle)) -> not gate_U_S_Dir.opening and gate_U_S_S.closed or (gate_U_S_Dir.opening and not gate_U_S_S.fclosed and (not gate_U_S_S.middle and not gate_U_S_S.open) or gate_U_S_Dir.opening and (gate_U_S_S.fclosed or gate_U_S_S.middle)) [forward reach with edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: not gate_U_S_Dir.opening and gate_U_S_S.closed or (gate_U_S_Dir.opening and not gate_U_S_S.fclosed and (not gate_U_S_S.middle and not gate_U_S_S.open) or gate_U_S_Dir.opening and (gate_U_S_S.fclosed or gate_U_S_S.middle)) -> (gate_U_S_Dir.opening or not gate_U_S_S.fopen) and ((gate_U_S_Dir.opening or not gate_U_S_S.fclosed and not gate_U_S_S.open) and (gate_U_S_Dir.opening or not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen))) [forward reach with edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: (gate_U_S_Dir.opening or not gate_U_S_S.fopen) and ((gate_U_S_Dir.opening or not gate_U_S_S.fclosed and not gate_U_S_S.open) and (gate_U_S_Dir.opening or not gate_U_S_S.bclosed and (not gate_U_S_S.middle and not gate_U_S_S.bopen))) -> <bdd 10n 11p> [forward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> button8.pushed and gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 10n 11p> -> <bdd 10n 13p> [forward reach with edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: <bdd 10n 13p> -> true [forward reach with edge: (event: button8_u_release) (guard: button8.pushed) (assignments: button8 := button8.released), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 4.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening): guard: gate_U_S_Dir.off -> not gate_U_S_Dir.closing and not gate_U_S_Dir.opening.
+Edge (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening): guard: gate_U_S_Dir.closing -> not gate_U_S_Dir.off and not gate_U_S_Dir.opening.
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> button8.pushed and gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: button8.pushed and gate_U_S_Dir.off -> button8.pushed and ((button8.released or not gate_U_S_Dir.closing) and (button8.released or not gate_U_S_Dir.opening)).
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> button8.pushed and gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: button8.pushed and gate_U_S_Dir.opening -> button8.pushed and (button8.released or gate_U_S_Dir.opening).
+Edge (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off): guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening.
+Edge (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off): guard: gate_U_S_Dir.closing -> not gate_U_S_Dir.off and not gate_U_S_Dir.opening.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: button8_u_push) (guard: button8.released) (assignments: button8 := button8.pushed)
+    Edge: (event: button8_u_release) (guard: button8.pushed) (assignments: button8 := button8.released)
+    Edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed)
+    Edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open)
+    Edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off -> not gate_U_S_Dir.closing and not gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing -> not gate_U_S_Dir.off and not gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> button8.pushed and ((button8.released or not gate_U_S_Dir.closing) and (button8.released or not gate_U_S_Dir.opening))) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> button8.pushed and (button8.released or gate_U_S_Dir.opening)) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening -> gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing -> not gate_U_S_Dir.off and not gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+
+Controlled system:                     exactly 42 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed)
+Initial (controlled system):           button8.released and (gate_U_S_Dir.off and gate_U_S_S.closed)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event gate_U_S_c_open: guard: not gate_U_S_Dir.opening -> true [assume not gate_U_S_Dir.opening].
+  Event gate_U_S_c_close: guard: button8.pushed and (button8.released or not gate_U_S_Dir.closing) -> true [assume button8.pushed and (button8.released or not gate_U_S_Dir.closing)].
+  Event gate_U_S_c_stop: guard: not gate_U_S_Dir.off -> true [assume not gate_U_S_Dir.off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_282_sup.cif".

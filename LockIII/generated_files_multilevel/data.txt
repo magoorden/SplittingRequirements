@@ -1,0 +1,3 @@
+Name,Total time,Create matrix time,Synthesis time,Nonconflicting check time,Clustering time,Number of supervisors,Total states,Conflict
+14_LockIII_largereq,42602,12,5127,31246,986,7,1.4501696439148636e19,0
+14_LockIII_smallreq,38876,20,2898,29032,1499,34,4.622178534e9,0

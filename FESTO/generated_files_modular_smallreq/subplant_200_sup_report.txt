@@ -1,0 +1,144 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_200.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name     Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_gate2  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   STimer   1      2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  -------  -----  --------  ----------  ----------  -----------
+  Total                                   2      6         10          12          ~83%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 6
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 10
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [iteration 1]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 2
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     A_gate2.Off
+Initial   (aut/locs init predicate):     STimer.Off
+Initial   (auts/locs init predicate):    A_gate2.Off and STimer.Off
+Initial   (uncontrolled system):         A_gate2.Off and STimer.Off
+Initial   (system, combined init/inv):   A_gate2.Off and STimer.Off
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   A_gate2.Off
+Marked    (aut/locs marker predicate):   STimer.Off
+Marked    (auts/locs marker predicate):  A_gate2.Off and STimer.Off
+Marked    (uncontrolled system):         A_gate2.Off and STimer.Off
+Marked    (system, combined marked/inv): A_gate2.Off and STimer.Off
+
+State/event exclusion requirements:
+  Event "A_gate2_c_on" needs:
+    STimer.Timeout
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: A_gate2_c_off) (guard: A_gate2.On) (assignments: A_gate2 := A_gate2.Off)
+    Edge: (event: A_gate2_c_on) (guard: A_gate2.Off) (assignments: A_gate2 := A_gate2.On)
+    Edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running)
+    Edge: (event: STimer_u_timeout) (guard: STimer.Running) (assignments: STimer := STimer.Timeout)
+    Edge: (event: STimer_c_reset) (guard: STimer.Running) (assignments: STimer := STimer.Off)
+    Edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "STimer" (group: 1, domain: 2+3, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: true.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_gate2_c_on) (guard: A_gate2.Off) (assignments: A_gate2 := A_gate2.On): guard: A_gate2.Off -> A_gate2.Off and STimer.Timeout [requirement: STimer.Timeout].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: A_gate2_c_off) (guard: A_gate2.On) (assignments: A_gate2 := A_gate2.Off)
+    Edge: (event: A_gate2_c_on) (guard: A_gate2.Off -> A_gate2.Off and STimer.Timeout) (assignments: A_gate2 := A_gate2.On)
+    Edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running)
+    Edge: (event: STimer_u_timeout) (guard: STimer.Running) (assignments: STimer := STimer.Timeout)
+    Edge: (event: STimer_c_reset) (guard: STimer.Running) (assignments: STimer := STimer.Off)
+    Edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_gate2.Off and STimer.Off [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_gate2.Off and STimer.Off -> STimer.Off [backward reach with edge: (event: A_gate2_c_off) (guard: A_gate2.On) (assignments: A_gate2 := A_gate2.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: STimer.Off -> not STimer.Timeout [backward reach with edge: (event: STimer_c_reset) (guard: STimer.Running) (assignments: STimer := STimer.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not STimer.Timeout -> true [backward reach with edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_gate2.Off and STimer.Off [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_gate2.Off and STimer.Off -> A_gate2.Off and not STimer.Timeout [forward reach with edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate2.Off and not STimer.Timeout -> A_gate2.Off [forward reach with edge: (event: STimer_u_timeout) (guard: STimer.Running) (assignments: STimer := STimer.Timeout), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: A_gate2.Off -> (A_gate2.Off or not STimer.Off) and (A_gate2.Off or not STimer.Running) [forward reach with edge: (event: A_gate2_c_on) (guard: A_gate2.Off -> A_gate2.Off and STimer.Timeout) (assignments: A_gate2 := A_gate2.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: (A_gate2.Off or not STimer.Off) and (A_gate2.Off or not STimer.Running) -> A_gate2.Off or not STimer.Running [forward reach with edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: A_gate2.Off or not STimer.Running -> true [forward reach with edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 4.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_gate2_c_off) (guard: A_gate2.On) (assignments: A_gate2 := A_gate2.Off): guard: A_gate2.On -> A_gate2.On.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: A_gate2_c_off) (guard: A_gate2.On -> A_gate2.On) (assignments: A_gate2 := A_gate2.Off)
+    Edge: (event: A_gate2_c_on) (guard: A_gate2.Off -> A_gate2.Off and STimer.Timeout) (assignments: A_gate2 := A_gate2.On)
+    Edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running)
+    Edge: (event: STimer_u_timeout) (guard: STimer.Running) (assignments: STimer := STimer.Timeout)
+    Edge: (event: STimer_c_reset) (guard: STimer.Running) (assignments: STimer := STimer.Off)
+    Edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off)
+
+Controlled system:                     exactly 6 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_gate2.Off and STimer.Off
+Initial (controlled system):           A_gate2.Off and STimer.Off
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_gate2_c_off: guard: A_gate2.On -> true [assume A_gate2.On].
+  Event A_gate2_c_on: guard: A_gate2.Off and STimer.Timeout -> true [assume A_gate2.Off and STimer.Timeout].
+  Event STimer_c_on: guard: STimer.Off -> true [assume STimer.Off].
+  Event STimer_c_reset: guard: not STimer.Off -> true [assume not STimer.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_200_sup.cif".

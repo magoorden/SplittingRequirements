@@ -1,0 +1,249 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_252.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name           Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   emergencystop  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   pad_S_A        1      2 * 2     3 * 2       4 * 2       75%
+  3      location pointer  n/a   pad_S_S1       2      2 * 2     3 * 2       4 * 2       75%
+  4      location pointer  n/a   pad_S_S2       3      2 * 2     3 * 2       4 * 2       75%
+  5      location pointer  n/a   pad_S_S3       4      2 * 2     3 * 2       4 * 2       75%
+  6      location pointer  n/a   stop4          5      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  Total                                         6      20        32          40          80%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 20
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                   29 (total)                 1.45 (avg/edge) [before]
+    Total span:                   21 (total)                 1.05 (avg/edge) [iteration 1]
+    Total span:                   21 (total)                 1.05 (avg/edge) [iteration 2]
+    Total span:                   21 (total)                 1.05 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                   21 (total)                 1.05 (avg/edge) [before]
+    Total span:                   21 (total)                 1.05 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name           Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   emergencystop  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   pad_S_S1       1      2 * 2     3 * 2       4 * 2       75%
+  3      location pointer  n/a   pad_S_A        2      2 * 2     3 * 2       4 * 2       75%
+  4      location pointer  n/a   pad_S_S2       3      2 * 2     3 * 2       4 * 2       75%
+  5      location pointer  n/a   pad_S_S3       4      2 * 2     3 * 2       4 * 2       75%
+  6      location pointer  n/a   stop4          5      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  Total                                         6      20        32          40          80%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     emergencystop.released
+Initial   (aut/locs init predicate):     stop4.released
+Initial   (aut/locs init predicate):     pad_S_A.rest
+Initial   (aut/locs init predicate):     pad_S_S1.closed
+Initial   (aut/locs init predicate):     pad_S_S2.closed
+Initial   (aut/locs init predicate):     pad_S_S3.closed
+Initial   (auts/locs init predicate):    emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released))
+Initial   (uncontrolled system):         emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released))
+Initial   (system, combined init/inv):   emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released))
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   emergencystop.released
+Marked    (aut/locs marker predicate):   stop4.released
+Marked    (aut/locs marker predicate):   pad_S_A.rest
+Marked    (aut/locs marker predicate):   pad_S_S1.closed
+Marked    (aut/locs marker predicate):   pad_S_S2.closed
+Marked    (aut/locs marker predicate):   pad_S_S3.closed
+Marked    (auts/locs marker predicate):  emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released))
+Marked    (uncontrolled system):         emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released))
+Marked    (system, combined marked/inv): emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released))
+
+State/event exclusion requirements:
+  Event "pad_S_c_close" needs:
+    emergencystop.released and stop4.released
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed)
+    Edge: (event: emergencystop_u_release) (guard: emergencystop.pushed) (assignments: emergencystop := emergencystop.released)
+    Edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed)
+    Edge: (event: stop4_u_release) (guard: stop4.pushed) (assignments: stop4 := stop4.released)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_S1_u_closed_off) (guard: pad_S_S1.closed and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S1_u_open_on) (guard: pad_S_S1.between and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.open)
+    Edge: (event: pad_S_S2_u_closed_off) (guard: pad_S_A.opening and pad_S_S2.closed) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S2_u_open_on) (guard: pad_S_A.opening and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.open)
+    Edge: (event: pad_S_S3_u_closed_off) (guard: pad_S_A.opening and pad_S_S3.closed) (assignments: pad_S_S3 := pad_S_S3.between)
+    Edge: (event: pad_S_S3_u_open_on) (guard: pad_S_A.opening and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.open)
+    Edge: (event: pad_S_S1_u_closed_on) (guard: pad_S_S1.between and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.closed)
+    Edge: (event: pad_S_S1_u_open_off) (guard: pad_S_S1.open and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S2_u_closed_on) (guard: pad_S_A.closing and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.closed)
+    Edge: (event: pad_S_S2_u_open_off) (guard: pad_S_A.closing and pad_S_S2.open) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S3_u_closed_on) (guard: pad_S_A.closing and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.closed)
+    Edge: (event: pad_S_S3_u_open_off) (guard: pad_S_A.closing and pad_S_S3.open) (assignments: pad_S_S3 := pad_S_S3.between)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "pad_S_S1" (group: 1, domain: 2+3, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "pad_S_A" (group: 2, domain: 4+5, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "pad_S_S2" (group: 3, domain: 6+7, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> <bdd 8n 16p> [range: true, variable: location pointer for automaton "pad_S_S3" (group: 4, domain: 8+9, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: <bdd 8n 16p>.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: pad_S_c_close) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.closing): guard: pad_S_A.rest -> emergencystop.released and (pad_S_A.rest and stop4.released) [requirement: emergencystop.released and stop4.released].
+Edge (event: pad_S_c_close) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.closing): guard: pad_S_A.opening -> emergencystop.released and (pad_S_A.opening and stop4.released) [requirement: emergencystop.released and stop4.released].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: <bdd 8n 16p>)
+    Edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed)
+    Edge: (event: emergencystop_u_release) (guard: emergencystop.pushed) (assignments: emergencystop := emergencystop.released)
+    Edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed)
+    Edge: (event: stop4_u_release) (guard: stop4.pushed) (assignments: stop4 := stop4.released)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.rest -> emergencystop.released and (pad_S_A.rest and stop4.released)) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.opening -> emergencystop.released and (pad_S_A.opening and stop4.released)) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_S1_u_closed_off) (guard: pad_S_S1.closed and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S1_u_open_on) (guard: pad_S_S1.between and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.open)
+    Edge: (event: pad_S_S2_u_closed_off) (guard: pad_S_A.opening and pad_S_S2.closed) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S2_u_open_on) (guard: pad_S_A.opening and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.open)
+    Edge: (event: pad_S_S3_u_closed_off) (guard: pad_S_A.opening and pad_S_S3.closed) (assignments: pad_S_S3 := pad_S_S3.between)
+    Edge: (event: pad_S_S3_u_open_on) (guard: pad_S_A.opening and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.open)
+    Edge: (event: pad_S_S1_u_closed_on) (guard: pad_S_S1.between and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.closed)
+    Edge: (event: pad_S_S1_u_open_off) (guard: pad_S_S1.open and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S2_u_closed_on) (guard: pad_S_A.closing and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.closed)
+    Edge: (event: pad_S_S2_u_open_off) (guard: pad_S_A.closing and pad_S_S2.open) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S3_u_closed_on) (guard: pad_S_A.closing and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.closed)
+    Edge: (event: pad_S_S3_u_open_off) (guard: pad_S_A.closing and pad_S_S3.open) (assignments: pad_S_S3 := pad_S_S3.between)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released)) -> pad_S_S1.closed and pad_S_A.rest and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released)) [backward reach with edge: (event: emergencystop_u_release) (guard: emergencystop.pushed) (assignments: emergencystop := emergencystop.released), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: pad_S_S1.closed and pad_S_A.rest and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released)) -> pad_S_S1.closed and pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed) [backward reach with edge: (event: stop4_u_release) (guard: stop4.pushed) (assignments: stop4 := stop4.released), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: pad_S_S1.closed and pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed) -> pad_S_S1.closed and not pad_S_A.closing and (pad_S_S2.closed and pad_S_S3.closed) [backward reach with edge: (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: pad_S_S1.closed and not pad_S_A.closing and (pad_S_S2.closed and pad_S_S3.closed) -> pad_S_S1.closed and not pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed) or pad_S_S1.closed and pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed) [backward reach with edge: (event: pad_S_c_stop) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: pad_S_S1.closed and not pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed) or pad_S_S1.closed and pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed) -> <bdd 11n 3p> [backward reach with edge: (event: pad_S_S1_u_closed_on) (guard: pad_S_S1.between and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.closed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 11n 3p> -> <bdd 11n 4p> [backward reach with edge: (event: pad_S_S1_u_open_off) (guard: pad_S_S1.open and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 11n 4p> -> <bdd 12n 5p> [backward reach with edge: (event: pad_S_S2_u_closed_on) (guard: pad_S_A.closing and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.closed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 12n 5p> -> <bdd 13n 8p> [backward reach with edge: (event: pad_S_S2_u_open_off) (guard: pad_S_A.closing and pad_S_S2.open) (assignments: pad_S_S2 := pad_S_S2.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 13n 8p> -> <bdd 14n 8p> [backward reach with edge: (event: pad_S_S3_u_closed_on) (guard: pad_S_A.closing and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.closed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 14n 8p> -> <bdd 15n 14p> [backward reach with edge: (event: pad_S_S3_u_open_off) (guard: pad_S_A.closing and pad_S_S3.open) (assignments: pad_S_S3 := pad_S_S3.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward reachability: iteration 2.
+Backward controlled-behavior: <bdd 15n 14p> -> <bdd 32n 42p> [backward reach with edge: (event: pad_S_c_close) (guard: pad_S_A.rest -> emergencystop.released and (pad_S_A.rest and stop4.released)) (assignments: pad_S_A := pad_S_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 32n 42p> -> <bdd 34n 56p> [backward reach with edge: (event: pad_S_c_close) (guard: pad_S_A.opening -> emergencystop.released and (pad_S_A.opening and stop4.released)) (assignments: pad_S_A := pad_S_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward reachability: iteration 3.
+Backward controlled-behavior: <bdd 34n 56p> -> <bdd 22n 42p> [backward reach with edge: (event: emergencystop_u_release) (guard: emergencystop.pushed) (assignments: emergencystop := emergencystop.released), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 22n 42p> -> <bdd 8n 16p> [backward reach with edge: (event: stop4_u_release) (guard: stop4.pushed) (assignments: stop4 := stop4.released), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward reachability: iteration 4.
+Backward controlled-behavior: <bdd 8n 16p> [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: <bdd 8n 15p> [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released)) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released)) -> pad_S_S1.closed and pad_S_A.rest and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released)) [forward reach with edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: pad_S_S1.closed and pad_S_A.rest and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released)) -> pad_S_S1.closed and pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed) [forward reach with edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: pad_S_S1.closed and pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed) -> pad_S_S1.closed and not pad_S_A.closing and (pad_S_S2.closed and pad_S_S3.closed) [forward reach with edge: (event: pad_S_c_open) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.opening), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: pad_S_S1.closed and not pad_S_A.closing and (pad_S_S2.closed and pad_S_S3.closed) -> <bdd 17n 4p> [forward reach with edge: (event: pad_S_c_close) (guard: pad_S_A.rest -> emergencystop.released and (pad_S_A.rest and stop4.released)) (assignments: pad_S_A := pad_S_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 17n 4p> -> <bdd 19n 6p> [forward reach with edge: (event: pad_S_S1_u_closed_off) (guard: pad_S_S1.closed and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 19n 6p> -> <bdd 19n 8p> [forward reach with edge: (event: pad_S_S1_u_open_on) (guard: pad_S_S1.between and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 19n 8p> -> <bdd 21n 9p> [forward reach with edge: (event: pad_S_S2_u_closed_off) (guard: pad_S_A.opening and pad_S_S2.closed) (assignments: pad_S_S2 := pad_S_S2.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 21n 9p> -> <bdd 22n 15p> [forward reach with edge: (event: pad_S_S2_u_open_on) (guard: pad_S_A.opening and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 22n 15p> -> <bdd 23n 15p> [forward reach with edge: (event: pad_S_S3_u_closed_off) (guard: pad_S_A.opening and pad_S_S3.closed) (assignments: pad_S_S3 := pad_S_S3.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 23n 15p> -> <bdd 24n 27p> [forward reach with edge: (event: pad_S_S3_u_open_on) (guard: pad_S_A.opening and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward reachability: iteration 2.
+Forward controlled-behavior: <bdd 24n 27p> -> <bdd 19n 14p> [forward reach with edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 19n 14p> -> <bdd 13n 13p> [forward reach with edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 13n 13p> -> <bdd 30n 41p> [forward reach with edge: (event: pad_S_c_close) (guard: pad_S_A.opening -> emergencystop.released and (pad_S_A.opening and stop4.released)) (assignments: pad_S_A := pad_S_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 30n 41p> -> <bdd 30n 56p> [forward reach with edge: (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward reachability: iteration 3.
+Forward controlled-behavior: <bdd 30n 56p> -> <bdd 21n 39p> [forward reach with edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 21n 39p> -> <bdd 8n 16p> [forward reach with edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward reachability: iteration 4.
+Forward controlled-behavior: <bdd 8n 16p> [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: pad_S_c_open) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.opening): guard: pad_S_A.rest -> (pad_S_S1.between or not pad_S_A.closing) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.closing) and (not pad_S_S1.between or not pad_S_A.opening)).
+Edge (event: pad_S_c_open) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.opening): guard: pad_S_A.closing -> (pad_S_S1.between or not pad_S_A.rest) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.rest) and (not pad_S_S1.between or not pad_S_A.opening)).
+Edge (event: pad_S_c_close) (guard: pad_S_A.rest -> emergencystop.released and (pad_S_A.rest and stop4.released)) (assignments: pad_S_A := pad_S_A.closing): guard: emergencystop.released and (pad_S_A.rest and stop4.released) -> emergencystop.released and (not pad_S_S1.between and pad_S_A.rest) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and pad_S_A.rest) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (not pad_S_S1.between and pad_S_A.rest) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and pad_S_A.rest) and (pad_S_S2.between and (pad_S_S3.between and stop4.released))) or (emergencystop.released and (pad_S_S1.between and pad_S_A.rest) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and pad_S_A.rest) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (pad_S_S1.between and pad_S_A.rest) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and pad_S_A.rest) and (pad_S_S2.between and (pad_S_S3.between and stop4.released)))).
+Edge (event: pad_S_c_close) (guard: pad_S_A.opening -> emergencystop.released and (pad_S_A.opening and stop4.released)) (assignments: pad_S_A := pad_S_A.closing): guard: emergencystop.released and (pad_S_A.opening and stop4.released) -> emergencystop.released and (not pad_S_S1.between and pad_S_A.opening) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and pad_S_A.opening) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (not pad_S_S1.between and pad_S_A.opening) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and pad_S_A.opening) and (pad_S_S2.between and (pad_S_S3.between and stop4.released))) or (emergencystop.released and (pad_S_S1.between and pad_S_A.opening) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and pad_S_A.opening) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (pad_S_S1.between and pad_S_A.opening) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and pad_S_A.opening) and (pad_S_S2.between and (pad_S_S3.between and stop4.released)))).
+Edge (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest): guard: pad_S_A.opening -> (pad_S_S1.between or pad_S_A.opening) and (not pad_S_S1.between or pad_S_A.opening).
+Edge (event: pad_S_c_stop) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.rest): guard: pad_S_A.closing -> (pad_S_S1.between or not pad_S_A.rest) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.rest) and (not pad_S_S1.between or not pad_S_A.opening)).
+
+Final synthesis result:
+  State: (controlled-behavior: <bdd 8n 16p>)
+    Edge: (event: emergencystop_u_push) (guard: emergencystop.released) (assignments: emergencystop := emergencystop.pushed)
+    Edge: (event: emergencystop_u_release) (guard: emergencystop.pushed) (assignments: emergencystop := emergencystop.released)
+    Edge: (event: stop4_u_push) (guard: stop4.released) (assignments: stop4 := stop4.pushed)
+    Edge: (event: stop4_u_release) (guard: stop4.pushed) (assignments: stop4 := stop4.released)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.rest -> (pad_S_S1.between or not pad_S_A.closing) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.closing) and (not pad_S_S1.between or not pad_S_A.opening))) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.closing -> (pad_S_S1.between or not pad_S_A.rest) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.rest) and (not pad_S_S1.between or not pad_S_A.opening))) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.rest -> emergencystop.released and (not pad_S_S1.between and pad_S_A.rest) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and pad_S_A.rest) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (not pad_S_S1.between and pad_S_A.rest) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and pad_S_A.rest) and (pad_S_S2.between and (pad_S_S3.between and stop4.released))) or (emergencystop.released and (pad_S_S1.between and pad_S_A.rest) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and pad_S_A.rest) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (pad_S_S1.between and pad_S_A.rest) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and pad_S_A.rest) and (pad_S_S2.between and (pad_S_S3.between and stop4.released))))) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.opening -> emergencystop.released and (not pad_S_S1.between and pad_S_A.opening) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and pad_S_A.opening) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (not pad_S_S1.between and pad_S_A.opening) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and pad_S_A.opening) and (pad_S_S2.between and (pad_S_S3.between and stop4.released))) or (emergencystop.released and (pad_S_S1.between and pad_S_A.opening) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and pad_S_A.opening) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (pad_S_S1.between and pad_S_A.opening) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and pad_S_A.opening) and (pad_S_S2.between and (pad_S_S3.between and stop4.released))))) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.opening -> (pad_S_S1.between or pad_S_A.opening) and (not pad_S_S1.between or pad_S_A.opening)) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.closing -> (pad_S_S1.between or not pad_S_A.rest) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.rest) and (not pad_S_S1.between or not pad_S_A.opening))) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_S1_u_closed_off) (guard: pad_S_S1.closed and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S1_u_open_on) (guard: pad_S_S1.between and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.open)
+    Edge: (event: pad_S_S2_u_closed_off) (guard: pad_S_A.opening and pad_S_S2.closed) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S2_u_open_on) (guard: pad_S_A.opening and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.open)
+    Edge: (event: pad_S_S3_u_closed_off) (guard: pad_S_A.opening and pad_S_S3.closed) (assignments: pad_S_S3 := pad_S_S3.between)
+    Edge: (event: pad_S_S3_u_open_on) (guard: pad_S_A.opening and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.open)
+    Edge: (event: pad_S_S1_u_closed_on) (guard: pad_S_S1.between and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.closed)
+    Edge: (event: pad_S_S1_u_open_off) (guard: pad_S_S1.open and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S2_u_closed_on) (guard: pad_S_A.closing and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.closed)
+    Edge: (event: pad_S_S2_u_open_off) (guard: pad_S_A.closing and pad_S_S2.open) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S3_u_closed_on) (guard: pad_S_A.closing and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.closed)
+    Edge: (event: pad_S_S3_u_open_off) (guard: pad_S_A.closing and pad_S_S3.open) (assignments: pad_S_S3 := pad_S_S3.between)
+
+Controlled system:                     exactly 324 states.
+
+Initial (synthesis result):            <bdd 8n 16p>
+Initial (uncontrolled system):         emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released))
+Initial (controlled system):           emergencystop.released and (pad_S_S1.closed and pad_S_A.rest) and (pad_S_S2.closed and (pad_S_S3.closed and stop4.released))
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event pad_S_c_open: guard: (pad_S_S1.between or not pad_S_A.opening) and (not pad_S_S1.between or not pad_S_A.opening) -> true [assume (pad_S_S1.between or not pad_S_A.opening) and (not pad_S_S1.between or not pad_S_A.opening)].
+  Event pad_S_c_close: guard: emergencystop.released and (not pad_S_S1.between and not pad_S_A.closing) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and not pad_S_A.closing) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (not pad_S_S1.between and not pad_S_A.closing) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and not pad_S_A.closing) and (pad_S_S2.between and (pad_S_S3.between and stop4.released))) or (emergencystop.released and (pad_S_S1.between and not pad_S_A.closing) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and not pad_S_A.closing) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (pad_S_S1.between and not pad_S_A.closing) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and not pad_S_A.closing) and (pad_S_S2.between and (pad_S_S3.between and stop4.released)))) -> true [assume emergencystop.released and (not pad_S_S1.between and not pad_S_A.closing) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and not pad_S_A.closing) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (not pad_S_S1.between and not pad_S_A.closing) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (not pad_S_S1.between and not pad_S_A.closing) and (pad_S_S2.between and (pad_S_S3.between and stop4.released))) or (emergencystop.released and (pad_S_S1.between and not pad_S_A.closing) and (not pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and not pad_S_A.closing) and (not pad_S_S2.between and (pad_S_S3.between and stop4.released)) or (emergencystop.released and (pad_S_S1.between and not pad_S_A.closing) and (pad_S_S2.between and (not pad_S_S3.between and stop4.released)) or emergencystop.released and (pad_S_S1.between and not pad_S_A.closing) and (pad_S_S2.between and (pad_S_S3.between and stop4.released))))].
+  Event pad_S_c_stop: guard: <bdd 9n 16p> -> true [assume <bdd 9n 16p>].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_252_sup.cif".

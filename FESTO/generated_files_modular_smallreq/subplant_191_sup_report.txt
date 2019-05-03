@@ -1,0 +1,161 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_191.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name            Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_gate2         0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_gate2_closed  1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_gate2_opened  2      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  Total                                          3      6         12          12          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 7
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    2 (total)                 0.29 (avg/edge) [before]
+    Total span:                    2 (total)                 0.29 (avg/edge) [iteration 1]
+    Total span:                    2 (total)                 0.29 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 3
+
+    Total span:                    2 (total)                 0.29 (avg/edge) [before]
+    Total span:                    2 (total)                 0.29 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_gate2_opened.On
+Initial   (aut/locs init predicate):     S_gate2_closed.Off
+Initial   (aut/locs init predicate):     A_gate2.Off
+Initial   (aut/locs init predicate):     true
+Initial   (auts/locs init predicate):    A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)
+Initial   (uncontrolled system):         A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)
+Initial   (system, combined init/inv):   A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_gate2_opened.On
+Marked    (aut/locs marker predicate):   S_gate2_closed.Off
+Marked    (aut/locs marker predicate):   A_gate2.Off
+Marked    (aut/locs marker predicate):   true
+Marked    (auts/locs marker predicate):  A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)
+Marked    (uncontrolled system):         A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)
+Marked    (system, combined marked/inv): A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)
+
+State/event exclusion requirements:
+  Event "A_gate2_c_on" needs:
+    S_gate2_opened.On
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_gate2_opened_u_off) (guard: S_gate2_opened.On) (assignments: S_gate2_opened := S_gate2_opened.Off)
+    Edge: (event: S_gate2_opened_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_opened := S_gate2_opened.On)
+    Edge: (event: S_gate2_closed_u_off) (guard: S_gate2_closed.On) (assignments: S_gate2_closed := S_gate2_closed.Off)
+    Edge: (event: S_gate2_closed_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_closed := S_gate2_closed.On)
+    Edge: (event: A_gate2_c_off) (guard: A_gate2.On) (assignments: A_gate2 := A_gate2.Off)
+    Edge: (event: A_gate2_c_on) (guard: A_gate2.Off) (assignments: A_gate2 := A_gate2.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_gate2_c_on) (guard: A_gate2.Off) (assignments: A_gate2 := A_gate2.On): guard: A_gate2.Off -> A_gate2.Off and S_gate2_opened.On [requirement: S_gate2_opened.On].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_gate2_opened_u_off) (guard: S_gate2_opened.On) (assignments: S_gate2_opened := S_gate2_opened.Off)
+    Edge: (event: S_gate2_opened_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_opened := S_gate2_opened.On)
+    Edge: (event: S_gate2_closed_u_off) (guard: S_gate2_closed.On) (assignments: S_gate2_closed := S_gate2_closed.Off)
+    Edge: (event: S_gate2_closed_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_closed := S_gate2_closed.On)
+    Edge: (event: A_gate2_c_off) (guard: A_gate2.On) (assignments: A_gate2 := A_gate2.Off)
+    Edge: (event: A_gate2_c_on) (guard: A_gate2.Off -> A_gate2.Off and S_gate2_opened.On) (assignments: A_gate2 := A_gate2.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On) -> A_gate2.Off and S_gate2_closed.Off [backward reach with edge: (event: S_gate2_opened_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_opened := S_gate2_opened.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_gate2.Off and S_gate2_closed.Off -> A_gate2.Off [backward reach with edge: (event: S_gate2_closed_u_off) (guard: S_gate2_closed.On) (assignments: S_gate2_closed := S_gate2_closed.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_gate2.Off -> true [backward reach with edge: (event: A_gate2_c_off) (guard: A_gate2.On) (assignments: A_gate2 := A_gate2.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On) -> A_gate2.Off and S_gate2_closed.Off [forward reach with edge: (event: S_gate2_opened_u_off) (guard: S_gate2_opened.On) (assignments: S_gate2_opened := S_gate2_opened.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate2.Off and S_gate2_closed.Off -> A_gate2.Off and (A_gate2.On or (S_gate2_closed.Off or S_gate2_opened.Off)) [forward reach with edge: (event: S_gate2_closed_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_closed := S_gate2_closed.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate2.Off and (A_gate2.On or (S_gate2_closed.Off or S_gate2_opened.Off)) -> (A_gate2.Off or S_gate2_closed.Off) and ((A_gate2.Off or (S_gate2_closed.On or S_gate2_opened.On)) and (A_gate2.On or (S_gate2_closed.Off or S_gate2_opened.Off))) [forward reach with edge: (event: A_gate2_c_on) (guard: A_gate2.Off -> A_gate2.Off and S_gate2_opened.On) (assignments: A_gate2 := A_gate2.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: (A_gate2.Off or S_gate2_closed.Off) and ((A_gate2.Off or (S_gate2_closed.On or S_gate2_opened.On)) and (A_gate2.On or (S_gate2_closed.Off or S_gate2_opened.Off))) -> (A_gate2.Off or S_gate2_closed.Off) and (A_gate2.On or (S_gate2_closed.Off or S_gate2_opened.Off)) [forward reach with edge: (event: S_gate2_opened_u_off) (guard: S_gate2_opened.On) (assignments: S_gate2_opened := S_gate2_opened.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: (A_gate2.Off or S_gate2_closed.Off) and (A_gate2.On or (S_gate2_closed.Off or S_gate2_opened.Off)) -> S_gate2_closed.Off or S_gate2_opened.Off [forward reach with edge: (event: S_gate2_closed_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_closed := S_gate2_closed.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: S_gate2_closed.Off or S_gate2_opened.Off [fixed point].
+Controlled behavior: true -> S_gate2_closed.Off or S_gate2_opened.Off.
+
+Round 1: finished, need another round.
+
+Round 2: started.
+
+Round 2: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On) -> A_gate2.Off and S_gate2_closed.Off [backward reach with edge: (event: S_gate2_opened_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_opened := S_gate2_opened.On), restricted to current/previous controlled-behavior predicate: S_gate2_closed.Off or S_gate2_opened.Off]
+Backward controlled-behavior: A_gate2.Off and S_gate2_closed.Off -> A_gate2.Off and (A_gate2.On or (S_gate2_closed.Off or S_gate2_opened.Off)) [backward reach with edge: (event: S_gate2_closed_u_off) (guard: S_gate2_closed.On) (assignments: S_gate2_closed := S_gate2_closed.Off), restricted to current/previous controlled-behavior predicate: S_gate2_closed.Off or S_gate2_opened.Off]
+Backward controlled-behavior: A_gate2.Off and (A_gate2.On or (S_gate2_closed.Off or S_gate2_opened.Off)) -> S_gate2_closed.Off or S_gate2_opened.Off [backward reach with edge: (event: A_gate2_c_off) (guard: A_gate2.On) (assignments: A_gate2 := A_gate2.Off), restricted to current/previous controlled-behavior predicate: S_gate2_closed.Off or S_gate2_opened.Off]
+Backward reachability: iteration 2.
+Backward controlled-behavior: S_gate2_closed.Off or S_gate2_opened.Off [fixed point].
+
+Round 2: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: S_gate2_closed.On and S_gate2_opened.On [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 2: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_gate2_c_off) (guard: A_gate2.On) (assignments: A_gate2 := A_gate2.Off): guard: A_gate2.On -> (A_gate2.Off or (S_gate2_closed.Off or S_gate2_opened.Off)) and A_gate2.On.
+Edge (event: A_gate2_c_on) (guard: A_gate2.Off -> A_gate2.Off and S_gate2_opened.On) (assignments: A_gate2 := A_gate2.On): guard: A_gate2.Off and S_gate2_opened.On -> A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On).
+
+Final synthesis result:
+  State: (controlled-behavior: S_gate2_closed.Off or S_gate2_opened.Off)
+    Edge: (event: S_gate2_opened_u_off) (guard: S_gate2_opened.On) (assignments: S_gate2_opened := S_gate2_opened.Off)
+    Edge: (event: S_gate2_opened_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_opened := S_gate2_opened.On)
+    Edge: (event: S_gate2_closed_u_off) (guard: S_gate2_closed.On) (assignments: S_gate2_closed := S_gate2_closed.Off)
+    Edge: (event: S_gate2_closed_u_on) (guard: S_gate2_closed.Off and S_gate2_opened.Off) (assignments: S_gate2_closed := S_gate2_closed.On)
+    Edge: (event: A_gate2_c_off) (guard: A_gate2.On -> (A_gate2.Off or (S_gate2_closed.Off or S_gate2_opened.Off)) and A_gate2.On) (assignments: A_gate2 := A_gate2.Off)
+    Edge: (event: A_gate2_c_on) (guard: A_gate2.Off -> A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)) (assignments: A_gate2 := A_gate2.On)
+
+Controlled system:                     exactly 6 states.
+
+Initial (synthesis result):            S_gate2_closed.Off or S_gate2_opened.Off
+Initial (uncontrolled system):         A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)
+Initial (controlled system):           A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_gate2_c_off: guard: (A_gate2.Off or (S_gate2_closed.Off or S_gate2_opened.Off)) and A_gate2.On -> true [assume (A_gate2.Off or (S_gate2_closed.Off or S_gate2_opened.Off)) and A_gate2.On].
+  Event A_gate2_c_on: guard: A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On) -> true [assume A_gate2.Off and (S_gate2_closed.Off and S_gate2_opened.On)].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_191_sup.cif".

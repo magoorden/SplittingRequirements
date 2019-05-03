@@ -1,0 +1,461 @@
+Reading CIF file "generated_files_modular_largereq/subplant_27.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name          Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   culvert_N_A   0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   culvert_N_S   1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   culvert_S_A   2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   culvert_S_S   3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   gate_U_N_Dir  4      2 * 2     3 * 2       4 * 2       75%
+  6      location pointer  n/a   gate_U_N_S    5      3 * 2     7 * 2       8 * 2       ~88%
+  7      location pointer  n/a   gate_U_S_Dir  6      2 * 2     3 * 2       4 * 2       75%
+  8      location pointer  n/a   gate_U_S_S    7      3 * 2     7 * 2       8 * 2       ~88%
+  9      location pointer  n/a   pad_N_A       8      2 * 2     3 * 2       4 * 2       75%
+  10     location pointer  n/a   pad_N_S1      9      2 * 2     3 * 2       4 * 2       75%
+  11     location pointer  n/a   pad_N_S2      10     2 * 2     3 * 2       4 * 2       75%
+  12     location pointer  n/a   pad_N_S3      11     2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  ------------  -----  --------  ----------  ----------  -----------
+  Total                                        12     44        80          96          ~83%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 54
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 30
+
+    Total span:                   59 (total)                 1.09 (avg/edge) [before]
+    Total span:                   51 (total)                 0.94 (avg/edge) [iteration 1]
+    Total span:                   51 (total)                 0.94 (avg/edge) [iteration 2]
+    Total span:                   51 (total)                 0.94 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                   51 (total)                 0.94 (avg/edge) [before]
+    Total span:                   51 (total)                 0.94 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name          Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   culvert_N_A   0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   culvert_N_S   1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   culvert_S_A   2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   culvert_S_S   3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   gate_U_N_Dir  4      2 * 2     3 * 2       4 * 2       75%
+  6      location pointer  n/a   gate_U_N_S    5      3 * 2     7 * 2       8 * 2       ~88%
+  7      location pointer  n/a   gate_U_S_Dir  6      2 * 2     3 * 2       4 * 2       75%
+  8      location pointer  n/a   gate_U_S_S    7      3 * 2     7 * 2       8 * 2       ~88%
+  9      location pointer  n/a   pad_N_S1      8      2 * 2     3 * 2       4 * 2       75%
+  10     location pointer  n/a   pad_N_A       9      2 * 2     3 * 2       4 * 2       75%
+  11     location pointer  n/a   pad_N_S2      10     2 * 2     3 * 2       4 * 2       75%
+  12     location pointer  n/a   pad_N_S3      11     2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  ------------  -----  --------  ----------  ----------  -----------
+  Total                                        12     44        80          96          ~83%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     pad_N_A.rest
+Initial   (aut/locs init predicate):     pad_N_S1.closed
+Initial   (aut/locs init predicate):     pad_N_S2.closed
+Initial   (aut/locs init predicate):     pad_N_S3.closed
+Initial   (aut/locs init predicate):     culvert_N_A.closed
+Initial   (aut/locs init predicate):     culvert_N_S.noflow
+Initial   (aut/locs init predicate):     culvert_S_A.closed
+Initial   (aut/locs init predicate):     culvert_S_S.noflow
+Initial   (aut/locs init predicate):     gate_U_N_S.closed
+Initial   (aut/locs init predicate):     gate_U_N_Dir.off
+Initial   (aut/locs init predicate):     gate_U_S_S.closed
+Initial   (aut/locs init predicate):     gate_U_S_Dir.off
+Initial   (auts/locs init predicate):    <bdd 22n 1p>
+Initial   (uncontrolled system):         <bdd 22n 1p>
+Initial   (system, combined init/inv):   <bdd 22n 1p>
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   pad_N_A.rest
+Marked    (aut/locs marker predicate):   pad_N_S1.closed
+Marked    (aut/locs marker predicate):   pad_N_S2.closed
+Marked    (aut/locs marker predicate):   pad_N_S3.closed
+Marked    (aut/locs marker predicate):   culvert_N_A.closed
+Marked    (aut/locs marker predicate):   culvert_N_S.noflow
+Marked    (aut/locs marker predicate):   culvert_S_A.closed
+Marked    (aut/locs marker predicate):   culvert_S_S.noflow
+Marked    (aut/locs marker predicate):   gate_U_N_S.closed
+Marked    (aut/locs marker predicate):   gate_U_N_Dir.off
+Marked    (aut/locs marker predicate):   gate_U_S_S.closed
+Marked    (aut/locs marker predicate):   gate_U_S_Dir.off
+Marked    (auts/locs marker predicate):  <bdd 22n 1p>
+Marked    (uncontrolled system):         <bdd 22n 1p>
+Marked    (system, combined marked/inv): <bdd 22n 1p>
+
+State/event exclusion requirements:
+  Event "pad_N_c_open" needs:
+    <bdd 14n 4p>
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: pad_N_c_open) (guard: pad_N_A.rest) (assignments: pad_N_A := pad_N_A.opening)
+    Edge: (event: pad_N_c_open) (guard: pad_N_A.closing) (assignments: pad_N_A := pad_N_A.opening)
+    Edge: (event: pad_N_c_close) (guard: pad_N_A.rest) (assignments: pad_N_A := pad_N_A.closing)
+    Edge: (event: pad_N_c_close) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.closing)
+    Edge: (event: pad_N_c_stop) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.rest)
+    Edge: (event: pad_N_c_stop) (guard: pad_N_A.closing) (assignments: pad_N_A := pad_N_A.rest)
+    Edge: (event: pad_N_S1_u_closed_off) (guard: pad_N_S1.closed and pad_N_A.opening) (assignments: pad_N_S1 := pad_N_S1.between)
+    Edge: (event: pad_N_S1_u_open_on) (guard: pad_N_S1.between and pad_N_A.opening) (assignments: pad_N_S1 := pad_N_S1.open)
+    Edge: (event: pad_N_S2_u_closed_off) (guard: pad_N_A.opening and pad_N_S2.closed) (assignments: pad_N_S2 := pad_N_S2.between)
+    Edge: (event: pad_N_S2_u_open_on) (guard: pad_N_A.opening and pad_N_S2.between) (assignments: pad_N_S2 := pad_N_S2.open)
+    Edge: (event: pad_N_S3_u_closed_off) (guard: pad_N_A.opening and pad_N_S3.closed) (assignments: pad_N_S3 := pad_N_S3.between)
+    Edge: (event: pad_N_S3_u_open_on) (guard: pad_N_A.opening and pad_N_S3.between) (assignments: pad_N_S3 := pad_N_S3.open)
+    Edge: (event: pad_N_S1_u_closed_on) (guard: pad_N_S1.between and pad_N_A.closing) (assignments: pad_N_S1 := pad_N_S1.closed)
+    Edge: (event: pad_N_S1_u_open_off) (guard: pad_N_S1.open and pad_N_A.closing) (assignments: pad_N_S1 := pad_N_S1.between)
+    Edge: (event: pad_N_S2_u_closed_on) (guard: pad_N_A.closing and pad_N_S2.between) (assignments: pad_N_S2 := pad_N_S2.closed)
+    Edge: (event: pad_N_S2_u_open_off) (guard: pad_N_A.closing and pad_N_S2.open) (assignments: pad_N_S2 := pad_N_S2.between)
+    Edge: (event: pad_N_S3_u_closed_on) (guard: pad_N_A.closing and pad_N_S3.between) (assignments: pad_N_S3 := pad_N_S3.closed)
+    Edge: (event: pad_N_S3_u_open_off) (guard: pad_N_A.closing and pad_N_S3.open) (assignments: pad_N_S3 := pad_N_S3.between)
+    Edge: (event: culvert_N_c_enable) (guard: culvert_N_A.closed) (assignments: culvert_N_A := culvert_N_A.open)
+    Edge: (event: culvert_N_u_off) (guard: culvert_N_A.closed and culvert_N_S.flow) (assignments: culvert_N_S := culvert_N_S.noflow)
+    Edge: (event: culvert_N_c_disable) (guard: culvert_N_A.open) (assignments: culvert_N_A := culvert_N_A.closed)
+    Edge: (event: culvert_N_u_on) (guard: culvert_N_A.open and culvert_N_S.noflow) (assignments: culvert_N_S := culvert_N_S.flow)
+    Edge: (event: culvert_S_c_enable) (guard: culvert_S_A.closed) (assignments: culvert_S_A := culvert_S_A.open)
+    Edge: (event: culvert_S_u_off) (guard: culvert_S_A.closed and culvert_S_S.flow) (assignments: culvert_S_S := culvert_S_S.noflow)
+    Edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed)
+    Edge: (event: culvert_S_u_on) (guard: culvert_S_A.open and culvert_S_S.noflow) (assignments: culvert_S_S := culvert_S_S.flow)
+    Edge: (event: gate_U_N_u_s1_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.closed) (assignments: gate_U_N_S := gate_U_N_S.bclosed)
+    Edge: (event: gate_U_N_u_s1_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.bclosed) (assignments: gate_U_N_S := gate_U_N_S.closed)
+    Edge: (event: gate_U_N_u_s2_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.bclosed) (assignments: gate_U_N_S := gate_U_N_S.fclosed)
+    Edge: (event: gate_U_N_u_s2_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.fclosed) (assignments: gate_U_N_S := gate_U_N_S.bclosed)
+    Edge: (event: gate_U_N_u_s3_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.fclosed) (assignments: gate_U_N_S := gate_U_N_S.middle)
+    Edge: (event: gate_U_N_u_s3_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.middle) (assignments: gate_U_N_S := gate_U_N_S.fclosed)
+    Edge: (event: gate_U_N_u_s4_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.middle) (assignments: gate_U_N_S := gate_U_N_S.fopen)
+    Edge: (event: gate_U_N_u_s4_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.fopen) (assignments: gate_U_N_S := gate_U_N_S.middle)
+    Edge: (event: gate_U_N_u_s5_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.fopen) (assignments: gate_U_N_S := gate_U_N_S.bopen)
+    Edge: (event: gate_U_N_u_s5_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.bopen) (assignments: gate_U_N_S := gate_U_N_S.fopen)
+    Edge: (event: gate_U_N_u_s6_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.bopen) (assignments: gate_U_N_S := gate_U_N_S.open)
+    Edge: (event: gate_U_N_u_s6_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.open) (assignments: gate_U_N_S := gate_U_N_S.bopen)
+    Edge: (event: gate_U_N_c_open) (guard: gate_U_N_Dir.off) (assignments: gate_U_N_Dir := gate_U_N_Dir.opening)
+    Edge: (event: gate_U_N_c_open) (guard: gate_U_N_Dir.closing) (assignments: gate_U_N_Dir := gate_U_N_Dir.opening)
+    Edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.off) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing)
+    Edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing)
+    Edge: (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.off)
+    Edge: (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.closing) (assignments: gate_U_N_Dir := gate_U_N_Dir.off)
+    Edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed)
+    Edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open)
+    Edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "gate_U_N_Dir" (group: 4, domain: 8+9, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "gate_U_N_S" (group: 5, domain: 10+11, BDD variables: 3, CIF/BDD values: 7/8)].
+Controlled behavior: true -> <bdd 7n 12p> [range: true, variable: location pointer for automaton "gate_U_S_Dir" (group: 6, domain: 12+13, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 7n 12p> -> <bdd 10n 36p> [range: true, variable: location pointer for automaton "gate_U_S_S" (group: 7, domain: 14+15, BDD variables: 3, CIF/BDD values: 7/8)].
+Controlled behavior: <bdd 10n 36p> -> <bdd 12n 72p> [range: true, variable: location pointer for automaton "pad_N_S1" (group: 8, domain: 16+17, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 12n 72p> -> <bdd 14n 144p> [range: true, variable: location pointer for automaton "pad_N_A" (group: 9, domain: 18+19, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 14n 144p> -> <bdd 16n 288p> [range: true, variable: location pointer for automaton "pad_N_S2" (group: 10, domain: 20+21, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: <bdd 16n 288p> -> <bdd 18n 576p> [range: true, variable: location pointer for automaton "pad_N_S3" (group: 11, domain: 22+23, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: <bdd 18n 576p>.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: pad_N_c_open) (guard: pad_N_A.rest) (assignments: pad_N_A := pad_N_A.opening): guard: pad_N_A.rest -> <bdd 16n 4p> [requirement: <bdd 14n 4p>].
+Edge (event: pad_N_c_open) (guard: pad_N_A.closing) (assignments: pad_N_A := pad_N_A.opening): guard: pad_N_A.closing -> <bdd 16n 4p> [requirement: <bdd 14n 4p>].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: <bdd 18n 576p>)
+    Edge: (event: pad_N_c_open) (guard: pad_N_A.rest -> <bdd 16n 4p>) (assignments: pad_N_A := pad_N_A.opening)
+    Edge: (event: pad_N_c_open) (guard: pad_N_A.closing -> <bdd 16n 4p>) (assignments: pad_N_A := pad_N_A.opening)
+    Edge: (event: pad_N_c_close) (guard: pad_N_A.rest) (assignments: pad_N_A := pad_N_A.closing)
+    Edge: (event: pad_N_c_close) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.closing)
+    Edge: (event: pad_N_c_stop) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.rest)
+    Edge: (event: pad_N_c_stop) (guard: pad_N_A.closing) (assignments: pad_N_A := pad_N_A.rest)
+    Edge: (event: pad_N_S1_u_closed_off) (guard: pad_N_S1.closed and pad_N_A.opening) (assignments: pad_N_S1 := pad_N_S1.between)
+    Edge: (event: pad_N_S1_u_open_on) (guard: pad_N_S1.between and pad_N_A.opening) (assignments: pad_N_S1 := pad_N_S1.open)
+    Edge: (event: pad_N_S2_u_closed_off) (guard: pad_N_A.opening and pad_N_S2.closed) (assignments: pad_N_S2 := pad_N_S2.between)
+    Edge: (event: pad_N_S2_u_open_on) (guard: pad_N_A.opening and pad_N_S2.between) (assignments: pad_N_S2 := pad_N_S2.open)
+    Edge: (event: pad_N_S3_u_closed_off) (guard: pad_N_A.opening and pad_N_S3.closed) (assignments: pad_N_S3 := pad_N_S3.between)
+    Edge: (event: pad_N_S3_u_open_on) (guard: pad_N_A.opening and pad_N_S3.between) (assignments: pad_N_S3 := pad_N_S3.open)
+    Edge: (event: pad_N_S1_u_closed_on) (guard: pad_N_S1.between and pad_N_A.closing) (assignments: pad_N_S1 := pad_N_S1.closed)
+    Edge: (event: pad_N_S1_u_open_off) (guard: pad_N_S1.open and pad_N_A.closing) (assignments: pad_N_S1 := pad_N_S1.between)
+    Edge: (event: pad_N_S2_u_closed_on) (guard: pad_N_A.closing and pad_N_S2.between) (assignments: pad_N_S2 := pad_N_S2.closed)
+    Edge: (event: pad_N_S2_u_open_off) (guard: pad_N_A.closing and pad_N_S2.open) (assignments: pad_N_S2 := pad_N_S2.between)
+    Edge: (event: pad_N_S3_u_closed_on) (guard: pad_N_A.closing and pad_N_S3.between) (assignments: pad_N_S3 := pad_N_S3.closed)
+    Edge: (event: pad_N_S3_u_open_off) (guard: pad_N_A.closing and pad_N_S3.open) (assignments: pad_N_S3 := pad_N_S3.between)
+    Edge: (event: culvert_N_c_enable) (guard: culvert_N_A.closed) (assignments: culvert_N_A := culvert_N_A.open)
+    Edge: (event: culvert_N_u_off) (guard: culvert_N_A.closed and culvert_N_S.flow) (assignments: culvert_N_S := culvert_N_S.noflow)
+    Edge: (event: culvert_N_c_disable) (guard: culvert_N_A.open) (assignments: culvert_N_A := culvert_N_A.closed)
+    Edge: (event: culvert_N_u_on) (guard: culvert_N_A.open and culvert_N_S.noflow) (assignments: culvert_N_S := culvert_N_S.flow)
+    Edge: (event: culvert_S_c_enable) (guard: culvert_S_A.closed) (assignments: culvert_S_A := culvert_S_A.open)
+    Edge: (event: culvert_S_u_off) (guard: culvert_S_A.closed and culvert_S_S.flow) (assignments: culvert_S_S := culvert_S_S.noflow)
+    Edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed)
+    Edge: (event: culvert_S_u_on) (guard: culvert_S_A.open and culvert_S_S.noflow) (assignments: culvert_S_S := culvert_S_S.flow)
+    Edge: (event: gate_U_N_u_s1_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.closed) (assignments: gate_U_N_S := gate_U_N_S.bclosed)
+    Edge: (event: gate_U_N_u_s1_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.bclosed) (assignments: gate_U_N_S := gate_U_N_S.closed)
+    Edge: (event: gate_U_N_u_s2_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.bclosed) (assignments: gate_U_N_S := gate_U_N_S.fclosed)
+    Edge: (event: gate_U_N_u_s2_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.fclosed) (assignments: gate_U_N_S := gate_U_N_S.bclosed)
+    Edge: (event: gate_U_N_u_s3_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.fclosed) (assignments: gate_U_N_S := gate_U_N_S.middle)
+    Edge: (event: gate_U_N_u_s3_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.middle) (assignments: gate_U_N_S := gate_U_N_S.fclosed)
+    Edge: (event: gate_U_N_u_s4_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.middle) (assignments: gate_U_N_S := gate_U_N_S.fopen)
+    Edge: (event: gate_U_N_u_s4_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.fopen) (assignments: gate_U_N_S := gate_U_N_S.middle)
+    Edge: (event: gate_U_N_u_s5_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.fopen) (assignments: gate_U_N_S := gate_U_N_S.bopen)
+    Edge: (event: gate_U_N_u_s5_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.bopen) (assignments: gate_U_N_S := gate_U_N_S.fopen)
+    Edge: (event: gate_U_N_u_s6_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.bopen) (assignments: gate_U_N_S := gate_U_N_S.open)
+    Edge: (event: gate_U_N_u_s6_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.open) (assignments: gate_U_N_S := gate_U_N_S.bopen)
+    Edge: (event: gate_U_N_c_open) (guard: gate_U_N_Dir.off) (assignments: gate_U_N_Dir := gate_U_N_Dir.opening)
+    Edge: (event: gate_U_N_c_open) (guard: gate_U_N_Dir.closing) (assignments: gate_U_N_Dir := gate_U_N_Dir.opening)
+    Edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.off) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing)
+    Edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing)
+    Edge: (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.off)
+    Edge: (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.closing) (assignments: gate_U_N_Dir := gate_U_N_Dir.off)
+    Edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed)
+    Edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open)
+    Edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: <bdd 22n 1p> [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: <bdd 22n 1p> -> <bdd 21n 1p> [backward reach with edge: (event: pad_N_c_stop) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 21n 1p> -> <bdd 22n 2p> [backward reach with edge: (event: pad_N_c_stop) (guard: pad_N_A.closing) (assignments: pad_N_A := pad_N_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 22n 2p> -> <bdd 25n 3p> [backward reach with edge: (event: pad_N_S1_u_closed_on) (guard: pad_N_S1.between and pad_N_A.closing) (assignments: pad_N_S1 := pad_N_S1.closed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 25n 3p> -> <bdd 25n 4p> [backward reach with edge: (event: pad_N_S1_u_open_off) (guard: pad_N_S1.open and pad_N_A.closing) (assignments: pad_N_S1 := pad_N_S1.between), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 25n 4p> -> <bdd 26n 5p> [backward reach with edge: (event: pad_N_S2_u_closed_on) (guard: pad_N_A.closing and pad_N_S2.between) (assignments: pad_N_S2 := pad_N_S2.closed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 26n 5p> -> <bdd 27n 8p> [backward reach with edge: (event: pad_N_S2_u_open_off) (guard: pad_N_A.closing and pad_N_S2.open) (assignments: pad_N_S2 := pad_N_S2.between), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 27n 8p> -> <bdd 28n 8p> [backward reach with edge: (event: pad_N_S3_u_closed_on) (guard: pad_N_A.closing and pad_N_S3.between) (assignments: pad_N_S3 := pad_N_S3.closed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 28n 8p> -> <bdd 29n 14p> [backward reach with edge: (event: pad_N_S3_u_open_off) (guard: pad_N_A.closing and pad_N_S3.open) (assignments: pad_N_S3 := pad_N_S3.between), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 29n 14p> -> <bdd 28n 14p> [backward reach with edge: (event: culvert_N_u_off) (guard: culvert_N_A.closed and culvert_N_S.flow) (assignments: culvert_N_S := culvert_N_S.noflow), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 28n 14p> -> <bdd 27n 14p> [backward reach with edge: (event: culvert_N_c_disable) (guard: culvert_N_A.open) (assignments: culvert_N_A := culvert_N_A.closed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 27n 14p> -> <bdd 26n 14p> [backward reach with edge: (event: culvert_S_u_off) (guard: culvert_S_A.closed and culvert_S_S.flow) (assignments: culvert_S_S := culvert_S_S.noflow), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 26n 14p> -> <bdd 25n 14p> [backward reach with edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 25n 14p> -> <bdd 24n 14p> [backward reach with edge: (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.off), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 24n 14p> -> <bdd 25n 28p> [backward reach with edge: (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.closing) (assignments: gate_U_N_Dir := gate_U_N_Dir.off), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 25n 28p> -> <bdd 24n 28p> [backward reach with edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 24n 28p> -> <bdd 25n 56p> [backward reach with edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward reachability: iteration 2.
+Backward controlled-behavior: <bdd 25n 56p> -> <bdd 23n 52p> [backward reach with edge: (event: pad_N_c_close) (guard: pad_N_A.rest) (assignments: pad_N_A := pad_N_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 23n 52p> -> <bdd 18n 64p> [backward reach with edge: (event: pad_N_c_close) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 18n 64p> -> <bdd 19n 96p> [backward reach with edge: (event: gate_U_N_u_s1_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.bclosed) (assignments: gate_U_N_S := gate_U_N_S.closed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 19n 96p> -> <bdd 20n 128p> [backward reach with edge: (event: gate_U_N_u_s2_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.fclosed) (assignments: gate_U_N_S := gate_U_N_S.bclosed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 20n 128p> -> <bdd 19n 96p> [backward reach with edge: (event: gate_U_N_u_s3_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.middle) (assignments: gate_U_N_S := gate_U_N_S.fclosed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 19n 96p> -> <bdd 21n 160p> [backward reach with edge: (event: gate_U_N_u_s4_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.fopen) (assignments: gate_U_N_S := gate_U_N_S.middle), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 21n 160p> -> <bdd 20n 128p> [backward reach with edge: (event: gate_U_N_u_s5_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.bopen) (assignments: gate_U_N_S := gate_U_N_S.fopen), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 20n 128p> -> <bdd 21n 160p> [backward reach with edge: (event: gate_U_N_u_s6_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.open) (assignments: gate_U_N_S := gate_U_N_S.bopen), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 21n 160p> -> <bdd 20n 128p> [backward reach with edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.off) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 20n 128p> -> <bdd 18n 192p> [backward reach with edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 18n 192p> -> <bdd 19n 288p> [backward reach with edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 19n 288p> -> <bdd 20n 384p> [backward reach with edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 20n 384p> -> <bdd 19n 288p> [backward reach with edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 19n 288p> -> <bdd 21n 480p> [backward reach with edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 21n 480p> -> <bdd 20n 384p> [backward reach with edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 20n 384p> -> <bdd 21n 480p> [backward reach with edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 21n 480p> -> <bdd 20n 384p> [backward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward controlled-behavior: <bdd 20n 384p> -> <bdd 18n 576p> [backward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Backward reachability: iteration 3.
+Backward controlled-behavior: <bdd 18n 576p> [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: <bdd 18n 561p> [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: <bdd 22n 1p> [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: <bdd 22n 1p> -> <bdd 21n 1p> [forward reach with edge: (event: pad_N_c_open) (guard: pad_N_A.rest -> <bdd 16n 4p>) (assignments: pad_N_A := pad_N_A.opening), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 21n 1p> -> <bdd 22n 2p> [forward reach with edge: (event: pad_N_c_close) (guard: pad_N_A.rest) (assignments: pad_N_A := pad_N_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 22n 2p> -> <bdd 24n 3p> [forward reach with edge: (event: pad_N_S1_u_closed_off) (guard: pad_N_S1.closed and pad_N_A.opening) (assignments: pad_N_S1 := pad_N_S1.between), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 24n 3p> -> <bdd 24n 4p> [forward reach with edge: (event: pad_N_S1_u_open_on) (guard: pad_N_S1.between and pad_N_A.opening) (assignments: pad_N_S1 := pad_N_S1.open), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 24n 4p> -> <bdd 24n 4p> [forward reach with edge: (event: pad_N_S2_u_closed_off) (guard: pad_N_A.opening and pad_N_S2.closed) (assignments: pad_N_S2 := pad_N_S2.between), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 24n 4p> -> <bdd 25n 7p> [forward reach with edge: (event: pad_N_S2_u_open_on) (guard: pad_N_A.opening and pad_N_S2.between) (assignments: pad_N_S2 := pad_N_S2.open), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 25n 7p> -> <bdd 26n 7p> [forward reach with edge: (event: pad_N_S3_u_closed_off) (guard: pad_N_A.opening and pad_N_S3.closed) (assignments: pad_N_S3 := pad_N_S3.between), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 26n 7p> -> <bdd 27n 13p> [forward reach with edge: (event: pad_N_S3_u_open_on) (guard: pad_N_A.opening and pad_N_S3.between) (assignments: pad_N_S3 := pad_N_S3.open), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 27n 13p> -> <bdd 26n 13p> [forward reach with edge: (event: culvert_N_c_enable) (guard: culvert_N_A.closed) (assignments: culvert_N_A := culvert_N_A.open), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 26n 13p> -> <bdd 27n 26p> [forward reach with edge: (event: culvert_N_u_on) (guard: culvert_N_A.open and culvert_N_S.noflow) (assignments: culvert_N_S := culvert_N_S.flow), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 27n 26p> -> <bdd 26n 26p> [forward reach with edge: (event: culvert_S_c_enable) (guard: culvert_S_A.closed) (assignments: culvert_S_A := culvert_S_A.open), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 26n 26p> -> <bdd 27n 52p> [forward reach with edge: (event: culvert_S_u_on) (guard: culvert_S_A.open and culvert_S_S.noflow) (assignments: culvert_S_S := culvert_S_S.flow), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 27n 52p> -> <bdd 26n 52p> [forward reach with edge: (event: gate_U_N_c_open) (guard: gate_U_N_Dir.off) (assignments: gate_U_N_Dir := gate_U_N_Dir.opening), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 26n 52p> -> <bdd 27n 104p> [forward reach with edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.off) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 27n 104p> -> <bdd 26n 104p> [forward reach with edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 26n 104p> -> <bdd 27n 208p> [forward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward reachability: iteration 2.
+Forward controlled-behavior: <bdd 27n 208p> -> <bdd 29n 400p> [forward reach with edge: (event: pad_N_c_close) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 29n 400p> -> <bdd 22n 256p> [forward reach with edge: (event: pad_N_c_stop) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 22n 256p> -> <bdd 20n 128p> [forward reach with edge: (event: culvert_N_c_disable) (guard: culvert_N_A.open) (assignments: culvert_N_A := culvert_N_A.closed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 20n 128p> -> <bdd 18n 64p> [forward reach with edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 18n 64p> -> <bdd 18n 64p> [forward reach with edge: (event: gate_U_N_u_s1_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.closed) (assignments: gate_U_N_S := gate_U_N_S.bclosed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 18n 64p> -> <bdd 19n 96p> [forward reach with edge: (event: gate_U_N_u_s2_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.bclosed) (assignments: gate_U_N_S := gate_U_N_S.fclosed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 19n 96p> -> <bdd 18n 64p> [forward reach with edge: (event: gate_U_N_u_s3_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.fclosed) (assignments: gate_U_N_S := gate_U_N_S.middle), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 18n 64p> -> <bdd 20n 128p> [forward reach with edge: (event: gate_U_N_u_s4_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.middle) (assignments: gate_U_N_S := gate_U_N_S.fopen), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 20n 128p> -> <bdd 19n 96p> [forward reach with edge: (event: gate_U_N_u_s5_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.fopen) (assignments: gate_U_N_S := gate_U_N_S.bopen), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 19n 96p> -> <bdd 20n 128p> [forward reach with edge: (event: gate_U_N_u_s6_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.bopen) (assignments: gate_U_N_S := gate_U_N_S.open), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 20n 128p> -> <bdd 21n 224p> [forward reach with edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 21n 224p> -> <bdd 18n 192p> [forward reach with edge: (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.off), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 18n 192p> -> <bdd 18n 192p> [forward reach with edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 18n 192p> -> <bdd 19n 288p> [forward reach with edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 19n 288p> -> <bdd 18n 192p> [forward reach with edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 18n 192p> -> <bdd 20n 384p> [forward reach with edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 20n 384p> -> <bdd 19n 288p> [forward reach with edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 19n 288p> -> <bdd 20n 384p> [forward reach with edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 20n 384p> -> <bdd 21n 672p> [forward reach with edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward controlled-behavior: <bdd 21n 672p> -> <bdd 18n 576p> [forward reach with edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off), restricted to current/previous controlled-behavior predicate: <bdd 18n 576p>]
+Forward reachability: iteration 3.
+Forward controlled-behavior: <bdd 18n 576p> [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: pad_N_c_open) (guard: pad_N_A.rest -> <bdd 16n 4p>) (assignments: pad_N_A := pad_N_A.opening): guard: <bdd 16n 4p> -> <bdd 20n 8p>.
+Edge (event: pad_N_c_open) (guard: pad_N_A.closing -> <bdd 16n 4p>) (assignments: pad_N_A := pad_N_A.opening): guard: <bdd 16n 4p> -> <bdd 20n 8p>.
+Edge (event: pad_N_c_close) (guard: pad_N_A.rest) (assignments: pad_N_A := pad_N_A.closing): guard: pad_N_A.rest -> <bdd 18n 288p>.
+Edge (event: pad_N_c_close) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.closing): guard: pad_N_A.opening -> <bdd 18n 288p>.
+Edge (event: pad_N_c_stop) (guard: pad_N_A.opening) (assignments: pad_N_A := pad_N_A.rest): guard: pad_N_A.opening -> <bdd 18n 288p>.
+Edge (event: pad_N_c_stop) (guard: pad_N_A.closing) (assignments: pad_N_A := pad_N_A.rest): guard: pad_N_A.closing -> <bdd 18n 288p>.
+Edge (event: culvert_N_c_enable) (guard: culvert_N_A.closed) (assignments: culvert_N_A := culvert_N_A.open): guard: culvert_N_A.closed -> <bdd 19n 576p>.
+Edge (event: culvert_N_c_disable) (guard: culvert_N_A.open) (assignments: culvert_N_A := culvert_N_A.closed): guard: culvert_N_A.open -> <bdd 19n 576p>.
+Edge (event: culvert_S_c_enable) (guard: culvert_S_A.closed) (assignments: culvert_S_A := culvert_S_A.open): guard: culvert_S_A.closed -> <bdd 19n 576p>.
+Edge (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed): guard: culvert_S_A.open -> <bdd 19n 576p>.
+Edge (event: gate_U_N_c_open) (guard: gate_U_N_Dir.off) (assignments: gate_U_N_Dir := gate_U_N_Dir.opening): guard: gate_U_N_Dir.off -> <bdd 18n 288p>.
+Edge (event: gate_U_N_c_open) (guard: gate_U_N_Dir.closing) (assignments: gate_U_N_Dir := gate_U_N_Dir.opening): guard: gate_U_N_Dir.closing -> <bdd 18n 288p>.
+Edge (event: gate_U_N_c_close) (guard: gate_U_N_Dir.off) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing): guard: gate_U_N_Dir.off -> <bdd 18n 288p>.
+Edge (event: gate_U_N_c_close) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing): guard: gate_U_N_Dir.opening -> <bdd 18n 288p>.
+Edge (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.opening) (assignments: gate_U_N_Dir := gate_U_N_Dir.off): guard: gate_U_N_Dir.opening -> <bdd 18n 288p>.
+Edge (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.closing) (assignments: gate_U_N_Dir := gate_U_N_Dir.off): guard: gate_U_N_Dir.closing -> <bdd 18n 288p>.
+Edge (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening): guard: gate_U_S_Dir.off -> <bdd 18n 288p>.
+Edge (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening): guard: gate_U_S_Dir.closing -> <bdd 18n 288p>.
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: gate_U_S_Dir.off -> <bdd 18n 288p>.
+Edge (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing): guard: gate_U_S_Dir.opening -> <bdd 18n 288p>.
+Edge (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening) (assignments: gate_U_S_Dir := gate_U_S_Dir.off): guard: gate_U_S_Dir.opening -> <bdd 18n 288p>.
+Edge (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing) (assignments: gate_U_S_Dir := gate_U_S_Dir.off): guard: gate_U_S_Dir.closing -> <bdd 18n 288p>.
+
+Final synthesis result:
+  State: (controlled-behavior: <bdd 18n 576p>)
+    Edge: (event: pad_N_c_open) (guard: pad_N_A.rest -> <bdd 20n 8p>) (assignments: pad_N_A := pad_N_A.opening)
+    Edge: (event: pad_N_c_open) (guard: pad_N_A.closing -> <bdd 20n 8p>) (assignments: pad_N_A := pad_N_A.opening)
+    Edge: (event: pad_N_c_close) (guard: pad_N_A.rest -> <bdd 18n 288p>) (assignments: pad_N_A := pad_N_A.closing)
+    Edge: (event: pad_N_c_close) (guard: pad_N_A.opening -> <bdd 18n 288p>) (assignments: pad_N_A := pad_N_A.closing)
+    Edge: (event: pad_N_c_stop) (guard: pad_N_A.opening -> <bdd 18n 288p>) (assignments: pad_N_A := pad_N_A.rest)
+    Edge: (event: pad_N_c_stop) (guard: pad_N_A.closing -> <bdd 18n 288p>) (assignments: pad_N_A := pad_N_A.rest)
+    Edge: (event: pad_N_S1_u_closed_off) (guard: pad_N_S1.closed and pad_N_A.opening) (assignments: pad_N_S1 := pad_N_S1.between)
+    Edge: (event: pad_N_S1_u_open_on) (guard: pad_N_S1.between and pad_N_A.opening) (assignments: pad_N_S1 := pad_N_S1.open)
+    Edge: (event: pad_N_S2_u_closed_off) (guard: pad_N_A.opening and pad_N_S2.closed) (assignments: pad_N_S2 := pad_N_S2.between)
+    Edge: (event: pad_N_S2_u_open_on) (guard: pad_N_A.opening and pad_N_S2.between) (assignments: pad_N_S2 := pad_N_S2.open)
+    Edge: (event: pad_N_S3_u_closed_off) (guard: pad_N_A.opening and pad_N_S3.closed) (assignments: pad_N_S3 := pad_N_S3.between)
+    Edge: (event: pad_N_S3_u_open_on) (guard: pad_N_A.opening and pad_N_S3.between) (assignments: pad_N_S3 := pad_N_S3.open)
+    Edge: (event: pad_N_S1_u_closed_on) (guard: pad_N_S1.between and pad_N_A.closing) (assignments: pad_N_S1 := pad_N_S1.closed)
+    Edge: (event: pad_N_S1_u_open_off) (guard: pad_N_S1.open and pad_N_A.closing) (assignments: pad_N_S1 := pad_N_S1.between)
+    Edge: (event: pad_N_S2_u_closed_on) (guard: pad_N_A.closing and pad_N_S2.between) (assignments: pad_N_S2 := pad_N_S2.closed)
+    Edge: (event: pad_N_S2_u_open_off) (guard: pad_N_A.closing and pad_N_S2.open) (assignments: pad_N_S2 := pad_N_S2.between)
+    Edge: (event: pad_N_S3_u_closed_on) (guard: pad_N_A.closing and pad_N_S3.between) (assignments: pad_N_S3 := pad_N_S3.closed)
+    Edge: (event: pad_N_S3_u_open_off) (guard: pad_N_A.closing and pad_N_S3.open) (assignments: pad_N_S3 := pad_N_S3.between)
+    Edge: (event: culvert_N_c_enable) (guard: culvert_N_A.closed -> <bdd 19n 576p>) (assignments: culvert_N_A := culvert_N_A.open)
+    Edge: (event: culvert_N_u_off) (guard: culvert_N_A.closed and culvert_N_S.flow) (assignments: culvert_N_S := culvert_N_S.noflow)
+    Edge: (event: culvert_N_c_disable) (guard: culvert_N_A.open -> <bdd 19n 576p>) (assignments: culvert_N_A := culvert_N_A.closed)
+    Edge: (event: culvert_N_u_on) (guard: culvert_N_A.open and culvert_N_S.noflow) (assignments: culvert_N_S := culvert_N_S.flow)
+    Edge: (event: culvert_S_c_enable) (guard: culvert_S_A.closed -> <bdd 19n 576p>) (assignments: culvert_S_A := culvert_S_A.open)
+    Edge: (event: culvert_S_u_off) (guard: culvert_S_A.closed and culvert_S_S.flow) (assignments: culvert_S_S := culvert_S_S.noflow)
+    Edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open -> <bdd 19n 576p>) (assignments: culvert_S_A := culvert_S_A.closed)
+    Edge: (event: culvert_S_u_on) (guard: culvert_S_A.open and culvert_S_S.noflow) (assignments: culvert_S_S := culvert_S_S.flow)
+    Edge: (event: gate_U_N_u_s1_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.closed) (assignments: gate_U_N_S := gate_U_N_S.bclosed)
+    Edge: (event: gate_U_N_u_s1_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.bclosed) (assignments: gate_U_N_S := gate_U_N_S.closed)
+    Edge: (event: gate_U_N_u_s2_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.bclosed) (assignments: gate_U_N_S := gate_U_N_S.fclosed)
+    Edge: (event: gate_U_N_u_s2_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.fclosed) (assignments: gate_U_N_S := gate_U_N_S.bclosed)
+    Edge: (event: gate_U_N_u_s3_on) (guard: gate_U_N_Dir.opening and gate_U_N_S.fclosed) (assignments: gate_U_N_S := gate_U_N_S.middle)
+    Edge: (event: gate_U_N_u_s3_off) (guard: gate_U_N_Dir.closing and gate_U_N_S.middle) (assignments: gate_U_N_S := gate_U_N_S.fclosed)
+    Edge: (event: gate_U_N_u_s4_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.middle) (assignments: gate_U_N_S := gate_U_N_S.fopen)
+    Edge: (event: gate_U_N_u_s4_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.fopen) (assignments: gate_U_N_S := gate_U_N_S.middle)
+    Edge: (event: gate_U_N_u_s5_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.fopen) (assignments: gate_U_N_S := gate_U_N_S.bopen)
+    Edge: (event: gate_U_N_u_s5_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.bopen) (assignments: gate_U_N_S := gate_U_N_S.fopen)
+    Edge: (event: gate_U_N_u_s6_off) (guard: gate_U_N_Dir.opening and gate_U_N_S.bopen) (assignments: gate_U_N_S := gate_U_N_S.open)
+    Edge: (event: gate_U_N_u_s6_on) (guard: gate_U_N_Dir.closing and gate_U_N_S.open) (assignments: gate_U_N_S := gate_U_N_S.bopen)
+    Edge: (event: gate_U_N_c_open) (guard: gate_U_N_Dir.off -> <bdd 18n 288p>) (assignments: gate_U_N_Dir := gate_U_N_Dir.opening)
+    Edge: (event: gate_U_N_c_open) (guard: gate_U_N_Dir.closing -> <bdd 18n 288p>) (assignments: gate_U_N_Dir := gate_U_N_Dir.opening)
+    Edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.off -> <bdd 18n 288p>) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing)
+    Edge: (event: gate_U_N_c_close) (guard: gate_U_N_Dir.opening -> <bdd 18n 288p>) (assignments: gate_U_N_Dir := gate_U_N_Dir.closing)
+    Edge: (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.opening -> <bdd 18n 288p>) (assignments: gate_U_N_Dir := gate_U_N_Dir.off)
+    Edge: (event: gate_U_N_c_stop) (guard: gate_U_N_Dir.closing -> <bdd 18n 288p>) (assignments: gate_U_N_Dir := gate_U_N_Dir.off)
+    Edge: (event: gate_U_S_u_s1_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.closed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s1_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.closed)
+    Edge: (event: gate_U_S_u_s2_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.bclosed) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s2_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.bclosed)
+    Edge: (event: gate_U_S_u_s3_on) (guard: gate_U_S_Dir.opening and gate_U_S_S.fclosed) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s3_off) (guard: gate_U_S_Dir.closing and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fclosed)
+    Edge: (event: gate_U_S_u_s4_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.middle) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s4_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.middle)
+    Edge: (event: gate_U_S_u_s5_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.fopen) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_u_s5_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.fopen)
+    Edge: (event: gate_U_S_u_s6_off) (guard: gate_U_S_Dir.opening and gate_U_S_S.bopen) (assignments: gate_U_S_S := gate_U_S_S.open)
+    Edge: (event: gate_U_S_u_s6_on) (guard: gate_U_S_Dir.closing and gate_U_S_S.open) (assignments: gate_U_S_S := gate_U_S_S.bopen)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.off -> <bdd 18n 288p>) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_open) (guard: gate_U_S_Dir.closing -> <bdd 18n 288p>) (assignments: gate_U_S_Dir := gate_U_S_Dir.opening)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.off -> <bdd 18n 288p>) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_close) (guard: gate_U_S_Dir.opening -> <bdd 18n 288p>) (assignments: gate_U_S_Dir := gate_U_S_Dir.closing)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.opening -> <bdd 18n 288p>) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+    Edge: (event: gate_U_S_c_stop) (guard: gate_U_S_Dir.closing -> <bdd 18n 288p>) (assignments: gate_U_S_Dir := gate_U_S_Dir.off)
+
+Controlled system:                     exactly 571,536 states.
+
+Initial (synthesis result):            <bdd 18n 576p>
+Initial (uncontrolled system):         <bdd 22n 1p>
+Initial (controlled system):           <bdd 22n 1p>
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event pad_N_c_open: guard: <bdd 19n 8p> -> true [assume <bdd 19n 8p>].
+  Event pad_N_c_close: guard: <bdd 17n 288p> -> true [assume <bdd 17n 288p>].
+  Event pad_N_c_stop: guard: <bdd 19n 576p> -> true [assume <bdd 19n 576p>].
+  Event culvert_N_c_enable: guard: <bdd 19n 576p> -> true [assume <bdd 19n 576p>].
+  Event culvert_N_c_disable: guard: <bdd 19n 576p> -> true [assume <bdd 19n 576p>].
+  Event culvert_S_c_enable: guard: <bdd 19n 576p> -> true [assume <bdd 19n 576p>].
+  Event culvert_S_c_disable: guard: <bdd 19n 576p> -> true [assume <bdd 19n 576p>].
+  Event gate_U_N_c_open: guard: <bdd 17n 288p> -> true [assume <bdd 17n 288p>].
+  Event gate_U_N_c_close: guard: <bdd 17n 288p> -> true [assume <bdd 17n 288p>].
+  Event gate_U_N_c_stop: guard: <bdd 19n 576p> -> true [assume <bdd 19n 576p>].
+  Event gate_U_S_c_open: guard: <bdd 17n 288p> -> true [assume <bdd 17n 288p>].
+  Event gate_U_S_c_close: guard: <bdd 17n 288p> -> true [assume <bdd 17n 288p>].
+  Event gate_U_S_c_stop: guard: <bdd 19n 576p> -> true [assume <bdd 19n 576p>].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_largereq/subplant_27_sup.cif".

@@ -1,0 +1,2 @@
+Name,Total time,Create matrix time,Synthesis time,Nonconflicting check time,Clustering time,Number of supervisors,Total states,Conflict
+Marijkesluis_largereq,119372,47,9929,103086,960,26,5.497057630605e12,0

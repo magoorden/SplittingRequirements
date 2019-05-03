@@ -1,0 +1,268 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_3.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name         Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_clamp      0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_drill      1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   A_drilldown  2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   A_drillup    3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   A_turntable  4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   ClampDrill   5      4 * 2     9 * 2       16 * 2      ~56%
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  Total                                       6      18        38          52          ~73%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 10
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                   29 (total)                 2.90 (avg/edge) [before]
+    Total span:                   15 (total)                 1.50 (avg/edge) [iteration 1]
+    Total span:                   15 (total)                 1.50 (avg/edge) [iteration 2]
+    Total span:                   15 (total)                 1.50 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                   15 (total)                 1.50 (avg/edge) [before]
+    Total span:                   15 (total)                 1.50 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name         Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_clamp      0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_drill      1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   ClampDrill   2      4 * 2     9 * 2       16 * 2      ~56%
+  4      location pointer  n/a   A_drilldown  3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   A_drillup    4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   A_turntable  5      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  Total                                       6      18        38          52          ~73%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     A_drill.Off
+Initial   (aut/locs init predicate):     A_turntable.Off
+Initial   (aut/locs init predicate):     A_drilldown.Off
+Initial   (aut/locs init predicate):     A_drillup.On
+Initial   (aut/locs init predicate):     A_clamp.Off
+Initial   (aut/locs init predicate):     ClampDrill.one
+Initial   (auts/locs init predicate):    A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))
+Initial   (uncontrolled system):         A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))
+Initial   (system, combined init/inv):   A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   A_drill.Off
+Marked    (aut/locs marker predicate):   A_turntable.Off
+Marked    (aut/locs marker predicate):   A_drilldown.Off
+Marked    (aut/locs marker predicate):   A_drillup.On
+Marked    (aut/locs marker predicate):   A_clamp.Off
+Marked    (aut/locs marker predicate):   ClampDrill.one
+Marked    (auts/locs marker predicate):  A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))
+Marked    (uncontrolled system):         A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))
+Marked    (system, combined marked/inv): A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))
+
+State/event exclusion requirements:
+  Event "A_turntable_c_on" needs:
+    ClampDrill.one or ClampDrill.nine
+  Event "A_clamp_c_on" needs:
+    ClampDrill.one
+  Event "A_drill_c_on" needs:
+    ClampDrill.two
+  Event "A_drillup_c_off" needs:
+    ClampDrill.three
+  Event "A_drilldown_c_on" needs:
+    ClampDrill.four
+  Event "A_drilldown_c_off" needs:
+    ClampDrill.five
+  Event "A_drillup_c_on" needs:
+    ClampDrill.six
+  Event "A_drill_c_off" needs:
+    ClampDrill.seven
+  Event "A_clamp_c_off" needs:
+    ClampDrill.eight
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: A_drill_c_off) (guard: A_drill.On and ClampDrill.seven) (assignments: A_drill := A_drill.Off, ClampDrill := ClampDrill.eight)
+    Edge: (event: A_drill_c_off) (guard: (A_drill.Off or not ClampDrill.seven) and A_drill.On) (assignments: A_drill := A_drill.Off)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off and ClampDrill.two) (assignments: A_drill := A_drill.On, ClampDrill := ClampDrill.three)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off and (A_drill.On or not ClampDrill.two)) (assignments: A_drill := A_drill.On)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: ClampDrill.one and A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_turntable_c_on) (guard: ClampDrill.nine and A_turntable.Off) (assignments: A_turntable := A_turntable.On, ClampDrill := ClampDrill.one)
+    Edge: (event: A_turntable_c_on) (guard: ClampDrill.five and A_turntable.Off or ((ClampDrill.three or ClampDrill.seven) and A_turntable.Off or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_turntable.Off)) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_drilldown_c_off) (guard: ClampDrill.five and A_drilldown.On) (assignments: A_drilldown := A_drilldown.Off, ClampDrill := ClampDrill.six)
+    Edge: (event: A_drilldown_c_off) (guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.On or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drilldown.On)) (assignments: A_drilldown := A_drilldown.Off)
+    Edge: (event: A_drilldown_c_on) (guard: ClampDrill.four and A_drilldown.Off) (assignments: A_drilldown := A_drilldown.On, ClampDrill := ClampDrill.five)
+    Edge: (event: A_drilldown_c_on) (guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.Off or ClampDrill.five and A_drilldown.Off or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.Off or ((ClampDrill.two or ClampDrill.six) and A_drilldown.Off or ClampDrill.eight and A_drilldown.Off))) (assignments: A_drilldown := A_drilldown.On)
+    Edge: (event: A_drillup_c_off) (guard: ClampDrill.three and A_drillup.On) (assignments: A_drillup := A_drillup.Off, ClampDrill := ClampDrill.four)
+    Edge: (event: A_drillup_c_off) (guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.On or ClampDrill.five and A_drillup.On or (ClampDrill.seven and A_drillup.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drillup.On)) (assignments: A_drillup := A_drillup.Off)
+    Edge: (event: A_drillup_c_on) (guard: ClampDrill.six and A_drillup.Off) (assignments: A_drillup := A_drillup.On, ClampDrill := ClampDrill.seven)
+    Edge: (event: A_drillup_c_on) (guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.Off or ClampDrill.five and A_drillup.Off or ((ClampDrill.three or ClampDrill.seven) and A_drillup.Off or (ClampDrill.two and A_drillup.Off or (ClampDrill.four or ClampDrill.eight) and A_drillup.Off))) (assignments: A_drillup := A_drillup.On)
+    Edge: (event: A_clamp_c_off) (guard: A_clamp.On and ClampDrill.eight) (assignments: A_clamp := A_clamp.Off, ClampDrill := ClampDrill.nine)
+    Edge: (event: A_clamp_c_off) (guard: (A_clamp.Off or not ClampDrill.eight) and A_clamp.On) (assignments: A_clamp := A_clamp.Off)
+    Edge: (event: A_clamp_c_on) (guard: A_clamp.Off and ClampDrill.one) (assignments: A_clamp := A_clamp.On, ClampDrill := ClampDrill.two)
+    Edge: (event: A_clamp_c_on) (guard: A_clamp.Off and (A_clamp.On or not ClampDrill.one)) (assignments: A_clamp := A_clamp.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "ClampDrill" (group: 2, domain: 4+5, BDD variables: 4, CIF/BDD values: 9/16)].
+
+Extended controlled-behavior predicate using variable ranges: true.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_drill_c_off) (guard: (A_drill.Off or not ClampDrill.seven) and A_drill.On) (assignments: A_drill := A_drill.Off): guard: (A_drill.Off or not ClampDrill.seven) and A_drill.On -> false [requirement: ClampDrill.seven].
+Edge (event: A_drill_c_on) (guard: A_drill.Off and (A_drill.On or not ClampDrill.two)) (assignments: A_drill := A_drill.On): guard: A_drill.Off and (A_drill.On or not ClampDrill.two) -> false [requirement: ClampDrill.two].
+Edge (event: A_turntable_c_on) (guard: ClampDrill.five and A_turntable.Off or ((ClampDrill.three or ClampDrill.seven) and A_turntable.Off or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_turntable.Off)) (assignments: A_turntable := A_turntable.On): guard: ClampDrill.five and A_turntable.Off or ((ClampDrill.three or ClampDrill.seven) and A_turntable.Off or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_turntable.Off) -> false [requirement: ClampDrill.one or ClampDrill.nine].
+Edge (event: A_drilldown_c_off) (guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.On or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drilldown.On)) (assignments: A_drilldown := A_drilldown.Off): guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.On or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drilldown.On) -> false [requirement: ClampDrill.five].
+Edge (event: A_drilldown_c_on) (guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.Off or ClampDrill.five and A_drilldown.Off or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.Off or ((ClampDrill.two or ClampDrill.six) and A_drilldown.Off or ClampDrill.eight and A_drilldown.Off))) (assignments: A_drilldown := A_drilldown.On): guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.Off or ClampDrill.five and A_drilldown.Off or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.Off or ((ClampDrill.two or ClampDrill.six) and A_drilldown.Off or ClampDrill.eight and A_drilldown.Off)) -> false [requirement: ClampDrill.four].
+Edge (event: A_drillup_c_off) (guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.On or ClampDrill.five and A_drillup.On or (ClampDrill.seven and A_drillup.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drillup.On)) (assignments: A_drillup := A_drillup.Off): guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.On or ClampDrill.five and A_drillup.On or (ClampDrill.seven and A_drillup.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drillup.On) -> false [requirement: ClampDrill.three].
+Edge (event: A_drillup_c_on) (guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.Off or ClampDrill.five and A_drillup.Off or ((ClampDrill.three or ClampDrill.seven) and A_drillup.Off or (ClampDrill.two and A_drillup.Off or (ClampDrill.four or ClampDrill.eight) and A_drillup.Off))) (assignments: A_drillup := A_drillup.On): guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.Off or ClampDrill.five and A_drillup.Off or ((ClampDrill.three or ClampDrill.seven) and A_drillup.Off or (ClampDrill.two and A_drillup.Off or (ClampDrill.four or ClampDrill.eight) and A_drillup.Off)) -> false [requirement: ClampDrill.six].
+Edge (event: A_clamp_c_off) (guard: (A_clamp.Off or not ClampDrill.eight) and A_clamp.On) (assignments: A_clamp := A_clamp.Off): guard: (A_clamp.Off or not ClampDrill.eight) and A_clamp.On -> false [requirement: ClampDrill.eight].
+Edge (event: A_clamp_c_on) (guard: A_clamp.Off and (A_clamp.On or not ClampDrill.one)) (assignments: A_clamp := A_clamp.On): guard: A_clamp.Off and (A_clamp.On or not ClampDrill.one) -> false [requirement: ClampDrill.one].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: A_drill_c_off) (guard: A_drill.On and ClampDrill.seven) (assignments: A_drill := A_drill.Off, ClampDrill := ClampDrill.eight)
+    Edge: (event: A_drill_c_off) (guard: (A_drill.Off or not ClampDrill.seven) and A_drill.On -> false) (assignments: A_drill := A_drill.Off)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off and ClampDrill.two) (assignments: A_drill := A_drill.On, ClampDrill := ClampDrill.three)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off and (A_drill.On or not ClampDrill.two) -> false) (assignments: A_drill := A_drill.On)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: ClampDrill.one and A_turntable.Off) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_turntable_c_on) (guard: ClampDrill.nine and A_turntable.Off) (assignments: A_turntable := A_turntable.On, ClampDrill := ClampDrill.one)
+    Edge: (event: A_turntable_c_on) (guard: ClampDrill.five and A_turntable.Off or ((ClampDrill.three or ClampDrill.seven) and A_turntable.Off or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_turntable.Off) -> false) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_drilldown_c_off) (guard: ClampDrill.five and A_drilldown.On) (assignments: A_drilldown := A_drilldown.Off, ClampDrill := ClampDrill.six)
+    Edge: (event: A_drilldown_c_off) (guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.On or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drilldown.On) -> false) (assignments: A_drilldown := A_drilldown.Off)
+    Edge: (event: A_drilldown_c_on) (guard: ClampDrill.four and A_drilldown.Off) (assignments: A_drilldown := A_drilldown.On, ClampDrill := ClampDrill.five)
+    Edge: (event: A_drilldown_c_on) (guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.Off or ClampDrill.five and A_drilldown.Off or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.Off or ((ClampDrill.two or ClampDrill.six) and A_drilldown.Off or ClampDrill.eight and A_drilldown.Off)) -> false) (assignments: A_drilldown := A_drilldown.On)
+    Edge: (event: A_drillup_c_off) (guard: ClampDrill.three and A_drillup.On) (assignments: A_drillup := A_drillup.Off, ClampDrill := ClampDrill.four)
+    Edge: (event: A_drillup_c_off) (guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.On or ClampDrill.five and A_drillup.On or (ClampDrill.seven and A_drillup.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drillup.On) -> false) (assignments: A_drillup := A_drillup.Off)
+    Edge: (event: A_drillup_c_on) (guard: ClampDrill.six and A_drillup.Off) (assignments: A_drillup := A_drillup.On, ClampDrill := ClampDrill.seven)
+    Edge: (event: A_drillup_c_on) (guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.Off or ClampDrill.five and A_drillup.Off or ((ClampDrill.three or ClampDrill.seven) and A_drillup.Off or (ClampDrill.two and A_drillup.Off or (ClampDrill.four or ClampDrill.eight) and A_drillup.Off)) -> false) (assignments: A_drillup := A_drillup.On)
+    Edge: (event: A_clamp_c_off) (guard: A_clamp.On and ClampDrill.eight) (assignments: A_clamp := A_clamp.Off, ClampDrill := ClampDrill.nine)
+    Edge: (event: A_clamp_c_off) (guard: (A_clamp.Off or not ClampDrill.eight) and A_clamp.On -> false) (assignments: A_clamp := A_clamp.Off)
+    Edge: (event: A_clamp_c_on) (guard: A_clamp.Off and ClampDrill.one) (assignments: A_clamp := A_clamp.On, ClampDrill := ClampDrill.two)
+    Edge: (event: A_clamp_c_on) (guard: A_clamp.Off and (A_clamp.On or not ClampDrill.one) -> false) (assignments: A_clamp := A_clamp.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off)) -> A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On)) [backward reach with edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On)) -> <bdd 11n 2p> [backward reach with edge: (event: A_turntable_c_on) (guard: ClampDrill.nine and A_turntable.Off) (assignments: A_turntable := A_turntable.On, ClampDrill := ClampDrill.one), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 11n 2p> -> <bdd 16n 3p> [backward reach with edge: (event: A_clamp_c_off) (guard: A_clamp.On and ClampDrill.eight) (assignments: A_clamp := A_clamp.Off, ClampDrill := ClampDrill.nine), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: <bdd 16n 3p> -> <bdd 17n 4p> [backward reach with edge: (event: A_drill_c_off) (guard: A_drill.On and ClampDrill.seven) (assignments: A_drill := A_drill.Off, ClampDrill := ClampDrill.eight), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 17n 4p> -> <bdd 13n 3p> [backward reach with edge: (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 13n 3p> -> <bdd 18n 4p> [backward reach with edge: (event: A_drillup_c_on) (guard: ClampDrill.six and A_drillup.Off) (assignments: A_drillup := A_drillup.On, ClampDrill := ClampDrill.seven), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: <bdd 18n 4p> -> <bdd 22n 5p> [backward reach with edge: (event: A_drilldown_c_off) (guard: ClampDrill.five and A_drilldown.On) (assignments: A_drilldown := A_drilldown.Off, ClampDrill := ClampDrill.six), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 22n 5p> -> <bdd 23n 6p> [backward reach with edge: (event: A_drilldown_c_on) (guard: ClampDrill.four and A_drilldown.Off) (assignments: A_drilldown := A_drilldown.On, ClampDrill := ClampDrill.five), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 23n 6p> -> <bdd 23n 6p> [backward reach with edge: (event: A_drillup_c_off) (guard: ClampDrill.three and A_drillup.On) (assignments: A_drillup := A_drillup.Off, ClampDrill := ClampDrill.four), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 4.
+Backward controlled-behavior: <bdd 23n 6p> -> <bdd 24n 7p> [backward reach with edge: (event: A_drill_c_on) (guard: A_drill.Off and ClampDrill.two) (assignments: A_drill := A_drill.On, ClampDrill := ClampDrill.three), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 5.
+Backward controlled-behavior: <bdd 24n 7p> [fixed point].
+Controlled behavior: true -> <bdd 24n 7p>.
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: <bdd 24n 30p> [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off)) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off)) -> A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On)) [forward reach with edge: (event: A_turntable_c_on) (guard: ClampDrill.one and A_turntable.Off) (assignments: A_turntable := A_turntable.On), restricted to current/previous controlled-behavior predicate: <bdd 24n 7p>]
+Forward controlled-behavior: A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On)) -> A_clamp.On and A_drill.Off and (ClampDrill.two and (A_drilldown.Off and A_drillup.On)) or A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On)) [forward reach with edge: (event: A_clamp_c_on) (guard: A_clamp.Off and ClampDrill.one) (assignments: A_clamp := A_clamp.On, ClampDrill := ClampDrill.two), restricted to current/previous controlled-behavior predicate: <bdd 24n 7p>]
+Forward reachability: iteration 2.
+Forward controlled-behavior: A_clamp.On and A_drill.Off and (ClampDrill.two and (A_drilldown.Off and A_drillup.On)) or A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On)) -> <bdd 12n 3p> [forward reach with edge: (event: A_drill_c_on) (guard: A_drill.Off and ClampDrill.two) (assignments: A_drill := A_drill.On, ClampDrill := ClampDrill.three), restricted to current/previous controlled-behavior predicate: <bdd 24n 7p>]
+Forward controlled-behavior: <bdd 12n 3p> -> <bdd 17n 4p> [forward reach with edge: (event: A_drillup_c_off) (guard: ClampDrill.three and A_drillup.On) (assignments: A_drillup := A_drillup.Off, ClampDrill := ClampDrill.four), restricted to current/previous controlled-behavior predicate: <bdd 24n 7p>]
+Forward reachability: iteration 3.
+Forward controlled-behavior: <bdd 17n 4p> -> <bdd 20n 5p> [forward reach with edge: (event: A_drilldown_c_on) (guard: ClampDrill.four and A_drilldown.Off) (assignments: A_drilldown := A_drilldown.On, ClampDrill := ClampDrill.five), restricted to current/previous controlled-behavior predicate: <bdd 24n 7p>]
+Forward reachability: iteration 4.
+Forward controlled-behavior: <bdd 20n 5p> -> <bdd 21n 6p> [forward reach with edge: (event: A_drilldown_c_off) (guard: ClampDrill.five and A_drilldown.On) (assignments: A_drilldown := A_drilldown.Off, ClampDrill := ClampDrill.six), restricted to current/previous controlled-behavior predicate: <bdd 24n 7p>]
+Forward controlled-behavior: <bdd 21n 6p> -> <bdd 21n 6p> [forward reach with edge: (event: A_drillup_c_on) (guard: ClampDrill.six and A_drillup.Off) (assignments: A_drillup := A_drillup.On, ClampDrill := ClampDrill.seven), restricted to current/previous controlled-behavior predicate: <bdd 24n 7p>]
+Forward reachability: iteration 5.
+Forward controlled-behavior: <bdd 21n 6p> -> <bdd 23n 7p> [forward reach with edge: (event: A_drill_c_off) (guard: A_drill.On and ClampDrill.seven) (assignments: A_drill := A_drill.Off, ClampDrill := ClampDrill.eight), restricted to current/previous controlled-behavior predicate: <bdd 24n 7p>]
+Forward controlled-behavior: <bdd 23n 7p> -> <bdd 24n 7p> [forward reach with edge: (event: A_clamp_c_off) (guard: A_clamp.On and ClampDrill.eight) (assignments: A_clamp := A_clamp.Off, ClampDrill := ClampDrill.nine), restricted to current/previous controlled-behavior predicate: <bdd 24n 7p>]
+Forward reachability: iteration 6.
+Forward controlled-behavior: <bdd 24n 7p> [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_drill_c_off) (guard: A_drill.On and ClampDrill.seven) (assignments: A_drill := A_drill.Off, ClampDrill := ClampDrill.eight): guard: A_drill.On and ClampDrill.seven -> A_clamp.On and A_drill.On and (ClampDrill.seven and (A_drilldown.Off and A_drillup.On)).
+Edge (event: A_drill_c_on) (guard: A_drill.Off and ClampDrill.two) (assignments: A_drill := A_drill.On, ClampDrill := ClampDrill.three): guard: A_drill.Off and ClampDrill.two -> A_clamp.On and A_drill.Off and (ClampDrill.two and (A_drilldown.Off and A_drillup.On)).
+Edge (event: A_turntable_c_off) (guard: A_turntable.On) (assignments: A_turntable := A_turntable.Off): guard: A_turntable.On -> <bdd 25n 7p>.
+Edge (event: A_turntable_c_on) (guard: ClampDrill.one and A_turntable.Off) (assignments: A_turntable := A_turntable.On): guard: ClampDrill.one and A_turntable.Off -> A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off)).
+Edge (event: A_turntable_c_on) (guard: ClampDrill.nine and A_turntable.Off) (assignments: A_turntable := A_turntable.On, ClampDrill := ClampDrill.one): guard: ClampDrill.nine and A_turntable.Off -> A_clamp.Off and (A_drill.Off and ClampDrill.nine) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off)).
+Edge (event: A_drilldown_c_off) (guard: ClampDrill.five and A_drilldown.On) (assignments: A_drilldown := A_drilldown.Off, ClampDrill := ClampDrill.six): guard: ClampDrill.five and A_drilldown.On -> A_clamp.On and A_drill.On and (ClampDrill.five and (A_drilldown.On and A_drillup.Off)).
+Edge (event: A_drilldown_c_on) (guard: ClampDrill.four and A_drilldown.Off) (assignments: A_drilldown := A_drilldown.On, ClampDrill := ClampDrill.five): guard: ClampDrill.four and A_drilldown.Off -> A_clamp.On and A_drill.On and (ClampDrill.four and (A_drilldown.Off and A_drillup.Off)).
+Edge (event: A_drillup_c_off) (guard: ClampDrill.three and A_drillup.On) (assignments: A_drillup := A_drillup.Off, ClampDrill := ClampDrill.four): guard: ClampDrill.three and A_drillup.On -> A_clamp.On and A_drill.On and (ClampDrill.three and (A_drilldown.Off and A_drillup.On)).
+Edge (event: A_drillup_c_on) (guard: ClampDrill.six and A_drillup.Off) (assignments: A_drillup := A_drillup.On, ClampDrill := ClampDrill.seven): guard: ClampDrill.six and A_drillup.Off -> A_clamp.On and A_drill.On and (ClampDrill.six and (A_drilldown.Off and A_drillup.Off)).
+Edge (event: A_clamp_c_off) (guard: A_clamp.On and ClampDrill.eight) (assignments: A_clamp := A_clamp.Off, ClampDrill := ClampDrill.nine): guard: A_clamp.On and ClampDrill.eight -> A_clamp.On and A_drill.Off and (ClampDrill.eight and (A_drilldown.Off and A_drillup.On)).
+Edge (event: A_clamp_c_on) (guard: A_clamp.Off and ClampDrill.one) (assignments: A_clamp := A_clamp.On, ClampDrill := ClampDrill.two): guard: A_clamp.Off and ClampDrill.one -> A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On)).
+
+Final synthesis result:
+  State: (controlled-behavior: <bdd 24n 7p>)
+    Edge: (event: A_drill_c_off) (guard: A_drill.On and ClampDrill.seven -> A_clamp.On and A_drill.On and (ClampDrill.seven and (A_drilldown.Off and A_drillup.On))) (assignments: A_drill := A_drill.Off, ClampDrill := ClampDrill.eight)
+    Edge: (event: A_drill_c_off) (guard: (A_drill.Off or not ClampDrill.seven) and A_drill.On -> false) (assignments: A_drill := A_drill.Off)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off and ClampDrill.two -> A_clamp.On and A_drill.Off and (ClampDrill.two and (A_drilldown.Off and A_drillup.On))) (assignments: A_drill := A_drill.On, ClampDrill := ClampDrill.three)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off and (A_drill.On or not ClampDrill.two) -> false) (assignments: A_drill := A_drill.On)
+    Edge: (event: A_turntable_c_off) (guard: A_turntable.On -> <bdd 25n 7p>) (assignments: A_turntable := A_turntable.Off)
+    Edge: (event: A_turntable_c_on) (guard: ClampDrill.one and A_turntable.Off -> A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_turntable_c_on) (guard: ClampDrill.nine and A_turntable.Off -> A_clamp.Off and (A_drill.Off and ClampDrill.nine) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))) (assignments: A_turntable := A_turntable.On, ClampDrill := ClampDrill.one)
+    Edge: (event: A_turntable_c_on) (guard: ClampDrill.five and A_turntable.Off or ((ClampDrill.three or ClampDrill.seven) and A_turntable.Off or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_turntable.Off) -> false) (assignments: A_turntable := A_turntable.On)
+    Edge: (event: A_drilldown_c_off) (guard: ClampDrill.five and A_drilldown.On -> A_clamp.On and A_drill.On and (ClampDrill.five and (A_drilldown.On and A_drillup.Off))) (assignments: A_drilldown := A_drilldown.Off, ClampDrill := ClampDrill.six)
+    Edge: (event: A_drilldown_c_off) (guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.On or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drilldown.On) -> false) (assignments: A_drilldown := A_drilldown.Off)
+    Edge: (event: A_drilldown_c_on) (guard: ClampDrill.four and A_drilldown.Off -> A_clamp.On and A_drill.On and (ClampDrill.four and (A_drilldown.Off and A_drillup.Off))) (assignments: A_drilldown := A_drilldown.On, ClampDrill := ClampDrill.five)
+    Edge: (event: A_drilldown_c_on) (guard: (ClampDrill.one or ClampDrill.nine) and A_drilldown.Off or ClampDrill.five and A_drilldown.Off or ((ClampDrill.three or ClampDrill.seven) and A_drilldown.Off or ((ClampDrill.two or ClampDrill.six) and A_drilldown.Off or ClampDrill.eight and A_drilldown.Off)) -> false) (assignments: A_drilldown := A_drilldown.On)
+    Edge: (event: A_drillup_c_off) (guard: ClampDrill.three and A_drillup.On -> A_clamp.On and A_drill.On and (ClampDrill.three and (A_drilldown.Off and A_drillup.On))) (assignments: A_drillup := A_drillup.Off, ClampDrill := ClampDrill.four)
+    Edge: (event: A_drillup_c_off) (guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.On or ClampDrill.five and A_drillup.On or (ClampDrill.seven and A_drillup.On or (ClampDrill.two or ClampDrill.four or (ClampDrill.six or ClampDrill.eight)) and A_drillup.On) -> false) (assignments: A_drillup := A_drillup.Off)
+    Edge: (event: A_drillup_c_on) (guard: ClampDrill.six and A_drillup.Off -> A_clamp.On and A_drill.On and (ClampDrill.six and (A_drilldown.Off and A_drillup.Off))) (assignments: A_drillup := A_drillup.On, ClampDrill := ClampDrill.seven)
+    Edge: (event: A_drillup_c_on) (guard: (ClampDrill.one or ClampDrill.nine) and A_drillup.Off or ClampDrill.five and A_drillup.Off or ((ClampDrill.three or ClampDrill.seven) and A_drillup.Off or (ClampDrill.two and A_drillup.Off or (ClampDrill.four or ClampDrill.eight) and A_drillup.Off)) -> false) (assignments: A_drillup := A_drillup.On)
+    Edge: (event: A_clamp_c_off) (guard: A_clamp.On and ClampDrill.eight -> A_clamp.On and A_drill.Off and (ClampDrill.eight and (A_drilldown.Off and A_drillup.On))) (assignments: A_clamp := A_clamp.Off, ClampDrill := ClampDrill.nine)
+    Edge: (event: A_clamp_c_off) (guard: (A_clamp.Off or not ClampDrill.eight) and A_clamp.On -> false) (assignments: A_clamp := A_clamp.Off)
+    Edge: (event: A_clamp_c_on) (guard: A_clamp.Off and ClampDrill.one -> A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On))) (assignments: A_clamp := A_clamp.On, ClampDrill := ClampDrill.two)
+    Edge: (event: A_clamp_c_on) (guard: A_clamp.Off and (A_clamp.On or not ClampDrill.one) -> false) (assignments: A_clamp := A_clamp.On)
+
+Controlled system:                     exactly 18 states.
+
+Initial (synthesis result):            <bdd 24n 7p>
+Initial (uncontrolled system):         A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))
+Initial (controlled system):           A_clamp.Off and (A_drill.Off and ClampDrill.one) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_drill_c_off: guard: A_clamp.On and A_drill.On and (ClampDrill.seven and (A_drilldown.Off and A_drillup.On)) -> true [assume A_clamp.On and A_drill.On and (ClampDrill.seven and (A_drilldown.Off and A_drillup.On))].
+  Event A_drill_c_on: guard: A_clamp.On and A_drill.Off and (ClampDrill.two and (A_drilldown.Off and A_drillup.On)) -> true [assume A_clamp.On and A_drill.Off and (ClampDrill.two and (A_drilldown.Off and A_drillup.On))].
+  Event A_turntable_c_off: guard: <bdd 25n 7p> -> true [assume <bdd 25n 7p>].
+  Event A_turntable_c_on: guard: A_clamp.Off and (A_drill.Off and (ClampDrill.one or ClampDrill.nine)) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off)) -> true [assume A_clamp.Off and (A_drill.Off and (ClampDrill.one or ClampDrill.nine)) and (A_drilldown.Off and (A_drillup.On and A_turntable.Off))].
+  Event A_drilldown_c_off: guard: A_clamp.On and A_drill.On and (ClampDrill.five and (A_drilldown.On and A_drillup.Off)) -> true [assume A_clamp.On and A_drill.On and (ClampDrill.five and (A_drilldown.On and A_drillup.Off))].
+  Event A_drilldown_c_on: guard: A_clamp.On and A_drill.On and (ClampDrill.four and (A_drilldown.Off and A_drillup.Off)) -> true [assume A_clamp.On and A_drill.On and (ClampDrill.four and (A_drilldown.Off and A_drillup.Off))].
+  Event A_drillup_c_off: guard: A_clamp.On and A_drill.On and (ClampDrill.three and (A_drilldown.Off and A_drillup.On)) -> true [assume A_clamp.On and A_drill.On and (ClampDrill.three and (A_drilldown.Off and A_drillup.On))].
+  Event A_drillup_c_on: guard: A_clamp.On and A_drill.On and (ClampDrill.six and (A_drilldown.Off and A_drillup.Off)) -> true [assume A_clamp.On and A_drill.On and (ClampDrill.six and (A_drilldown.Off and A_drillup.Off))].
+  Event A_clamp_c_off: guard: A_clamp.On and A_drill.Off and (ClampDrill.eight and (A_drilldown.Off and A_drillup.On)) -> true [assume A_clamp.On and A_drill.Off and (ClampDrill.eight and (A_drilldown.Off and A_drillup.On))].
+  Event A_clamp_c_on: guard: A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On)) -> true [assume A_clamp.Off and A_drill.Off and (ClampDrill.one and (A_drilldown.Off and A_drillup.On))].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_3_sup.cif".

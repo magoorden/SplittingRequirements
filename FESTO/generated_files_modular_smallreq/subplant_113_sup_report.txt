@@ -1,0 +1,178 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_113.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name             Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_airslide       0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_elevator_down  1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_elevator_up    2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_pusher         3      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  Total                                           4      8         16          16          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 9
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    3 (total)                 0.33 (avg/edge) [before]
+    Total span:                    3 (total)                 0.33 (avg/edge) [iteration 1]
+    Total span:                    3 (total)                 0.33 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                    3 (total)                 0.33 (avg/edge) [before]
+    Total span:                    3 (total)                 0.33 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_elevator_up.Off
+Initial   (aut/locs init predicate):     S_elevator_down.On
+Initial   (aut/locs init predicate):     S_pusher.Off
+Initial   (aut/locs init predicate):     A_airslide.Off
+Initial   (aut/locs init predicate):     true
+Initial   (auts/locs init predicate):    A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off)
+Initial   (uncontrolled system):         A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off)
+Initial   (system, combined init/inv):   A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_elevator_up.Off
+Marked    (aut/locs marker predicate):   S_elevator_down.On
+Marked    (aut/locs marker predicate):   S_pusher.Off
+Marked    (aut/locs marker predicate):   A_airslide.Off
+Marked    (aut/locs marker predicate):   true
+Marked    (auts/locs marker predicate):  A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off)
+Marked    (uncontrolled system):         A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off)
+Marked    (system, combined marked/inv): A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off)
+
+State/event exclusion requirements:
+  Event "A_airslide_c_on" needs:
+    S_elevator_up.On and S_pusher.On
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off)
+    Edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On)
+    Edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off)
+    Edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On)
+    Edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off)
+    Edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On)
+    Edge: (event: A_airslide_c_off) (guard: A_airslide.On) (assignments: A_airslide := A_airslide.Off)
+    Edge: (event: A_airslide_c_on) (guard: A_airslide.Off) (assignments: A_airslide := A_airslide.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_airslide_c_on) (guard: A_airslide.Off) (assignments: A_airslide := A_airslide.On): guard: A_airslide.Off -> A_airslide.Off and (S_elevator_up.On and S_pusher.On) [requirement: S_elevator_up.On and S_pusher.On].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off)
+    Edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On)
+    Edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off)
+    Edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On)
+    Edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off)
+    Edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On)
+    Edge: (event: A_airslide_c_off) (guard: A_airslide.On) (assignments: A_airslide := A_airslide.Off)
+    Edge: (event: A_airslide_c_on) (guard: A_airslide.Off -> A_airslide.Off and (S_elevator_up.On and S_pusher.On)) (assignments: A_airslide := A_airslide.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off) -> A_airslide.Off and (S_elevator_down.On and S_pusher.Off) [backward reach with edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_airslide.Off and (S_elevator_down.On and S_pusher.Off) -> A_airslide.Off and (S_elevator_down.On and S_pusher.Off) or A_airslide.Off and S_elevator_down.Off and (S_elevator_up.Off and S_pusher.Off) [backward reach with edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_airslide.Off and (S_elevator_down.On and S_pusher.Off) or A_airslide.Off and S_elevator_down.Off and (S_elevator_up.Off and S_pusher.Off) -> A_airslide.Off and (A_airslide.On or (S_elevator_down.On or S_elevator_up.Off)) [backward reach with edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_airslide.Off and (A_airslide.On or (S_elevator_down.On or S_elevator_up.Off)) -> S_elevator_down.On or S_elevator_up.Off [backward reach with edge: (event: A_airslide_c_off) (guard: A_airslide.On) (assignments: A_airslide := A_airslide.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: S_elevator_down.On or S_elevator_up.Off -> true [backward reach with edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off) -> A_airslide.Off and (S_elevator_up.Off and S_pusher.Off) [forward reach with edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_airslide.Off and (S_elevator_up.Off and S_pusher.Off) -> A_airslide.Off and S_elevator_up.Off [forward reach with edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: A_airslide.Off and S_elevator_up.Off -> A_airslide.Off and (A_airslide.On or (S_elevator_down.Off or S_elevator_up.Off)) [forward reach with edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_airslide.Off and (A_airslide.On or (S_elevator_down.Off or S_elevator_up.Off)) -> A_airslide.On and S_elevator_down.Off and (S_elevator_up.On and S_pusher.On) or (A_airslide.Off and (S_elevator_down.On and S_elevator_up.Off) or A_airslide.Off and S_elevator_down.Off) [forward reach with edge: (event: A_airslide_c_on) (guard: A_airslide.Off -> A_airslide.Off and (S_elevator_up.On and S_pusher.On)) (assignments: A_airslide := A_airslide.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: A_airslide.On and S_elevator_down.Off and (S_elevator_up.On and S_pusher.On) or (A_airslide.Off and (S_elevator_down.On and S_elevator_up.Off) or A_airslide.Off and S_elevator_down.Off) -> (A_airslide.Off or S_elevator_down.Off) and ((A_airslide.Off or (S_elevator_down.On or S_pusher.On)) and (A_airslide.On or (S_elevator_down.Off or S_elevator_up.Off))) [forward reach with edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: (A_airslide.Off or S_elevator_down.Off) and ((A_airslide.Off or (S_elevator_down.On or S_pusher.On)) and (A_airslide.On or (S_elevator_down.Off or S_elevator_up.Off))) -> A_airslide.On and S_elevator_down.On and (S_elevator_up.Off and S_pusher.On) or A_airslide.On and (S_elevator_down.Off and S_pusher.On) or (A_airslide.Off and (S_elevator_down.On and S_elevator_up.Off) or A_airslide.Off and S_elevator_down.Off) [forward reach with edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_airslide.On and S_elevator_down.On and (S_elevator_up.Off and S_pusher.On) or A_airslide.On and (S_elevator_down.Off and S_pusher.On) or (A_airslide.Off and (S_elevator_down.On and S_elevator_up.Off) or A_airslide.Off and S_elevator_down.Off) -> S_elevator_down.Off or S_elevator_up.Off [forward reach with edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 4.
+Forward controlled-behavior: S_elevator_down.Off or S_elevator_up.Off [fixed point].
+Controlled behavior: true -> S_elevator_down.Off or S_elevator_up.Off.
+
+Round 1: finished, need another round.
+
+Round 2: started.
+
+Round 2: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off) -> A_airslide.Off and (S_elevator_up.Off and S_pusher.Off) [backward reach with edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: A_airslide.Off and (S_elevator_up.Off and S_pusher.Off) -> A_airslide.Off and S_elevator_up.Off [backward reach with edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: A_airslide.Off and S_elevator_up.Off -> S_elevator_up.Off [backward reach with edge: (event: A_airslide_c_off) (guard: A_airslide.On) (assignments: A_airslide := A_airslide.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward reachability: iteration 2.
+Backward controlled-behavior: S_elevator_up.Off -> S_elevator_down.Off or S_elevator_up.Off [backward reach with edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward reachability: iteration 3.
+Backward controlled-behavior: S_elevator_down.Off or S_elevator_up.Off [fixed point].
+
+Round 2: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: S_elevator_down.On and S_elevator_up.On [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 2: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_airslide_c_off) (guard: A_airslide.On) (assignments: A_airslide := A_airslide.Off): guard: A_airslide.On -> (A_airslide.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_airslide.On.
+Edge (event: A_airslide_c_on) (guard: A_airslide.Off -> A_airslide.Off and (S_elevator_up.On and S_pusher.On)) (assignments: A_airslide := A_airslide.On): guard: A_airslide.Off and (S_elevator_up.On and S_pusher.On) -> A_airslide.Off and S_elevator_down.Off and (S_elevator_up.On and S_pusher.On).
+
+Final synthesis result:
+  State: (controlled-behavior: S_elevator_down.Off or S_elevator_up.Off)
+    Edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off)
+    Edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On)
+    Edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off)
+    Edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On)
+    Edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off)
+    Edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On)
+    Edge: (event: A_airslide_c_off) (guard: A_airslide.On -> (A_airslide.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_airslide.On) (assignments: A_airslide := A_airslide.Off)
+    Edge: (event: A_airslide_c_on) (guard: A_airslide.Off -> A_airslide.Off and S_elevator_down.Off and (S_elevator_up.On and S_pusher.On)) (assignments: A_airslide := A_airslide.On)
+
+Controlled system:                     exactly 12 states.
+
+Initial (synthesis result):            S_elevator_down.Off or S_elevator_up.Off
+Initial (uncontrolled system):         A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off)
+Initial (controlled system):           A_airslide.Off and S_elevator_down.On and (S_elevator_up.Off and S_pusher.Off)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_airslide_c_off: guard: (A_airslide.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_airslide.On -> true [assume (A_airslide.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_airslide.On].
+  Event A_airslide_c_on: guard: A_airslide.Off and S_elevator_down.Off and (S_elevator_up.On and S_pusher.On) -> true [assume A_airslide.Off and S_elevator_down.Off and (S_elevator_up.On and S_pusher.On)].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_113_sup.cif".

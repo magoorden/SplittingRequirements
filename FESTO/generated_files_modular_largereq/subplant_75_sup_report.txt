@@ -1,0 +1,196 @@
+Reading CIF file "generated_files_modular_largereq/subplant_75.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name              Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ----------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_gate1           0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_stopperretract  1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_inductive       2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_optical         3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   S_Sinitialized    4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   STimer            5      2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  ----------------  -----  --------  ----------  ----------  -----------
+  Total                                            6      14        26          28          ~93%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 14
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    4 (total)                 0.29 (avg/edge) [before]
+    Total span:                    4 (total)                 0.29 (avg/edge) [iteration 1]
+    Total span:                    4 (total)                 0.29 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                    4 (total)                 0.29 (avg/edge) [before]
+    Total span:                    4 (total)                 0.29 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_inductive.Off
+Initial   (aut/locs init predicate):     S_optical.Off
+Initial   (aut/locs init predicate):     S_Sinitialized.Off
+Initial   (aut/locs init predicate):     A_gate1.Off
+Initial   (aut/locs init predicate):     A_stopperretract.Off
+Initial   (aut/locs init predicate):     STimer.Off
+Initial   (auts/locs init predicate):    A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off))
+Initial   (uncontrolled system):         A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off))
+Initial   (system, combined init/inv):   A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off))
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_inductive.Off
+Marked    (aut/locs marker predicate):   S_optical.Off
+Marked    (aut/locs marker predicate):   S_Sinitialized.Off
+Marked    (aut/locs marker predicate):   A_gate1.Off
+Marked    (aut/locs marker predicate):   A_stopperretract.Off
+Marked    (aut/locs marker predicate):   STimer.Off
+Marked    (auts/locs marker predicate):  A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off))
+Marked    (uncontrolled system):         A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off))
+Marked    (system, combined marked/inv): A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off))
+
+State/event exclusion requirements:
+  Event "A_gate1_c_on" needs:
+    A_stopperretract.Off and S_inductive.Off and (S_optical.On and (S_Sinitialized.On and STimer.Timeout))
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_inductive_u_off) (guard: S_inductive.On) (assignments: S_inductive := S_inductive.Off)
+    Edge: (event: S_inductive_u_on) (guard: S_inductive.Off) (assignments: S_inductive := S_inductive.On)
+    Edge: (event: S_optical_u_off) (guard: S_optical.On) (assignments: S_optical := S_optical.Off)
+    Edge: (event: S_optical_u_on) (guard: S_optical.Off) (assignments: S_optical := S_optical.On)
+    Edge: (event: S_Sinitialized_u_off) (guard: S_Sinitialized.On) (assignments: S_Sinitialized := S_Sinitialized.Off)
+    Edge: (event: S_Sinitialized_u_on) (guard: S_Sinitialized.Off) (assignments: S_Sinitialized := S_Sinitialized.On)
+    Edge: (event: A_gate1_c_off) (guard: A_gate1.On) (assignments: A_gate1 := A_gate1.Off)
+    Edge: (event: A_gate1_c_on) (guard: A_gate1.Off) (assignments: A_gate1 := A_gate1.On)
+    Edge: (event: A_stopperretract_c_off) (guard: A_stopperretract.On) (assignments: A_stopperretract := A_stopperretract.Off)
+    Edge: (event: A_stopperretract_c_on) (guard: A_stopperretract.Off) (assignments: A_stopperretract := A_stopperretract.On)
+    Edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running)
+    Edge: (event: STimer_u_timeout) (guard: STimer.Running) (assignments: STimer := STimer.Timeout)
+    Edge: (event: STimer_c_reset) (guard: STimer.Running) (assignments: STimer := STimer.Off)
+    Edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "STimer" (group: 5, domain: 10+11, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: true.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_gate1_c_on) (guard: A_gate1.Off) (assignments: A_gate1 := A_gate1.On): guard: A_gate1.Off -> A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.On and (S_Sinitialized.On and STimer.Timeout)) [requirement: A_stopperretract.Off and S_inductive.Off and (S_optical.On and (S_Sinitialized.On and STimer.Timeout))].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_inductive_u_off) (guard: S_inductive.On) (assignments: S_inductive := S_inductive.Off)
+    Edge: (event: S_inductive_u_on) (guard: S_inductive.Off) (assignments: S_inductive := S_inductive.On)
+    Edge: (event: S_optical_u_off) (guard: S_optical.On) (assignments: S_optical := S_optical.Off)
+    Edge: (event: S_optical_u_on) (guard: S_optical.Off) (assignments: S_optical := S_optical.On)
+    Edge: (event: S_Sinitialized_u_off) (guard: S_Sinitialized.On) (assignments: S_Sinitialized := S_Sinitialized.Off)
+    Edge: (event: S_Sinitialized_u_on) (guard: S_Sinitialized.Off) (assignments: S_Sinitialized := S_Sinitialized.On)
+    Edge: (event: A_gate1_c_off) (guard: A_gate1.On) (assignments: A_gate1 := A_gate1.Off)
+    Edge: (event: A_gate1_c_on) (guard: A_gate1.Off -> A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.On and (S_Sinitialized.On and STimer.Timeout))) (assignments: A_gate1 := A_gate1.On)
+    Edge: (event: A_stopperretract_c_off) (guard: A_stopperretract.On) (assignments: A_stopperretract := A_stopperretract.Off)
+    Edge: (event: A_stopperretract_c_on) (guard: A_stopperretract.Off) (assignments: A_stopperretract := A_stopperretract.On)
+    Edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running)
+    Edge: (event: STimer_u_timeout) (guard: STimer.Running) (assignments: STimer := STimer.Timeout)
+    Edge: (event: STimer_c_reset) (guard: STimer.Running) (assignments: STimer := STimer.Off)
+    Edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off)) -> A_gate1.Off and A_stopperretract.Off and (S_optical.Off and (S_Sinitialized.Off and STimer.Off)) [backward reach with edge: (event: S_inductive_u_off) (guard: S_inductive.On) (assignments: S_inductive := S_inductive.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_gate1.Off and A_stopperretract.Off and (S_optical.Off and (S_Sinitialized.Off and STimer.Off)) -> A_gate1.Off and A_stopperretract.Off and (S_Sinitialized.Off and STimer.Off) [backward reach with edge: (event: S_optical_u_off) (guard: S_optical.On) (assignments: S_optical := S_optical.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_gate1.Off and A_stopperretract.Off and (S_Sinitialized.Off and STimer.Off) -> A_gate1.Off and (A_stopperretract.Off and STimer.Off) [backward reach with edge: (event: S_Sinitialized_u_off) (guard: S_Sinitialized.On) (assignments: S_Sinitialized := S_Sinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_gate1.Off and (A_stopperretract.Off and STimer.Off) -> A_stopperretract.Off and STimer.Off [backward reach with edge: (event: A_gate1_c_off) (guard: A_gate1.On) (assignments: A_gate1 := A_gate1.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_stopperretract.Off and STimer.Off -> STimer.Off [backward reach with edge: (event: A_stopperretract_c_off) (guard: A_stopperretract.On) (assignments: A_stopperretract := A_stopperretract.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: STimer.Off -> not STimer.Timeout [backward reach with edge: (event: STimer_c_reset) (guard: STimer.Running) (assignments: STimer := STimer.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not STimer.Timeout -> true [backward reach with edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off)) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off)) -> A_gate1.Off and A_stopperretract.Off and (S_optical.Off and (S_Sinitialized.Off and STimer.Off)) [forward reach with edge: (event: S_inductive_u_on) (guard: S_inductive.Off) (assignments: S_inductive := S_inductive.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate1.Off and A_stopperretract.Off and (S_optical.Off and (S_Sinitialized.Off and STimer.Off)) -> A_gate1.Off and A_stopperretract.Off and (S_Sinitialized.Off and STimer.Off) [forward reach with edge: (event: S_optical_u_on) (guard: S_optical.Off) (assignments: S_optical := S_optical.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate1.Off and A_stopperretract.Off and (S_Sinitialized.Off and STimer.Off) -> A_gate1.Off and (A_stopperretract.Off and STimer.Off) [forward reach with edge: (event: S_Sinitialized_u_on) (guard: S_Sinitialized.Off) (assignments: S_Sinitialized := S_Sinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate1.Off and (A_stopperretract.Off and STimer.Off) -> A_gate1.Off and STimer.Off [forward reach with edge: (event: A_stopperretract_c_on) (guard: A_stopperretract.Off) (assignments: A_stopperretract := A_stopperretract.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate1.Off and STimer.Off -> A_gate1.Off and not STimer.Timeout [forward reach with edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate1.Off and not STimer.Timeout -> A_gate1.Off [forward reach with edge: (event: STimer_u_timeout) (guard: STimer.Running) (assignments: STimer := STimer.Timeout), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: A_gate1.Off -> A_gate1.On and (A_stopperretract.Off and S_inductive.Off) and (S_optical.On and (S_Sinitialized.On and STimer.Timeout)) or (A_gate1.Off and not STimer.Running or A_gate1.Off and STimer.Running) [forward reach with edge: (event: A_gate1_c_on) (guard: A_gate1.Off -> A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.On and (S_Sinitialized.On and STimer.Timeout))) (assignments: A_gate1 := A_gate1.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate1.On and (A_stopperretract.Off and S_inductive.Off) and (S_optical.On and (S_Sinitialized.On and STimer.Timeout)) or (A_gate1.Off and not STimer.Running or A_gate1.Off and STimer.Running) -> A_gate1.On and S_inductive.Off and (S_optical.On and (S_Sinitialized.On and STimer.Timeout)) or (A_gate1.Off and not STimer.Running or A_gate1.Off and STimer.Running) [forward reach with edge: (event: A_stopperretract_c_on) (guard: A_stopperretract.Off) (assignments: A_stopperretract := A_stopperretract.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate1.On and S_inductive.Off and (S_optical.On and (S_Sinitialized.On and STimer.Timeout)) or (A_gate1.Off and not STimer.Running or A_gate1.Off and STimer.Running) -> A_gate1.On and S_inductive.Off and (S_optical.On and (S_Sinitialized.On and not STimer.Running)) or (A_gate1.Off and not STimer.Running or A_gate1.Off and STimer.Running) [forward reach with edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: A_gate1.On and S_inductive.Off and (S_optical.On and (S_Sinitialized.On and not STimer.Running)) or (A_gate1.Off and not STimer.Running or A_gate1.Off and STimer.Running) -> A_gate1.On and S_optical.On and (S_Sinitialized.On and not STimer.Running) or (A_gate1.Off and not STimer.Running or A_gate1.Off and STimer.Running) [forward reach with edge: (event: S_inductive_u_on) (guard: S_inductive.Off) (assignments: S_inductive := S_inductive.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate1.On and S_optical.On and (S_Sinitialized.On and not STimer.Running) or (A_gate1.Off and not STimer.Running or A_gate1.Off and STimer.Running) -> (A_gate1.Off or (S_Sinitialized.Off or not STimer.Running)) and (A_gate1.Off or S_Sinitialized.On) [forward reach with edge: (event: S_optical_u_off) (guard: S_optical.On) (assignments: S_optical := S_optical.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: (A_gate1.Off or (S_Sinitialized.Off or not STimer.Running)) and (A_gate1.Off or S_Sinitialized.On) -> A_gate1.Off or not STimer.Running [forward reach with edge: (event: S_Sinitialized_u_off) (guard: S_Sinitialized.On) (assignments: S_Sinitialized := S_Sinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_gate1.Off or not STimer.Running -> true [forward reach with edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 4.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_gate1_c_off) (guard: A_gate1.On) (assignments: A_gate1 := A_gate1.Off): guard: A_gate1.On -> A_gate1.On.
+Edge (event: A_stopperretract_c_off) (guard: A_stopperretract.On) (assignments: A_stopperretract := A_stopperretract.Off): guard: A_stopperretract.On -> A_stopperretract.On.
+Edge (event: A_stopperretract_c_on) (guard: A_stopperretract.Off) (assignments: A_stopperretract := A_stopperretract.On): guard: A_stopperretract.Off -> A_stopperretract.Off.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: S_inductive_u_off) (guard: S_inductive.On) (assignments: S_inductive := S_inductive.Off)
+    Edge: (event: S_inductive_u_on) (guard: S_inductive.Off) (assignments: S_inductive := S_inductive.On)
+    Edge: (event: S_optical_u_off) (guard: S_optical.On) (assignments: S_optical := S_optical.Off)
+    Edge: (event: S_optical_u_on) (guard: S_optical.Off) (assignments: S_optical := S_optical.On)
+    Edge: (event: S_Sinitialized_u_off) (guard: S_Sinitialized.On) (assignments: S_Sinitialized := S_Sinitialized.Off)
+    Edge: (event: S_Sinitialized_u_on) (guard: S_Sinitialized.Off) (assignments: S_Sinitialized := S_Sinitialized.On)
+    Edge: (event: A_gate1_c_off) (guard: A_gate1.On -> A_gate1.On) (assignments: A_gate1 := A_gate1.Off)
+    Edge: (event: A_gate1_c_on) (guard: A_gate1.Off -> A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.On and (S_Sinitialized.On and STimer.Timeout))) (assignments: A_gate1 := A_gate1.On)
+    Edge: (event: A_stopperretract_c_off) (guard: A_stopperretract.On -> A_stopperretract.On) (assignments: A_stopperretract := A_stopperretract.Off)
+    Edge: (event: A_stopperretract_c_on) (guard: A_stopperretract.Off -> A_stopperretract.Off) (assignments: A_stopperretract := A_stopperretract.On)
+    Edge: (event: STimer_c_on) (guard: STimer.Off) (assignments: STimer := STimer.Running)
+    Edge: (event: STimer_u_timeout) (guard: STimer.Running) (assignments: STimer := STimer.Timeout)
+    Edge: (event: STimer_c_reset) (guard: STimer.Running) (assignments: STimer := STimer.Off)
+    Edge: (event: STimer_c_reset) (guard: STimer.Timeout) (assignments: STimer := STimer.Off)
+
+Controlled system:                     exactly 96 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off))
+Initial (controlled system):           A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.Off and (S_Sinitialized.Off and STimer.Off))
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_gate1_c_off: guard: A_gate1.On -> true [assume A_gate1.On].
+  Event A_gate1_c_on: guard: A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.On and (S_Sinitialized.On and STimer.Timeout)) -> true [assume A_gate1.Off and (A_stopperretract.Off and S_inductive.Off) and (S_optical.On and (S_Sinitialized.On and STimer.Timeout))].
+  Event A_stopperretract_c_off: guard: A_stopperretract.On -> true [assume A_stopperretract.On].
+  Event A_stopperretract_c_on: guard: A_stopperretract.Off -> true [assume A_stopperretract.Off].
+  Event STimer_c_on: guard: STimer.Off -> true [assume STimer.Off].
+  Event STimer_c_reset: guard: not STimer.Off -> true [assume not STimer.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_largereq/subplant_75_sup.cif".

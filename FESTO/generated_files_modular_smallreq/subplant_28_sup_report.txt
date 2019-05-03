@@ -1,0 +1,126 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_28.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name        Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ----------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_pusher3   0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_product3  1      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  ----------  -----  --------  ----------  ----------  -----------
+  Total                                      2      4         8           8           100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 5
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 10
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [iteration 1]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 2
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_product3.Off
+Initial   (aut/locs init predicate):     A_pusher3.Off
+Initial   (auts/locs init predicate):    A_pusher3.Off and S_product3.Off
+Initial   (uncontrolled system):         A_pusher3.Off and S_product3.Off
+Initial   (system, combined init/inv):   A_pusher3.Off and S_product3.Off
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_product3.Off
+Marked    (aut/locs marker predicate):   A_pusher3.Off
+Marked    (auts/locs marker predicate):  A_pusher3.Off and S_product3.Off
+Marked    (uncontrolled system):         A_pusher3.Off and S_product3.Off
+Marked    (system, combined marked/inv): A_pusher3.Off and S_product3.Off
+
+State/event exclusion requirements:
+  Event "A_pusher3_c_on" needs:
+    S_product3.Off
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off)
+    Edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On)
+    Edge: (event: A_pusher3_c_off) (guard: A_pusher3.On) (assignments: A_pusher3 := A_pusher3.Off)
+    Edge: (event: A_pusher3_c_on) (guard: A_pusher3.Off) (assignments: A_pusher3 := A_pusher3.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_pusher3_c_on) (guard: A_pusher3.Off) (assignments: A_pusher3 := A_pusher3.On): guard: A_pusher3.Off -> A_pusher3.Off and S_product3.Off [requirement: S_product3.Off].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off)
+    Edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On)
+    Edge: (event: A_pusher3_c_off) (guard: A_pusher3.On) (assignments: A_pusher3 := A_pusher3.Off)
+    Edge: (event: A_pusher3_c_on) (guard: A_pusher3.Off -> A_pusher3.Off and S_product3.Off) (assignments: A_pusher3 := A_pusher3.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_pusher3.Off and S_product3.Off [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_pusher3.Off and S_product3.Off -> A_pusher3.Off [backward reach with edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher3.Off -> true [backward reach with edge: (event: A_pusher3_c_off) (guard: A_pusher3.On) (assignments: A_pusher3 := A_pusher3.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_pusher3.Off and S_product3.Off [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_pusher3.Off and S_product3.Off -> A_pusher3.Off [forward reach with edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_pusher3.Off -> A_pusher3.Off or S_product3.Off [forward reach with edge: (event: A_pusher3_c_on) (guard: A_pusher3.Off -> A_pusher3.Off and S_product3.Off) (assignments: A_pusher3 := A_pusher3.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: A_pusher3.Off or S_product3.Off -> true [forward reach with edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off)
+    Edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On)
+    Edge: (event: A_pusher3_c_off) (guard: A_pusher3.On) (assignments: A_pusher3 := A_pusher3.Off)
+    Edge: (event: A_pusher3_c_on) (guard: A_pusher3.Off -> A_pusher3.Off and S_product3.Off) (assignments: A_pusher3 := A_pusher3.On)
+
+Controlled system:                     exactly 4 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_pusher3.Off and S_product3.Off
+Initial (controlled system):           A_pusher3.Off and S_product3.Off
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_pusher3_c_off: guard: A_pusher3.On -> true [assume A_pusher3.On].
+  Event A_pusher3_c_on: guard: A_pusher3.Off and S_product3.Off -> true [assume A_pusher3.Off and S_product3.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_28_sup.cif".

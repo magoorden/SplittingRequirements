@@ -1,0 +1,128 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_93.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name             Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_elevator_down  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_elevator_up    1      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  Total                                           2      4         8           8           100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 5
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 10
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [iteration 1]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 2
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     A_elevator_up.Off
+Initial   (aut/locs init predicate):     A_elevator_down.On
+Initial   (auts/locs init predicate):    A_elevator_down.On and A_elevator_up.Off
+Initial   (uncontrolled system):         A_elevator_down.On and A_elevator_up.Off
+Initial   (system, combined init/inv):   A_elevator_down.On and A_elevator_up.Off
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   A_elevator_up.Off
+Marked    (aut/locs marker predicate):   A_elevator_down.On
+Marked    (auts/locs marker predicate):  A_elevator_down.On and A_elevator_up.Off
+Marked    (uncontrolled system):         A_elevator_down.On and A_elevator_up.Off
+Marked    (system, combined marked/inv): A_elevator_down.On and A_elevator_up.Off
+
+State/event exclusion requirements:
+  Event "A_elevator_down_c_on" needs:
+    A_elevator_up.Off
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off)
+    Edge: (event: A_elevator_up_c_on) (guard: A_elevator_up.Off) (assignments: A_elevator_up := A_elevator_up.On)
+    Edge: (event: A_elevator_down_c_off) (guard: A_elevator_down.On) (assignments: A_elevator_down := A_elevator_down.Off)
+    Edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off) (assignments: A_elevator_down := A_elevator_down.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_elevator_down_c_on) (guard: A_elevator_down.Off) (assignments: A_elevator_down := A_elevator_down.On): guard: A_elevator_down.Off -> A_elevator_down.Off and A_elevator_up.Off [requirement: A_elevator_up.Off].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off)
+    Edge: (event: A_elevator_up_c_on) (guard: A_elevator_up.Off) (assignments: A_elevator_up := A_elevator_up.On)
+    Edge: (event: A_elevator_down_c_off) (guard: A_elevator_down.On) (assignments: A_elevator_down := A_elevator_down.Off)
+    Edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off -> A_elevator_down.Off and A_elevator_up.Off) (assignments: A_elevator_down := A_elevator_down.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_elevator_down.On and A_elevator_up.Off [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_elevator_down.On and A_elevator_up.Off -> A_elevator_down.On [backward reach with edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On -> A_elevator_down.On or A_elevator_up.Off [backward reach with edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off -> A_elevator_down.Off and A_elevator_up.Off) (assignments: A_elevator_down := A_elevator_down.On), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_elevator_down.On or A_elevator_up.Off -> true [backward reach with edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_elevator_down.On and A_elevator_up.Off [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_elevator_down.On and A_elevator_up.Off -> A_elevator_down.On [forward reach with edge: (event: A_elevator_up_c_on) (guard: A_elevator_up.Off) (assignments: A_elevator_up := A_elevator_up.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_elevator_down.On -> true [forward reach with edge: (event: A_elevator_down_c_off) (guard: A_elevator_down.On) (assignments: A_elevator_down := A_elevator_down.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off)
+    Edge: (event: A_elevator_up_c_on) (guard: A_elevator_up.Off) (assignments: A_elevator_up := A_elevator_up.On)
+    Edge: (event: A_elevator_down_c_off) (guard: A_elevator_down.On) (assignments: A_elevator_down := A_elevator_down.Off)
+    Edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off -> A_elevator_down.Off and A_elevator_up.Off) (assignments: A_elevator_down := A_elevator_down.On)
+
+Controlled system:                     exactly 4 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_elevator_down.On and A_elevator_up.Off
+Initial (controlled system):           A_elevator_down.On and A_elevator_up.Off
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_elevator_up_c_off: guard: A_elevator_up.On -> true [assume A_elevator_up.On].
+  Event A_elevator_up_c_on: guard: A_elevator_up.Off -> true [assume A_elevator_up.Off].
+  Event A_elevator_down_c_off: guard: A_elevator_down.On -> true [assume A_elevator_down.On].
+  Event A_elevator_down_c_on: guard: A_elevator_down.Off and A_elevator_up.Off -> true [assume A_elevator_down.Off and A_elevator_up.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_93_sup.cif".

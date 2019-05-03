@@ -1,0 +1,183 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_286.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name                                  Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ------------------------------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   South_Downstream_EqualWaterSensor     0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   South_Downstream_Gates_West_Actuator  1      2 * 2     3 * 2       4 * 2       75%
+  3      location pointer  n/a   South_Downstream_Gates_West_Sensor    2      2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  ------------------------------------  -----  --------  ----------  ----------  -----------
+  Total                                                                3      10        16          20          80%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 12
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    4 (total)                 0.33 (avg/edge) [before]
+    Total span:                    4 (total)                 0.33 (avg/edge) [iteration 1]
+    Total span:                    4 (total)                 0.33 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 3
+
+    Total span:                    4 (total)                 0.33 (avg/edge) [before]
+    Total span:                    4 (total)                 0.33 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     South_Downstream_Gates_West_Actuator.Rest
+Initial   (aut/locs init predicate):     South_Downstream_Gates_West_Sensor.Closed
+Initial   (aut/locs init predicate):     true
+Initial   (aut/locs init predicate):     South_Downstream_EqualWaterSensor.Unequal
+Initial   (auts/locs init predicate):    South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed)
+Initial   (uncontrolled system):         South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed)
+Initial   (system, combined init/inv):   South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   South_Downstream_Gates_West_Actuator.Rest
+Marked    (aut/locs marker predicate):   South_Downstream_Gates_West_Sensor.Closed
+Marked    (aut/locs marker predicate):   true
+Marked    (aut/locs marker predicate):   South_Downstream_EqualWaterSensor.Unequal
+Marked    (auts/locs marker predicate):  South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed)
+Marked    (uncontrolled system):         South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed)
+Marked    (system, combined marked/inv): South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed)
+
+State/event exclusion requirements:
+  Event "South_Downstream_Gates_West_Actuator_c_open" needs:
+    South_Downstream_EqualWaterSensor.Equal
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_open) (guard: South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Opening)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_close) (guard: South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Closing)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Closing) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_endStopOpening) (guard: South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_endStopClosing) (guard: South_Downstream_Gates_West_Actuator.Closing) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_closed_off) (guard: South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_closed_on) (guard: South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Intermediate) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Closed)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_open_on) (guard: South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Intermediate) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Open)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_open_off) (guard: South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Open) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: South_Downstream_EqualWaterSensor_u_on) (guard: South_Downstream_EqualWaterSensor.Unequal) (assignments: South_Downstream_EqualWaterSensor := South_Downstream_EqualWaterSensor.Equal)
+    Edge: (event: South_Downstream_EqualWaterSensor_u_off) (guard: South_Downstream_EqualWaterSensor.Equal) (assignments: South_Downstream_EqualWaterSensor := South_Downstream_EqualWaterSensor.Unequal)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "South_Downstream_Gates_West_Actuator" (group: 1, domain: 2+3, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "South_Downstream_Gates_West_Sensor" (group: 2, domain: 4+5, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: true.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: South_Downstream_Gates_West_Actuator_c_open) (guard: South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Opening): guard: South_Downstream_Gates_West_Actuator.Rest -> South_Downstream_EqualWaterSensor.Equal and South_Downstream_Gates_West_Actuator.Rest [requirement: South_Downstream_EqualWaterSensor.Equal].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_open) (guard: South_Downstream_Gates_West_Actuator.Rest -> South_Downstream_EqualWaterSensor.Equal and South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Opening)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_close) (guard: South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Closing)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Closing) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_endStopOpening) (guard: South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_endStopClosing) (guard: South_Downstream_Gates_West_Actuator.Closing) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_closed_off) (guard: South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_closed_on) (guard: South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Intermediate) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Closed)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_open_on) (guard: South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Intermediate) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Open)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_open_off) (guard: South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Open) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: South_Downstream_EqualWaterSensor_u_on) (guard: South_Downstream_EqualWaterSensor.Unequal) (assignments: South_Downstream_EqualWaterSensor := South_Downstream_EqualWaterSensor.Equal)
+    Edge: (event: South_Downstream_EqualWaterSensor_u_off) (guard: South_Downstream_EqualWaterSensor.Equal) (assignments: South_Downstream_EqualWaterSensor := South_Downstream_EqualWaterSensor.Unequal)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed) -> South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Closed) [backward reach with edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Closed) -> South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) [backward reach with edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Closing) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) -> South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed) or (South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Sensor.Open) or South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed)) [backward reach with edge: (event: South_Downstream_Gates_West_Sensor_u_closed_on) (guard: South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Intermediate) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Closed), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed) or (South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Sensor.Open) or South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed)) -> South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Sensor.Intermediate) or (South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Intermediate) or South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed)) [backward reach with edge: (event: South_Downstream_Gates_West_Sensor_u_open_off) (guard: South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Open) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Sensor.Intermediate) or (South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Intermediate) or South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed)) -> South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed or South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Sensor.Intermediate or (South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Intermediate or South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) [backward reach with edge: (event: South_Downstream_EqualWaterSensor_u_off) (guard: South_Downstream_EqualWaterSensor.Equal) (assignments: South_Downstream_EqualWaterSensor := South_Downstream_EqualWaterSensor.Unequal), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed or South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Sensor.Intermediate or (South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Intermediate or South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) -> (not South_Downstream_Gates_West_Actuator.Opening or not South_Downstream_Gates_West_Sensor.Open) and (not South_Downstream_Gates_West_Actuator.Opening or not South_Downstream_Gates_West_Sensor.Intermediate) [backward reach with edge: (event: South_Downstream_Gates_West_Actuator_c_close) (guard: South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (not South_Downstream_Gates_West_Actuator.Opening or not South_Downstream_Gates_West_Sensor.Open) and (not South_Downstream_Gates_West_Actuator.Opening or not South_Downstream_Gates_West_Sensor.Intermediate) -> true [backward reach with edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed) -> South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) [forward reach with edge: (event: South_Downstream_Gates_West_Actuator_c_close) (guard: South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) -> not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed [forward reach with edge: (event: South_Downstream_EqualWaterSensor_u_on) (guard: South_Downstream_EqualWaterSensor.Unequal) (assignments: South_Downstream_EqualWaterSensor := South_Downstream_EqualWaterSensor.Equal), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed -> South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or (South_Downstream_EqualWaterSensor.Equal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Equal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed)) [forward reach with edge: (event: South_Downstream_Gates_West_Actuator_c_open) (guard: South_Downstream_Gates_West_Actuator.Rest -> South_Downstream_EqualWaterSensor.Equal and South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Opening), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or (South_Downstream_EqualWaterSensor.Equal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Equal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed)) -> South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or (South_Downstream_EqualWaterSensor.Equal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Equal and (South_Downstream_Gates_West_Actuator.Opening and not South_Downstream_Gates_West_Sensor.Open)) [forward reach with edge: (event: South_Downstream_Gates_West_Sensor_u_closed_off) (guard: South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Intermediate), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or (South_Downstream_EqualWaterSensor.Equal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Equal and (South_Downstream_Gates_West_Actuator.Opening and not South_Downstream_Gates_West_Sensor.Open)) -> South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Equal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or (South_Downstream_EqualWaterSensor.Equal and (South_Downstream_Gates_West_Actuator.Opening and not South_Downstream_Gates_West_Sensor.Intermediate) or South_Downstream_EqualWaterSensor.Equal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Intermediate)) [forward reach with edge: (event: South_Downstream_Gates_West_Sensor_u_open_on) (guard: South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Intermediate) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Open), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: South_Downstream_EqualWaterSensor.Unequal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or South_Downstream_EqualWaterSensor.Equal and (not South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) or (South_Downstream_EqualWaterSensor.Equal and (South_Downstream_Gates_West_Actuator.Opening and not South_Downstream_Gates_West_Sensor.Intermediate) or South_Downstream_EqualWaterSensor.Equal and (South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Intermediate)) -> (South_Downstream_Gates_West_Actuator.Opening or not South_Downstream_Gates_West_Sensor.Open) and (South_Downstream_Gates_West_Actuator.Opening or not South_Downstream_Gates_West_Sensor.Intermediate) [forward reach with edge: (event: South_Downstream_EqualWaterSensor_u_off) (guard: South_Downstream_EqualWaterSensor.Equal) (assignments: South_Downstream_EqualWaterSensor := South_Downstream_EqualWaterSensor.Unequal), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: (South_Downstream_Gates_West_Actuator.Opening or not South_Downstream_Gates_West_Sensor.Open) and (South_Downstream_Gates_West_Actuator.Opening or not South_Downstream_Gates_West_Sensor.Intermediate) -> (not South_Downstream_Gates_West_Actuator.Closing or not South_Downstream_Gates_West_Sensor.Open) and (not South_Downstream_Gates_West_Actuator.Closing or not South_Downstream_Gates_West_Sensor.Intermediate) [forward reach with edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 4.
+Forward controlled-behavior: (not South_Downstream_Gates_West_Actuator.Closing or not South_Downstream_Gates_West_Sensor.Open) and (not South_Downstream_Gates_West_Actuator.Closing or not South_Downstream_Gates_West_Sensor.Intermediate) -> true [forward reach with edge: (event: South_Downstream_Gates_West_Actuator_c_close) (guard: South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Closing), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 5.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: South_Downstream_Gates_West_Actuator_c_open) (guard: South_Downstream_Gates_West_Actuator.Rest -> South_Downstream_EqualWaterSensor.Equal and South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Opening): guard: South_Downstream_EqualWaterSensor.Equal and South_Downstream_Gates_West_Actuator.Rest -> South_Downstream_EqualWaterSensor.Equal and ((South_Downstream_EqualWaterSensor.Unequal or not South_Downstream_Gates_West_Actuator.Closing) and (South_Downstream_EqualWaterSensor.Unequal or not South_Downstream_Gates_West_Actuator.Opening)).
+Edge (event: South_Downstream_Gates_West_Actuator_c_close) (guard: South_Downstream_Gates_West_Actuator.Rest) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Closing): guard: South_Downstream_Gates_West_Actuator.Rest -> not South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Actuator.Opening.
+Edge (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest): guard: South_Downstream_Gates_West_Actuator.Opening -> South_Downstream_Gates_West_Actuator.Opening.
+Edge (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Closing) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest): guard: South_Downstream_Gates_West_Actuator.Closing -> not South_Downstream_Gates_West_Actuator.Rest and not South_Downstream_Gates_West_Actuator.Opening.
+Edge (event: South_Downstream_Gates_West_Actuator_c_endStopOpening) (guard: South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest): guard: South_Downstream_Gates_West_Actuator.Opening -> South_Downstream_Gates_West_Actuator.Opening.
+Edge (event: South_Downstream_Gates_West_Actuator_c_endStopClosing) (guard: South_Downstream_Gates_West_Actuator.Closing) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest): guard: South_Downstream_Gates_West_Actuator.Closing -> not South_Downstream_Gates_West_Actuator.Rest and not South_Downstream_Gates_West_Actuator.Opening.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_open) (guard: South_Downstream_Gates_West_Actuator.Rest -> South_Downstream_EqualWaterSensor.Equal and ((South_Downstream_EqualWaterSensor.Unequal or not South_Downstream_Gates_West_Actuator.Closing) and (South_Downstream_EqualWaterSensor.Unequal or not South_Downstream_Gates_West_Actuator.Opening))) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Opening)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_close) (guard: South_Downstream_Gates_West_Actuator.Rest -> not South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Closing)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Opening -> South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_emergencyStop) (guard: South_Downstream_Gates_West_Actuator.Closing -> not South_Downstream_Gates_West_Actuator.Rest and not South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_endStopOpening) (guard: South_Downstream_Gates_West_Actuator.Opening -> South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Actuator_c_endStopClosing) (guard: South_Downstream_Gates_West_Actuator.Closing -> not South_Downstream_Gates_West_Actuator.Rest and not South_Downstream_Gates_West_Actuator.Opening) (assignments: South_Downstream_Gates_West_Actuator := South_Downstream_Gates_West_Actuator.Rest)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_closed_off) (guard: South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Closed) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_closed_on) (guard: South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Intermediate) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Closed)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_open_on) (guard: South_Downstream_Gates_West_Actuator.Opening and South_Downstream_Gates_West_Sensor.Intermediate) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Open)
+    Edge: (event: South_Downstream_Gates_West_Sensor_u_open_off) (guard: South_Downstream_Gates_West_Actuator.Closing and South_Downstream_Gates_West_Sensor.Open) (assignments: South_Downstream_Gates_West_Sensor := South_Downstream_Gates_West_Sensor.Intermediate)
+    Edge: (event: South_Downstream_EqualWaterSensor_u_on) (guard: South_Downstream_EqualWaterSensor.Unequal) (assignments: South_Downstream_EqualWaterSensor := South_Downstream_EqualWaterSensor.Equal)
+    Edge: (event: South_Downstream_EqualWaterSensor_u_off) (guard: South_Downstream_EqualWaterSensor.Equal) (assignments: South_Downstream_EqualWaterSensor := South_Downstream_EqualWaterSensor.Unequal)
+
+Controlled system:                     exactly 18 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed)
+Initial (controlled system):           South_Downstream_EqualWaterSensor.Unequal and (South_Downstream_Gates_West_Actuator.Rest and South_Downstream_Gates_West_Sensor.Closed)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event South_Downstream_Gates_West_Actuator_c_open: guard: South_Downstream_EqualWaterSensor.Equal and ((South_Downstream_EqualWaterSensor.Unequal or not South_Downstream_Gates_West_Actuator.Closing) and (South_Downstream_EqualWaterSensor.Unequal or not South_Downstream_Gates_West_Actuator.Opening)) -> true [assume South_Downstream_EqualWaterSensor.Equal and ((South_Downstream_EqualWaterSensor.Unequal or not South_Downstream_Gates_West_Actuator.Closing) and (South_Downstream_EqualWaterSensor.Unequal or not South_Downstream_Gates_West_Actuator.Opening))].
+  Event South_Downstream_Gates_West_Actuator_c_close: guard: not South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Actuator.Opening -> true [assume not South_Downstream_Gates_West_Actuator.Closing and not South_Downstream_Gates_West_Actuator.Opening].
+  Event South_Downstream_Gates_West_Actuator_c_emergencyStop: guard: not South_Downstream_Gates_West_Actuator.Rest -> true [assume not South_Downstream_Gates_West_Actuator.Rest].
+  Event South_Downstream_Gates_West_Actuator_c_endStopOpening: guard: South_Downstream_Gates_West_Actuator.Opening -> true [assume South_Downstream_Gates_West_Actuator.Opening].
+  Event South_Downstream_Gates_West_Actuator_c_endStopClosing: guard: not South_Downstream_Gates_West_Actuator.Rest and not South_Downstream_Gates_West_Actuator.Opening -> true [assume not South_Downstream_Gates_West_Actuator.Rest and not South_Downstream_Gates_West_Actuator.Opening].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_286_sup.cif".

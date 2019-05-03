@@ -1,0 +1,219 @@
+Reading CIF file "generated_files_modular_largereq/subplant_30.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name                  Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  --------------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_ejectpulse          0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_Hinitialized        1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_transfer_atdrop     2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_transfer_athalfway  3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   S_transfer_atpickup   4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   S_vacuum              5      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  --------------------  -----  --------  ----------  ----------  -----------
+  Total                                                6      12        24          24          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 13
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                   10 (total)                 0.77 (avg/edge) [before]
+    Total span:                   10 (total)                 0.77 (avg/edge) [iteration 1]
+    Total span:                   10 (total)                 0.77 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                   10 (total)                 0.77 (avg/edge) [before]
+    Total span:                    8 (total)                 0.62 (avg/edge) [window 1..4]
+    Total span:                    8 (total)                 0.62 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name                  Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  --------------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_ejectpulse          0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_transfer_athalfway  1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_transfer_atpickup   2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_transfer_atdrop     3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   S_Hinitialized        4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   S_vacuum              5      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  --------------------  -----  --------  ----------  ----------  -----------
+  Total                                                6      12        24          24          100%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_transfer_atpickup.Off
+Initial   (aut/locs init predicate):     S_transfer_atdrop.Off
+Initial   (aut/locs init predicate):     S_transfer_athalfway.On
+Initial   (aut/locs init predicate):     S_vacuum.Off
+Initial   (aut/locs init predicate):     S_Hinitialized.Off
+Initial   (aut/locs init predicate):     A_ejectpulse.Off
+Initial   (aut/locs init predicate):     true
+Initial   (auts/locs init predicate):    A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off))
+Initial   (uncontrolled system):         A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off))
+Initial   (system, combined init/inv):   A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off))
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_transfer_atpickup.Off
+Marked    (aut/locs marker predicate):   S_transfer_atdrop.Off
+Marked    (aut/locs marker predicate):   S_transfer_athalfway.On
+Marked    (aut/locs marker predicate):   S_vacuum.Off
+Marked    (aut/locs marker predicate):   S_Hinitialized.Off
+Marked    (aut/locs marker predicate):   A_ejectpulse.Off
+Marked    (aut/locs marker predicate):   true
+Marked    (auts/locs marker predicate):  A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off))
+Marked    (uncontrolled system):         A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off))
+Marked    (system, combined marked/inv): A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off))
+
+State/event exclusion requirements:
+  Event "A_ejectpulse_c_on" needs:
+    S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On)
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_transfer_atpickup_u_off) (guard: S_transfer_atpickup.On) (assignments: S_transfer_atpickup := S_transfer_atpickup.Off)
+    Edge: (event: S_transfer_atpickup_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_atpickup := S_transfer_atpickup.On)
+    Edge: (event: S_transfer_atdrop_u_off) (guard: S_transfer_atdrop.On) (assignments: S_transfer_atdrop := S_transfer_atdrop.Off)
+    Edge: (event: S_transfer_atdrop_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_atdrop := S_transfer_atdrop.On)
+    Edge: (event: S_transfer_athalfway_u_off) (guard: S_transfer_athalfway.On) (assignments: S_transfer_athalfway := S_transfer_athalfway.Off)
+    Edge: (event: S_transfer_athalfway_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_athalfway := S_transfer_athalfway.On)
+    Edge: (event: S_vacuum_u_off) (guard: S_vacuum.On) (assignments: S_vacuum := S_vacuum.Off)
+    Edge: (event: S_vacuum_u_on) (guard: S_vacuum.Off) (assignments: S_vacuum := S_vacuum.On)
+    Edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off)
+    Edge: (event: S_Hinitialized_u_on) (guard: S_Hinitialized.Off) (assignments: S_Hinitialized := S_Hinitialized.On)
+    Edge: (event: A_ejectpulse_c_off) (guard: A_ejectpulse.On) (assignments: A_ejectpulse := A_ejectpulse.Off)
+    Edge: (event: A_ejectpulse_c_on) (guard: A_ejectpulse.Off) (assignments: A_ejectpulse := A_ejectpulse.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_ejectpulse_c_on) (guard: A_ejectpulse.Off) (assignments: A_ejectpulse := A_ejectpulse.On): guard: A_ejectpulse.Off -> A_ejectpulse.Off and S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On) [requirement: S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On)].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_transfer_atpickup_u_off) (guard: S_transfer_atpickup.On) (assignments: S_transfer_atpickup := S_transfer_atpickup.Off)
+    Edge: (event: S_transfer_atpickup_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_atpickup := S_transfer_atpickup.On)
+    Edge: (event: S_transfer_atdrop_u_off) (guard: S_transfer_atdrop.On) (assignments: S_transfer_atdrop := S_transfer_atdrop.Off)
+    Edge: (event: S_transfer_atdrop_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_atdrop := S_transfer_atdrop.On)
+    Edge: (event: S_transfer_athalfway_u_off) (guard: S_transfer_athalfway.On) (assignments: S_transfer_athalfway := S_transfer_athalfway.Off)
+    Edge: (event: S_transfer_athalfway_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_athalfway := S_transfer_athalfway.On)
+    Edge: (event: S_vacuum_u_off) (guard: S_vacuum.On) (assignments: S_vacuum := S_vacuum.Off)
+    Edge: (event: S_vacuum_u_on) (guard: S_vacuum.Off) (assignments: S_vacuum := S_vacuum.On)
+    Edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off)
+    Edge: (event: S_Hinitialized_u_on) (guard: S_Hinitialized.Off) (assignments: S_Hinitialized := S_Hinitialized.On)
+    Edge: (event: A_ejectpulse_c_off) (guard: A_ejectpulse.On) (assignments: A_ejectpulse := A_ejectpulse.Off)
+    Edge: (event: A_ejectpulse_c_on) (guard: A_ejectpulse.Off -> A_ejectpulse.Off and S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On)) (assignments: A_ejectpulse := A_ejectpulse.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) -> A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) [backward reach with edge: (event: S_transfer_atpickup_u_off) (guard: S_transfer_atpickup.On) (assignments: S_transfer_atpickup := S_transfer_atpickup.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) -> A_ejectpulse.Off and S_transfer_athalfway.On and (S_Hinitialized.Off and S_vacuum.Off) [backward reach with edge: (event: S_transfer_atdrop_u_off) (guard: S_transfer_atdrop.On) (assignments: S_transfer_atdrop := S_transfer_atdrop.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_ejectpulse.Off and S_transfer_athalfway.On and (S_Hinitialized.Off and S_vacuum.Off) -> A_ejectpulse.Off and S_transfer_athalfway.On and (S_Hinitialized.Off and S_vacuum.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) [backward reach with edge: (event: S_transfer_athalfway_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_athalfway := S_transfer_athalfway.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_ejectpulse.Off and S_transfer_athalfway.On and (S_Hinitialized.Off and S_vacuum.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) -> A_ejectpulse.Off and (S_transfer_athalfway.On and S_Hinitialized.Off) or A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.Off and (S_transfer_atdrop.Off and S_Hinitialized.Off)) [backward reach with edge: (event: S_vacuum_u_off) (guard: S_vacuum.On) (assignments: S_vacuum := S_vacuum.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_ejectpulse.Off and (S_transfer_athalfway.On and S_Hinitialized.Off) or A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.Off and (S_transfer_atdrop.Off and S_Hinitialized.Off)) -> A_ejectpulse.Off and S_transfer_athalfway.On or A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) [backward reach with edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_ejectpulse.Off and S_transfer_athalfway.On or A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) -> S_transfer_athalfway.On or S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) [backward reach with edge: (event: A_ejectpulse_c_off) (guard: A_ejectpulse.On) (assignments: A_ejectpulse := A_ejectpulse.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: S_transfer_athalfway.On or S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) -> S_transfer_athalfway.On or S_transfer_atdrop.Off [backward reach with edge: (event: S_transfer_atpickup_u_off) (guard: S_transfer_atpickup.On) (assignments: S_transfer_atpickup := S_transfer_atpickup.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: S_transfer_athalfway.On or S_transfer_atdrop.Off -> true [backward reach with edge: (event: S_transfer_atdrop_u_off) (guard: S_transfer_atdrop.On) (assignments: S_transfer_atdrop := S_transfer_atdrop.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) -> A_ejectpulse.Off and S_transfer_atpickup.Off and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) [forward reach with edge: (event: S_transfer_athalfway_u_off) (guard: S_transfer_athalfway.On) (assignments: S_transfer_athalfway := S_transfer_athalfway.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_ejectpulse.Off and S_transfer_atpickup.Off and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) -> A_ejectpulse.Off and S_transfer_atpickup.Off and (S_transfer_atdrop.Off and S_Hinitialized.Off) [forward reach with edge: (event: S_vacuum_u_on) (guard: S_vacuum.Off) (assignments: S_vacuum := S_vacuum.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_ejectpulse.Off and S_transfer_atpickup.Off and (S_transfer_atdrop.Off and S_Hinitialized.Off) -> A_ejectpulse.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) [forward reach with edge: (event: S_Hinitialized_u_on) (guard: S_Hinitialized.Off) (assignments: S_Hinitialized := S_Hinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: A_ejectpulse.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) -> A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atdrop.Off) [forward reach with edge: (event: S_transfer_atpickup_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_atpickup := S_transfer_atpickup.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atdrop.Off) -> A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off)) [forward reach with edge: (event: S_transfer_atdrop_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_atdrop := S_transfer_atdrop.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off)) -> A_ejectpulse.On and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) and (S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On)) or A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off)) [forward reach with edge: (event: A_ejectpulse_c_on) (guard: A_ejectpulse.Off -> A_ejectpulse.Off and S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On)) (assignments: A_ejectpulse := A_ejectpulse.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: A_ejectpulse.On and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) and (S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On)) or A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off)) -> A_ejectpulse.On and S_transfer_athalfway.Off and (S_transfer_atpickup.Off and (S_Hinitialized.On and S_vacuum.On)) or A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off)) [forward reach with edge: (event: S_transfer_atdrop_u_off) (guard: S_transfer_atdrop.On) (assignments: S_transfer_atdrop := S_transfer_atdrop.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_ejectpulse.On and S_transfer_athalfway.Off and (S_transfer_atpickup.Off and (S_Hinitialized.On and S_vacuum.On)) or A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off)) -> <bdd 11n 5p> [forward reach with edge: (event: S_transfer_athalfway_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_athalfway := S_transfer_athalfway.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 11n 5p> -> A_ejectpulse.On and S_transfer_athalfway.On and (S_transfer_atpickup.Off and (S_transfer_atdrop.Off and S_Hinitialized.On)) or A_ejectpulse.On and S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_Hinitialized.On) or (A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off))) [forward reach with edge: (event: S_vacuum_u_off) (guard: S_vacuum.On) (assignments: S_vacuum := S_vacuum.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_ejectpulse.On and S_transfer_athalfway.On and (S_transfer_atpickup.Off and (S_transfer_atdrop.Off and S_Hinitialized.On)) or A_ejectpulse.On and S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_Hinitialized.On) or (A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off))) -> A_ejectpulse.On and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or A_ejectpulse.On and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) or (A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off))) [forward reach with edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 4.
+Forward controlled-behavior: A_ejectpulse.On and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or A_ejectpulse.On and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) or (A_ejectpulse.Off and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.Off and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off))) -> (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off))) [forward reach with edge: (event: S_transfer_atpickup_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_atpickup := S_transfer_atpickup.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 5.
+Forward controlled-behavior: (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off))) [fixed point].
+Controlled behavior: true -> (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off))).
+
+Round 1: finished, need another round.
+
+Round 2: started.
+
+Round 2: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) -> A_ejectpulse.Off and S_transfer_atpickup.Off and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) [backward reach with edge: (event: S_transfer_athalfway_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_athalfway := S_transfer_athalfway.On), restricted to current/previous controlled-behavior predicate: (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off)))]
+Backward controlled-behavior: A_ejectpulse.Off and S_transfer_atpickup.Off and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off)) -> A_ejectpulse.Off and S_transfer_atpickup.Off and (S_transfer_atdrop.Off and S_Hinitialized.Off) [backward reach with edge: (event: S_vacuum_u_off) (guard: S_vacuum.On) (assignments: S_vacuum := S_vacuum.Off), restricted to current/previous controlled-behavior predicate: (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off)))]
+Backward controlled-behavior: A_ejectpulse.Off and S_transfer_atpickup.Off and (S_transfer_atdrop.Off and S_Hinitialized.Off) -> A_ejectpulse.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) [backward reach with edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off), restricted to current/previous controlled-behavior predicate: (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off)))]
+Backward controlled-behavior: A_ejectpulse.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) -> S_transfer_atpickup.Off and S_transfer_atdrop.Off [backward reach with edge: (event: A_ejectpulse_c_off) (guard: A_ejectpulse.On) (assignments: A_ejectpulse := A_ejectpulse.Off), restricted to current/previous controlled-behavior predicate: (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off)))]
+Backward reachability: iteration 2.
+Backward controlled-behavior: S_transfer_atpickup.Off and S_transfer_atdrop.Off -> S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or S_transfer_athalfway.Off and S_transfer_atdrop.Off [backward reach with edge: (event: S_transfer_atpickup_u_off) (guard: S_transfer_atpickup.On) (assignments: S_transfer_atpickup := S_transfer_atpickup.Off), restricted to current/previous controlled-behavior predicate: (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off)))]
+Backward controlled-behavior: S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or S_transfer_athalfway.Off and S_transfer_atdrop.Off -> (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off))) [backward reach with edge: (event: S_transfer_atdrop_u_off) (guard: S_transfer_atdrop.On) (assignments: S_transfer_atdrop := S_transfer_atdrop.Off), restricted to current/previous controlled-behavior predicate: (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off)))]
+Backward reachability: iteration 3.
+Backward controlled-behavior: (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off))) [fixed point].
+
+Round 2: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: (S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.On)) and ((S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.On)) and (S_transfer_athalfway.On or S_transfer_atpickup.On)) [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 2: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_ejectpulse_c_off) (guard: A_ejectpulse.On) (assignments: A_ejectpulse := A_ejectpulse.Off): guard: A_ejectpulse.On -> A_ejectpulse.On and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.On and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.On and (S_transfer_athalfway.Off and S_transfer_atpickup.Off)).
+Edge (event: A_ejectpulse_c_on) (guard: A_ejectpulse.Off -> A_ejectpulse.Off and S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On)) (assignments: A_ejectpulse := A_ejectpulse.On): guard: A_ejectpulse.Off and S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On) -> A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) and (S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On)).
+
+Final synthesis result:
+  State: (controlled-behavior: (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off))))
+    Edge: (event: S_transfer_atpickup_u_off) (guard: S_transfer_atpickup.On) (assignments: S_transfer_atpickup := S_transfer_atpickup.Off)
+    Edge: (event: S_transfer_atpickup_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_atpickup := S_transfer_atpickup.On)
+    Edge: (event: S_transfer_atdrop_u_off) (guard: S_transfer_atdrop.On) (assignments: S_transfer_atdrop := S_transfer_atdrop.Off)
+    Edge: (event: S_transfer_atdrop_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_atdrop := S_transfer_atdrop.On)
+    Edge: (event: S_transfer_athalfway_u_off) (guard: S_transfer_athalfway.On) (assignments: S_transfer_athalfway := S_transfer_athalfway.Off)
+    Edge: (event: S_transfer_athalfway_u_on) (guard: S_transfer_athalfway.Off and (S_transfer_atpickup.Off and S_transfer_atdrop.Off)) (assignments: S_transfer_athalfway := S_transfer_athalfway.On)
+    Edge: (event: S_vacuum_u_off) (guard: S_vacuum.On) (assignments: S_vacuum := S_vacuum.Off)
+    Edge: (event: S_vacuum_u_on) (guard: S_vacuum.Off) (assignments: S_vacuum := S_vacuum.On)
+    Edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off)
+    Edge: (event: S_Hinitialized_u_on) (guard: S_Hinitialized.Off) (assignments: S_Hinitialized := S_Hinitialized.On)
+    Edge: (event: A_ejectpulse_c_off) (guard: A_ejectpulse.On -> A_ejectpulse.On and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.On and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.On and (S_transfer_athalfway.Off and S_transfer_atpickup.Off))) (assignments: A_ejectpulse := A_ejectpulse.Off)
+    Edge: (event: A_ejectpulse_c_on) (guard: A_ejectpulse.Off -> A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) and (S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On))) (assignments: A_ejectpulse := A_ejectpulse.On)
+
+Controlled system:                     exactly 32 states.
+
+Initial (synthesis result):            (S_transfer_athalfway.Off or S_transfer_atpickup.Off) and ((S_transfer_athalfway.Off or (S_transfer_atpickup.On or S_transfer_atdrop.Off)) and (S_transfer_athalfway.On or (S_transfer_atpickup.Off or S_transfer_atdrop.Off)))
+Initial (uncontrolled system):         A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off))
+Initial (controlled system):           A_ejectpulse.Off and (S_transfer_athalfway.On and S_transfer_atpickup.Off) and (S_transfer_atdrop.Off and (S_Hinitialized.Off and S_vacuum.Off))
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_ejectpulse_c_off: guard: A_ejectpulse.On and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.On and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.On and (S_transfer_athalfway.Off and S_transfer_atpickup.Off)) -> true [assume A_ejectpulse.On and S_transfer_athalfway.On and (S_transfer_atpickup.Off and S_transfer_atdrop.Off) or (A_ejectpulse.On and S_transfer_athalfway.Off and (S_transfer_atpickup.On and S_transfer_atdrop.Off) or A_ejectpulse.On and (S_transfer_athalfway.Off and S_transfer_atpickup.Off))].
+  Event A_ejectpulse_c_on: guard: A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) and (S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On)) -> true [assume A_ejectpulse.Off and (S_transfer_athalfway.Off and S_transfer_atpickup.Off) and (S_transfer_atdrop.On and (S_Hinitialized.On and S_vacuum.On))].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_largereq/subplant_30_sup.cif".

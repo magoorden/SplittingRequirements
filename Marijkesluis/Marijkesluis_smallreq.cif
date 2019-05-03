@@ -1,0 +1,2840 @@
+group North:
+  group Upstream:
+    group Gates:
+      group East:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group Paddles:
+      group East:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group EnteringTLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_rr;
+          controllable c_rg;
+          controllable c_g;
+          location RedRed:
+            marked;
+            edge c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge c_rr goto RedRed;
+            edge c_rg goto RedGreen;
+          location RedGreen:
+            edge c_r goto Red;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR1:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton SensorR2:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          location:
+            initial;
+            marked;
+            edge SensorR1.u_on when not Actuator.Green;
+            edge SensorR1.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when Actuator.Green or Actuator.RedGreen;
+            edge SensorG.u_off when Actuator.Red or Actuator.RedRed;
+        end
+        plant automaton DynamicsR2:
+          location:
+            initial;
+            marked;
+            edge SensorR2.u_on when Actuator.RedRed;
+            edge SensorR2.u_off when not Actuator.RedRed;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_rr;
+          controllable c_rg;
+          controllable c_g;
+          location RedRed:
+            marked;
+            edge c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge c_rr goto RedRed;
+            edge c_rg goto RedGreen;
+          location RedGreen:
+            edge c_r goto Red;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR1:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton SensorR2:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          location:
+            initial;
+            marked;
+            edge SensorR1.u_on when not Actuator.Green;
+            edge SensorR1.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when Actuator.Green or Actuator.RedGreen;
+            edge SensorG.u_off when Actuator.Red or Actuator.RedRed;
+        end
+        plant automaton DynamicsR2:
+          location:
+            initial;
+            marked;
+            edge SensorR2.u_on when Actuator.RedRed;
+            edge SensorR2.u_off when not Actuator.RedRed;
+        end
+      end
+    end
+    group LeavingTLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+    end
+    plant automaton EqualWaterSensor:
+      uncontrollable u_on;
+      uncontrollable u_off;
+      location Unequal:
+        initial;
+        marked;
+        edge u_on goto Equal;
+      location Equal:
+        initial false;
+        marked false;
+        edge u_off goto Unequal;
+    end
+  end
+  group Downstream:
+    group Gates:
+      group East:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group Paddles:
+      group East:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group EnteringTLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_rr;
+          controllable c_rg;
+          controllable c_g;
+          location RedRed:
+            marked;
+            edge c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge c_rr goto RedRed;
+            edge c_rg goto RedGreen;
+          location RedGreen:
+            edge c_r goto Red;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR1:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton SensorR2:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          location:
+            initial;
+            marked;
+            edge SensorR1.u_on when not Actuator.Green;
+            edge SensorR1.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when Actuator.Green or Actuator.RedGreen;
+            edge SensorG.u_off when Actuator.Red or Actuator.RedRed;
+        end
+        plant automaton DynamicsR2:
+          location:
+            initial;
+            marked;
+            edge SensorR2.u_on when Actuator.RedRed;
+            edge SensorR2.u_off when not Actuator.RedRed;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_rr;
+          controllable c_rg;
+          controllable c_g;
+          location RedRed:
+            marked;
+            edge c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge c_rr goto RedRed;
+            edge c_rg goto RedGreen;
+          location RedGreen:
+            edge c_r goto Red;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR1:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton SensorR2:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          location:
+            initial;
+            marked;
+            edge SensorR1.u_on when not Actuator.Green;
+            edge SensorR1.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when Actuator.Green or Actuator.RedGreen;
+            edge SensorG.u_off when Actuator.Red or Actuator.RedRed;
+        end
+        plant automaton DynamicsR2:
+          location:
+            initial;
+            marked;
+            edge SensorR2.u_on when Actuator.RedRed;
+            edge SensorR2.u_off when not Actuator.RedRed;
+        end
+      end
+    end
+    group LeavingTLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+    end
+    plant automaton EqualWaterSensor:
+      uncontrollable u_on;
+      uncontrollable u_off;
+      location Unequal:
+        initial;
+        marked;
+        edge u_on goto Equal;
+      location Equal:
+        initial false;
+        marked false;
+        edge u_off goto Unequal;
+    end
+  end
+  plant automaton EmergencyStop:
+    uncontrollable u_activate;
+    uncontrollable u_deactivate;
+    location Inactive:
+      initial;
+      marked;
+      edge u_activate goto Active;
+    location Active:
+      edge u_deactivate goto Inactive;
+  end
+  plant automaton Commands:
+    monitor;
+    uncontrollable Deactivate;
+    uncontrollable DownstreamGateOpen_act;
+    uncontrollable DownstreamGateClose_act;
+    uncontrollable DownstreamGateStop_act;
+    uncontrollable DownstreamPaddleOpen_act;
+    uncontrollable DownstreamPaddleClose_act;
+    uncontrollable DownstreamPaddleStop_act;
+    uncontrollable DownstreamEnteringTLRedRed_act;
+    uncontrollable DownstreamEnteringTLRed_act;
+    uncontrollable DownstreamEnteringTLRedGreen_act;
+    uncontrollable DownstreamEnteringTLGreen_act;
+    uncontrollable DownstreamLeavingTLRed_act;
+    uncontrollable DownstreamLeavingTLGreen_act;
+    uncontrollable UpstreamGateOpen_act;
+    uncontrollable UpstreamGateClose_act;
+    uncontrollable UpstreamGateStop_act;
+    uncontrollable UpstreamPaddleOpen_act;
+    uncontrollable UpstreamPaddleClose_act;
+    uncontrollable UpstreamPaddleStop_act;
+    uncontrollable UpstreamEnteringTLRedRed_act;
+    uncontrollable UpstreamEnteringTLRed_act;
+    uncontrollable UpstreamEnteringTLRedGreen_act;
+    uncontrollable UpstreamEnteringTLGreen_act;
+    uncontrollable UpstreamLeavingTLRed_act;
+    uncontrollable UpstreamLeavingTLGreen_act;
+    location NoCommand:
+      initial;
+      marked;
+      edge DownstreamGateOpen_act goto DownstreamGateOpen;
+      edge DownstreamGateClose_act goto DownstreamGateClose;
+      edge DownstreamGateStop_act goto DownstreamGateStop;
+      edge DownstreamPaddleOpen_act goto DownstreamPaddleOpen;
+      edge DownstreamPaddleClose_act goto DownstreamPaddleClose;
+      edge DownstreamPaddleStop_act goto DownstreamPaddleStop;
+      edge DownstreamEnteringTLRedRed_act goto DownstreamEnteringTLRedRed;
+      edge DownstreamEnteringTLRed_act goto DownstreamEnteringTLRed;
+      edge DownstreamEnteringTLRedGreen_act goto DownstreamEnteringTLRedGreen;
+      edge DownstreamEnteringTLGreen_act goto DownstreamEnteringTLGreen;
+      edge DownstreamLeavingTLRed_act goto DownstreamLeavingTLRed;
+      edge DownstreamLeavingTLGreen_act goto DownstreamLeavingTLGreen;
+      edge UpstreamGateOpen_act goto UpstreamGateOpen;
+      edge UpstreamGateClose_act goto UpstreamGateClose;
+      edge UpstreamGateStop_act goto UpstreamGateStop;
+      edge UpstreamPaddleOpen_act goto UpstreamPaddleOpen;
+      edge UpstreamPaddleClose_act goto UpstreamPaddleClose;
+      edge UpstreamPaddleStop_act goto UpstreamPaddleStop;
+      edge UpstreamEnteringTLRedRed_act goto UpstreamEnteringTLRedRed;
+      edge UpstreamEnteringTLRed_act goto UpstreamEnteringTLRed;
+      edge UpstreamEnteringTLRedGreen_act goto UpstreamEnteringTLRedGreen;
+      edge UpstreamEnteringTLGreen_act goto UpstreamEnteringTLGreen;
+      edge UpstreamLeavingTLRed_act goto UpstreamLeavingTLRed;
+      edge UpstreamLeavingTLGreen_act goto UpstreamLeavingTLGreen;
+    location DownstreamGateOpen:
+      edge Deactivate goto NoCommand;
+    location DownstreamGateClose:
+      edge Deactivate goto NoCommand;
+    location DownstreamGateStop:
+      edge Deactivate goto NoCommand;
+    location DownstreamPaddleOpen:
+      edge Deactivate goto NoCommand;
+    location DownstreamPaddleClose:
+      edge Deactivate goto NoCommand;
+    location DownstreamPaddleStop:
+      edge Deactivate goto NoCommand;
+    location DownstreamEnteringTLRedRed:
+      edge Deactivate goto NoCommand;
+    location DownstreamEnteringTLRed:
+      edge Deactivate goto NoCommand;
+    location DownstreamEnteringTLRedGreen:
+      edge Deactivate goto NoCommand;
+    location DownstreamEnteringTLGreen:
+      edge Deactivate goto NoCommand;
+    location DownstreamLeavingTLRed:
+      edge Deactivate goto NoCommand;
+    location DownstreamLeavingTLGreen:
+      edge Deactivate goto NoCommand;
+    location UpstreamGateOpen:
+      edge Deactivate goto NoCommand;
+    location UpstreamGateClose:
+      edge Deactivate goto NoCommand;
+    location UpstreamGateStop:
+      edge Deactivate goto NoCommand;
+    location UpstreamPaddleOpen:
+      edge Deactivate goto NoCommand;
+    location UpstreamPaddleClose:
+      edge Deactivate goto NoCommand;
+    location UpstreamPaddleStop:
+      edge Deactivate goto NoCommand;
+    location UpstreamEnteringTLRedRed:
+      edge Deactivate goto NoCommand;
+    location UpstreamEnteringTLRed:
+      edge Deactivate goto NoCommand;
+    location UpstreamEnteringTLRedGreen:
+      edge Deactivate goto NoCommand;
+    location UpstreamEnteringTLGreen:
+      edge Deactivate goto NoCommand;
+    location UpstreamLeavingTLRed:
+      edge Deactivate goto NoCommand;
+    location UpstreamLeavingTLGreen:
+      edge Deactivate goto NoCommand;
+  end
+  requirement invariant not Downstream.Paddles.East.Actuator.Rest disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Sensor.Closed disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Actuator.Rest disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Sensor.Closed disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Actuator.Rest disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Sensor.Closed disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Actuator.Rest disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Sensor.Closed disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Actuator.Rest disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Sensor.Closed disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Actuator.Rest disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Sensor.Closed disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Actuator.Rest disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Sensor.Closed disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Actuator.Rest disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Sensor.Closed disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Sensor.Closed disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Sensor.Closed disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Sensor.Closed disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Sensor.Closed disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Sensor.Closed disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Sensor.Closed disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Sensor.Closed disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Sensor.Closed disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant Downstream.EqualWaterSensor.Unequal disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant Downstream.EqualWaterSensor.Unequal disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant Upstream.EqualWaterSensor.Unequal disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant Upstream.EqualWaterSensor.Unequal disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Actuator.Rest disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Sensor.Closed disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Actuator.Rest disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Sensor.Closed disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Actuator.Rest disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Sensor.Closed disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Actuator.Rest disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Sensor.Closed disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Actuator.Rest disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Sensor.Closed disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Actuator.Rest disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Sensor.Closed disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Actuator.Rest disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Sensor.Closed disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Actuator.Rest disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Sensor.Closed disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Sensor.Closed disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Sensor.Closed disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Sensor.Closed disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Sensor.Closed disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Sensor.Closed disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Sensor.Closed disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Sensor.Closed disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Sensor.Closed disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.LeavingTLs.East.Actuator.Red disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.SensorR.On disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.SensorG.Off disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.Actuator.Red disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.SensorR.On disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.SensorG.Off disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.Actuator.Red disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.SensorR.On disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.SensorG.Off disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.Actuator.Red disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.SensorR.On disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.SensorG.Off disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.Actuator.Red disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.SensorR.On disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.SensorG.Off disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.Actuator.Red disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.SensorR.On disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.SensorG.Off disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.Actuator.Red disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.SensorR.On disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.SensorG.Off disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.Actuator.Red disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.SensorR.On disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.SensorG.Off disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Sensor.Open disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Sensor.Open disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Sensor.Open disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Sensor.Open disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Sensor.Open disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Sensor.Open disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Sensor.Open disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Sensor.Open disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not(Downstream.EnteringTLs.East.Actuator.Red and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.Off and (Downstream.EnteringTLs.West.Actuator.Red and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.Off) or Downstream.EnteringTLs.East.Actuator.RedRed and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.On and (Downstream.EnteringTLs.West.Actuator.RedRed and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.On)) disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant not(Downstream.EnteringTLs.East.Actuator.Red and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.Off and (Downstream.EnteringTLs.West.Actuator.Red and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.Off) or Downstream.EnteringTLs.East.Actuator.RedRed and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.On and (Downstream.EnteringTLs.West.Actuator.RedRed and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.On)) disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant not(Upstream.EnteringTLs.East.Actuator.Red and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.Off and (Upstream.EnteringTLs.West.Actuator.Red and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.Off) or Upstream.EnteringTLs.East.Actuator.RedRed and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.On and (Upstream.EnteringTLs.West.Actuator.RedRed and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.On)) disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not(Upstream.EnteringTLs.East.Actuator.Red and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.Off and (Upstream.EnteringTLs.West.Actuator.Red and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.Off) or Upstream.EnteringTLs.East.Actuator.RedRed and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.On and (Upstream.EnteringTLs.West.Actuator.RedRed and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.On)) disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.East.Actuator.Red disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.East.SensorR.On disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.East.SensorG.Off disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.West.Actuator.Red disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.West.SensorR.On disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.West.SensorG.Off disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.East.Actuator.Red disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.East.SensorR.On disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.East.SensorG.Off disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.West.Actuator.Red disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.West.SensorR.On disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant not Downstream.LeavingTLs.West.SensorG.Off disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.Actuator.Red disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.SensorR.On disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.SensorG.Off disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.Actuator.Red disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.SensorR.On disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.SensorG.Off disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.Actuator.Red disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.SensorR.On disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.SensorG.Off disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.Actuator.Red disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.SensorR.On disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.SensorG.Off disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Downstream.Paddles.East.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Downstream.Paddles.West.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Upstream.Paddles.East.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Upstream.Paddles.West.Actuator.c_close;
+  requirement invariant Downstream.Gates.East.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.DownstreamGateStop;
+  requirement invariant Downstream.Gates.West.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.DownstreamGateStop;
+  requirement invariant Upstream.Gates.East.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.UpstreamGateStop;
+  requirement invariant Upstream.Gates.West.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.UpstreamGateStop;
+  requirement invariant Downstream.Paddles.East.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.DownstreamPaddleStop;
+  requirement invariant Downstream.Paddles.West.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.DownstreamPaddleStop;
+  requirement invariant Upstream.Paddles.East.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.UpstreamPaddleStop;
+  requirement invariant Upstream.Paddles.West.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.UpstreamPaddleStop;
+  requirement invariant not(Downstream.EnteringTLs.East.Actuator.Red and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.Off and (Downstream.EnteringTLs.West.Actuator.Red and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.Off) or Downstream.EnteringTLs.East.Actuator.RedRed and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.On and (Downstream.EnteringTLs.West.Actuator.RedRed and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.On)) disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not(Downstream.EnteringTLs.East.Actuator.Red and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.Off and (Downstream.EnteringTLs.West.Actuator.Red and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.Off) or Downstream.EnteringTLs.East.Actuator.RedRed and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.On and (Downstream.EnteringTLs.West.Actuator.RedRed and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.On)) disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not(Upstream.EnteringTLs.East.Actuator.Red and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.Off and (Upstream.EnteringTLs.West.Actuator.Red and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.Off) or Upstream.EnteringTLs.East.Actuator.RedRed and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.On and (Upstream.EnteringTLs.West.Actuator.RedRed and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.On)) disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not(Upstream.EnteringTLs.East.Actuator.Red and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.Off and (Upstream.EnteringTLs.West.Actuator.Red and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.Off) or Upstream.EnteringTLs.East.Actuator.RedRed and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.On and (Upstream.EnteringTLs.West.Actuator.RedRed and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.On)) disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Sensor.Open disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Sensor.Open disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Sensor.Open disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Sensor.Open disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Sensor.Open disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Sensor.Open disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Sensor.Open disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Sensor.Open disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant Downstream.Gates.East.Actuator.c_open needs Commands.DownstreamGateOpen;
+  requirement invariant Downstream.Gates.West.Actuator.c_open needs Commands.DownstreamGateOpen;
+  requirement invariant Upstream.Gates.East.Actuator.c_open needs Commands.UpstreamGateOpen;
+  requirement invariant Upstream.Gates.West.Actuator.c_open needs Commands.UpstreamGateOpen;
+  requirement invariant Downstream.Gates.East.Actuator.c_close needs Commands.DownstreamGateClose;
+  requirement invariant Downstream.Gates.West.Actuator.c_close needs Commands.DownstreamGateClose;
+  requirement invariant Upstream.Gates.East.Actuator.c_close needs Commands.UpstreamGateClose;
+  requirement invariant Upstream.Gates.West.Actuator.c_close needs Commands.UpstreamGateClose;
+  requirement invariant Downstream.Paddles.East.Actuator.c_open needs Commands.DownstreamPaddleOpen;
+  requirement invariant Downstream.Paddles.West.Actuator.c_open needs Commands.DownstreamPaddleOpen;
+  requirement invariant Upstream.Paddles.East.Actuator.c_open needs Commands.UpstreamPaddleOpen;
+  requirement invariant Upstream.Paddles.West.Actuator.c_open needs Commands.UpstreamPaddleOpen;
+  requirement invariant Downstream.Paddles.East.Actuator.c_close needs Commands.DownstreamPaddleClose;
+  requirement invariant Downstream.Paddles.West.Actuator.c_close needs Commands.DownstreamPaddleClose;
+  requirement invariant Upstream.Paddles.East.Actuator.c_close needs Commands.UpstreamPaddleClose;
+  requirement invariant Upstream.Paddles.West.Actuator.c_close needs Commands.UpstreamPaddleClose;
+  requirement invariant Downstream.EnteringTLs.East.Actuator.c_rr needs Commands.DownstreamEnteringTLRedRed;
+  requirement invariant Downstream.EnteringTLs.West.Actuator.c_rr needs Commands.DownstreamEnteringTLRedRed;
+  requirement invariant Upstream.EnteringTLs.East.Actuator.c_rr needs Commands.UpstreamEnteringTLRedRed;
+  requirement invariant Upstream.EnteringTLs.West.Actuator.c_rr needs Commands.UpstreamEnteringTLRedRed;
+  requirement invariant Downstream.EnteringTLs.East.Actuator.c_r needs Commands.DownstreamEnteringTLRed;
+  requirement invariant Downstream.EnteringTLs.West.Actuator.c_r needs Commands.DownstreamEnteringTLRed;
+  requirement invariant Upstream.EnteringTLs.East.Actuator.c_r needs Commands.UpstreamEnteringTLRed;
+  requirement invariant Upstream.EnteringTLs.West.Actuator.c_r needs Commands.UpstreamEnteringTLRed;
+  requirement invariant Downstream.EnteringTLs.East.Actuator.c_rg needs Commands.DownstreamEnteringTLRedGreen;
+  requirement invariant Downstream.EnteringTLs.West.Actuator.c_rg needs Commands.DownstreamEnteringTLRedGreen;
+  requirement invariant Upstream.EnteringTLs.East.Actuator.c_rg needs Commands.UpstreamEnteringTLRedGreen;
+  requirement invariant Upstream.EnteringTLs.West.Actuator.c_rg needs Commands.UpstreamEnteringTLRedGreen;
+  requirement invariant Downstream.EnteringTLs.East.Actuator.c_g needs Commands.DownstreamEnteringTLGreen;
+  requirement invariant Downstream.EnteringTLs.West.Actuator.c_g needs Commands.DownstreamEnteringTLGreen;
+  requirement invariant Upstream.EnteringTLs.East.Actuator.c_g needs Commands.UpstreamEnteringTLGreen;
+  requirement invariant Upstream.EnteringTLs.West.Actuator.c_g needs Commands.UpstreamEnteringTLGreen;
+  requirement invariant Downstream.LeavingTLs.East.Actuator.c_r needs Commands.DownstreamLeavingTLRed;
+  requirement invariant Downstream.LeavingTLs.West.Actuator.c_r needs Commands.DownstreamLeavingTLRed;
+  requirement invariant Upstream.LeavingTLs.East.Actuator.c_r needs Commands.UpstreamLeavingTLRed;
+  requirement invariant Upstream.LeavingTLs.West.Actuator.c_r needs Commands.UpstreamLeavingTLRed;
+  requirement invariant Downstream.LeavingTLs.East.Actuator.c_g needs Commands.DownstreamLeavingTLGreen;
+  requirement invariant Downstream.LeavingTLs.West.Actuator.c_g needs Commands.DownstreamLeavingTLGreen;
+  requirement invariant Upstream.LeavingTLs.East.Actuator.c_g needs Commands.UpstreamLeavingTLGreen;
+  requirement invariant Upstream.LeavingTLs.West.Actuator.c_g needs Commands.UpstreamLeavingTLGreen;
+end
+group South:
+  group Upstream:
+    group Gates:
+      group East:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group Paddles:
+      group East:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group EnteringTLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_rr;
+          controllable c_rg;
+          controllable c_g;
+          location RedRed:
+            marked;
+            edge c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge c_rr goto RedRed;
+            edge c_rg goto RedGreen;
+          location RedGreen:
+            edge c_r goto Red;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR1:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton SensorR2:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          location:
+            initial;
+            marked;
+            edge SensorR1.u_on when not Actuator.Green;
+            edge SensorR1.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when Actuator.Green or Actuator.RedGreen;
+            edge SensorG.u_off when Actuator.Red or Actuator.RedRed;
+        end
+        plant automaton DynamicsR2:
+          location:
+            initial;
+            marked;
+            edge SensorR2.u_on when Actuator.RedRed;
+            edge SensorR2.u_off when not Actuator.RedRed;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_rr;
+          controllable c_rg;
+          controllable c_g;
+          location RedRed:
+            marked;
+            edge c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge c_rr goto RedRed;
+            edge c_rg goto RedGreen;
+          location RedGreen:
+            edge c_r goto Red;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR1:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton SensorR2:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          location:
+            initial;
+            marked;
+            edge SensorR1.u_on when not Actuator.Green;
+            edge SensorR1.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when Actuator.Green or Actuator.RedGreen;
+            edge SensorG.u_off when Actuator.Red or Actuator.RedRed;
+        end
+        plant automaton DynamicsR2:
+          location:
+            initial;
+            marked;
+            edge SensorR2.u_on when Actuator.RedRed;
+            edge SensorR2.u_off when not Actuator.RedRed;
+        end
+      end
+    end
+    group LeavingTLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+    end
+    plant automaton EqualWaterSensor:
+      uncontrollable u_on;
+      uncontrollable u_off;
+      location Unequal:
+        initial;
+        marked;
+        edge u_on goto Equal;
+      location Equal:
+        initial false;
+        marked false;
+        edge u_off goto Unequal;
+    end
+  end
+  group Downstream:
+    group Gates:
+      group East:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group Paddles:
+      group East:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_open;
+          controllable c_close;
+          controllable c_emergencyStop;
+          controllable c_endStopClosing;
+          controllable c_endStopOpening;
+          location Rest:
+            initial;
+            marked;
+            edge c_open goto Opening;
+            edge c_close goto Closing;
+          location Opening:
+            edge c_emergencyStop, c_endStopOpening goto Rest;
+          location Closing:
+            edge c_emergencyStop, c_endStopClosing goto Rest;
+        end
+        plant automaton Sensor:
+          uncontrollable u_open_on;
+          uncontrollable u_open_off;
+          uncontrollable u_closed_on;
+          uncontrollable u_closed_off;
+          location Closed:
+            initial;
+            marked;
+            edge u_closed_off goto Intermediate;
+          location Intermediate:
+            edge u_closed_on goto Closed;
+            edge u_open_on goto Open;
+          location Open:
+            initial not true;
+            marked not true;
+            edge u_open_off goto Intermediate;
+        end
+        plant automaton Dynamics:
+          location:
+            initial;
+            marked;
+            edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+            edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+        end
+        requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+        requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+        requirement invariant Actuator.c_open needs not Sensor.Open;
+        requirement invariant Actuator.c_close needs not Sensor.Closed;
+      end
+    end
+    group EnteringTLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_rr;
+          controllable c_rg;
+          controllable c_g;
+          location RedRed:
+            marked;
+            edge c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge c_rr goto RedRed;
+            edge c_rg goto RedGreen;
+          location RedGreen:
+            edge c_r goto Red;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR1:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton SensorR2:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          location:
+            initial;
+            marked;
+            edge SensorR1.u_on when not Actuator.Green;
+            edge SensorR1.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when Actuator.Green or Actuator.RedGreen;
+            edge SensorG.u_off when Actuator.Red or Actuator.RedRed;
+        end
+        plant automaton DynamicsR2:
+          location:
+            initial;
+            marked;
+            edge SensorR2.u_on when Actuator.RedRed;
+            edge SensorR2.u_off when not Actuator.RedRed;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_rr;
+          controllable c_rg;
+          controllable c_g;
+          location RedRed:
+            marked;
+            edge c_r goto Red;
+          location Red:
+            initial;
+            marked;
+            edge c_rr goto RedRed;
+            edge c_rg goto RedGreen;
+          location RedGreen:
+            edge c_r goto Red;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR1:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton SensorR2:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR1:
+          location:
+            initial;
+            marked;
+            edge SensorR1.u_on when not Actuator.Green;
+            edge SensorR1.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when Actuator.Green or Actuator.RedGreen;
+            edge SensorG.u_off when Actuator.Red or Actuator.RedRed;
+        end
+        plant automaton DynamicsR2:
+          location:
+            initial;
+            marked;
+            edge SensorR2.u_on when Actuator.RedRed;
+            edge SensorR2.u_off when not Actuator.RedRed;
+        end
+      end
+    end
+    group LeavingTLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+    end
+    plant automaton EqualWaterSensor:
+      uncontrollable u_on;
+      uncontrollable u_off;
+      location Unequal:
+        initial;
+        marked;
+        edge u_on goto Equal;
+      location Equal:
+        initial false;
+        marked false;
+        edge u_off goto Unequal;
+    end
+  end
+  plant automaton EmergencyStop:
+    uncontrollable u_activate;
+    uncontrollable u_deactivate;
+    location Inactive:
+      initial;
+      marked;
+      edge u_activate goto Active;
+    location Active:
+      edge u_deactivate goto Inactive;
+  end
+  plant automaton Commands:
+    monitor;
+    uncontrollable Deactivate;
+    uncontrollable DownstreamGateOpen_act;
+    uncontrollable DownstreamGateClose_act;
+    uncontrollable DownstreamGateStop_act;
+    uncontrollable DownstreamPaddleOpen_act;
+    uncontrollable DownstreamPaddleClose_act;
+    uncontrollable DownstreamPaddleStop_act;
+    uncontrollable DownstreamEnteringTLRedRed_act;
+    uncontrollable DownstreamEnteringTLRed_act;
+    uncontrollable DownstreamEnteringTLRedGreen_act;
+    uncontrollable DownstreamEnteringTLGreen_act;
+    uncontrollable DownstreamLeavingTLRed_act;
+    uncontrollable DownstreamLeavingTLGreen_act;
+    uncontrollable UpstreamGateOpen_act;
+    uncontrollable UpstreamGateClose_act;
+    uncontrollable UpstreamGateStop_act;
+    uncontrollable UpstreamPaddleOpen_act;
+    uncontrollable UpstreamPaddleClose_act;
+    uncontrollable UpstreamPaddleStop_act;
+    uncontrollable UpstreamEnteringTLRedRed_act;
+    uncontrollable UpstreamEnteringTLRed_act;
+    uncontrollable UpstreamEnteringTLRedGreen_act;
+    uncontrollable UpstreamEnteringTLGreen_act;
+    uncontrollable UpstreamLeavingTLRed_act;
+    uncontrollable UpstreamLeavingTLGreen_act;
+    location NoCommand:
+      initial;
+      marked;
+      edge DownstreamGateOpen_act goto DownstreamGateOpen;
+      edge DownstreamGateClose_act goto DownstreamGateClose;
+      edge DownstreamGateStop_act goto DownstreamGateStop;
+      edge DownstreamPaddleOpen_act goto DownstreamPaddleOpen;
+      edge DownstreamPaddleClose_act goto DownstreamPaddleClose;
+      edge DownstreamPaddleStop_act goto DownstreamPaddleStop;
+      edge DownstreamEnteringTLRedRed_act goto DownstreamEnteringTLRedRed;
+      edge DownstreamEnteringTLRed_act goto DownstreamEnteringTLRed;
+      edge DownstreamEnteringTLRedGreen_act goto DownstreamEnteringTLRedGreen;
+      edge DownstreamEnteringTLGreen_act goto DownstreamEnteringTLGreen;
+      edge DownstreamLeavingTLRed_act goto DownstreamLeavingTLRed;
+      edge DownstreamLeavingTLGreen_act goto DownstreamLeavingTLGreen;
+      edge UpstreamGateOpen_act goto UpstreamGateOpen;
+      edge UpstreamGateClose_act goto UpstreamGateClose;
+      edge UpstreamGateStop_act goto UpstreamGateStop;
+      edge UpstreamPaddleOpen_act goto UpstreamPaddleOpen;
+      edge UpstreamPaddleClose_act goto UpstreamPaddleClose;
+      edge UpstreamPaddleStop_act goto UpstreamPaddleStop;
+      edge UpstreamEnteringTLRedRed_act goto UpstreamEnteringTLRedRed;
+      edge UpstreamEnteringTLRed_act goto UpstreamEnteringTLRed;
+      edge UpstreamEnteringTLRedGreen_act goto UpstreamEnteringTLRedGreen;
+      edge UpstreamEnteringTLGreen_act goto UpstreamEnteringTLGreen;
+      edge UpstreamLeavingTLRed_act goto UpstreamLeavingTLRed;
+      edge UpstreamLeavingTLGreen_act goto UpstreamLeavingTLGreen;
+    location DownstreamGateOpen:
+      edge Deactivate goto NoCommand;
+    location DownstreamGateClose:
+      edge Deactivate goto NoCommand;
+    location DownstreamGateStop:
+      edge Deactivate goto NoCommand;
+    location DownstreamPaddleOpen:
+      edge Deactivate goto NoCommand;
+    location DownstreamPaddleClose:
+      edge Deactivate goto NoCommand;
+    location DownstreamPaddleStop:
+      edge Deactivate goto NoCommand;
+    location DownstreamEnteringTLRedRed:
+      edge Deactivate goto NoCommand;
+    location DownstreamEnteringTLRed:
+      edge Deactivate goto NoCommand;
+    location DownstreamEnteringTLRedGreen:
+      edge Deactivate goto NoCommand;
+    location DownstreamEnteringTLGreen:
+      edge Deactivate goto NoCommand;
+    location DownstreamLeavingTLRed:
+      edge Deactivate goto NoCommand;
+    location DownstreamLeavingTLGreen:
+      edge Deactivate goto NoCommand;
+    location UpstreamGateOpen:
+      edge Deactivate goto NoCommand;
+    location UpstreamGateClose:
+      edge Deactivate goto NoCommand;
+    location UpstreamGateStop:
+      edge Deactivate goto NoCommand;
+    location UpstreamPaddleOpen:
+      edge Deactivate goto NoCommand;
+    location UpstreamPaddleClose:
+      edge Deactivate goto NoCommand;
+    location UpstreamPaddleStop:
+      edge Deactivate goto NoCommand;
+    location UpstreamEnteringTLRedRed:
+      edge Deactivate goto NoCommand;
+    location UpstreamEnteringTLRed:
+      edge Deactivate goto NoCommand;
+    location UpstreamEnteringTLRedGreen:
+      edge Deactivate goto NoCommand;
+    location UpstreamEnteringTLGreen:
+      edge Deactivate goto NoCommand;
+    location UpstreamLeavingTLRed:
+      edge Deactivate goto NoCommand;
+    location UpstreamLeavingTLGreen:
+      edge Deactivate goto NoCommand;
+  end
+  requirement invariant not Downstream.Paddles.East.Actuator.Rest disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Sensor.Closed disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Actuator.Rest disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Sensor.Closed disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Actuator.Rest disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Sensor.Closed disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Actuator.Rest disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Sensor.Closed disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Actuator.Rest disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Sensor.Closed disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Actuator.Rest disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Sensor.Closed disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Actuator.Rest disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Sensor.Closed disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Actuator.Rest disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Sensor.Closed disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Sensor.Closed disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Sensor.Closed disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Sensor.Closed disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Sensor.Closed disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Sensor.Closed disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Sensor.Closed disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Sensor.Closed disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Sensor.Closed disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant Downstream.EqualWaterSensor.Unequal disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant Downstream.EqualWaterSensor.Unequal disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant Upstream.EqualWaterSensor.Unequal disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant Upstream.EqualWaterSensor.Unequal disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Actuator.Rest disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Sensor.Closed disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Actuator.Rest disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Sensor.Closed disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Actuator.Rest disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.East.Sensor.Closed disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Actuator.Rest disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Paddles.West.Sensor.Closed disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Actuator.Rest disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Sensor.Closed disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Actuator.Rest disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Sensor.Closed disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Actuator.Rest disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.East.Sensor.Closed disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Actuator.Rest disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Paddles.West.Sensor.Closed disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Sensor.Closed disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Sensor.Closed disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.East.Sensor.Closed disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.Gates.West.Sensor.Closed disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Sensor.Closed disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Sensor.Closed disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.East.Sensor.Closed disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Upstream.Gates.West.Sensor.Closed disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant not Downstream.LeavingTLs.East.Actuator.Red disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.SensorR.On disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.SensorG.Off disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.Actuator.Red disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.SensorR.On disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.SensorG.Off disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.Actuator.Red disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.SensorR.On disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.East.SensorG.Off disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.Actuator.Red disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.SensorR.On disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.LeavingTLs.West.SensorG.Off disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.Actuator.Red disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.SensorR.On disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.SensorG.Off disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.Actuator.Red disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.SensorR.On disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.SensorG.Off disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.Actuator.Red disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.SensorR.On disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.East.SensorG.Off disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.Actuator.Red disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.SensorR.On disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.LeavingTLs.West.SensorG.Off disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Sensor.Open disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Sensor.Open disables Downstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Sensor.Open disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Sensor.Open disables Downstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Sensor.Open disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Sensor.Open disables Upstream.EnteringTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Sensor.Open disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Sensor.Open disables Upstream.EnteringTLs.West.Actuator.c_g;
+  requirement invariant not(Downstream.EnteringTLs.East.Actuator.Red and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.Off and (Downstream.EnteringTLs.West.Actuator.Red and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.Off) or Downstream.EnteringTLs.East.Actuator.RedRed and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.On and (Downstream.EnteringTLs.West.Actuator.RedRed and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.On)) disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant not(Downstream.EnteringTLs.East.Actuator.Red and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.Off and (Downstream.EnteringTLs.West.Actuator.Red and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.Off) or Downstream.EnteringTLs.East.Actuator.RedRed and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.On and (Downstream.EnteringTLs.West.Actuator.RedRed and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.On)) disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant not(Upstream.EnteringTLs.East.Actuator.Red and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.Off and (Upstream.EnteringTLs.West.Actuator.Red and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.Off) or Upstream.EnteringTLs.East.Actuator.RedRed and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.On and (Upstream.EnteringTLs.West.Actuator.RedRed and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.On)) disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not(Upstream.EnteringTLs.East.Actuator.Red and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.Off and (Upstream.EnteringTLs.West.Actuator.Red and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.Off) or Upstream.EnteringTLs.East.Actuator.RedRed and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.On and (Upstream.EnteringTLs.West.Actuator.RedRed and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.On)) disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not(Downstream.LeavingTLs.East.Actuator.Red and Downstream.LeavingTLs.East.SensorR.On and Downstream.LeavingTLs.East.SensorG.Off and (Downstream.LeavingTLs.West.Actuator.Red and Downstream.LeavingTLs.West.SensorR.On and Downstream.LeavingTLs.West.SensorG.Off)) disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant not(Downstream.LeavingTLs.East.Actuator.Red and Downstream.LeavingTLs.East.SensorR.On and Downstream.LeavingTLs.East.SensorG.Off and (Downstream.LeavingTLs.West.Actuator.Red and Downstream.LeavingTLs.West.SensorR.On and Downstream.LeavingTLs.West.SensorG.Off)) disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.Actuator.Red disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.SensorR.On disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.SensorG.Off disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.Actuator.Red disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.SensorR.On disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.SensorG.Off disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.Actuator.Red disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.SensorR.On disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.East.SensorG.Off disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.Actuator.Red disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.SensorR.On disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant not Upstream.LeavingTLs.West.SensorG.Off disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Downstream.Gates.East.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Downstream.Gates.East.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Downstream.Gates.West.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Downstream.Gates.West.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Upstream.Gates.East.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Upstream.Gates.East.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Upstream.Gates.West.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Upstream.Gates.West.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Downstream.Paddles.East.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Downstream.Paddles.East.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Downstream.Paddles.West.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Downstream.Paddles.West.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Upstream.Paddles.East.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Upstream.Paddles.East.Actuator.c_close;
+  requirement invariant EmergencyStop.Active disables Upstream.Paddles.West.Actuator.c_open;
+  requirement invariant EmergencyStop.Active disables Upstream.Paddles.West.Actuator.c_close;
+  requirement invariant Downstream.Gates.East.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.DownstreamGateStop;
+  requirement invariant Downstream.Gates.West.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.DownstreamGateStop;
+  requirement invariant Upstream.Gates.East.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.UpstreamGateStop;
+  requirement invariant Upstream.Gates.West.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.UpstreamGateStop;
+  requirement invariant Downstream.Paddles.East.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.DownstreamPaddleStop;
+  requirement invariant Downstream.Paddles.West.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.DownstreamPaddleStop;
+  requirement invariant Upstream.Paddles.East.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.UpstreamPaddleStop;
+  requirement invariant Upstream.Paddles.West.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.UpstreamPaddleStop;
+  requirement invariant not(Downstream.EnteringTLs.East.Actuator.Red and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.Off and (Downstream.EnteringTLs.West.Actuator.Red and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.Off) or Downstream.EnteringTLs.East.Actuator.RedRed and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.On and (Downstream.EnteringTLs.West.Actuator.RedRed and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.On)) disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not(Downstream.EnteringTLs.East.Actuator.Red and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.Off and (Downstream.EnteringTLs.West.Actuator.Red and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.Off) or Downstream.EnteringTLs.East.Actuator.RedRed and Downstream.EnteringTLs.East.SensorR1.On and Downstream.EnteringTLs.East.SensorG.Off and Downstream.EnteringTLs.East.SensorR2.On and (Downstream.EnteringTLs.West.Actuator.RedRed and Downstream.EnteringTLs.West.SensorR1.On and Downstream.EnteringTLs.West.SensorG.Off and Downstream.EnteringTLs.West.SensorR2.On)) disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not(Upstream.EnteringTLs.East.Actuator.Red and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.Off and (Upstream.EnteringTLs.West.Actuator.Red and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.Off) or Upstream.EnteringTLs.East.Actuator.RedRed and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.On and (Upstream.EnteringTLs.West.Actuator.RedRed and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.On)) disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not(Upstream.EnteringTLs.East.Actuator.Red and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.Off and (Upstream.EnteringTLs.West.Actuator.Red and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.Off) or Upstream.EnteringTLs.East.Actuator.RedRed and Upstream.EnteringTLs.East.SensorR1.On and Upstream.EnteringTLs.East.SensorG.Off and Upstream.EnteringTLs.East.SensorR2.On and (Upstream.EnteringTLs.West.Actuator.RedRed and Upstream.EnteringTLs.West.SensorR1.On and Upstream.EnteringTLs.West.SensorG.Off and Upstream.EnteringTLs.West.SensorR2.On)) disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Sensor.Open disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Sensor.Open disables Downstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Actuator.Rest disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.East.Sensor.Open disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Actuator.Rest disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Downstream.Gates.West.Sensor.Open disables Downstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Sensor.Open disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Sensor.Open disables Upstream.LeavingTLs.East.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Actuator.Rest disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.East.Sensor.Open disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Actuator.Rest disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant not Upstream.Gates.West.Sensor.Open disables Upstream.LeavingTLs.West.Actuator.c_g;
+  requirement invariant Downstream.Gates.East.Actuator.c_open needs Commands.DownstreamGateOpen;
+  requirement invariant Downstream.Gates.West.Actuator.c_open needs Commands.DownstreamGateOpen;
+  requirement invariant Upstream.Gates.East.Actuator.c_open needs Commands.UpstreamGateOpen;
+  requirement invariant Upstream.Gates.West.Actuator.c_open needs Commands.UpstreamGateOpen;
+  requirement invariant Downstream.Gates.East.Actuator.c_close needs Commands.DownstreamGateClose;
+  requirement invariant Downstream.Gates.West.Actuator.c_close needs Commands.DownstreamGateClose;
+  requirement invariant Upstream.Gates.East.Actuator.c_close needs Commands.UpstreamGateClose;
+  requirement invariant Upstream.Gates.West.Actuator.c_close needs Commands.UpstreamGateClose;
+  requirement invariant Downstream.Paddles.East.Actuator.c_open needs Commands.DownstreamPaddleOpen;
+  requirement invariant Downstream.Paddles.West.Actuator.c_open needs Commands.DownstreamPaddleOpen;
+  requirement invariant Upstream.Paddles.East.Actuator.c_open needs Commands.UpstreamPaddleOpen;
+  requirement invariant Upstream.Paddles.West.Actuator.c_open needs Commands.UpstreamPaddleOpen;
+  requirement invariant Downstream.Paddles.East.Actuator.c_close needs Commands.DownstreamPaddleClose;
+  requirement invariant Downstream.Paddles.West.Actuator.c_close needs Commands.DownstreamPaddleClose;
+  requirement invariant Upstream.Paddles.East.Actuator.c_close needs Commands.UpstreamPaddleClose;
+  requirement invariant Upstream.Paddles.West.Actuator.c_close needs Commands.UpstreamPaddleClose;
+  requirement invariant Downstream.EnteringTLs.East.Actuator.c_rr needs Commands.DownstreamEnteringTLRedRed;
+  requirement invariant Downstream.EnteringTLs.West.Actuator.c_rr needs Commands.DownstreamEnteringTLRedRed;
+  requirement invariant Upstream.EnteringTLs.East.Actuator.c_rr needs Commands.UpstreamEnteringTLRedRed;
+  requirement invariant Upstream.EnteringTLs.West.Actuator.c_rr needs Commands.UpstreamEnteringTLRedRed;
+  requirement invariant Downstream.EnteringTLs.East.Actuator.c_r needs Commands.DownstreamEnteringTLRed;
+  requirement invariant Downstream.EnteringTLs.West.Actuator.c_r needs Commands.DownstreamEnteringTLRed;
+  requirement invariant Upstream.EnteringTLs.East.Actuator.c_r needs Commands.UpstreamEnteringTLRed;
+  requirement invariant Upstream.EnteringTLs.West.Actuator.c_r needs Commands.UpstreamEnteringTLRed;
+  requirement invariant Downstream.EnteringTLs.East.Actuator.c_rg needs Commands.DownstreamEnteringTLRedGreen;
+  requirement invariant Downstream.EnteringTLs.West.Actuator.c_rg needs Commands.DownstreamEnteringTLRedGreen;
+  requirement invariant Upstream.EnteringTLs.East.Actuator.c_rg needs Commands.UpstreamEnteringTLRedGreen;
+  requirement invariant Upstream.EnteringTLs.West.Actuator.c_rg needs Commands.UpstreamEnteringTLRedGreen;
+  requirement invariant Downstream.EnteringTLs.East.Actuator.c_g needs Commands.DownstreamEnteringTLGreen;
+  requirement invariant Downstream.EnteringTLs.West.Actuator.c_g needs Commands.DownstreamEnteringTLGreen;
+  requirement invariant Upstream.EnteringTLs.East.Actuator.c_g needs Commands.UpstreamEnteringTLGreen;
+  requirement invariant Upstream.EnteringTLs.West.Actuator.c_g needs Commands.UpstreamEnteringTLGreen;
+  requirement invariant Downstream.LeavingTLs.East.Actuator.c_r needs Commands.DownstreamLeavingTLRed;
+  requirement invariant Downstream.LeavingTLs.West.Actuator.c_r needs Commands.DownstreamLeavingTLRed;
+  requirement invariant Upstream.LeavingTLs.East.Actuator.c_r needs Commands.UpstreamLeavingTLRed;
+  requirement invariant Upstream.LeavingTLs.West.Actuator.c_r needs Commands.UpstreamLeavingTLRed;
+  requirement invariant Downstream.LeavingTLs.East.Actuator.c_g needs Commands.DownstreamLeavingTLGreen;
+  requirement invariant Downstream.LeavingTLs.West.Actuator.c_g needs Commands.DownstreamLeavingTLGreen;
+  requirement invariant Upstream.LeavingTLs.East.Actuator.c_g needs Commands.UpstreamLeavingTLGreen;
+  requirement invariant Upstream.LeavingTLs.West.Actuator.c_g needs Commands.UpstreamLeavingTLGreen;
+end
+group Barrier:
+  group Downstream:
+    group TLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+    end
+  end
+  group Upstream:
+    group TLs:
+      group East:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+      group West:
+        plant automaton Actuator:
+          controllable c_r;
+          controllable c_g;
+          location Red:
+            initial;
+            marked;
+            edge c_g goto Green;
+          location Green:
+            edge c_r goto Red;
+        end
+        plant automaton SensorR:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial not true;
+            marked not true;
+            edge u_on goto On;
+          location On:
+            initial;
+            marked;
+            edge u_off goto Off;
+        end
+        plant automaton SensorG:
+          uncontrollable u_on;
+          uncontrollable u_off;
+          location Off:
+            initial;
+            marked;
+            edge u_on goto On;
+          location On:
+            initial false;
+            marked false;
+            edge u_off goto Off;
+        end
+        plant automaton DynamicsR:
+          location:
+            initial;
+            marked;
+            edge SensorR.u_on when not Actuator.Green;
+            edge SensorR.u_off when Actuator.Green;
+        end
+        plant automaton DynamicsG:
+          location:
+            initial;
+            marked;
+            edge SensorG.u_on when not Actuator.Red;
+            edge SensorG.u_off when Actuator.Red;
+        end
+      end
+    end
+  end
+  group Barrier:
+    plant automaton Actuator:
+      controllable c_open;
+      controllable c_close;
+      controllable c_emergencyStop;
+      controllable c_endStopClosing;
+      controllable c_endStopOpening;
+      location Rest:
+        initial;
+        marked;
+        edge c_open goto Opening;
+        edge c_close goto Closing;
+      location Opening:
+        edge c_emergencyStop, c_endStopOpening goto Rest;
+      location Closing:
+        edge c_emergencyStop, c_endStopClosing goto Rest;
+    end
+    plant automaton Sensor:
+      uncontrollable u_open_on;
+      uncontrollable u_open_off;
+      uncontrollable u_closed_on;
+      uncontrollable u_closed_off;
+      location Closed:
+        initial;
+        marked;
+        edge u_closed_off goto Intermediate;
+      location Intermediate:
+        edge u_closed_on goto Closed;
+        edge u_open_on goto Open;
+      location Open:
+        initial not true;
+        marked not true;
+        edge u_open_off goto Intermediate;
+    end
+    plant automaton Dynamics:
+      location:
+        initial;
+        marked;
+        edge Sensor.u_open_on, Sensor.u_closed_off when Actuator.Opening;
+        edge Sensor.u_closed_on, Sensor.u_open_off when Actuator.Closing;
+    end
+    requirement invariant Actuator.c_endStopOpening needs Sensor.Open;
+    requirement invariant Actuator.c_endStopClosing needs Sensor.Closed;
+    requirement invariant Actuator.c_open needs not Sensor.Open;
+    requirement invariant Actuator.c_close needs not Sensor.Closed;
+  end
+  plant automaton EmergencyStop:
+    uncontrollable u_activate;
+    uncontrollable u_deactivate;
+    location Inactive:
+      initial;
+      marked;
+      edge u_activate goto Active;
+    location Active:
+      edge u_deactivate goto Inactive;
+  end
+  plant automaton Commands:
+    monitor;
+    uncontrollable Deactivate;
+    uncontrollable BarrierOpen_act;
+    uncontrollable BarrierClose_act;
+    uncontrollable BarrierStop_act;
+    uncontrollable DownstreamTLRed_act;
+    uncontrollable DownstreamTLGreen_act;
+    uncontrollable UpstreamTLRed_act;
+    uncontrollable UpstreamTLGreen_act;
+    location NoCommand:
+      initial;
+      marked;
+      edge BarrierOpen_act goto BarrierOpen;
+      edge BarrierClose_act goto BarrierClose;
+      edge BarrierStop_act goto BarrierStop;
+      edge DownstreamTLRed_act goto DownstreamTLRed;
+      edge DownstreamTLGreen_act goto DownstreamTLGreen;
+      edge UpstreamTLRed_act goto UpstreamTLRed;
+      edge UpstreamTLGreen_act goto UpstreamTLGreen;
+    location BarrierOpen:
+      edge Deactivate goto NoCommand;
+    location BarrierClose:
+      edge Deactivate goto NoCommand;
+    location BarrierStop:
+      edge Deactivate goto NoCommand;
+    location DownstreamTLRed:
+      edge Deactivate goto NoCommand;
+    location DownstreamTLGreen:
+      edge Deactivate goto NoCommand;
+    location UpstreamTLRed:
+      edge Deactivate goto NoCommand;
+    location UpstreamTLGreen:
+      edge Deactivate goto NoCommand;
+  end
+  requirement invariant Barrier.Actuator.c_close needs Downstream.TLs.East.Actuator.Red;
+  requirement invariant Barrier.Actuator.c_close needs Downstream.TLs.East.SensorR.On;
+  requirement invariant Barrier.Actuator.c_close needs Downstream.TLs.East.SensorG.Off;
+  requirement invariant Barrier.Actuator.c_close needs Downstream.TLs.West.Actuator.Red;
+  requirement invariant Barrier.Actuator.c_close needs Downstream.TLs.West.SensorR.On;
+  requirement invariant Barrier.Actuator.c_close needs Downstream.TLs.West.SensorG.Off;
+  requirement invariant Barrier.Actuator.c_close needs Upstream.TLs.East.Actuator.Red;
+  requirement invariant Barrier.Actuator.c_close needs Upstream.TLs.East.SensorR.On;
+  requirement invariant Barrier.Actuator.c_close needs Upstream.TLs.East.SensorG.Off;
+  requirement invariant Barrier.Actuator.c_close needs Upstream.TLs.West.Actuator.Red;
+  requirement invariant Barrier.Actuator.c_close needs Upstream.TLs.West.SensorR.On;
+  requirement invariant Barrier.Actuator.c_close needs Upstream.TLs.West.SensorG.Off;
+  requirement invariant Downstream.TLs.East.Actuator.c_g needs Barrier.Actuator.Rest;
+  requirement invariant Downstream.TLs.East.Actuator.c_g needs Barrier.Sensor.Open;
+  requirement invariant Downstream.TLs.West.Actuator.c_g needs Barrier.Actuator.Rest;
+  requirement invariant Downstream.TLs.West.Actuator.c_g needs Barrier.Sensor.Open;
+  requirement invariant Upstream.TLs.East.Actuator.c_g needs Barrier.Actuator.Rest;
+  requirement invariant Upstream.TLs.East.Actuator.c_g needs Barrier.Sensor.Open;
+  requirement invariant Upstream.TLs.West.Actuator.c_g needs Barrier.Actuator.Rest;
+  requirement invariant Upstream.TLs.West.Actuator.c_g needs Barrier.Sensor.Open;
+  requirement invariant Downstream.TLs.East.Actuator.c_g needs Commands.DownstreamTLGreen;
+  requirement invariant Downstream.TLs.West.Actuator.c_g needs Commands.DownstreamTLGreen;
+  requirement invariant Downstream.TLs.East.Actuator.c_r needs Commands.DownstreamTLRed;
+  requirement invariant Downstream.TLs.West.Actuator.c_r needs Commands.DownstreamTLRed;
+  requirement invariant Upstream.TLs.East.Actuator.c_g needs Commands.UpstreamTLGreen;
+  requirement invariant Upstream.TLs.West.Actuator.c_g needs Commands.UpstreamTLGreen;
+  requirement invariant Upstream.TLs.East.Actuator.c_r needs Commands.UpstreamTLRed;
+  requirement invariant Upstream.TLs.West.Actuator.c_r needs Commands.UpstreamTLRed;
+  requirement invariant Barrier.Actuator.c_open needs Commands.BarrierOpen;
+  requirement invariant Barrier.Actuator.c_close needs Commands.BarrierClose;
+  requirement invariant Barrier.Actuator.c_emergencyStop needs EmergencyStop.Active or Commands.BarrierStop;
+end

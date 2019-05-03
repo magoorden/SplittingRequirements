@@ -1,0 +1,162 @@
+Reading CIF file "generated_files_modular_largereq/subplant_10.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name            Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_conveyer      0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_eject         1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_atexit        2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_Pinitialized  3      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  Total                                          4      8         16          16          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 9
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    3 (total)                 0.33 (avg/edge) [before]
+    Total span:                    3 (total)                 0.33 (avg/edge) [iteration 1]
+    Total span:                    3 (total)                 0.33 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                    3 (total)                 0.33 (avg/edge) [before]
+    Total span:                    2 (total)                 0.22 (avg/edge) [window 0..3]
+    Total span:                    2 (total)                 0.22 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name            Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_eject         0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_conveyer      1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_atexit        2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_Pinitialized  3      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  Total                                          4      8         16          16          100%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_atexit.Off
+Initial   (aut/locs init predicate):     S_Pinitialized.Off
+Initial   (aut/locs init predicate):     A_eject.Off
+Initial   (aut/locs init predicate):     A_conveyer.Off
+Initial   (auts/locs init predicate):    A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off)
+Initial   (uncontrolled system):         A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off)
+Initial   (system, combined init/inv):   A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off)
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_atexit.Off
+Marked    (aut/locs marker predicate):   S_Pinitialized.Off
+Marked    (aut/locs marker predicate):   A_eject.Off
+Marked    (aut/locs marker predicate):   A_conveyer.Off
+Marked    (auts/locs marker predicate):  A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off)
+Marked    (uncontrolled system):         A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off)
+Marked    (system, combined marked/inv): A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off)
+
+State/event exclusion requirements:
+  Event "A_eject_c_off" needs:
+    A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On)
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_atexit_u_off) (guard: S_atexit.On) (assignments: S_atexit := S_atexit.Off)
+    Edge: (event: S_atexit_u_on) (guard: S_atexit.Off) (assignments: S_atexit := S_atexit.On)
+    Edge: (event: S_Pinitialized_u_off) (guard: S_Pinitialized.On) (assignments: S_Pinitialized := S_Pinitialized.Off)
+    Edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On)
+    Edge: (event: A_eject_c_off) (guard: A_eject.On) (assignments: A_eject := A_eject.Off)
+    Edge: (event: A_eject_c_on) (guard: A_eject.Off) (assignments: A_eject := A_eject.On)
+    Edge: (event: A_conveyer_c_off) (guard: A_conveyer.On) (assignments: A_conveyer := A_conveyer.Off)
+    Edge: (event: A_conveyer_c_on) (guard: A_conveyer.Off) (assignments: A_conveyer := A_conveyer.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_eject_c_off) (guard: A_eject.On) (assignments: A_eject := A_eject.Off): guard: A_eject.On -> A_eject.On and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On) [requirement: A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On)].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_atexit_u_off) (guard: S_atexit.On) (assignments: S_atexit := S_atexit.Off)
+    Edge: (event: S_atexit_u_on) (guard: S_atexit.Off) (assignments: S_atexit := S_atexit.On)
+    Edge: (event: S_Pinitialized_u_off) (guard: S_Pinitialized.On) (assignments: S_Pinitialized := S_Pinitialized.Off)
+    Edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On)
+    Edge: (event: A_eject_c_off) (guard: A_eject.On -> A_eject.On and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On)) (assignments: A_eject := A_eject.Off)
+    Edge: (event: A_eject_c_on) (guard: A_eject.Off) (assignments: A_eject := A_eject.On)
+    Edge: (event: A_conveyer_c_off) (guard: A_conveyer.On) (assignments: A_conveyer := A_conveyer.Off)
+    Edge: (event: A_conveyer_c_on) (guard: A_conveyer.Off) (assignments: A_conveyer := A_conveyer.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off) -> A_eject.Off and (A_conveyer.Off and S_Pinitialized.Off) [backward reach with edge: (event: S_atexit_u_off) (guard: S_atexit.On) (assignments: S_atexit := S_atexit.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_eject.Off and (A_conveyer.Off and S_Pinitialized.Off) -> A_eject.Off and A_conveyer.Off [backward reach with edge: (event: S_Pinitialized_u_off) (guard: S_Pinitialized.On) (assignments: S_Pinitialized := S_Pinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_eject.Off and A_conveyer.Off -> A_eject.On and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On) or A_eject.Off and A_conveyer.Off [backward reach with edge: (event: A_eject_c_off) (guard: A_eject.On -> A_eject.On and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On)) (assignments: A_eject := A_eject.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_eject.On and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On) or A_eject.Off and A_conveyer.Off -> A_eject.On and (S_atexit.Off and S_Pinitialized.On) or A_eject.Off [backward reach with edge: (event: A_conveyer_c_off) (guard: A_conveyer.On) (assignments: A_conveyer := A_conveyer.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_eject.On and (S_atexit.Off and S_Pinitialized.On) or A_eject.Off -> A_eject.Off or S_Pinitialized.On [backward reach with edge: (event: S_atexit_u_off) (guard: S_atexit.On) (assignments: S_atexit := S_atexit.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_eject.Off or S_Pinitialized.On -> true [backward reach with edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off) -> A_eject.Off and (A_conveyer.Off and S_Pinitialized.Off) [forward reach with edge: (event: S_atexit_u_on) (guard: S_atexit.Off) (assignments: S_atexit := S_atexit.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_eject.Off and (A_conveyer.Off and S_Pinitialized.Off) -> A_eject.Off and A_conveyer.Off [forward reach with edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_eject.Off and A_conveyer.Off -> A_conveyer.Off [forward reach with edge: (event: A_eject_c_on) (guard: A_eject.Off) (assignments: A_eject := A_eject.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_conveyer.Off -> true [forward reach with edge: (event: A_conveyer_c_on) (guard: A_conveyer.Off) (assignments: A_conveyer := A_conveyer.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: S_atexit_u_off) (guard: S_atexit.On) (assignments: S_atexit := S_atexit.Off)
+    Edge: (event: S_atexit_u_on) (guard: S_atexit.Off) (assignments: S_atexit := S_atexit.On)
+    Edge: (event: S_Pinitialized_u_off) (guard: S_Pinitialized.On) (assignments: S_Pinitialized := S_Pinitialized.Off)
+    Edge: (event: S_Pinitialized_u_on) (guard: S_Pinitialized.Off) (assignments: S_Pinitialized := S_Pinitialized.On)
+    Edge: (event: A_eject_c_off) (guard: A_eject.On -> A_eject.On and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On)) (assignments: A_eject := A_eject.Off)
+    Edge: (event: A_eject_c_on) (guard: A_eject.Off) (assignments: A_eject := A_eject.On)
+    Edge: (event: A_conveyer_c_off) (guard: A_conveyer.On) (assignments: A_conveyer := A_conveyer.Off)
+    Edge: (event: A_conveyer_c_on) (guard: A_conveyer.Off) (assignments: A_conveyer := A_conveyer.On)
+
+Controlled system:                     exactly 16 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off)
+Initial (controlled system):           A_eject.Off and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.Off)
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_eject_c_off: guard: A_eject.On and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On) -> true [assume A_eject.On and A_conveyer.Off and (S_atexit.Off and S_Pinitialized.On)].
+  Event A_eject_c_on: guard: A_eject.Off -> true [assume A_eject.Off].
+  Event A_conveyer_c_off: guard: A_conveyer.On -> true [assume A_conveyer.On].
+  Event A_conveyer_c_on: guard: A_conveyer.Off -> true [assume A_conveyer.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_largereq/subplant_10_sup.cif".

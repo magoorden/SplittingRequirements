@@ -1,0 +1,126 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_37.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name            Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_x2testing     0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_Hinitialized  1      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  --------------  -----  --------  ----------  ----------  -----------
+  Total                                          2      4         8           8           100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 5
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 10
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [iteration 1]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 2
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_Hinitialized.Off
+Initial   (aut/locs init predicate):     A_x2testing.On
+Initial   (auts/locs init predicate):    A_x2testing.On and S_Hinitialized.Off
+Initial   (uncontrolled system):         A_x2testing.On and S_Hinitialized.Off
+Initial   (system, combined init/inv):   A_x2testing.On and S_Hinitialized.Off
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_Hinitialized.Off
+Marked    (aut/locs marker predicate):   A_x2testing.On
+Marked    (auts/locs marker predicate):  A_x2testing.On and S_Hinitialized.Off
+Marked    (uncontrolled system):         A_x2testing.On and S_Hinitialized.Off
+Marked    (system, combined marked/inv): A_x2testing.On and S_Hinitialized.Off
+
+State/event exclusion requirements:
+  Event "A_x2testing_c_on" needs:
+    S_Hinitialized.On
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off)
+    Edge: (event: S_Hinitialized_u_on) (guard: S_Hinitialized.Off) (assignments: S_Hinitialized := S_Hinitialized.On)
+    Edge: (event: A_x2testing_c_off) (guard: A_x2testing.On) (assignments: A_x2testing := A_x2testing.Off)
+    Edge: (event: A_x2testing_c_on) (guard: A_x2testing.Off) (assignments: A_x2testing := A_x2testing.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_x2testing_c_on) (guard: A_x2testing.Off) (assignments: A_x2testing := A_x2testing.On): guard: A_x2testing.Off -> A_x2testing.Off and S_Hinitialized.On [requirement: S_Hinitialized.On].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off)
+    Edge: (event: S_Hinitialized_u_on) (guard: S_Hinitialized.Off) (assignments: S_Hinitialized := S_Hinitialized.On)
+    Edge: (event: A_x2testing_c_off) (guard: A_x2testing.On) (assignments: A_x2testing := A_x2testing.Off)
+    Edge: (event: A_x2testing_c_on) (guard: A_x2testing.Off -> A_x2testing.Off and S_Hinitialized.On) (assignments: A_x2testing := A_x2testing.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_x2testing.On and S_Hinitialized.Off [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_x2testing.On and S_Hinitialized.Off -> A_x2testing.On [backward reach with edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_x2testing.On -> A_x2testing.On or S_Hinitialized.On [backward reach with edge: (event: A_x2testing_c_on) (guard: A_x2testing.Off -> A_x2testing.Off and S_Hinitialized.On) (assignments: A_x2testing := A_x2testing.On), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_x2testing.On or S_Hinitialized.On -> true [backward reach with edge: (event: S_Hinitialized_u_on) (guard: S_Hinitialized.Off) (assignments: S_Hinitialized := S_Hinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_x2testing.On and S_Hinitialized.Off [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_x2testing.On and S_Hinitialized.Off -> A_x2testing.On [forward reach with edge: (event: S_Hinitialized_u_on) (guard: S_Hinitialized.Off) (assignments: S_Hinitialized := S_Hinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On -> true [forward reach with edge: (event: A_x2testing_c_off) (guard: A_x2testing.On) (assignments: A_x2testing := A_x2testing.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: S_Hinitialized_u_off) (guard: S_Hinitialized.On) (assignments: S_Hinitialized := S_Hinitialized.Off)
+    Edge: (event: S_Hinitialized_u_on) (guard: S_Hinitialized.Off) (assignments: S_Hinitialized := S_Hinitialized.On)
+    Edge: (event: A_x2testing_c_off) (guard: A_x2testing.On) (assignments: A_x2testing := A_x2testing.Off)
+    Edge: (event: A_x2testing_c_on) (guard: A_x2testing.Off -> A_x2testing.Off and S_Hinitialized.On) (assignments: A_x2testing := A_x2testing.On)
+
+Controlled system:                     exactly 4 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_x2testing.On and S_Hinitialized.Off
+Initial (controlled system):           A_x2testing.On and S_Hinitialized.Off
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_x2testing_c_off: guard: A_x2testing.On -> true [assume A_x2testing.On].
+  Event A_x2testing_c_on: guard: A_x2testing.Off and S_Hinitialized.On -> true [assume A_x2testing.Off and S_Hinitialized.On].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_37_sup.cif".

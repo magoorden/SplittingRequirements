@@ -1,0 +1,281 @@
+Reading CIF file "generated_files_modular_largereq/subplant_36.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name             Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_elevator_down  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_elevator_up    1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_elevator_down  2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_elevator_up    3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   S_opticalT       4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   S_pusher         5      1 * 2     2 * 2       2 * 2       100%
+  7      location pointer  n/a   S_Tinitialized   6      1 * 2     2 * 2       2 * 2       100%
+  8      location pointer  n/a   TTimer           7      2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  Total                                           8      18        34          36          ~94%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 18
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 30
+
+    Total span:                    8 (total)                 0.44 (avg/edge) [before]
+    Total span:                    8 (total)                 0.44 (avg/edge) [iteration 1]
+    Total span:                    8 (total)                 0.44 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                    8 (total)                 0.44 (avg/edge) [before]
+    Total span:                    7 (total)                 0.39 (avg/edge) [window 0..3]
+    Total span:                    7 (total)                 0.39 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name             Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_elevator_down  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_elevator_down  1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_elevator_up    2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   A_elevator_up    3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   S_opticalT       4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   S_pusher         5      1 * 2     2 * 2       2 * 2       100%
+  7      location pointer  n/a   S_Tinitialized   6      1 * 2     2 * 2       2 * 2       100%
+  8      location pointer  n/a   TTimer           7      2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  Total                                           8      18        34          36          ~94%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_elevator_up.Off
+Initial   (aut/locs init predicate):     S_elevator_down.On
+Initial   (aut/locs init predicate):     S_pusher.Off
+Initial   (aut/locs init predicate):     S_opticalT.Off
+Initial   (aut/locs init predicate):     S_Tinitialized.Off
+Initial   (aut/locs init predicate):     A_elevator_up.Off
+Initial   (aut/locs init predicate):     A_elevator_down.On
+Initial   (aut/locs init predicate):     true
+Initial   (aut/locs init predicate):     TTimer.Off
+Initial   (auts/locs init predicate):    A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and TTimer.Off))
+Initial   (uncontrolled system):         A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and TTimer.Off))
+Initial   (system, combined init/inv):   A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and TTimer.Off))
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_elevator_up.Off
+Marked    (aut/locs marker predicate):   S_elevator_down.On
+Marked    (aut/locs marker predicate):   S_pusher.Off
+Marked    (aut/locs marker predicate):   S_opticalT.Off
+Marked    (aut/locs marker predicate):   S_Tinitialized.Off
+Marked    (aut/locs marker predicate):   A_elevator_up.Off
+Marked    (aut/locs marker predicate):   A_elevator_down.On
+Marked    (aut/locs marker predicate):   true
+Marked    (aut/locs marker predicate):   not TTimer.Running
+Marked    (auts/locs marker predicate):  A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running))
+Marked    (uncontrolled system):         A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running))
+Marked    (system, combined marked/inv): A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running))
+
+State/event exclusion requirements:
+  Event "A_elevator_down_c_on" needs:
+    S_elevator_up.On and (A_elevator_up.Off and S_opticalT.Off) and (S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout))
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off)
+    Edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On)
+    Edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off)
+    Edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On)
+    Edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off)
+    Edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On)
+    Edge: (event: S_opticalT_u_off) (guard: S_opticalT.On) (assignments: S_opticalT := S_opticalT.Off)
+    Edge: (event: S_opticalT_u_on) (guard: S_opticalT.Off) (assignments: S_opticalT := S_opticalT.On)
+    Edge: (event: S_Tinitialized_u_off) (guard: S_Tinitialized.On) (assignments: S_Tinitialized := S_Tinitialized.Off)
+    Edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On)
+    Edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off)
+    Edge: (event: A_elevator_up_c_on) (guard: A_elevator_up.Off) (assignments: A_elevator_up := A_elevator_up.On)
+    Edge: (event: A_elevator_down_c_off) (guard: A_elevator_down.On) (assignments: A_elevator_down := A_elevator_down.Off)
+    Edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off) (assignments: A_elevator_down := A_elevator_down.On)
+    Edge: (event: TTimer_c_on) (guard: TTimer.Off) (assignments: TTimer := TTimer.Running)
+    Edge: (event: TTimer_u_timeout) (guard: TTimer.Running) (assignments: TTimer := TTimer.Timeout)
+    Edge: (event: TTimer_c_reset) (guard: TTimer.Running) (assignments: TTimer := TTimer.Off)
+    Edge: (event: TTimer_c_reset) (guard: TTimer.Timeout) (assignments: TTimer := TTimer.Off)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "TTimer" (group: 7, domain: 14+15, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: true.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_elevator_down_c_on) (guard: A_elevator_down.Off) (assignments: A_elevator_down := A_elevator_down.On): guard: A_elevator_down.Off -> A_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout)) [requirement: S_elevator_up.On and (A_elevator_up.Off and S_opticalT.Off) and (S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout))].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off)
+    Edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On)
+    Edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off)
+    Edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On)
+    Edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off)
+    Edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On)
+    Edge: (event: S_opticalT_u_off) (guard: S_opticalT.On) (assignments: S_opticalT := S_opticalT.Off)
+    Edge: (event: S_opticalT_u_on) (guard: S_opticalT.Off) (assignments: S_opticalT := S_opticalT.On)
+    Edge: (event: S_Tinitialized_u_off) (guard: S_Tinitialized.On) (assignments: S_Tinitialized := S_Tinitialized.Off)
+    Edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On)
+    Edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off)
+    Edge: (event: A_elevator_up_c_on) (guard: A_elevator_up.Off) (assignments: A_elevator_up := A_elevator_up.On)
+    Edge: (event: A_elevator_down_c_off) (guard: A_elevator_down.On) (assignments: A_elevator_down := A_elevator_down.Off)
+    Edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off -> A_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout))) (assignments: A_elevator_down := A_elevator_down.On)
+    Edge: (event: TTimer_c_on) (guard: TTimer.Off) (assignments: TTimer := TTimer.Running)
+    Edge: (event: TTimer_u_timeout) (guard: TTimer.Running) (assignments: TTimer := TTimer.Timeout)
+    Edge: (event: TTimer_c_reset) (guard: TTimer.Running) (assignments: TTimer := TTimer.Off)
+    Edge: (event: TTimer_c_reset) (guard: TTimer.Timeout) (assignments: TTimer := TTimer.Off)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) -> A_elevator_down.On and (S_elevator_down.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) [backward reach with edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On and (S_elevator_down.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) -> A_elevator_down.On and (S_elevator_down.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) or A_elevator_down.On and S_elevator_down.Off and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) [backward reach with edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On and (S_elevator_down.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) or A_elevator_down.On and S_elevator_down.Off and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) -> A_elevator_down.On and (S_elevator_down.On and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.Off and not TTimer.Running)) or A_elevator_down.On and (S_elevator_down.Off and S_elevator_up.Off) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.Off and not TTimer.Running)) [backward reach with edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On and (S_elevator_down.On and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.Off and not TTimer.Running)) or A_elevator_down.On and (S_elevator_down.Off and S_elevator_up.Off) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.Off and not TTimer.Running)) -> A_elevator_down.On and S_elevator_down.On and (A_elevator_up.Off and (S_Tinitialized.Off and not TTimer.Running)) or A_elevator_down.On and (S_elevator_down.Off and S_elevator_up.Off) and (A_elevator_up.Off and (S_Tinitialized.Off and not TTimer.Running)) [backward reach with edge: (event: S_opticalT_u_off) (guard: S_opticalT.On) (assignments: S_opticalT := S_opticalT.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On and S_elevator_down.On and (A_elevator_up.Off and (S_Tinitialized.Off and not TTimer.Running)) or A_elevator_down.On and (S_elevator_down.Off and S_elevator_up.Off) and (A_elevator_up.Off and (S_Tinitialized.Off and not TTimer.Running)) -> A_elevator_down.On and S_elevator_down.On and (A_elevator_up.Off and not TTimer.Running) or A_elevator_down.On and S_elevator_down.Off and (S_elevator_up.Off and (A_elevator_up.Off and not TTimer.Running)) [backward reach with edge: (event: S_Tinitialized_u_off) (guard: S_Tinitialized.On) (assignments: S_Tinitialized := S_Tinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On and S_elevator_down.On and (A_elevator_up.Off and not TTimer.Running) or A_elevator_down.On and S_elevator_down.Off and (S_elevator_up.Off and (A_elevator_up.Off and not TTimer.Running)) -> A_elevator_down.On and (S_elevator_down.On and not TTimer.Running) or A_elevator_down.On and S_elevator_down.Off and (S_elevator_up.Off and not TTimer.Running) [backward reach with edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On and (S_elevator_down.On and not TTimer.Running) or A_elevator_down.On and S_elevator_down.Off and (S_elevator_up.Off and not TTimer.Running) -> <bdd 12n 3p> [backward reach with edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off -> A_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout))) (assignments: A_elevator_down := A_elevator_down.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 12n 3p> -> <bdd 13n 6p> [backward reach with edge: (event: TTimer_u_timeout) (guard: TTimer.Running) (assignments: TTimer := TTimer.Timeout), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: <bdd 13n 6p> -> <bdd 11n 4p> [backward reach with edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 11n 4p> -> A_elevator_down.On and not TTimer.Running or A_elevator_down.On and TTimer.Running or (A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.On) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.On and TTimer.Timeout)) or A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.On) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.On and TTimer.Running))) [backward reach with edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On and not TTimer.Running or A_elevator_down.On and TTimer.Running or (A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.On) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.On and TTimer.Timeout)) or A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.On) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.On and TTimer.Running))) -> A_elevator_down.On and not TTimer.Running or A_elevator_down.On and TTimer.Running or (A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.On) and (A_elevator_up.Off and (S_Tinitialized.On and TTimer.Timeout)) or A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.On) and (A_elevator_up.Off and (S_Tinitialized.On and TTimer.Running))) [backward reach with edge: (event: S_opticalT_u_off) (guard: S_opticalT.On) (assignments: S_opticalT := S_opticalT.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On and not TTimer.Running or A_elevator_down.On and TTimer.Running or (A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.On) and (A_elevator_up.Off and (S_Tinitialized.On and TTimer.Timeout)) or A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.On) and (A_elevator_up.Off and (S_Tinitialized.On and TTimer.Running))) -> (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.Off or A_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.Off or (A_elevator_up.On or not TTimer.Off))) and ((A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.On)) and (A_elevator_down.On or S_elevator_down.On)) [backward reach with edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.Off or A_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.Off or (A_elevator_up.On or not TTimer.Off))) and ((A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.On)) and (A_elevator_down.On or S_elevator_down.On)) -> (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.Off or not TTimer.Off)) and ((A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.On)) and (A_elevator_down.On or S_elevator_down.On)) [backward reach with edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.Off or not TTimer.Off)) and ((A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.On)) and (A_elevator_down.On or S_elevator_down.On)) -> <bdd 13n 5p> [backward reach with edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off -> A_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout))) (assignments: A_elevator_down := A_elevator_down.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 13n 5p> -> <bdd 12n 5p> [backward reach with edge: (event: TTimer_c_on) (guard: TTimer.Off) (assignments: TTimer := TTimer.Running), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 12n 5p> -> <bdd 12n 6p> [backward reach with edge: (event: TTimer_u_timeout) (guard: TTimer.Running) (assignments: TTimer := TTimer.Timeout), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: <bdd 12n 6p> -> <bdd 11n 6p> [backward reach with edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 11n 6p> -> <bdd 11n 8p> [backward reach with edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: <bdd 11n 8p> -> A_elevator_down.On and not TTimer.Running or A_elevator_down.On and TTimer.Running or (A_elevator_down.Off and S_elevator_down.On and (S_elevator_up.On and not TTimer.Running) or A_elevator_down.Off and S_elevator_down.On and (S_elevator_up.On and TTimer.Running)) or (A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.Off) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.On and TTimer.Timeout)) or A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.Off) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.On and TTimer.Running)) or (A_elevator_down.Off and (S_elevator_down.Off and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.On and TTimer.Timeout)) or A_elevator_down.Off and (S_elevator_down.Off and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.On and TTimer.Running)))) [backward reach with edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_elevator_down.On and not TTimer.Running or A_elevator_down.On and TTimer.Running or (A_elevator_down.Off and S_elevator_down.On and (S_elevator_up.On and not TTimer.Running) or A_elevator_down.Off and S_elevator_down.On and (S_elevator_up.On and TTimer.Running)) or (A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.Off) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.On and TTimer.Timeout)) or A_elevator_down.Off and (S_elevator_down.On and S_elevator_up.Off) and (A_elevator_up.Off and S_opticalT.Off and (S_Tinitialized.On and TTimer.Running)) or (A_elevator_down.Off and (S_elevator_down.Off and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.On and TTimer.Timeout)) or A_elevator_down.Off and (S_elevator_down.Off and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.On and TTimer.Running)))) -> (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off)) and ((A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.On) or (A_elevator_up.On or (S_Tinitialized.Off or not TTimer.Off))) and (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or (A_elevator_up.On or S_Tinitialized.On)))) and ((A_elevator_down.On or (S_elevator_down.On or A_elevator_up.Off)) and ((A_elevator_down.On or S_elevator_down.On or (A_elevator_up.On or (S_Tinitialized.Off or not TTimer.Off))) and (A_elevator_down.On or S_elevator_down.On or (A_elevator_up.On or S_Tinitialized.On)))) [backward reach with edge: (event: S_opticalT_u_off) (guard: S_opticalT.On) (assignments: S_opticalT := S_opticalT.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off)) and ((A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.On) or (A_elevator_up.On or (S_Tinitialized.Off or not TTimer.Off))) and (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or (A_elevator_up.On or S_Tinitialized.On)))) and ((A_elevator_down.On or (S_elevator_down.On or A_elevator_up.Off)) and ((A_elevator_down.On or S_elevator_down.On or (A_elevator_up.On or (S_Tinitialized.Off or not TTimer.Off))) and (A_elevator_down.On or S_elevator_down.On or (A_elevator_up.On or S_Tinitialized.On)))) -> (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or (A_elevator_up.On or not TTimer.Off))) and ((A_elevator_down.On or (S_elevator_down.On or A_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.On or (A_elevator_up.On or not TTimer.Off))) [backward reach with edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or (A_elevator_up.On or not TTimer.Off))) and ((A_elevator_down.On or (S_elevator_down.On or A_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.On or (A_elevator_up.On or not TTimer.Off))) -> (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or not TTimer.Off)) and (A_elevator_down.On or (S_elevator_down.On or not TTimer.Off)) [backward reach with edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or not TTimer.Off)) and (A_elevator_down.On or (S_elevator_down.On or not TTimer.Off)) -> true [backward reach with edge: (event: TTimer_c_on) (guard: TTimer.Off) (assignments: TTimer := TTimer.Running), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 4.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and TTimer.Off)) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and TTimer.Off)) -> A_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and TTimer.Off)) [forward reach with edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and TTimer.Off)) -> A_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.Off and TTimer.Off)) [forward reach with edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.Off and TTimer.Off)) -> A_elevator_down.On and S_elevator_up.Off and (A_elevator_up.Off and (S_Tinitialized.Off and TTimer.Off)) [forward reach with edge: (event: S_opticalT_u_on) (guard: S_opticalT.Off) (assignments: S_opticalT := S_opticalT.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_elevator_down.On and S_elevator_up.Off and (A_elevator_up.Off and (S_Tinitialized.Off and TTimer.Off)) -> A_elevator_down.On and S_elevator_up.Off and (A_elevator_up.Off and TTimer.Off) [forward reach with edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_elevator_down.On and S_elevator_up.Off and (A_elevator_up.Off and TTimer.Off) -> A_elevator_down.On and (S_elevator_up.Off and TTimer.Off) [forward reach with edge: (event: A_elevator_up_c_on) (guard: A_elevator_up.Off) (assignments: A_elevator_up := A_elevator_up.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_elevator_down.On and (S_elevator_up.Off and TTimer.Off) -> S_elevator_up.Off and TTimer.Off [forward reach with edge: (event: A_elevator_down_c_off) (guard: A_elevator_down.On) (assignments: A_elevator_down := A_elevator_down.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: S_elevator_up.Off and TTimer.Off -> S_elevator_up.Off and not TTimer.Timeout [forward reach with edge: (event: TTimer_c_on) (guard: TTimer.Off) (assignments: TTimer := TTimer.Running), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: S_elevator_up.Off and not TTimer.Timeout -> S_elevator_up.Off [forward reach with edge: (event: TTimer_u_timeout) (guard: TTimer.Running) (assignments: TTimer := TTimer.Timeout), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: S_elevator_up.Off -> S_elevator_down.Off or S_elevator_up.Off [forward reach with edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: S_elevator_down.Off or S_elevator_up.Off [fixed point].
+Controlled behavior: true -> S_elevator_down.Off or S_elevator_up.Off.
+
+Round 1: finished, need another round.
+
+Round 2: started.
+
+Round 2: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) -> A_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) [backward reach with edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: A_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and not TTimer.Running)) -> A_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.Off and not TTimer.Running)) [backward reach with edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: A_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and (S_Tinitialized.Off and not TTimer.Running)) -> A_elevator_down.On and S_elevator_up.Off and (A_elevator_up.Off and (S_Tinitialized.Off and not TTimer.Running)) [backward reach with edge: (event: S_opticalT_u_off) (guard: S_opticalT.On) (assignments: S_opticalT := S_opticalT.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: A_elevator_down.On and S_elevator_up.Off and (A_elevator_up.Off and (S_Tinitialized.Off and not TTimer.Running)) -> A_elevator_down.On and S_elevator_up.Off and (A_elevator_up.Off and not TTimer.Running) [backward reach with edge: (event: S_Tinitialized_u_off) (guard: S_Tinitialized.On) (assignments: S_Tinitialized := S_Tinitialized.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: A_elevator_down.On and S_elevator_up.Off and (A_elevator_up.Off and not TTimer.Running) -> A_elevator_down.On and (S_elevator_up.Off and not TTimer.Running) [backward reach with edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: A_elevator_down.On and (S_elevator_up.Off and not TTimer.Running) -> (A_elevator_down.Off or S_elevator_up.Off) and A_elevator_down.On [backward reach with edge: (event: TTimer_u_timeout) (guard: TTimer.Running) (assignments: TTimer := TTimer.Timeout), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward reachability: iteration 2.
+Backward controlled-behavior: (A_elevator_down.Off or S_elevator_up.Off) and A_elevator_down.On -> (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_elevator_down.On [backward reach with edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_elevator_down.On -> <bdd 13n 5p> [backward reach with edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off -> A_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout))) (assignments: A_elevator_down := A_elevator_down.On), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: <bdd 13n 5p> -> <bdd 13n 6p> [backward reach with edge: (event: TTimer_u_timeout) (guard: TTimer.Running) (assignments: TTimer := TTimer.Timeout), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward reachability: iteration 3.
+Backward controlled-behavior: <bdd 13n 6p> -> <bdd 12n 6p> [backward reach with edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: <bdd 12n 6p> -> <bdd 13n 8p> [backward reach with edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: <bdd 13n 8p> -> <bdd 12n 8p> [backward reach with edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: <bdd 12n 8p> -> <bdd 11n 8p> [backward reach with edge: (event: S_opticalT_u_off) (guard: S_opticalT.On) (assignments: S_opticalT := S_opticalT.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: <bdd 11n 8p> -> (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and ((A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off))) and ((A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or (A_elevator_up.On or not TTimer.Off))) and ((A_elevator_down.On or (S_elevator_down.On or A_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.On or (A_elevator_up.On or not TTimer.Off)))) [backward reach with edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and ((A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off))) and ((A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or (A_elevator_up.On or not TTimer.Off))) and ((A_elevator_down.On or (S_elevator_down.On or A_elevator_up.Off)) and (A_elevator_down.On or S_elevator_down.On or (A_elevator_up.On or not TTimer.Off)))) -> (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and (A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.Off)) and ((A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or not TTimer.Off)) and (A_elevator_down.On or (S_elevator_down.On or not TTimer.Off))) [backward reach with edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward controlled-behavior: (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and (A_elevator_down.On or (S_elevator_down.Off or S_elevator_up.Off)) and ((A_elevator_down.On or S_elevator_down.Off or (S_elevator_up.On or not TTimer.Off)) and (A_elevator_down.On or (S_elevator_down.On or not TTimer.Off))) -> S_elevator_down.Off or S_elevator_up.Off [backward reach with edge: (event: TTimer_c_on) (guard: TTimer.Off) (assignments: TTimer := TTimer.Running), restricted to current/previous controlled-behavior predicate: S_elevator_down.Off or S_elevator_up.Off]
+Backward reachability: iteration 4.
+Backward controlled-behavior: S_elevator_down.Off or S_elevator_up.Off [fixed point].
+
+Round 2: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: S_elevator_down.On and S_elevator_up.On [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 2: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_elevator_up_c_off) (guard: A_elevator_up.On) (assignments: A_elevator_up := A_elevator_up.Off): guard: A_elevator_up.On -> (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.On)) and (S_elevator_down.On or A_elevator_up.On)).
+Edge (event: A_elevator_up_c_on) (guard: A_elevator_up.Off) (assignments: A_elevator_up := A_elevator_up.On): guard: A_elevator_up.Off -> (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off)) and (S_elevator_down.On or A_elevator_up.Off)).
+Edge (event: A_elevator_down_c_off) (guard: A_elevator_down.On) (assignments: A_elevator_down := A_elevator_down.Off): guard: A_elevator_down.On -> (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_elevator_down.On.
+Edge (event: A_elevator_down_c_on) (guard: A_elevator_down.Off -> A_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout))) (assignments: A_elevator_down := A_elevator_down.On): guard: A_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout)) -> A_elevator_down.Off and S_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout)).
+Edge (event: TTimer_c_on) (guard: TTimer.Off) (assignments: TTimer := TTimer.Running): guard: TTimer.Off -> S_elevator_down.On and (S_elevator_up.Off and TTimer.Off) or S_elevator_down.Off and TTimer.Off.
+Edge (event: TTimer_c_reset) (guard: TTimer.Running) (assignments: TTimer := TTimer.Off): guard: TTimer.Running -> S_elevator_down.On and (S_elevator_up.Off and TTimer.Running) or S_elevator_down.Off and TTimer.Running.
+Edge (event: TTimer_c_reset) (guard: TTimer.Timeout) (assignments: TTimer := TTimer.Off): guard: TTimer.Timeout -> S_elevator_down.On and (S_elevator_up.Off and TTimer.Timeout) or S_elevator_down.Off and TTimer.Timeout.
+
+Final synthesis result:
+  State: (controlled-behavior: S_elevator_down.Off or S_elevator_up.Off)
+    Edge: (event: S_elevator_up_u_off) (guard: S_elevator_up.On) (assignments: S_elevator_up := S_elevator_up.Off)
+    Edge: (event: S_elevator_up_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_up := S_elevator_up.On)
+    Edge: (event: S_elevator_down_u_off) (guard: S_elevator_down.On) (assignments: S_elevator_down := S_elevator_down.Off)
+    Edge: (event: S_elevator_down_u_on) (guard: S_elevator_down.Off and S_elevator_up.Off) (assignments: S_elevator_down := S_elevator_down.On)
+    Edge: (event: S_pusher_u_off) (guard: S_pusher.On) (assignments: S_pusher := S_pusher.Off)
+    Edge: (event: S_pusher_u_on) (guard: S_pusher.Off) (assignments: S_pusher := S_pusher.On)
+    Edge: (event: S_opticalT_u_off) (guard: S_opticalT.On) (assignments: S_opticalT := S_opticalT.Off)
+    Edge: (event: S_opticalT_u_on) (guard: S_opticalT.Off) (assignments: S_opticalT := S_opticalT.On)
+    Edge: (event: S_Tinitialized_u_off) (guard: S_Tinitialized.On) (assignments: S_Tinitialized := S_Tinitialized.Off)
+    Edge: (event: S_Tinitialized_u_on) (guard: S_Tinitialized.Off) (assignments: S_Tinitialized := S_Tinitialized.On)
+    Edge: (event: A_elevator_up_c_off) (guard: A_elevator_up.On -> (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.On)) and (S_elevator_down.On or A_elevator_up.On))) (assignments: A_elevator_up := A_elevator_up.Off)
+    Edge: (event: A_elevator_up_c_on) (guard: A_elevator_up.Off -> (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off)) and (S_elevator_down.On or A_elevator_up.Off))) (assignments: A_elevator_up := A_elevator_up.On)
+    Edge: (event: A_elevator_down_c_off) (guard: A_elevator_down.On -> (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_elevator_down.On) (assignments: A_elevator_down := A_elevator_down.Off)
+    Edge: (event: A_elevator_down_c_on) (guard: A_elevator_down.Off -> A_elevator_down.Off and S_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout))) (assignments: A_elevator_down := A_elevator_down.On)
+    Edge: (event: TTimer_c_on) (guard: TTimer.Off -> S_elevator_down.On and (S_elevator_up.Off and TTimer.Off) or S_elevator_down.Off and TTimer.Off) (assignments: TTimer := TTimer.Running)
+    Edge: (event: TTimer_u_timeout) (guard: TTimer.Running) (assignments: TTimer := TTimer.Timeout)
+    Edge: (event: TTimer_c_reset) (guard: TTimer.Running -> S_elevator_down.On and (S_elevator_up.Off and TTimer.Running) or S_elevator_down.Off and TTimer.Running) (assignments: TTimer := TTimer.Off)
+    Edge: (event: TTimer_c_reset) (guard: TTimer.Timeout -> S_elevator_down.On and (S_elevator_up.Off and TTimer.Timeout) or S_elevator_down.Off and TTimer.Timeout) (assignments: TTimer := TTimer.Off)
+
+Controlled system:                     exactly 288 states.
+
+Initial (synthesis result):            S_elevator_down.Off or S_elevator_up.Off
+Initial (uncontrolled system):         A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and TTimer.Off))
+Initial (controlled system):           A_elevator_down.On and S_elevator_down.On and (S_elevator_up.Off and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.Off and TTimer.Off))
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_elevator_up_c_off: guard: (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.On)) and (S_elevator_down.On or A_elevator_up.On)) -> true [assume (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.On)) and (S_elevator_down.On or A_elevator_up.On))].
+  Event A_elevator_up_c_on: guard: (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off)) and (S_elevator_down.On or A_elevator_up.Off)) -> true [assume (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or A_elevator_up.Off)) and (S_elevator_down.On or A_elevator_up.Off))].
+  Event A_elevator_down_c_off: guard: (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_elevator_down.On -> true [assume (A_elevator_down.Off or (S_elevator_down.Off or S_elevator_up.Off)) and A_elevator_down.On].
+  Event A_elevator_down_c_on: guard: A_elevator_down.Off and S_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout)) -> true [assume A_elevator_down.Off and S_elevator_down.Off and (S_elevator_up.On and A_elevator_up.Off) and (S_opticalT.Off and S_pusher.Off and (S_Tinitialized.On and TTimer.Timeout))].
+  Event TTimer_c_on: guard: S_elevator_down.On and (S_elevator_up.Off and TTimer.Off) or S_elevator_down.Off and TTimer.Off -> true [assume S_elevator_down.On and (S_elevator_up.Off and TTimer.Off) or S_elevator_down.Off and TTimer.Off].
+  Event TTimer_c_reset: guard: (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or not TTimer.Off)) and (S_elevator_down.On or not TTimer.Off)) -> true [assume (S_elevator_down.Off or S_elevator_up.Off) and ((S_elevator_down.Off or (S_elevator_up.On or not TTimer.Off)) and (S_elevator_down.On or not TTimer.Off))].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_largereq/subplant_36_sup.cif".

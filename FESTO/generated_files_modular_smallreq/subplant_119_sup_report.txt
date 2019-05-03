@@ -1,0 +1,137 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_119.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name     Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   BTimer   0      2 * 2     3 * 2       4 * 2       75%
+  2      location pointer  n/a   S_atend  1      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -------  -----  --------  ----------  ----------  -----------
+  Total                                   2      6         10          12          ~83%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 6
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 10
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [iteration 1]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 2
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_atend.Off
+Initial   (aut/locs init predicate):     BTimer.Off
+Initial   (auts/locs init predicate):    BTimer.Off and S_atend.Off
+Initial   (uncontrolled system):         BTimer.Off and S_atend.Off
+Initial   (system, combined init/inv):   BTimer.Off and S_atend.Off
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_atend.Off
+Marked    (aut/locs marker predicate):   not BTimer.Running
+Marked    (auts/locs marker predicate):  not BTimer.Running and S_atend.Off
+Marked    (uncontrolled system):         not BTimer.Running and S_atend.Off
+Marked    (system, combined marked/inv): not BTimer.Running and S_atend.Off
+
+State/event exclusion requirements:
+  Event "BTimer_c_on" needs:
+    S_atend.On
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_atend_u_off) (guard: S_atend.On) (assignments: S_atend := S_atend.Off)
+    Edge: (event: S_atend_u_on) (guard: S_atend.Off) (assignments: S_atend := S_atend.On)
+    Edge: (event: BTimer_c_on) (guard: BTimer.Off) (assignments: BTimer := BTimer.Running)
+    Edge: (event: BTimer_u_timeout) (guard: BTimer.Running) (assignments: BTimer := BTimer.Timeout)
+    Edge: (event: BTimer_c_reset) (guard: BTimer.Running) (assignments: BTimer := BTimer.Off)
+    Edge: (event: BTimer_c_reset) (guard: BTimer.Timeout) (assignments: BTimer := BTimer.Off)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "BTimer" (group: 0, domain: 0+1, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: true.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: BTimer_c_on) (guard: BTimer.Off) (assignments: BTimer := BTimer.Running): guard: BTimer.Off -> BTimer.Off and S_atend.On [requirement: S_atend.On].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_atend_u_off) (guard: S_atend.On) (assignments: S_atend := S_atend.Off)
+    Edge: (event: S_atend_u_on) (guard: S_atend.Off) (assignments: S_atend := S_atend.On)
+    Edge: (event: BTimer_c_on) (guard: BTimer.Off -> BTimer.Off and S_atend.On) (assignments: BTimer := BTimer.Running)
+    Edge: (event: BTimer_u_timeout) (guard: BTimer.Running) (assignments: BTimer := BTimer.Timeout)
+    Edge: (event: BTimer_c_reset) (guard: BTimer.Running) (assignments: BTimer := BTimer.Off)
+    Edge: (event: BTimer_c_reset) (guard: BTimer.Timeout) (assignments: BTimer := BTimer.Off)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: not BTimer.Running and S_atend.Off [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: not BTimer.Running and S_atend.Off -> not BTimer.Running [backward reach with edge: (event: S_atend_u_off) (guard: S_atend.On) (assignments: S_atend := S_atend.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: not BTimer.Running -> true [backward reach with edge: (event: BTimer_u_timeout) (guard: BTimer.Running) (assignments: BTimer := BTimer.Timeout), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: BTimer.Off and S_atend.Off [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: BTimer.Off and S_atend.Off -> BTimer.Off [forward reach with edge: (event: S_atend_u_on) (guard: S_atend.Off) (assignments: S_atend := S_atend.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: BTimer.Off -> BTimer.Off or BTimer.Running and S_atend.On [forward reach with edge: (event: BTimer_c_on) (guard: BTimer.Off -> BTimer.Off and S_atend.On) (assignments: BTimer := BTimer.Running), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: BTimer.Off or BTimer.Running and S_atend.On -> (not BTimer.Timeout or S_atend.On) and (not BTimer.Running or S_atend.On) [forward reach with edge: (event: BTimer_u_timeout) (guard: BTimer.Running) (assignments: BTimer := BTimer.Timeout), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: (not BTimer.Timeout or S_atend.On) and (not BTimer.Running or S_atend.On) -> true [forward reach with edge: (event: S_atend_u_off) (guard: S_atend.On) (assignments: S_atend := S_atend.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: S_atend_u_off) (guard: S_atend.On) (assignments: S_atend := S_atend.Off)
+    Edge: (event: S_atend_u_on) (guard: S_atend.Off) (assignments: S_atend := S_atend.On)
+    Edge: (event: BTimer_c_on) (guard: BTimer.Off -> BTimer.Off and S_atend.On) (assignments: BTimer := BTimer.Running)
+    Edge: (event: BTimer_u_timeout) (guard: BTimer.Running) (assignments: BTimer := BTimer.Timeout)
+    Edge: (event: BTimer_c_reset) (guard: BTimer.Running) (assignments: BTimer := BTimer.Off)
+    Edge: (event: BTimer_c_reset) (guard: BTimer.Timeout) (assignments: BTimer := BTimer.Off)
+
+Controlled system:                     exactly 6 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         BTimer.Off and S_atend.Off
+Initial (controlled system):           BTimer.Off and S_atend.Off
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event BTimer_c_on: guard: BTimer.Off and S_atend.On -> true [assume BTimer.Off and S_atend.On].
+  Event BTimer_c_reset: guard: not BTimer.Off -> true [assume not BTimer.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_119_sup.cif".

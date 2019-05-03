@@ -1,0 +1,257 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_50.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name         Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   culvert_S_A  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   culvert_S_S  1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   pad_S_A      2      2 * 2     3 * 2       4 * 2       75%
+  4      location pointer  n/a   pad_S_S1     3      2 * 2     3 * 2       4 * 2       75%
+  5      location pointer  n/a   pad_S_S2     4      2 * 2     3 * 2       4 * 2       75%
+  6      location pointer  n/a   pad_S_S3     5      2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  Total                                       6      20        32          40          80%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 20
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                   26 (total)                 1.30 (avg/edge) [before]
+    Total span:                   18 (total)                 0.90 (avg/edge) [iteration 1]
+    Total span:                   18 (total)                 0.90 (avg/edge) [iteration 2]
+    Total span:                   18 (total)                 0.90 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                   18 (total)                 0.90 (avg/edge) [before]
+    Total span:                   18 (total)                 0.90 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name         Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   culvert_S_A  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   culvert_S_S  1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   pad_S_S1     2      2 * 2     3 * 2       4 * 2       75%
+  4      location pointer  n/a   pad_S_A      3      2 * 2     3 * 2       4 * 2       75%
+  5      location pointer  n/a   pad_S_S2     4      2 * 2     3 * 2       4 * 2       75%
+  6      location pointer  n/a   pad_S_S3     5      2 * 2     3 * 2       4 * 2       75%
+  -----  ----------------  ----  -----------  -----  --------  ----------  ----------  -----------
+  Total                                       6      20        32          40          80%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     pad_S_A.rest
+Initial   (aut/locs init predicate):     pad_S_S1.closed
+Initial   (aut/locs init predicate):     pad_S_S2.closed
+Initial   (aut/locs init predicate):     pad_S_S3.closed
+Initial   (aut/locs init predicate):     culvert_S_A.closed
+Initial   (aut/locs init predicate):     culvert_S_S.noflow
+Initial   (auts/locs init predicate):    culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed))
+Initial   (uncontrolled system):         culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed))
+Initial   (system, combined init/inv):   culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed))
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   pad_S_A.rest
+Marked    (aut/locs marker predicate):   pad_S_S1.closed
+Marked    (aut/locs marker predicate):   pad_S_S2.closed
+Marked    (aut/locs marker predicate):   pad_S_S3.closed
+Marked    (aut/locs marker predicate):   culvert_S_A.closed
+Marked    (aut/locs marker predicate):   culvert_S_S.noflow
+Marked    (auts/locs marker predicate):  culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed))
+Marked    (uncontrolled system):         culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed))
+Marked    (system, combined marked/inv): culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed))
+
+State/event exclusion requirements:
+  Event "culvert_S_c_enable" needs:
+    not pad_S_A.opening
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_S1_u_closed_off) (guard: pad_S_S1.closed and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S1_u_open_on) (guard: pad_S_S1.between and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.open)
+    Edge: (event: pad_S_S2_u_closed_off) (guard: pad_S_A.opening and pad_S_S2.closed) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S2_u_open_on) (guard: pad_S_A.opening and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.open)
+    Edge: (event: pad_S_S3_u_closed_off) (guard: pad_S_A.opening and pad_S_S3.closed) (assignments: pad_S_S3 := pad_S_S3.between)
+    Edge: (event: pad_S_S3_u_open_on) (guard: pad_S_A.opening and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.open)
+    Edge: (event: pad_S_S1_u_closed_on) (guard: pad_S_S1.between and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.closed)
+    Edge: (event: pad_S_S1_u_open_off) (guard: pad_S_S1.open and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S2_u_closed_on) (guard: pad_S_A.closing and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.closed)
+    Edge: (event: pad_S_S2_u_open_off) (guard: pad_S_A.closing and pad_S_S2.open) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S3_u_closed_on) (guard: pad_S_A.closing and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.closed)
+    Edge: (event: pad_S_S3_u_open_off) (guard: pad_S_A.closing and pad_S_S3.open) (assignments: pad_S_S3 := pad_S_S3.between)
+    Edge: (event: culvert_S_c_enable) (guard: culvert_S_A.closed) (assignments: culvert_S_A := culvert_S_A.open)
+    Edge: (event: culvert_S_u_off) (guard: culvert_S_A.closed and culvert_S_S.flow) (assignments: culvert_S_S := culvert_S_S.noflow)
+    Edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed)
+    Edge: (event: culvert_S_u_on) (guard: culvert_S_A.open and culvert_S_S.noflow) (assignments: culvert_S_S := culvert_S_S.flow)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "pad_S_S1" (group: 2, domain: 4+5, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "pad_S_A" (group: 3, domain: 6+7, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> true [range: true, variable: location pointer for automaton "pad_S_S2" (group: 4, domain: 8+9, BDD variables: 2, CIF/BDD values: 3/4)].
+Controlled behavior: true -> <bdd 8n 16p> [range: true, variable: location pointer for automaton "pad_S_S3" (group: 5, domain: 10+11, BDD variables: 2, CIF/BDD values: 3/4)].
+
+Extended controlled-behavior predicate using variable ranges: <bdd 8n 16p>.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: culvert_S_c_enable) (guard: culvert_S_A.closed) (assignments: culvert_S_A := culvert_S_A.open): guard: culvert_S_A.closed -> culvert_S_A.closed and not pad_S_A.opening [requirement: not pad_S_A.opening].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: <bdd 8n 16p>)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_S1_u_closed_off) (guard: pad_S_S1.closed and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S1_u_open_on) (guard: pad_S_S1.between and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.open)
+    Edge: (event: pad_S_S2_u_closed_off) (guard: pad_S_A.opening and pad_S_S2.closed) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S2_u_open_on) (guard: pad_S_A.opening and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.open)
+    Edge: (event: pad_S_S3_u_closed_off) (guard: pad_S_A.opening and pad_S_S3.closed) (assignments: pad_S_S3 := pad_S_S3.between)
+    Edge: (event: pad_S_S3_u_open_on) (guard: pad_S_A.opening and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.open)
+    Edge: (event: pad_S_S1_u_closed_on) (guard: pad_S_S1.between and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.closed)
+    Edge: (event: pad_S_S1_u_open_off) (guard: pad_S_S1.open and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S2_u_closed_on) (guard: pad_S_A.closing and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.closed)
+    Edge: (event: pad_S_S2_u_open_off) (guard: pad_S_A.closing and pad_S_S2.open) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S3_u_closed_on) (guard: pad_S_A.closing and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.closed)
+    Edge: (event: pad_S_S3_u_open_off) (guard: pad_S_A.closing and pad_S_S3.open) (assignments: pad_S_S3 := pad_S_S3.between)
+    Edge: (event: culvert_S_c_enable) (guard: culvert_S_A.closed -> culvert_S_A.closed and not pad_S_A.opening) (assignments: culvert_S_A := culvert_S_A.open)
+    Edge: (event: culvert_S_u_off) (guard: culvert_S_A.closed and culvert_S_S.flow) (assignments: culvert_S_S := culvert_S_S.noflow)
+    Edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed)
+    Edge: (event: culvert_S_u_on) (guard: culvert_S_A.open and culvert_S_S.noflow) (assignments: culvert_S_S := culvert_S_S.flow)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed)) -> culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (not pad_S_A.closing and (pad_S_S2.closed and pad_S_S3.closed)) [backward reach with edge: (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (not pad_S_A.closing and (pad_S_S2.closed and pad_S_S3.closed)) -> culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (not pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed)) or culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed)) [backward reach with edge: (event: pad_S_c_stop) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (not pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed)) or culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed)) -> <bdd 13n 3p> [backward reach with edge: (event: pad_S_S1_u_closed_on) (guard: pad_S_S1.between and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.closed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 13n 3p> -> <bdd 13n 4p> [backward reach with edge: (event: pad_S_S1_u_open_off) (guard: pad_S_S1.open and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 13n 4p> -> <bdd 14n 5p> [backward reach with edge: (event: pad_S_S2_u_closed_on) (guard: pad_S_A.closing and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.closed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 14n 5p> -> <bdd 15n 8p> [backward reach with edge: (event: pad_S_S2_u_open_off) (guard: pad_S_A.closing and pad_S_S2.open) (assignments: pad_S_S2 := pad_S_S2.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 15n 8p> -> <bdd 16n 8p> [backward reach with edge: (event: pad_S_S3_u_closed_on) (guard: pad_S_A.closing and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.closed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 16n 8p> -> <bdd 17n 14p> [backward reach with edge: (event: pad_S_S3_u_open_off) (guard: pad_S_A.closing and pad_S_S3.open) (assignments: pad_S_S3 := pad_S_S3.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 17n 14p> -> <bdd 16n 14p> [backward reach with edge: (event: culvert_S_u_off) (guard: culvert_S_A.closed and culvert_S_S.flow) (assignments: culvert_S_S := culvert_S_S.noflow), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 16n 14p> -> <bdd 15n 14p> [backward reach with edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward reachability: iteration 2.
+Backward controlled-behavior: <bdd 15n 14p> -> <bdd 13n 13p> [backward reach with edge: (event: pad_S_c_close) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward controlled-behavior: <bdd 13n 13p> -> <bdd 8n 16p> [backward reach with edge: (event: pad_S_c_close) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Backward reachability: iteration 3.
+Backward controlled-behavior: <bdd 8n 16p> [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: <bdd 8n 15p> [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed)) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed)) -> culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (not pad_S_A.closing and (pad_S_S2.closed and pad_S_S3.closed)) [forward reach with edge: (event: pad_S_c_open) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.opening), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (not pad_S_A.closing and (pad_S_S2.closed and pad_S_S3.closed)) -> culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (not pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed)) or culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed)) [forward reach with edge: (event: pad_S_c_close) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (not pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed)) or culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.opening and (pad_S_S2.closed and pad_S_S3.closed)) -> <bdd 12n 3p> [forward reach with edge: (event: pad_S_S1_u_closed_off) (guard: pad_S_S1.closed and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 12n 3p> -> <bdd 12n 4p> [forward reach with edge: (event: pad_S_S1_u_open_on) (guard: pad_S_S1.between and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 12n 4p> -> <bdd 12n 4p> [forward reach with edge: (event: pad_S_S2_u_closed_off) (guard: pad_S_A.opening and pad_S_S2.closed) (assignments: pad_S_S2 := pad_S_S2.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 12n 4p> -> <bdd 13n 7p> [forward reach with edge: (event: pad_S_S2_u_open_on) (guard: pad_S_A.opening and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 13n 7p> -> <bdd 14n 7p> [forward reach with edge: (event: pad_S_S3_u_closed_off) (guard: pad_S_A.opening and pad_S_S3.closed) (assignments: pad_S_S3 := pad_S_S3.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 14n 7p> -> <bdd 15n 13p> [forward reach with edge: (event: pad_S_S3_u_open_on) (guard: pad_S_A.opening and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 15n 13p> -> <bdd 19n 14p> [forward reach with edge: (event: culvert_S_c_enable) (guard: culvert_S_A.closed -> culvert_S_A.closed and not pad_S_A.opening) (assignments: culvert_S_A := culvert_S_A.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 19n 14p> -> <bdd 18n 14p> [forward reach with edge: (event: culvert_S_u_on) (guard: culvert_S_A.open and culvert_S_S.noflow) (assignments: culvert_S_S := culvert_S_S.flow), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward reachability: iteration 2.
+Forward controlled-behavior: <bdd 18n 14p> -> <bdd 19n 15p> [forward reach with edge: (event: pad_S_c_open) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.opening), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 19n 15p> -> <bdd 21n 27p> [forward reach with edge: (event: pad_S_c_close) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 21n 27p> -> <bdd 17n 18p> [forward reach with edge: (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 17n 18p> -> <bdd 19n 19p> [forward reach with edge: (event: pad_S_S1_u_closed_off) (guard: pad_S_S1.closed and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 19n 19p> -> <bdd 19n 20p> [forward reach with edge: (event: pad_S_S1_u_open_on) (guard: pad_S_S1.between and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 19n 20p> -> <bdd 19n 20p> [forward reach with edge: (event: pad_S_S2_u_closed_off) (guard: pad_S_A.opening and pad_S_S2.closed) (assignments: pad_S_S2 := pad_S_S2.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 19n 20p> -> <bdd 20n 23p> [forward reach with edge: (event: pad_S_S2_u_open_on) (guard: pad_S_A.opening and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 20n 23p> -> <bdd 21n 23p> [forward reach with edge: (event: pad_S_S3_u_closed_off) (guard: pad_S_A.opening and pad_S_S3.closed) (assignments: pad_S_S3 := pad_S_S3.between), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 21n 23p> -> <bdd 18n 29p> [forward reach with edge: (event: pad_S_S3_u_open_on) (guard: pad_S_A.opening and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 18n 29p> -> <bdd 19n 45p> [forward reach with edge: (event: culvert_S_c_enable) (guard: culvert_S_A.closed -> culvert_S_A.closed and not pad_S_A.opening) (assignments: culvert_S_A := culvert_S_A.open), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 19n 45p> -> <bdd 17n 29p> [forward reach with edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 17n 29p> -> <bdd 18n 45p> [forward reach with edge: (event: culvert_S_u_on) (guard: culvert_S_A.open and culvert_S_S.noflow) (assignments: culvert_S_S := culvert_S_S.flow), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward reachability: iteration 3.
+Forward controlled-behavior: <bdd 18n 45p> -> <bdd 20n 57p> [forward reach with edge: (event: pad_S_c_close) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.closing), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward controlled-behavior: <bdd 20n 57p> -> <bdd 8n 16p> [forward reach with edge: (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest), restricted to current/previous controlled-behavior predicate: <bdd 8n 16p>]
+Forward reachability: iteration 4.
+Forward controlled-behavior: <bdd 8n 16p> [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: pad_S_c_open) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.opening): guard: pad_S_A.rest -> (pad_S_S1.between or not pad_S_A.closing) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.closing) and (not pad_S_S1.between or not pad_S_A.opening)).
+Edge (event: pad_S_c_open) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.opening): guard: pad_S_A.closing -> (pad_S_S1.between or not pad_S_A.rest) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.rest) and (not pad_S_S1.between or not pad_S_A.opening)).
+Edge (event: pad_S_c_close) (guard: pad_S_A.rest) (assignments: pad_S_A := pad_S_A.closing): guard: pad_S_A.rest -> (pad_S_S1.between or not pad_S_A.closing) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.closing) and (not pad_S_S1.between or not pad_S_A.opening)).
+Edge (event: pad_S_c_close) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.closing): guard: pad_S_A.opening -> (pad_S_S1.between or pad_S_A.opening) and (not pad_S_S1.between or pad_S_A.opening).
+Edge (event: pad_S_c_stop) (guard: pad_S_A.opening) (assignments: pad_S_A := pad_S_A.rest): guard: pad_S_A.opening -> (pad_S_S1.between or pad_S_A.opening) and (not pad_S_S1.between or pad_S_A.opening).
+Edge (event: pad_S_c_stop) (guard: pad_S_A.closing) (assignments: pad_S_A := pad_S_A.rest): guard: pad_S_A.closing -> (pad_S_S1.between or not pad_S_A.rest) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.rest) and (not pad_S_S1.between or not pad_S_A.opening)).
+Edge (event: culvert_S_c_enable) (guard: culvert_S_A.closed -> culvert_S_A.closed and not pad_S_A.opening) (assignments: culvert_S_A := culvert_S_A.open): guard: culvert_S_A.closed and not pad_S_A.opening -> (culvert_S_A.open or (pad_S_S1.between or not pad_S_A.opening)) and ((culvert_S_A.open or (not pad_S_S1.between or not pad_S_A.opening)) and culvert_S_A.closed).
+Edge (event: culvert_S_c_disable) (guard: culvert_S_A.open) (assignments: culvert_S_A := culvert_S_A.closed): guard: culvert_S_A.open -> <bdd 9n 16p>.
+
+Final synthesis result:
+  State: (controlled-behavior: <bdd 8n 16p>)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.rest -> (pad_S_S1.between or not pad_S_A.closing) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.closing) and (not pad_S_S1.between or not pad_S_A.opening))) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_open) (guard: pad_S_A.closing -> (pad_S_S1.between or not pad_S_A.rest) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.rest) and (not pad_S_S1.between or not pad_S_A.opening))) (assignments: pad_S_A := pad_S_A.opening)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.rest -> (pad_S_S1.between or not pad_S_A.closing) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.closing) and (not pad_S_S1.between or not pad_S_A.opening))) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_close) (guard: pad_S_A.opening -> (pad_S_S1.between or pad_S_A.opening) and (not pad_S_S1.between or pad_S_A.opening)) (assignments: pad_S_A := pad_S_A.closing)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.opening -> (pad_S_S1.between or pad_S_A.opening) and (not pad_S_S1.between or pad_S_A.opening)) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_c_stop) (guard: pad_S_A.closing -> (pad_S_S1.between or not pad_S_A.rest) and (pad_S_S1.between or not pad_S_A.opening) and ((not pad_S_S1.between or not pad_S_A.rest) and (not pad_S_S1.between or not pad_S_A.opening))) (assignments: pad_S_A := pad_S_A.rest)
+    Edge: (event: pad_S_S1_u_closed_off) (guard: pad_S_S1.closed and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S1_u_open_on) (guard: pad_S_S1.between and pad_S_A.opening) (assignments: pad_S_S1 := pad_S_S1.open)
+    Edge: (event: pad_S_S2_u_closed_off) (guard: pad_S_A.opening and pad_S_S2.closed) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S2_u_open_on) (guard: pad_S_A.opening and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.open)
+    Edge: (event: pad_S_S3_u_closed_off) (guard: pad_S_A.opening and pad_S_S3.closed) (assignments: pad_S_S3 := pad_S_S3.between)
+    Edge: (event: pad_S_S3_u_open_on) (guard: pad_S_A.opening and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.open)
+    Edge: (event: pad_S_S1_u_closed_on) (guard: pad_S_S1.between and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.closed)
+    Edge: (event: pad_S_S1_u_open_off) (guard: pad_S_S1.open and pad_S_A.closing) (assignments: pad_S_S1 := pad_S_S1.between)
+    Edge: (event: pad_S_S2_u_closed_on) (guard: pad_S_A.closing and pad_S_S2.between) (assignments: pad_S_S2 := pad_S_S2.closed)
+    Edge: (event: pad_S_S2_u_open_off) (guard: pad_S_A.closing and pad_S_S2.open) (assignments: pad_S_S2 := pad_S_S2.between)
+    Edge: (event: pad_S_S3_u_closed_on) (guard: pad_S_A.closing and pad_S_S3.between) (assignments: pad_S_S3 := pad_S_S3.closed)
+    Edge: (event: pad_S_S3_u_open_off) (guard: pad_S_A.closing and pad_S_S3.open) (assignments: pad_S_S3 := pad_S_S3.between)
+    Edge: (event: culvert_S_c_enable) (guard: culvert_S_A.closed -> (culvert_S_A.open or (pad_S_S1.between or not pad_S_A.opening)) and ((culvert_S_A.open or (not pad_S_S1.between or not pad_S_A.opening)) and culvert_S_A.closed)) (assignments: culvert_S_A := culvert_S_A.open)
+    Edge: (event: culvert_S_u_off) (guard: culvert_S_A.closed and culvert_S_S.flow) (assignments: culvert_S_S := culvert_S_S.noflow)
+    Edge: (event: culvert_S_c_disable) (guard: culvert_S_A.open -> <bdd 9n 16p>) (assignments: culvert_S_A := culvert_S_A.closed)
+    Edge: (event: culvert_S_u_on) (guard: culvert_S_A.open and culvert_S_S.noflow) (assignments: culvert_S_S := culvert_S_S.flow)
+
+Controlled system:                     exactly 324 states.
+
+Initial (synthesis result):            <bdd 8n 16p>
+Initial (uncontrolled system):         culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed))
+Initial (controlled system):           culvert_S_A.closed and (culvert_S_S.noflow and pad_S_S1.closed) and (pad_S_A.rest and (pad_S_S2.closed and pad_S_S3.closed))
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event pad_S_c_open: guard: (pad_S_S1.between or not pad_S_A.opening) and (not pad_S_S1.between or not pad_S_A.opening) -> true [assume (pad_S_S1.between or not pad_S_A.opening) and (not pad_S_S1.between or not pad_S_A.opening)].
+  Event pad_S_c_close: guard: (pad_S_S1.between or not pad_S_A.closing) and (not pad_S_S1.between or not pad_S_A.closing) -> true [assume (pad_S_S1.between or not pad_S_A.closing) and (not pad_S_S1.between or not pad_S_A.closing)].
+  Event pad_S_c_stop: guard: <bdd 9n 16p> -> true [assume <bdd 9n 16p>].
+  Event culvert_S_c_enable: guard: (culvert_S_A.open or (pad_S_S1.between or not pad_S_A.opening)) and ((culvert_S_A.open or (not pad_S_S1.between or not pad_S_A.opening)) and culvert_S_A.closed) -> true [assume (culvert_S_A.open or (pad_S_S1.between or not pad_S_A.opening)) and ((culvert_S_A.open or (not pad_S_S1.between or not pad_S_A.opening)) and culvert_S_A.closed)].
+  Event culvert_S_c_disable: guard: <bdd 9n 16p> -> true [assume <bdd 9n 16p>].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_50_sup.cif".

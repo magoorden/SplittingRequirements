@@ -1,0 +1,221 @@
+Reading CIF file "generated_files_modular_largereq/subplant_17.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name             Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_pusher3        0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_Dinitialized   1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_product3       2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_pusher3_in     3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   S_pusher3_out    4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   S_stack3_filled  5      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  Total                                           6      12        24          24          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 13
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 20
+
+    Total span:                    6 (total)                 0.46 (avg/edge) [before]
+    Total span:                    6 (total)                 0.46 (avg/edge) [iteration 1]
+    Total span:                    6 (total)                 0.46 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                    6 (total)                 0.46 (avg/edge) [before]
+    Total span:                    5 (total)                 0.38 (avg/edge) [window 1..4]
+    Total span:                    5 (total)                 0.38 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name             Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_pusher3        0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_pusher3_in     1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_pusher3_out    2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_Dinitialized   3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   S_product3       4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   S_stack3_filled  5      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  ---------------  -----  --------  ----------  ----------  -----------
+  Total                                           6      12        24          24          100%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_product3.Off
+Initial   (aut/locs init predicate):     S_pusher3_in.On
+Initial   (aut/locs init predicate):     S_pusher3_out.Off
+Initial   (aut/locs init predicate):     S_stack3_filled.On
+Initial   (aut/locs init predicate):     S_Dinitialized.Off
+Initial   (aut/locs init predicate):     A_pusher3.Off
+Initial   (aut/locs init predicate):     true
+Initial   (auts/locs init predicate):    A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On))
+Initial   (uncontrolled system):         A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On))
+Initial   (system, combined init/inv):   A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On))
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_product3.Off
+Marked    (aut/locs marker predicate):   S_pusher3_in.On
+Marked    (aut/locs marker predicate):   S_pusher3_out.Off
+Marked    (aut/locs marker predicate):   S_stack3_filled.On
+Marked    (aut/locs marker predicate):   S_Dinitialized.Off
+Marked    (aut/locs marker predicate):   A_pusher3.Off
+Marked    (aut/locs marker predicate):   true
+Marked    (auts/locs marker predicate):  A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On))
+Marked    (uncontrolled system):         A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On))
+Marked    (system, combined marked/inv): A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On))
+
+State/event exclusion requirements:
+  Event "A_pusher3_c_off" needs:
+    S_pusher3_out.On and S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off)
+    Edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On)
+    Edge: (event: S_pusher3_in_u_off) (guard: S_pusher3_in.On) (assignments: S_pusher3_in := S_pusher3_in.Off)
+    Edge: (event: S_pusher3_in_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_in := S_pusher3_in.On)
+    Edge: (event: S_pusher3_out_u_off) (guard: S_pusher3_out.On) (assignments: S_pusher3_out := S_pusher3_out.Off)
+    Edge: (event: S_pusher3_out_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_out := S_pusher3_out.On)
+    Edge: (event: S_stack3_filled_u_off) (guard: S_stack3_filled.On) (assignments: S_stack3_filled := S_stack3_filled.Off)
+    Edge: (event: S_stack3_filled_u_on) (guard: S_stack3_filled.Off) (assignments: S_stack3_filled := S_stack3_filled.On)
+    Edge: (event: S_Dinitialized_u_off) (guard: S_Dinitialized.On) (assignments: S_Dinitialized := S_Dinitialized.Off)
+    Edge: (event: S_Dinitialized_u_on) (guard: S_Dinitialized.Off) (assignments: S_Dinitialized := S_Dinitialized.On)
+    Edge: (event: A_pusher3_c_off) (guard: A_pusher3.On) (assignments: A_pusher3 := A_pusher3.Off)
+    Edge: (event: A_pusher3_c_on) (guard: A_pusher3.Off) (assignments: A_pusher3 := A_pusher3.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_pusher3_c_off) (guard: A_pusher3.On) (assignments: A_pusher3 := A_pusher3.Off): guard: A_pusher3.On -> A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)) [requirement: S_pusher3_out.On and S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off)
+    Edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On)
+    Edge: (event: S_pusher3_in_u_off) (guard: S_pusher3_in.On) (assignments: S_pusher3_in := S_pusher3_in.Off)
+    Edge: (event: S_pusher3_in_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_in := S_pusher3_in.On)
+    Edge: (event: S_pusher3_out_u_off) (guard: S_pusher3_out.On) (assignments: S_pusher3_out := S_pusher3_out.Off)
+    Edge: (event: S_pusher3_out_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_out := S_pusher3_out.On)
+    Edge: (event: S_stack3_filled_u_off) (guard: S_stack3_filled.On) (assignments: S_stack3_filled := S_stack3_filled.Off)
+    Edge: (event: S_stack3_filled_u_on) (guard: S_stack3_filled.Off) (assignments: S_stack3_filled := S_stack3_filled.On)
+    Edge: (event: S_Dinitialized_u_off) (guard: S_Dinitialized.On) (assignments: S_Dinitialized := S_Dinitialized.Off)
+    Edge: (event: S_Dinitialized_u_on) (guard: S_Dinitialized.Off) (assignments: S_Dinitialized := S_Dinitialized.On)
+    Edge: (event: A_pusher3_c_off) (guard: A_pusher3.On -> A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On))) (assignments: A_pusher3 := A_pusher3.Off)
+    Edge: (event: A_pusher3_c_on) (guard: A_pusher3.Off) (assignments: A_pusher3 := A_pusher3.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On)) -> A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) [backward reach with edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) -> A_pusher3.Off and S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On) [backward reach with edge: (event: S_pusher3_in_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_in := S_pusher3_in.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher3.Off and S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On) -> A_pusher3.Off and (S_Dinitialized.Off and S_stack3_filled.On) [backward reach with edge: (event: S_pusher3_out_u_off) (guard: S_pusher3_out.On) (assignments: S_pusher3_out := S_pusher3_out.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher3.Off and (S_Dinitialized.Off and S_stack3_filled.On) -> A_pusher3.Off and S_Dinitialized.Off [backward reach with edge: (event: S_stack3_filled_u_on) (guard: S_stack3_filled.Off) (assignments: S_stack3_filled := S_stack3_filled.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher3.Off and S_Dinitialized.Off -> A_pusher3.Off [backward reach with edge: (event: S_Dinitialized_u_off) (guard: S_Dinitialized.On) (assignments: S_Dinitialized := S_Dinitialized.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher3.Off -> A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)) or A_pusher3.Off [backward reach with edge: (event: A_pusher3_c_off) (guard: A_pusher3.On -> A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On))) (assignments: A_pusher3 := A_pusher3.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)) or A_pusher3.Off -> A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and S_stack3_filled.On) or A_pusher3.Off [backward reach with edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and S_stack3_filled.On) or A_pusher3.Off -> A_pusher3.On and S_pusher3_in.On and (S_pusher3_out.On and (S_Dinitialized.On and S_stack3_filled.On)) or (A_pusher3.On and S_pusher3_in.Off and (S_Dinitialized.On and S_stack3_filled.On) or A_pusher3.Off) [backward reach with edge: (event: S_pusher3_out_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_out := S_pusher3_out.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher3.On and S_pusher3_in.On and (S_pusher3_out.On and (S_Dinitialized.On and S_stack3_filled.On)) or (A_pusher3.On and S_pusher3_in.Off and (S_Dinitialized.On and S_stack3_filled.On) or A_pusher3.Off) -> A_pusher3.On and S_pusher3_in.On and (S_pusher3_out.On and S_Dinitialized.On) or (A_pusher3.On and (S_pusher3_in.Off and S_Dinitialized.On) or A_pusher3.Off) [backward reach with edge: (event: S_stack3_filled_u_on) (guard: S_stack3_filled.Off) (assignments: S_stack3_filled := S_stack3_filled.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_pusher3.On and S_pusher3_in.On and (S_pusher3_out.On and S_Dinitialized.On) or (A_pusher3.On and (S_pusher3_in.Off and S_Dinitialized.On) or A_pusher3.Off) -> A_pusher3.Off or (S_pusher3_in.Off or S_pusher3_out.On) [backward reach with edge: (event: S_Dinitialized_u_on) (guard: S_Dinitialized.Off) (assignments: S_Dinitialized := S_Dinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: A_pusher3.Off or (S_pusher3_in.Off or S_pusher3_out.On) -> true [backward reach with edge: (event: S_pusher3_in_u_off) (guard: S_pusher3_in.On) (assignments: S_pusher3_in := S_pusher3_in.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 4.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On)) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On)) -> A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) [forward reach with edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) -> A_pusher3.Off and S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On) [forward reach with edge: (event: S_pusher3_in_u_off) (guard: S_pusher3_in.On) (assignments: S_pusher3_in := S_pusher3_in.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_pusher3.Off and S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On) -> A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) or A_pusher3.Off and S_pusher3_in.Off and (S_Dinitialized.Off and S_stack3_filled.On) [forward reach with edge: (event: S_pusher3_out_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_out := S_pusher3_out.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) or A_pusher3.Off and S_pusher3_in.Off and (S_Dinitialized.Off and S_stack3_filled.On) -> A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and S_Dinitialized.Off) or A_pusher3.Off and (S_pusher3_in.Off and S_Dinitialized.Off) [forward reach with edge: (event: S_stack3_filled_u_off) (guard: S_stack3_filled.On) (assignments: S_stack3_filled := S_stack3_filled.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and S_Dinitialized.Off) or A_pusher3.Off and (S_pusher3_in.Off and S_Dinitialized.Off) -> A_pusher3.Off and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off)) [forward reach with edge: (event: S_Dinitialized_u_on) (guard: S_Dinitialized.Off) (assignments: S_Dinitialized := S_Dinitialized.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_pusher3.Off and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off)) -> S_pusher3_in.Off or S_pusher3_out.Off [forward reach with edge: (event: A_pusher3_c_on) (guard: A_pusher3.Off) (assignments: A_pusher3 := A_pusher3.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: S_pusher3_in.Off or S_pusher3_out.Off [fixed point].
+Controlled behavior: true -> S_pusher3_in.Off or S_pusher3_out.Off.
+
+Round 1: finished, need another round.
+
+Round 2: started.
+
+Round 2: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On)) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On)) -> A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) [backward reach with edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward controlled-behavior: A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) -> A_pusher3.Off and S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On) [backward reach with edge: (event: S_pusher3_in_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_in := S_pusher3_in.On), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward controlled-behavior: A_pusher3.Off and S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On) -> A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) or A_pusher3.Off and S_pusher3_in.Off and (S_Dinitialized.Off and S_stack3_filled.On) [backward reach with edge: (event: S_pusher3_out_u_off) (guard: S_pusher3_out.On) (assignments: S_pusher3_out := S_pusher3_out.Off), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward controlled-behavior: A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and (S_Dinitialized.Off and S_stack3_filled.On)) or A_pusher3.Off and S_pusher3_in.Off and (S_Dinitialized.Off and S_stack3_filled.On) -> A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and S_Dinitialized.Off) or A_pusher3.Off and (S_pusher3_in.Off and S_Dinitialized.Off) [backward reach with edge: (event: S_stack3_filled_u_on) (guard: S_stack3_filled.Off) (assignments: S_stack3_filled := S_stack3_filled.On), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward controlled-behavior: A_pusher3.Off and S_pusher3_in.On and (S_pusher3_out.Off and S_Dinitialized.Off) or A_pusher3.Off and (S_pusher3_in.Off and S_Dinitialized.Off) -> A_pusher3.Off and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off)) [backward reach with edge: (event: S_Dinitialized_u_off) (guard: S_Dinitialized.On) (assignments: S_Dinitialized := S_Dinitialized.Off), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward controlled-behavior: A_pusher3.Off and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off)) -> A_pusher3.On and (S_pusher3_in.Off and S_pusher3_out.On) and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)) or (A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) or A_pusher3.Off and S_pusher3_in.Off) [backward reach with edge: (event: A_pusher3_c_off) (guard: A_pusher3.On -> A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On))) (assignments: A_pusher3 := A_pusher3.Off), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_pusher3.On and (S_pusher3_in.Off and S_pusher3_out.On) and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)) or (A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) or A_pusher3.Off and S_pusher3_in.Off) -> A_pusher3.On and S_pusher3_in.Off and (S_pusher3_out.On and (S_Dinitialized.On and S_stack3_filled.On)) or (A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) or A_pusher3.Off and S_pusher3_in.Off) [backward reach with edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward controlled-behavior: A_pusher3.On and S_pusher3_in.Off and (S_pusher3_out.On and (S_Dinitialized.On and S_stack3_filled.On)) or (A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) or A_pusher3.Off and S_pusher3_in.Off) -> A_pusher3.On and S_pusher3_in.Off and (S_Dinitialized.On and S_stack3_filled.On) or (A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) or A_pusher3.Off and S_pusher3_in.Off) [backward reach with edge: (event: S_pusher3_out_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_out := S_pusher3_out.On), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward controlled-behavior: A_pusher3.On and S_pusher3_in.Off and (S_Dinitialized.On and S_stack3_filled.On) or (A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) or A_pusher3.Off and S_pusher3_in.Off) -> (A_pusher3.Off or S_pusher3_in.Off) and ((A_pusher3.Off or (S_pusher3_in.On or S_Dinitialized.On)) and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off))) [backward reach with edge: (event: S_stack3_filled_u_on) (guard: S_stack3_filled.Off) (assignments: S_stack3_filled := S_stack3_filled.On), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward controlled-behavior: (A_pusher3.Off or S_pusher3_in.Off) and ((A_pusher3.Off or (S_pusher3_in.On or S_Dinitialized.On)) and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off))) -> (A_pusher3.Off or S_pusher3_in.Off) and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off)) [backward reach with edge: (event: S_Dinitialized_u_on) (guard: S_Dinitialized.Off) (assignments: S_Dinitialized := S_Dinitialized.On), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward reachability: iteration 3.
+Backward controlled-behavior: (A_pusher3.Off or S_pusher3_in.Off) and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off)) -> S_pusher3_in.Off or S_pusher3_out.Off [backward reach with edge: (event: S_pusher3_in_u_off) (guard: S_pusher3_in.On) (assignments: S_pusher3_in := S_pusher3_in.Off), restricted to current/previous controlled-behavior predicate: S_pusher3_in.Off or S_pusher3_out.Off]
+Backward reachability: iteration 4.
+Backward controlled-behavior: S_pusher3_in.Off or S_pusher3_out.Off [fixed point].
+
+Round 2: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: S_pusher3_in.On and S_pusher3_out.On [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 2: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_pusher3_c_off) (guard: A_pusher3.On -> A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On))) (assignments: A_pusher3 := A_pusher3.Off): guard: A_pusher3.On and S_pusher3_out.On and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)) -> A_pusher3.On and (S_pusher3_in.Off and S_pusher3_out.On) and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)).
+Edge (event: A_pusher3_c_on) (guard: A_pusher3.Off) (assignments: A_pusher3 := A_pusher3.On): guard: A_pusher3.Off -> A_pusher3.Off and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off)).
+
+Final synthesis result:
+  State: (controlled-behavior: S_pusher3_in.Off or S_pusher3_out.Off)
+    Edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off)
+    Edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On)
+    Edge: (event: S_pusher3_in_u_off) (guard: S_pusher3_in.On) (assignments: S_pusher3_in := S_pusher3_in.Off)
+    Edge: (event: S_pusher3_in_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_in := S_pusher3_in.On)
+    Edge: (event: S_pusher3_out_u_off) (guard: S_pusher3_out.On) (assignments: S_pusher3_out := S_pusher3_out.Off)
+    Edge: (event: S_pusher3_out_u_on) (guard: S_pusher3_in.Off and S_pusher3_out.Off) (assignments: S_pusher3_out := S_pusher3_out.On)
+    Edge: (event: S_stack3_filled_u_off) (guard: S_stack3_filled.On) (assignments: S_stack3_filled := S_stack3_filled.Off)
+    Edge: (event: S_stack3_filled_u_on) (guard: S_stack3_filled.Off) (assignments: S_stack3_filled := S_stack3_filled.On)
+    Edge: (event: S_Dinitialized_u_off) (guard: S_Dinitialized.On) (assignments: S_Dinitialized := S_Dinitialized.Off)
+    Edge: (event: S_Dinitialized_u_on) (guard: S_Dinitialized.Off) (assignments: S_Dinitialized := S_Dinitialized.On)
+    Edge: (event: A_pusher3_c_off) (guard: A_pusher3.On -> A_pusher3.On and (S_pusher3_in.Off and S_pusher3_out.On) and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On))) (assignments: A_pusher3 := A_pusher3.Off)
+    Edge: (event: A_pusher3_c_on) (guard: A_pusher3.Off -> A_pusher3.Off and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off))) (assignments: A_pusher3 := A_pusher3.On)
+
+Controlled system:                     exactly 48 states.
+
+Initial (synthesis result):            S_pusher3_in.Off or S_pusher3_out.Off
+Initial (uncontrolled system):         A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On))
+Initial (controlled system):           A_pusher3.Off and (S_pusher3_in.On and S_pusher3_out.Off) and (S_Dinitialized.Off and (S_product3.Off and S_stack3_filled.On))
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_pusher3_c_off: guard: A_pusher3.On and (S_pusher3_in.Off and S_pusher3_out.On) and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On)) -> true [assume A_pusher3.On and (S_pusher3_in.Off and S_pusher3_out.On) and (S_Dinitialized.On and (S_product3.Off and S_stack3_filled.On))].
+  Event A_pusher3_c_on: guard: A_pusher3.Off and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off)) -> true [assume A_pusher3.Off and (A_pusher3.On or (S_pusher3_in.Off or S_pusher3_out.Off))].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_largereq/subplant_17_sup.cif".

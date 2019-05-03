@@ -1,0 +1,120 @@
+from "lib:cif3" import *;
+
+// Generation directory
+string gen_dir = "generated_files_multilevel/";
+
+// Paths to the different models
+list string model_paths;
+list string alphas;
+list string betas;
+list string mus;
+
+model_paths = model_paths + ["14_LockIII_largereq.cif"];
+    alphas = alphas + ["2"]; betas = betas + ["2.0"]; mus = mus + ["2.0"];
+model_paths = model_paths + ["14_LockIII_smallreq.cif"];
+    alphas = alphas + ["1"]; betas = betas + ["1.5"]; mus = mus + ["2.5"];
+
+// Output file
+string result_data_path = gen_dir + "data.txt";
+
+if exists(result_data_path):
+	rmfile(result_data_path);
+end
+
+writefile(result_data_path, "Name,Total time,Create matrix time,Synthesis time,Nonconflicting check time,Clustering time,Number of supervisors,Total states,Conflict\n");
+
+for i in range(size(model_paths)):
+	// Output files for this model
+	string model_path = model_paths[i];
+	string model_name = model_path[indexof(model_path,"/")+1:indexof(model_path,".cif")];
+	string gen_dir_model = gen_dir + model_name + "/";
+	string output_sup = gen_dir_model + model_name + "_sup.cif";
+	string output_data = output_sup[:indexof(output_sup,".cif")] + "_report.txt";
+	string prod_sys_path = gen_dir_model + "product_system_map.txt";
+	string matrix_path = gen_dir_model + "matrix.txt";
+
+
+	outln("Working on model " + model_name);
+	// preprocessing
+	rmdir(gen_dir_model, true);
+	mkdir(gen_dir_model, true);
+
+	// Perform multilevel synthesis
+	cif3mlsynth(model_path,
+				"-o", output_sup,
+				"-f", prod_sys_path,
+				"--matrix=" + matrix_path,
+				"--clustering-alpha=" + alphas[i],
+				"--clustering-beta=" + betas[i],
+				"--clustering-gamma=10.0",
+				"--clustering-mu=" + mus[i],
+				"--mlstats=ss-size,timing",
+				"--forward-reach=true",
+				"-m", "debug",
+				stderr = "",
+				stdout = output_data);
+
+	// States-space analysis of data-based synthesis
+	writefile(result_data_path, model_name + ",", append=true);
+	list string lines = readlines(output_data);
+
+	// variable needed to keep count of the number of supervisors.
+	bool count_sup = false;
+	int conf = 0;
+	string num_sup;
+	string time_clus_matlab;
+	// loop over all lines
+	for line in lines:
+		int a, b;
+		bool timing_found = false;
+		// Total states
+		if contains(line, "Total states"):
+			a = lastindexof(line, " state");
+			b = lastindexof(line[:a], " ");
+			line = line[b+1:a];
+			line = replace(line,",","");
+			// if number of supervisors is 1, no nonconflicting check is performed
+			if num_sup == "1" and time_clus_matlab == "":
+				writefile(result_data_path, ",,", append=true);
+			else
+				writefile(result_data_path, fmt("%d,", <int>time_clus_matlab), append=true);
+			end
+			// so last line had number of supervisors
+			writefile(result_data_path, num_sup + ",", append=true);
+			// write total state space size
+			writefile(result_data_path, fmt("%s,", <double>line), append=true);
+			// write 1 when there was a conflict
+			writefile(result_data_path, fmt("%s\n",conf), append=true);
+			break;
+		// Total time
+		elif contains(line, "Total time") or contains(line, "Create matrix") or contains(line, "Synthesize supervisors") or contains(line, "Nonconflicting check"):
+			a = lastindexof(line, " ms");
+			b = lastindexof(line[:a], " ");
+			timing_found = true;
+		elif contains(line, "  Clustering in Matlab"):
+			a = lastindexof(line, " ms");
+			b = lastindexof(line[:a], " ");
+			line = line[b+1:a];
+			time_clus_matlab = replace(line, ",", "");
+		// Start tracking number of supervisors
+		elif contains(line, "Controlled system"):
+			count_sup = true;
+		elif contains(line, "The synthesized supervisors are conflicting."):
+			conf = 1;
+		end
+		// When timing information is found
+		if timing_found:
+			line = line[b+1:a];
+			line = replace(line, ",", "");
+			writefile(result_data_path, fmt("%d,", <int>line), append=true);
+		end
+		// When we need to keep track of number of supervisors
+		if count_sup:
+			a = indexof(line," ");
+			num_sup = line[:a];
+		end
+	end
+
+end
+
+outln("Finished");

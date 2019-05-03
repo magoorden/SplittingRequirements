@@ -1,0 +1,128 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_162.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name     Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_clamp  0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   A_drill  1      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -------  -----  --------  ----------  ----------  -----------
+  Total                                   2      4         8           8           100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 5
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 10
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [iteration 1]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 2
+
+    Total span:                    0 (total)                 0.00 (avg/edge) [before]
+    Total span:                    0 (total)                 0.00 (avg/edge) [after]
+
+  Variable order unchanged.
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     A_drill.Off
+Initial   (aut/locs init predicate):     A_clamp.Off
+Initial   (auts/locs init predicate):    A_clamp.Off and A_drill.Off
+Initial   (uncontrolled system):         A_clamp.Off and A_drill.Off
+Initial   (system, combined init/inv):   A_clamp.Off and A_drill.Off
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   A_drill.Off
+Marked    (aut/locs marker predicate):   A_clamp.Off
+Marked    (auts/locs marker predicate):  A_clamp.Off and A_drill.Off
+Marked    (uncontrolled system):         A_clamp.Off and A_drill.Off
+Marked    (system, combined marked/inv): A_clamp.Off and A_drill.Off
+
+State/event exclusion requirements:
+  Event "A_clamp_c_off" needs:
+    A_drill.Off
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: A_drill_c_off) (guard: A_drill.On) (assignments: A_drill := A_drill.Off)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off) (assignments: A_drill := A_drill.On)
+    Edge: (event: A_clamp_c_off) (guard: A_clamp.On) (assignments: A_clamp := A_clamp.Off)
+    Edge: (event: A_clamp_c_on) (guard: A_clamp.Off) (assignments: A_clamp := A_clamp.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_clamp_c_off) (guard: A_clamp.On) (assignments: A_clamp := A_clamp.Off): guard: A_clamp.On -> A_clamp.On and A_drill.Off [requirement: A_drill.Off].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: A_drill_c_off) (guard: A_drill.On) (assignments: A_drill := A_drill.Off)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off) (assignments: A_drill := A_drill.On)
+    Edge: (event: A_clamp_c_off) (guard: A_clamp.On -> A_clamp.On and A_drill.Off) (assignments: A_clamp := A_clamp.Off)
+    Edge: (event: A_clamp_c_on) (guard: A_clamp.Off) (assignments: A_clamp := A_clamp.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_clamp.Off and A_drill.Off [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_clamp.Off and A_drill.Off -> A_clamp.Off [backward reach with edge: (event: A_drill_c_off) (guard: A_drill.On) (assignments: A_drill := A_drill.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_clamp.Off -> A_clamp.Off or A_drill.Off [backward reach with edge: (event: A_clamp_c_off) (guard: A_clamp.On -> A_clamp.On and A_drill.Off) (assignments: A_clamp := A_clamp.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: A_clamp.Off or A_drill.Off -> true [backward reach with edge: (event: A_drill_c_off) (guard: A_drill.On) (assignments: A_drill := A_drill.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_clamp.Off and A_drill.Off [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_clamp.Off and A_drill.Off -> A_clamp.Off [forward reach with edge: (event: A_drill_c_on) (guard: A_drill.Off) (assignments: A_drill := A_drill.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_clamp.Off -> true [forward reach with edge: (event: A_clamp_c_on) (guard: A_clamp.Off) (assignments: A_clamp := A_clamp.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: true [fixed point].
+
+Round 1: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Final synthesis result:
+  State: (controlled-behavior: true)
+    Edge: (event: A_drill_c_off) (guard: A_drill.On) (assignments: A_drill := A_drill.Off)
+    Edge: (event: A_drill_c_on) (guard: A_drill.Off) (assignments: A_drill := A_drill.On)
+    Edge: (event: A_clamp_c_off) (guard: A_clamp.On -> A_clamp.On and A_drill.Off) (assignments: A_clamp := A_clamp.Off)
+    Edge: (event: A_clamp_c_on) (guard: A_clamp.Off) (assignments: A_clamp := A_clamp.On)
+
+Controlled system:                     exactly 4 states.
+
+Initial (synthesis result):            true
+Initial (uncontrolled system):         A_clamp.Off and A_drill.Off
+Initial (controlled system):           A_clamp.Off and A_drill.Off
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_drill_c_off: guard: A_drill.On -> true [assume A_drill.On].
+  Event A_drill_c_on: guard: A_drill.Off -> true [assume A_drill.Off].
+  Event A_clamp_c_off: guard: A_clamp.On and A_drill.Off -> true [assume A_clamp.On and A_drill.Off].
+  Event A_clamp_c_on: guard: A_clamp.Off -> true [assume A_clamp.Off].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_162_sup.cif".

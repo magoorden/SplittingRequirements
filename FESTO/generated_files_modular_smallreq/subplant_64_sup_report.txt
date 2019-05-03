@@ -1,0 +1,262 @@
+Reading CIF file "generated_files_modular_smallreq/subplant_64.cif".
+Preprocessing CIF specification.
+Converting CIF specification to internal format.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name           Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_x2testing    0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_gripper      1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_product1     2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_product2     3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   S_product3     4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   S_xpos_at1     5      1 * 2     2 * 2       2 * 2       100%
+  7      location pointer  n/a   S_xpos_at2     6      1 * 2     2 * 2       2 * 2       100%
+  8      location pointer  n/a   S_xpos_at3     7      1 * 2     2 * 2       2 * 2       100%
+  9      location pointer  n/a   S_xpos_atdrop  8      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  Total                                         9      18        36          36          100%
+
+Applying automatic variable ordering:
+  Number of hyperedges: 19
+
+  Applying FORCE algorithm:
+    Maximum number of iterations: 30
+
+    Total span:                   19 (total)                 1.00 (avg/edge) [before]
+    Total span:                   19 (total)                 1.00 (avg/edge) [iteration 1]
+    Total span:                   19 (total)                 1.00 (avg/edge) [after]
+
+  Applying sliding window algorithm:
+    Window length: 4
+
+    Total span:                   19 (total)                 1.00 (avg/edge) [before]
+    Total span:                   18 (total)                 0.95 (avg/edge) [window 5..8]
+    Total span:                   18 (total)                 0.95 (avg/edge) [after]
+
+  Variable order changed.
+
+CIF variables and location pointers:
+  Nr     Kind              Type  Name           Group  BDD vars  CIF values  BDD values  Values used
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  1      location pointer  n/a   A_x2testing    0      1 * 2     2 * 2       2 * 2       100%
+  2      location pointer  n/a   S_gripper      1      1 * 2     2 * 2       2 * 2       100%
+  3      location pointer  n/a   S_product1     2      1 * 2     2 * 2       2 * 2       100%
+  4      location pointer  n/a   S_product2     3      1 * 2     2 * 2       2 * 2       100%
+  5      location pointer  n/a   S_product3     4      1 * 2     2 * 2       2 * 2       100%
+  6      location pointer  n/a   S_xpos_at3     5      1 * 2     2 * 2       2 * 2       100%
+  7      location pointer  n/a   S_xpos_at2     6      1 * 2     2 * 2       2 * 2       100%
+  8      location pointer  n/a   S_xpos_atdrop  7      1 * 2     2 * 2       2 * 2       100%
+  9      location pointer  n/a   S_xpos_at1     8      1 * 2     2 * 2       2 * 2       100%
+  -----  ----------------  ----  -------------  -----  --------  ----------  ----------  -----------
+  Total                                         9      18        36          36          100%
+
+Starting data-based synthesis.
+
+Invariant (components state invariant):  true
+Invariant (locations state invariant):   true
+Invariant (system state invariant):      true
+
+Initial   (discrete variables):          true
+Initial   (components init predicate):   true
+Initial   (aut/locs init predicate):     S_product1.Off
+Initial   (aut/locs init predicate):     S_product2.Off
+Initial   (aut/locs init predicate):     S_product3.Off
+Initial   (aut/locs init predicate):     S_xpos_at1.Off
+Initial   (aut/locs init predicate):     S_xpos_at2.Off
+Initial   (aut/locs init predicate):     S_xpos_at3.Off
+Initial   (aut/locs init predicate):     S_xpos_atdrop.On
+Initial   (aut/locs init predicate):     S_gripper.Off
+Initial   (aut/locs init predicate):     A_x2testing.On
+Initial   (aut/locs init predicate):     true
+Initial   (auts/locs init predicate):    A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))
+Initial   (uncontrolled system):         A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))
+Initial   (system, combined init/inv):   A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))
+
+Marked    (components marker predicate): true
+Marked    (aut/locs marker predicate):   S_product1.Off
+Marked    (aut/locs marker predicate):   S_product2.Off
+Marked    (aut/locs marker predicate):   S_product3.Off
+Marked    (aut/locs marker predicate):   S_xpos_at1.Off
+Marked    (aut/locs marker predicate):   S_xpos_at2.Off
+Marked    (aut/locs marker predicate):   S_xpos_at3.Off
+Marked    (aut/locs marker predicate):   S_xpos_atdrop.On
+Marked    (aut/locs marker predicate):   S_gripper.Off
+Marked    (aut/locs marker predicate):   A_x2testing.On
+Marked    (aut/locs marker predicate):   true
+Marked    (auts/locs marker predicate):  A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))
+Marked    (uncontrolled system):         A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))
+Marked    (system, combined marked/inv): A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))
+
+State/event exclusion requirements:
+  Event "A_x2testing_c_off" needs:
+    <bdd 10n 12p>
+
+Uncontrolled system:
+  State: (controlled-behavior: ?)
+    Edge: (event: S_product1_u_off) (guard: S_product1.On) (assignments: S_product1 := S_product1.Off)
+    Edge: (event: S_product1_u_on) (guard: S_product1.Off) (assignments: S_product1 := S_product1.On)
+    Edge: (event: S_product2_u_off) (guard: S_product2.On) (assignments: S_product2 := S_product2.Off)
+    Edge: (event: S_product2_u_on) (guard: S_product2.Off) (assignments: S_product2 := S_product2.On)
+    Edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off)
+    Edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On)
+    Edge: (event: S_xpos_at1_u_off) (guard: S_xpos_at1.On) (assignments: S_xpos_at1 := S_xpos_at1.Off)
+    Edge: (event: S_xpos_at1_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at1 := S_xpos_at1.On)
+    Edge: (event: S_xpos_at2_u_off) (guard: S_xpos_at2.On) (assignments: S_xpos_at2 := S_xpos_at2.Off)
+    Edge: (event: S_xpos_at2_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at2 := S_xpos_at2.On)
+    Edge: (event: S_xpos_at3_u_off) (guard: S_xpos_at3.On) (assignments: S_xpos_at3 := S_xpos_at3.Off)
+    Edge: (event: S_xpos_at3_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at3 := S_xpos_at3.On)
+    Edge: (event: S_xpos_atdrop_u_off) (guard: S_xpos_atdrop.On) (assignments: S_xpos_atdrop := S_xpos_atdrop.Off)
+    Edge: (event: S_xpos_atdrop_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_atdrop := S_xpos_atdrop.On)
+    Edge: (event: S_gripper_u_off) (guard: S_gripper.On) (assignments: S_gripper := S_gripper.Off)
+    Edge: (event: S_gripper_u_on) (guard: S_gripper.Off) (assignments: S_gripper := S_gripper.On)
+    Edge: (event: A_x2testing_c_off) (guard: A_x2testing.On) (assignments: A_x2testing := A_x2testing.Off)
+    Edge: (event: A_x2testing_c_on) (guard: A_x2testing.Off) (assignments: A_x2testing := A_x2testing.On)
+
+Initialized controlled-behavior predicate using invariants: true.
+
+Extending controlled-behavior predicate using variable ranges.
+
+Restricting behavior using state/event exclusion requirements.
+
+Edge (event: A_x2testing_c_off) (guard: A_x2testing.On) (assignments: A_x2testing := A_x2testing.Off): guard: A_x2testing.On -> <bdd 11n 12p> [requirement: <bdd 10n 12p>].
+
+Restricted behavior using state/event exclusion requirements:
+  State: (controlled-behavior: true)
+    Edge: (event: S_product1_u_off) (guard: S_product1.On) (assignments: S_product1 := S_product1.Off)
+    Edge: (event: S_product1_u_on) (guard: S_product1.Off) (assignments: S_product1 := S_product1.On)
+    Edge: (event: S_product2_u_off) (guard: S_product2.On) (assignments: S_product2 := S_product2.Off)
+    Edge: (event: S_product2_u_on) (guard: S_product2.Off) (assignments: S_product2 := S_product2.On)
+    Edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off)
+    Edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On)
+    Edge: (event: S_xpos_at1_u_off) (guard: S_xpos_at1.On) (assignments: S_xpos_at1 := S_xpos_at1.Off)
+    Edge: (event: S_xpos_at1_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at1 := S_xpos_at1.On)
+    Edge: (event: S_xpos_at2_u_off) (guard: S_xpos_at2.On) (assignments: S_xpos_at2 := S_xpos_at2.Off)
+    Edge: (event: S_xpos_at2_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at2 := S_xpos_at2.On)
+    Edge: (event: S_xpos_at3_u_off) (guard: S_xpos_at3.On) (assignments: S_xpos_at3 := S_xpos_at3.Off)
+    Edge: (event: S_xpos_at3_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at3 := S_xpos_at3.On)
+    Edge: (event: S_xpos_atdrop_u_off) (guard: S_xpos_atdrop.On) (assignments: S_xpos_atdrop := S_xpos_atdrop.Off)
+    Edge: (event: S_xpos_atdrop_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_atdrop := S_xpos_atdrop.On)
+    Edge: (event: S_gripper_u_off) (guard: S_gripper.On) (assignments: S_gripper := S_gripper.Off)
+    Edge: (event: S_gripper_u_on) (guard: S_gripper.Off) (assignments: S_gripper := S_gripper.On)
+    Edge: (event: A_x2testing_c_off) (guard: A_x2testing.On -> <bdd 11n 12p>) (assignments: A_x2testing := A_x2testing.Off)
+    Edge: (event: A_x2testing_c_on) (guard: A_x2testing.Off) (assignments: A_x2testing := A_x2testing.On)
+
+Round 1: started.
+
+Round 1: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) -> A_x2testing.On and S_gripper.Off and (S_product2.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [backward reach with edge: (event: S_product1_u_off) (guard: S_product1.On) (assignments: S_product1 := S_product1.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_product2.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and (S_gripper.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [backward reach with edge: (event: S_product2_u_off) (guard: S_product2.On) (assignments: S_product2 := S_product2.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_x2testing.On and (S_gripper.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [backward reach with edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_x2testing.On and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.On)) [backward reach with edge: (event: S_xpos_at1_u_off) (guard: S_xpos_at1.On) (assignments: S_xpos_at1 := S_xpos_at1.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.On)) -> A_x2testing.On and S_gripper.Off and (S_xpos_at3.Off and S_xpos_atdrop.On) [backward reach with edge: (event: S_xpos_at2_u_off) (guard: S_xpos_at2.On) (assignments: S_xpos_at2 := S_xpos_at2.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_xpos_at3.Off and S_xpos_atdrop.On) -> A_x2testing.On and (S_gripper.Off and S_xpos_atdrop.On) [backward reach with edge: (event: S_xpos_at3_u_off) (guard: S_xpos_at3.On) (assignments: S_xpos_at3 := S_xpos_at3.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: A_x2testing.On and (S_gripper.Off and S_xpos_atdrop.On) -> (A_x2testing.Off or S_gripper.Off) and (A_x2testing.Off or S_gripper.On or (S_xpos_at3.Off or S_xpos_atdrop.On)) and ((A_x2testing.Off or S_gripper.On or (S_xpos_at3.On or (S_xpos_at2.Off or S_xpos_atdrop.On))) and ((A_x2testing.Off or (S_gripper.On or S_xpos_at3.On) or (S_xpos_at2.On or (S_xpos_atdrop.On or S_xpos_at1.Off))) and A_x2testing.On)) [backward reach with edge: (event: S_xpos_atdrop_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_atdrop := S_xpos_atdrop.On), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (A_x2testing.Off or S_gripper.Off) and (A_x2testing.Off or S_gripper.On or (S_xpos_at3.Off or S_xpos_atdrop.On)) and ((A_x2testing.Off or S_gripper.On or (S_xpos_at3.On or (S_xpos_at2.Off or S_xpos_atdrop.On))) and ((A_x2testing.Off or (S_gripper.On or S_xpos_at3.On) or (S_xpos_at2.On or (S_xpos_atdrop.On or S_xpos_at1.Off))) and A_x2testing.On)) -> (A_x2testing.Off or (S_xpos_at3.Off or S_xpos_atdrop.On)) and (A_x2testing.Off or S_xpos_at3.On or (S_xpos_at2.Off or S_xpos_atdrop.On)) and ((A_x2testing.Off or S_xpos_at3.On or (S_xpos_at2.On or (S_xpos_atdrop.On or S_xpos_at1.Off))) and A_x2testing.On) [backward reach with edge: (event: S_gripper_u_off) (guard: S_gripper.On) (assignments: S_gripper := S_gripper.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (A_x2testing.Off or (S_xpos_at3.Off or S_xpos_atdrop.On)) and (A_x2testing.Off or S_xpos_at3.On or (S_xpos_at2.Off or S_xpos_atdrop.On)) and ((A_x2testing.Off or S_xpos_at3.On or (S_xpos_at2.On or (S_xpos_atdrop.On or S_xpos_at1.Off))) and A_x2testing.On) -> (S_xpos_at3.Off or S_xpos_atdrop.On) and ((S_xpos_at3.On or (S_xpos_at2.Off or S_xpos_atdrop.On)) and (S_xpos_at3.On or S_xpos_at2.On or (S_xpos_atdrop.On or S_xpos_at1.Off))) [backward reach with edge: (event: A_x2testing_c_on) (guard: A_x2testing.Off) (assignments: A_x2testing := A_x2testing.On), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 2.
+Backward controlled-behavior: (S_xpos_at3.Off or S_xpos_atdrop.On) and ((S_xpos_at3.On or (S_xpos_at2.Off or S_xpos_atdrop.On)) and (S_xpos_at3.On or S_xpos_at2.On or (S_xpos_atdrop.On or S_xpos_at1.Off))) -> (S_xpos_at3.Off or S_xpos_atdrop.On) and (S_xpos_at3.On or (S_xpos_at2.Off or S_xpos_atdrop.On)) [backward reach with edge: (event: S_xpos_at1_u_off) (guard: S_xpos_at1.On) (assignments: S_xpos_at1 := S_xpos_at1.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: (S_xpos_at3.Off or S_xpos_atdrop.On) and (S_xpos_at3.On or (S_xpos_at2.Off or S_xpos_atdrop.On)) -> S_xpos_at3.Off or S_xpos_atdrop.On [backward reach with edge: (event: S_xpos_at2_u_off) (guard: S_xpos_at2.On) (assignments: S_xpos_at2 := S_xpos_at2.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward controlled-behavior: S_xpos_at3.Off or S_xpos_atdrop.On -> true [backward reach with edge: (event: S_xpos_at3_u_off) (guard: S_xpos_at3.On) (assignments: S_xpos_at3 := S_xpos_at3.Off), restricted to current/previous controlled-behavior predicate: true]
+Backward reachability: iteration 3.
+Backward controlled-behavior: true [fixed point].
+
+Round 1: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: false [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 1: computing forward controlled-behavior predicate.
+Forward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) [initialization predicate]
+Forward reachability: iteration 1.
+Forward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) -> A_x2testing.On and S_gripper.Off and (S_product2.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [forward reach with edge: (event: S_product1_u_on) (guard: S_product1.Off) (assignments: S_product1 := S_product1.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_product2.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and (S_gripper.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [forward reach with edge: (event: S_product2_u_on) (guard: S_product2.Off) (assignments: S_product2 := S_product2.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and (S_gripper.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [forward reach with edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off)) [forward reach with edge: (event: S_xpos_atdrop_u_off) (guard: S_xpos_atdrop.On) (assignments: S_xpos_atdrop := S_xpos_atdrop.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off)) -> A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off) [forward reach with edge: (event: S_gripper_u_on) (guard: S_gripper.Off) (assignments: S_gripper := S_gripper.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off) -> A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off) or A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [forward reach with edge: (event: A_x2testing_c_off) (guard: A_x2testing.On -> <bdd 11n 12p>) (assignments: A_x2testing := A_x2testing.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 2.
+Forward controlled-behavior: A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off) or A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) [forward reach with edge: (event: S_xpos_at1_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at1 := S_xpos_at1.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) -> A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) [forward reach with edge: (event: S_xpos_at2_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at2 := S_xpos_at2.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) -> <bdd 11n 5p> [forward reach with edge: (event: S_xpos_at3_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at3 := S_xpos_at3.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 11n 5p> -> A_x2testing.On and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off)))) [forward reach with edge: (event: S_xpos_atdrop_u_off) (guard: S_xpos_atdrop.On) (assignments: S_xpos_atdrop := S_xpos_atdrop.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off)))) -> A_x2testing.On and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off))) [forward reach with edge: (event: S_gripper_u_on) (guard: S_gripper.Off) (assignments: S_gripper := S_gripper.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off))) -> <bdd 19n 17p> [forward reach with edge: (event: A_x2testing_c_off) (guard: A_x2testing.On -> <bdd 11n 12p>) (assignments: A_x2testing := A_x2testing.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 3.
+Forward controlled-behavior: <bdd 19n 17p> -> <bdd 17n 13p> [forward reach with edge: (event: S_product1_u_off) (guard: S_product1.On) (assignments: S_product1 := S_product1.Off), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 17n 13p> -> <bdd 14n 10p> [forward reach with edge: (event: S_product2_u_on) (guard: S_product2.Off) (assignments: S_product2 := S_product2.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 14n 10p> -> <bdd 12n 8p> [forward reach with edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 12n 8p> -> A_x2testing.On and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and (S_gripper.On and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))) or (A_x2testing.Off and S_gripper.On and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)) or A_x2testing.Off and (S_gripper.Off and S_xpos_at3.On) and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or A_x2testing.Off and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))))) [forward reach with edge: (event: S_xpos_at1_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at1 := S_xpos_at1.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: A_x2testing.On and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or (A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off) or A_x2testing.Off and (S_gripper.On and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))) or (A_x2testing.Off and S_gripper.On and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)) or A_x2testing.Off and (S_gripper.Off and S_xpos_at3.On) and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.Off and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or A_x2testing.Off and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))))) -> <bdd 9n 11p> [forward reach with edge: (event: S_xpos_at2_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at2 := S_xpos_at2.On), restricted to current/previous controlled-behavior predicate: true]
+Forward controlled-behavior: <bdd 9n 11p> -> S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)) [forward reach with edge: (event: S_xpos_at3_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at3 := S_xpos_at3.On), restricted to current/previous controlled-behavior predicate: true]
+Forward reachability: iteration 4.
+Forward controlled-behavior: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)) [fixed point].
+Controlled behavior: true -> S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)).
+
+Round 1: finished, need another round.
+
+Round 2: started.
+
+Round 2: computing backward controlled-behavior predicate.
+Backward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) [marker predicate]
+Backward reachability: iteration 1.
+Backward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off))) -> A_x2testing.On and S_gripper.Off and (S_product2.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [backward reach with edge: (event: S_product1_u_off) (guard: S_product1.On) (assignments: S_product1 := S_product1.Off), restricted to current/previous controlled-behavior predicate: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))]
+Backward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_product2.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and (S_gripper.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [backward reach with edge: (event: S_product2_u_off) (guard: S_product2.On) (assignments: S_product2 := S_product2.Off), restricted to current/previous controlled-behavior predicate: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))]
+Backward controlled-behavior: A_x2testing.On and (S_gripper.Off and S_product3.Off) and (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) [backward reach with edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off), restricted to current/previous controlled-behavior predicate: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))]
+Backward controlled-behavior: A_x2testing.On and (S_gripper.Off and S_xpos_at3.Off) and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) -> A_x2testing.On and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off)) [backward reach with edge: (event: S_xpos_atdrop_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_atdrop := S_xpos_atdrop.On), restricted to current/previous controlled-behavior predicate: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))]
+Backward controlled-behavior: A_x2testing.On and S_gripper.Off and (S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off)) -> A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off) [backward reach with edge: (event: S_gripper_u_off) (guard: S_gripper.On) (assignments: S_gripper := S_gripper.Off), restricted to current/previous controlled-behavior predicate: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))]
+Backward controlled-behavior: A_x2testing.On and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off) -> S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off) [backward reach with edge: (event: A_x2testing_c_on) (guard: A_x2testing.Off) (assignments: A_x2testing := A_x2testing.On), restricted to current/previous controlled-behavior predicate: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))]
+Backward reachability: iteration 2.
+Backward controlled-behavior: S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_at1.Off) -> S_xpos_at3.Off and ((S_xpos_at3.On or S_xpos_at2.Off) and (S_xpos_at3.On or S_xpos_at2.On or (S_xpos_atdrop.Off or S_xpos_at1.Off))) [backward reach with edge: (event: S_xpos_at1_u_off) (guard: S_xpos_at1.On) (assignments: S_xpos_at1 := S_xpos_at1.Off), restricted to current/previous controlled-behavior predicate: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))]
+Backward controlled-behavior: S_xpos_at3.Off and ((S_xpos_at3.On or S_xpos_at2.Off) and (S_xpos_at3.On or S_xpos_at2.On or (S_xpos_atdrop.Off or S_xpos_at1.Off))) -> S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)) [backward reach with edge: (event: S_xpos_at2_u_off) (guard: S_xpos_at2.On) (assignments: S_xpos_at2 := S_xpos_at2.Off), restricted to current/previous controlled-behavior predicate: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))]
+Backward controlled-behavior: S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)) -> S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)) [backward reach with edge: (event: S_xpos_at3_u_off) (guard: S_xpos_at3.On) (assignments: S_xpos_at3 := S_xpos_at3.Off), restricted to current/previous controlled-behavior predicate: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))]
+Backward reachability: iteration 3.
+Backward controlled-behavior: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)) [fixed point].
+
+Round 2: computing backward uncontrolled bad-state predicate.
+Backward uncontrolled bad-state: (S_xpos_at3.Off or S_xpos_at2.On or (S_xpos_atdrop.On or S_xpos_at1.On)) and (S_xpos_at3.On or S_xpos_at2.Off or (S_xpos_atdrop.On or S_xpos_at1.On)) and ((S_xpos_at3.On or S_xpos_at2.On or (S_xpos_atdrop.Off or S_xpos_at1.On)) and (S_xpos_at3.On or (S_xpos_at2.On or S_xpos_atdrop.On))) [current/previous controlled behavior predicate]
+Backward reachability: iteration 1.
+
+Round 2: finished, controlled behavior is stable.
+
+Computing controlled system guards.
+
+Edge (event: A_x2testing_c_off) (guard: A_x2testing.On -> <bdd 11n 12p>) (assignments: A_x2testing := A_x2testing.Off): guard: <bdd 11n 12p> -> <bdd 17n 12p>.
+Edge (event: A_x2testing_c_on) (guard: A_x2testing.Off) (assignments: A_x2testing := A_x2testing.On): guard: A_x2testing.Off -> A_x2testing.Off and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)).
+
+Final synthesis result:
+  State: (controlled-behavior: S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)))
+    Edge: (event: S_product1_u_off) (guard: S_product1.On) (assignments: S_product1 := S_product1.Off)
+    Edge: (event: S_product1_u_on) (guard: S_product1.Off) (assignments: S_product1 := S_product1.On)
+    Edge: (event: S_product2_u_off) (guard: S_product2.On) (assignments: S_product2 := S_product2.Off)
+    Edge: (event: S_product2_u_on) (guard: S_product2.Off) (assignments: S_product2 := S_product2.On)
+    Edge: (event: S_product3_u_off) (guard: S_product3.On) (assignments: S_product3 := S_product3.Off)
+    Edge: (event: S_product3_u_on) (guard: S_product3.Off) (assignments: S_product3 := S_product3.On)
+    Edge: (event: S_xpos_at1_u_off) (guard: S_xpos_at1.On) (assignments: S_xpos_at1 := S_xpos_at1.Off)
+    Edge: (event: S_xpos_at1_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at1 := S_xpos_at1.On)
+    Edge: (event: S_xpos_at2_u_off) (guard: S_xpos_at2.On) (assignments: S_xpos_at2 := S_xpos_at2.Off)
+    Edge: (event: S_xpos_at2_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at2 := S_xpos_at2.On)
+    Edge: (event: S_xpos_at3_u_off) (guard: S_xpos_at3.On) (assignments: S_xpos_at3 := S_xpos_at3.Off)
+    Edge: (event: S_xpos_at3_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_at3 := S_xpos_at3.On)
+    Edge: (event: S_xpos_atdrop_u_off) (guard: S_xpos_atdrop.On) (assignments: S_xpos_atdrop := S_xpos_atdrop.Off)
+    Edge: (event: S_xpos_atdrop_u_on) (guard: S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) (assignments: S_xpos_atdrop := S_xpos_atdrop.On)
+    Edge: (event: S_gripper_u_off) (guard: S_gripper.On) (assignments: S_gripper := S_gripper.Off)
+    Edge: (event: S_gripper_u_on) (guard: S_gripper.Off) (assignments: S_gripper := S_gripper.On)
+    Edge: (event: A_x2testing_c_off) (guard: A_x2testing.On -> <bdd 17n 12p>) (assignments: A_x2testing := A_x2testing.Off)
+    Edge: (event: A_x2testing_c_on) (guard: A_x2testing.Off -> A_x2testing.Off and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))) (assignments: A_x2testing := A_x2testing.On)
+
+Controlled system:                     exactly 160 states.
+
+Initial (synthesis result):            S_xpos_at3.On and S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off) or S_xpos_at3.Off and S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off) or (S_xpos_at3.Off and S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off) or S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))
+Initial (uncontrolled system):         A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))
+Initial (controlled system):           A_x2testing.On and S_gripper.Off and (S_product1.Off and S_product2.Off) and (S_product3.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)))
+Initial (removed by supervisor):       false
+Initial (added by supervisor):         true
+
+Simplification of controlled system under the assumption of the plants, requirement automata, state/event exclusion requirement invariants, state requirement invariants, and controlled behavior:
+  Event A_x2testing_c_off: guard: <bdd 17n 12p> -> true [assume <bdd 17n 12p>].
+  Event A_x2testing_c_on: guard: A_x2testing.Off and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off)) -> true [assume A_x2testing.Off and S_xpos_at3.On and (S_xpos_at2.Off and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.On and (S_xpos_atdrop.Off and S_xpos_at1.Off)) or (A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and (S_xpos_atdrop.On and S_xpos_at1.Off)) or A_x2testing.Off and S_xpos_at3.Off and (S_xpos_at2.Off and S_xpos_atdrop.Off))].
+
+Constructing output CIF specification.
+Writing output CIF file "generated_files_modular_smallreq/subplant_64_sup.cif".
